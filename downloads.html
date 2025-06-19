@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Syllabus</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+    };
+  </script>
+  <style>
+    .glass {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+  </style>
+</head>
+<body class="flex flex-col min-h-screen bg-white text-black dark:bg-gradient-to-br dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 dark:text-white transition duration-300">
+
+  <!-- Navbar -->
+  <header class="bg-black/90 text-white backdrop-blur sticky top-0 z-50 shadow-md">
+    <div class="max-w-7xl mx-auto flex justify-between items-center px-4 py-4">
+      <h1 class="text-2xl font-bold">RRB Group D Book</h1>
+      <nav class="space-x-6 text-sm sm:text-base flex items-center">
+        <a href="index.html" class="hover:text-blue-400">Home</a>
+        <a href="#syllabus" class="hover:text-blue-400">Syllabus</a>
+        <a href="#pyq" class="hover:text-blue-400">PYQs</a>
+        <a href="#mock" class="hover:text-blue-400">Mock Tests</a>
+        <a href="#contact" class="hover:text-blue-400">Contact</a>
+        <button id="theme-toggle" class="ml-4 p-2 text-xl rounded-full transition hover:bg-gray-700">🌞</button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="flex-grow">
+    <!-- Subjects Grid -->
+    <section id="downloads" class="max-w-7xl mx-auto px-4 py-12">
+      <h2 class="text-3xl font-bold mb-10 text-center">Subjects</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        
+        <a href="subjects/math/math.html" class="glass p-6 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 block text-center hover:bg-white/30">
+          <h3 class="text-xl font-semibold">Mathematics</h3>
+          <p class="text-sm mt-2">Number System, BODMAS, Percentages, LCM/HCF, and more.</p>
+        </a>
+
+        <a href="subjects/gir.html" class="glass p-6 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 block text-center hover:bg-white/30">
+          <h3 class="text-xl font-semibold">General Intelligence & Reasoning</h3>
+          <p class="text-sm mt-2">Analogies, coding-decoding, syllogisms, and logical reasoning.</p>
+        </a>
+
+        <a href="subjects/Genral_Science/G_S.html" class="glass p-6 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 block text-center hover:bg-white/30">
+          <h3 class="text-xl font-semibold">General Science</h3>
+          <p class="text-sm mt-2">Physics, Chemistry, and Biology concepts explained simply.</p>
+        </a>
+
+        <a href="subjects/gsca.html" class="glass p-6 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 block text-center hover:bg-white/30">
+          <h3 class="text-xl font-semibold">General Awareness & Current Affairs</h3>
+          <p class="text-sm mt-2">Latest events, history, geography, and more.</p>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer id="contact" class="bg-black/70 text-white backdrop-blur text-center py-6 text-sm">
+    <p>&copy; 2025 RRB Group D Book. All rights reserved.</p>
+  </footer>
+
+  <!-- Theme Toggle Script -->
+  <script>
+    const toggleBtn = document.getElementById("theme-toggle");
+    const root = document.documentElement;
+
+    function applyTheme() {
+      const isDark = localStorage.theme === "dark";
+      if (isDark) {
+        root.classList.add("dark");
+        toggleBtn.textContent = "🌞";
+      } else {
+        root.classList.remove("dark");
+        toggleBtn.textContent = "🌜";
+      }
+    }
+
+    toggleBtn.addEventListener("click", () => {
+      const isDark = root.classList.contains("dark");
+      if (isDark) {
+        root.classList.remove("dark");
+        toggleBtn.textContent = "🌜";
+        localStorage.theme = "light";
+      } else {
+        root.classList.add("dark");
+        toggleBtn.textContent = "🌞";
+        localStorage.theme = "dark";
+      }
+    });
+
+    applyTheme();
+  </script>
+</body>
+</html>

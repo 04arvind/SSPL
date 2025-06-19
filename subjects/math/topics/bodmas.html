@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BODMAS Notes</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            line-height: 1.6;
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        .example, .practice {
+            background-color: #f9f9f9;
+            padding: 10px;
+            border-left: 4px solid #3498db;
+            margin: 10px 0;
+        }
+        ul, ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <button onclick="downloadPDF()" style="padding:10px 20px; margin-bottom:20px; background-color:#3498db; color:white; border:none; border-radius:5px; cursor:pointer;">
+        Download Notes as PDF
+    </button>
+    <div id="bodmas-content">
+
+    <h1>BODMAS (Order of Operations)</h1>
+
+    <div class="section">
+        <h2>1. What is BODMAS?</h2>
+        <p>BODMAS is an acronym that stands for <strong>Brackets, Orders (powers/roots), Division, Multiplication, Addition, Subtraction</strong>. It defines the correct order in which mathematical operations must be performed to solve an expression accurately. Incorrect application of BODMAS can lead to wrong results, so understanding this rule is fundamental in mathematics.</p>
+    </div>
+
+    <div class="section">
+        <h2>2. BODMAS Rules</h2>
+        <ul>
+            <li><strong>Brackets First</strong>: Solve expressions inside brackets (parentheses (), curly braces {}, or square brackets []) first.</li>
+            <li><strong>Orders Second</strong>: Evaluate powers (e.g., 2²) or roots (e.g., √9) next.</li>
+            <li><strong>Division and Multiplication</strong>: Perform these from left to right, as they have equal precedence.</li>
+            <li><strong>Addition and Subtraction</strong>: Perform these last, from left to right, as they have equal precedence.</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>3. Why Use BODMAS?</h2>
+        <p>Without a standard order, expressions like 6 + 2 × 3 could be interpreted differently (e.g., (6 + 2) × 3 = 24 or 6 + (2 × 3) = 12). BODMAS ensures consistency, and the correct answer is 12.</p>
+    </div>
+
+    <div class="section">
+        <h2>4. Example 1: Simple Expression</h2>
+        <div class="example">
+            <p><strong>Solve</strong>: 8 + 4 × 2</p>
+            <ul>
+                <li>Step 1: Check for brackets or orders: None.</li>
+                <li>Step 2: Perform multiplication first: 4 × 2 = 8.</li>
+                <li>Step 3: Then addition: 8 + 8 = 16.</li>
+                <li><strong>Answer</strong>: 16.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>5. Example 2: With Brackets</h2>
+        <div class="example">
+            <p><strong>Solve</strong>: (5 + 3) × 2 – 4</p>
+            <ul>
+                <li>Step 1: Solve brackets: 5 + 3 = 8.</li>
+                <li>Step 2: Multiply: 8 × 2 = 16.</li>
+                <li>Step 3: Subtract: 16 – 4 = 12.</li>
+                <li><strong>Answer</strong>: 12.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>6. Common Mistakes</h2>
+        <ul>
+            <li>Ignoring brackets or solving operations out of order.</li>
+            <li>Treating division as higher priority than multiplication (they are equal).</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>7. Example 3: Complex Expression</h2>
+        <div class="example">
+            <p><strong>Solve</strong>: 12 ÷ 3 × 2 + 4² – (6 – 2)</p>
+            <ul>
+                <li>Step 1: Solve brackets: 6 – 2 = 4.</li>
+                <li>Step 2: Evaluate orders: 4² = 16.</li>
+                <li>Step 3: Rewrite: 12 ÷ 3 × 2 + 16 – 4.</li>
+                <li>Step 4: Division and multiplication (left to right): 12 ÷ 3 = 4, then 4 × 2 = 8.</li>
+                <li>Step 5: Rewrite: 8 + 16 – 4.</li>
+                <li>Step 6: Addition and subtraction (left to right): 8 + 16 = 24, then 24 – 4 = 20.</li>
+                <li><strong>Answer</strong>: 20.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>8. Example 4: Nested Brackets</h2>
+        <div class="example">
+            <p><strong>Solve</strong>: {10 – [4 + (8 ÷ 2)]} × 3</p>
+            <ul>
+                <li>Step 1: Innermost brackets: 8 ÷ 2 = 4.</li>
+                <li>Step 2: Next brackets: 4 + 4 = 8.</li>
+                <li>Step 3: Curly braces: 10 – 8 = 2.</li>
+                <li>Step 4: Multiply: 2 × 3 = 6.</li>
+                <li><strong>Answer</strong>: 6.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>9. Practice Problems</h2>
+        <div class="practice">
+            <ol>
+                <li>Solve: 15 – 3 × 2 + 4</li>
+                <li>Solve: (7 + 5) ÷ 2 × 3</li>
+                <li>Solve: 5² – 10 ÷ 2 + 3</li>
+                <li>Solve: {12 ÷ (4 – 2)} + 5²</li>
+                <li>Solve: 18 ÷ 3 + 2 × (5 – 3)</li>
+            </ol>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>10. Solutions to Practice Problems</h2>
+        <div class="practice">
+            <ol>
+                <li>15 – 3 × 2 + 4 = 15 – 6 + 4 = 13.</li>
+                <li>(7 + 5) ÷ 2 × 3 = 12 ÷ 2 × 3 = 6 × 3 = 18.</li>
+                <li>5² – 10 ÷ 2 + 3 = 25 – 5 + 3 = 23.</li>
+                <li>{12 ÷ (4 – 2)} + 5² = {12 ÷ 2} + 25 = 6 + 25 = 31.</li>
+                <li>18 ÷ 3 + 2 × (5 – 3) = 6 + 2 × 2 = 6 + 4 = 10.</li>
+            </ol>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>11. Tips for Mastery</h2>
+        <ul>
+            <li>Always write down each step to avoid skipping operations.</li>
+            <li>Double-check expressions with nested brackets.</li>
+            <li>Practice with mixed operations to build confidence.</li>
+        </ul>
+    </div>
+</div>
+
+</body>
+<script>
+function downloadPDF() {
+    const element = document.getElementById('bodmas-content');
+    const opt = {
+        margin:       0.5,
+        filename:     'BODMAS_Notes.pdf',
+        image:        { type: 'jpeg', quality: 0.98 },
+        html2canvas:  { scale: 2 },
+        jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
+    };
+    html2pdf().set(opt).from(element).save();
+}
+</script>
+
+</html>

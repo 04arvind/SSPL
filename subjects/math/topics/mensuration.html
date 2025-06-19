@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mensuration Notes</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            line-height: 1.6;
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        .example, .practice {
+            background-color: #f9f9f9;
+            padding: 10px;
+            border-left: 4px solid #3498db;
+            margin: 10px 0;
+        }
+        ul, ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <button onclick="downloadPDF()" style="padding:10px 20px; margin-bottom:20px; background-color:#3498db; color:white; border:none; border-radius:5px; cursor:pointer;">Download Notes as PDF
+    </button>
+    <div id="mensuration">
+         <h1>Mensuration</h1>
+    <div class="section">
+        <h2>1. What is Mensuration?</h2>
+        <p>Mensuration deals with the measurement of geometric figures, including area, perimeter, and volume of 2D and 3D shapes.</p>
+    </div>
+    <div class="section">
+        <h2>2. 2D Shape Formulas</h2>
+        <ul>
+            <li>Rectangle: Area = length × breadth; Perimeter = 2(length + breadth).</li>
+            <li>Square: Area = side²; Perimeter = 4 × side.</li>
+            <li>Triangle: Area = (1/2) × base × height; Perimeter = sum of sides.</li>
+            <li>Circle: Area = πr²; Circumference = 2πr.</li>
+        </ul>
+    </div>
+    <div class="section">
+        <h2>3. Example 1: Rectangle</h2>
+        <div class="example">
+            <p><strong>Find the area and perimeter of a rectangle with length 10 cm and breadth 5 cm.</strong></p>
+            <ul>
+                <li>Area = 10 × 5 = 50 cm².</li>
+                <li>Perimeter = 2(10 + 5) = 30 cm.</li>
+                <li><strong>Answer</strong>: Area = 50 cm², Perimeter = 30 cm.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="section">
+        <h2>4. Example 2: Circle</h2>
+        <div class="example">
+            <p><strong>Find the area and circumference of a circle with radius 7 cm (use π = 22/7).</strong></p>
+            <ul>
+                <li>Area = (22/7) × 7² = 154 cm².</li>
+                <li>Circumference = 2 × (22/7) × 7 = 44 cm.</li>
+                <li><strong>Answer</strong>: Area = 154 cm², Circumference = 44 cm.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="section">
+        <h2>5. 3D Shape Formulas</h2>
+        <br>
+        <ul>
+            <li>Cube: Volume = side³; Surface area = 6 × side².</li>
+            <li>Cuboid: Volume = length × breadth × height; Surface area = 2(lb + bh + lh).</li>
+            <li>Cylinder: Volume = πr²h; Curved surface area = 2πrh.</li>
+            <li>Sphere: Volume = (4/3)πr³; Surface area = 4πr².</li>
+        </ul>
+    </div>
+    <br>
+    <div class="section">
+        <h2>6. Example 3: Cuboid</h2>
+        <div class="example">
+            <p><strong>Find the volume and surface area of a cuboid with dimensions 6 cm, 4 cm, 3 cm.</strong></p>
+            <ul>
+                <li>Volume = 6 × 4 × 3 = 72 cm³.</li>
+                <li>Surface area = 2(6×4 + 4×3 + 6×3) = 108 cm².</li>
+                <li><strong>Answer</strong>: Volume = 72 cm³, Surface area = 108 cm².</li>
+            </ul>
+        </div>
+    </div>
+    <div class="section">
+        <h2>7. Practice Problems</h2>
+        <div class="practice">
+            <ol>
+                <li>Find the area of a square with side 8 cm.</li>
+                <li>Find the circumference of a circle with radius 14 cm (π = 22/7).</li>
+                <li>Find the volume of a cube with side 5 cm.</li>
+                <li>Find the area of a triangle with base 10 cm and height 6 cm.</li>
+                <li>Find the curved surface area of a cylinder with radius 7 cm and height 10 cm (π = 22/7).</li>
+            </ol>
+        </div>
+    </div>
+    <div class="section">
+        <h2>8. Solutions</h2>
+        <div class="practice">
+            <ol>
+                <li>Area = 8² = 64 cm².</li>
+                <li>Circumference = 2 × (22/7) × 14 = 88 cm.</li>
+                <li>Volume = 5³ = 125 cm³.</li>
+                <li>Area = (1/2) × 10 × 6 = 30 cm².</li>
+                <li>Curved surface area = 2 × (22/7) × 7 × 10 = 440 cm².</li>
+            </ol>
+        </div>
+    </div>
+    <div class="section">
+        <h2>9. Tips</h2>
+        <ul>
+            <li>Memorize formulas for common shapes.</li>
+            <li>Check units (e.g., cm² for area, cm³ for volume).</li>
+            <li>Practice problems with mixed shapes.</li>
+        </ul>
+    </div>
+</body>
+<script>
+function downloadPDF() {
+    const element = document.getElementById('mensuration');
+    const opt = {
+        margin:       0.5,
+        filename:     'Mensuration Notes.pdf',
+        image:        { type: 'jpeg', quality: 0.98 },
+        html2canvas:  { scale: 2 },
+        jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
+    };
+    html2pdf().set(opt).from(element).save();
+}
+</script>
+</html>

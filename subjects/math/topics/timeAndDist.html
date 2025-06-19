@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time and Work Notes</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            line-height: 1.6;
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        .example, .practice {
+            background-color: #f9f9f9;
+            padding: 10px;
+            border-left: 4px solid #3498db;
+            margin: 10px 0;
+        }
+        ul, ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <button onclick="downloadPDF()" style="padding:10px 20px; margin-bottom:20px; background-color:#3498db; color:white; border:none; border-radius:5px; cursor:pointer;">Download Notes as PDF
+    </button>
+    <div id="TimeDist">
+    <h1>Time and Distance</h1>
+    <div class="section">
+        <h2>1. What is Time and Distance?</h2>
+        <p>Time and distance problems involve calculating speed, distance, or time using their relationship.</p>
+    </div>
+    <div class="section">
+        <h2>2. Basic Formula</h2>
+        <ul>
+            <li>Speed = Distance / Time.</li>
+            <li>Distance = Speed × Time.</li>
+            <li>Time = Distance / Speed.</li>
+        </ul>
+    </div>
+    <div class="section">
+        <h2>3. Unit Conversions</h2>
+        <ul>
+            <li>1 km/h = (5/18) m/s.</li>
+            <li>1 m/s = (18/5) km/h.</li>
+        </ul>
+    </div>
+    <div class="section">
+        <h2>4. Relative Speed</h2>
+        <ul>
+            <li>Same direction: Speed1 – Speed2.</li>
+            <li>Opposite direction: Speed1 + Speed2.</li>
+        </ul>
+    </div>
+    <div class="section">
+        <h2>5. Example 1: Basic Calculation</h2>
+        <div class="example">
+            <p><strong>A car travels 120 km at 40 km/h. Find the time.</strong></p>
+            <ul>
+                <li>Time = 120 / 40 = 3 hours.</li>
+                <li><strong>Answer</strong>: 3 hours.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="section">
+        <h2>6. Example 2: Relative Speed</h2>
+        <div class="example">
+            <p><strong>Two trains approach each other at 60 km/h and 40 km/h. When do they meet if initially 200 km apart?</strong></p>
+            <ul>
+                <li>Relative speed = 60 + 40 = 100 km/h.</li>
+                <li>Time = 200 / 100 = 2 hours.</li>
+                <li><strong>Answer</strong>: 2 hours.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="section">
+        <h2>7. Example 3: Conversion</h2>
+        <div class="example">
+            <p><strong>A cyclist travels at 15 km/h. Find speed in m/s.</strong></p>
+            <ul>
+                <li>Speed = 15 × (5/18) = 25/6 ≈ 4.17 m/s.</li>
+                <li><strong>Answer</strong>: 25/6 m/s.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="section">
+        <h2>8. Practice Problems</h2>
+        <div class="practice">
+            <ol>
+                <li>A bike travels 50 km at 25 km/h. Find the time.</li>
+                <li>Two cars, 300 km apart, move toward each other at 50 km/h and 70 km/h. When do they meet?</li>
+                <li>Convert 72 km/h to m/s.</li>
+                <li>A train covers 180 km in 3 hours. Find its speed.</li>
+                <li>A man walks 4 km/h. How far does he walk in 2.5 hours?</li>
+            </ol>
+        </div>
+    </div>
+    <div class="section">
+        <h2>9. Solutions</h2>
+        <div class="practice">
+            <ol>
+                <li>Time = 50 / 25 = 2 hours.</li>
+                <li>Relative speed = 120 km/h; Time = 300 / 120 = 2.5 hours.</li>
+                <li>72 × (5/18) = 20 m/s.</li>
+                <li>Speed = 180 / 3 = 60 km/h.</li>
+                <li>Distance = 4 × 2.5 = 10 km.</li>
+            </ol>
+        </div>
+    </div>
+    <div class="section">
+        <h2>10. Tips</h2>
+        <ul>
+            <li>Ensure consistent units before calculations.</li>
+            <li>Use relative speed for meeting problems.</li>
+            <li>Practice problems with trains or races.</li>
+        </ul>
+    </div>
+</body>
+<script>
+function downloadPDF() {
+    const element = document.getElementById('TimeDist');
+    const opt = {
+        margin:       0.5,
+        filename:     'Time and Distance Notes.pdf',
+        image:        { type: 'jpeg', quality: 0.98 },
+        html2canvas:  { scale: 2 },
+        jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
+    };
+    html2pdf().set(opt).from(element).save();
+}
+</script>
+</html>

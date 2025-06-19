@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Math</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+    };
+  </script>
+  <style>
+    .glass {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+  </style>
+</head>
+<body class="bg-white text-black dark:bg-gradient-to-br dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 dark:text-white transition duration-300 min-h-screen flex flex-col">
+
+  <!-- Navbar -->
+  <header class="bg-black/90 text-white backdrop-blur sticky top-0 z-50 shadow-md">
+    <div class="max-w-7xl mx-auto flex justify-between items-center px-4 py-4">
+      <h1 class="text-2xl font-bold">RRB Group D Book</h1>
+      <nav class="space-x-6 text-sm sm:text-base flex items-center">
+        <a href="../index.html" class="hover:text-blue-400">Home</a>
+        <a href="../syllabus.html" class="hover:text-blue-400">Syllabus</a>
+        <a href="#pyq" class="hover:text-blue-400">PYQs</a>
+        <a href="#mock" class="hover:text-blue-400">Mock Tests</a>
+        <a href="#contact" class="hover:text-blue-400">Contact</a>
+        <button id="theme-toggle" class="ml-4 p-2 text-xl rounded-full transition hover:bg-gray-700">
+          🌞
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Page Content -->
+   <main class="flex-grow">
+  <div class="max-w-4xl mx-auto px-4 py-10 space-y-10">
+    <h2 class="text-3xl font-bold mb-4 text-center">General Intelligence and Reasoning Notes</h2>
+
+    <section class="space-y-4">
+      <h3 class="text-2xl font-semibold text-blue-600">Analogies</h3>
+      <p>Analogies test the relationship between pairs of words or numbers.</p>
+      <ul class="list-disc list-inside space-y-2">
+        <li><strong>Example 1:</strong> Big:Small :: Tall:Short. Big and Small are opposites, so are Tall and Short.</li>
+        <li><strong>Example 2:</strong> 2:4 :: 5:10. 2 × 2 = 4, similarly 5 × 2 = 10.</li>
+        <li><strong>Example 3:</strong> Doctor:Patient :: Teacher:Student. Doctor treats Patient, Teacher teaches Student.</li>
+      </ul>
+    </section>
+
+    <section class="space-y-4">
+      <h3 class="text-2xl font-semibold text-blue-600">Alphabetical and Number Series</h3>
+      <p>Identify patterns in sequences of letters or numbers.</p>
+      <ul class="list-disc list-inside space-y-2">
+        <li><strong>Example 1:</strong> A, C, E, I, __. Pattern: +2, +2, +4. Next = I + 4 = M.</li>
+        <li><strong>Example 2:</strong> 2, 4, 8, 14, 22, __. Pattern: +2, +4, +6, +8. Next = 22 + 10 = 32.</li>
+        <li><strong>Example 3:</strong> Z, X, U, S, __. Pattern: -2, -3, -4. Next = S – 5 = N.</li>
+      </ul>
+    </section>
+
+    <section class="space-y-4">
+      <h3 class="text-2xl font-semibold text-blue-600">Coding and Decoding</h3>
+      <p>Decode messages using patterns like letter shifts or substitutions.</p>
+      <ul class="list-disc list-inside space-y-2">
+        <li><strong>Example 1:</strong> If CAT = 3120 (C=3, A=1, T=20), what is DOG? D=4, O=15, G=7, so DOG = 4157.</li>
+        <li><strong>Example 2:</strong> If APPLE is coded as BQQMF (each letter +1), decode CRRNH. -1 to each: CRRNH = APPLE.</li>
+        <li><strong>Example 3:</strong> If 123 = ABC, 456 = DEF, what is 789? 789 = GHI.</li>
+      </ul>
+    </section>
+
+    <section class="space-y-4">
+      <h3 class="text-2xl font-semibold text-blue-600">Mathematical Operations</h3>
+      <p>Solve problems by applying mathematical operations in a specific order.</p>
+      <ul class="list-disc list-inside space-y-2">
+        <li><strong>Example 1:</strong> If + means ×, × means ÷, then 4 + 5 × 2 = ? 4 × 5 ÷ 2 = 10.</li>
+        <li><strong>Example 2:</strong> If 3 * 2 = 7 (means 3 + 2 + 2), then 5 * 4 = ? 5 + 4 + 4 = 13.</li>
+        <li><strong>Example 3:</strong> If a @ b = a² + b², then 3 @ 4 = ? 9 + 16 = 25.</li>
+      </ul>
+    </section>
+
+    <section class="space-y-4">
+      <h3 class="text-2xl font-semibold text-blue-600">Relationships</h3>
+      <p>Solve family or blood relation problems.</p>
+      <ul class="list-disc list-inside space-y-2">
+        <li><strong>Example 1:</strong> A is B’s brother, B is C’s mother. Who is A to C? A is C’s uncle.</li>
+        <li><strong>Example 2:</strong> P is Q’s son, Q is R’s daughter. Who is P to R? P is R’s grandson.</li>
+        <li><strong>Example 3:</strong> X says, “Y is my sister’s son.” If X is female, Y is X’s son.</li>
+      </ul>
+    </section>
+
+    <section class="space-y-4">
+  <h3 class="text-2xl font-semibold text-blue-600">Syllogism</h3>
+  <p>Draw conclusions from given statements using logical reasoning.</p>
+  <ul class="list-disc list-inside space-y-2">
+    <li><strong>Example 1:</strong> All cats are animals. Some animals are dogs.  
+      <br />Conclusion: Some cats are dogs — <span class="text-red-500 font-medium">Not necessarily true</span> (no overlap between cats and dogs).
+    </li>
+    <li><strong>Example 2:</strong> All pens are blue. Some blue are pencils.  
+      <br />Conclusion: Some pens are pencils — <span class="text-red-500 font-medium">Not necessarily true</span>.
+    </li>
+    <li><strong>Example 3:</strong> No birds are fish. Some fish are sharks.  
+      <br />Conclusion: No birds are sharks — <span class="text-green-500 font-medium">True</span> (no overlap between birds and fish/sharks).
+    </li>
+  </ul>
+</section>
+<section class="space-y-8">
+  <!-- Jumbling -->
+  <div>
+    <h3 class="text-2xl font-semibold text-blue-600">Jumbling</h3>
+    <p>Rearrange jumbled words or letters to form meaningful words.</p>
+    <ul class="list-disc list-inside space-y-2">
+      <li><strong>Example 1:</strong> Unscramble “TFAHER”. Answer: <span class="text-green-600 font-medium">FATHER</span>.</li>
+      <li><strong>Example 2:</strong> Unscramble “ELATB”. Answer: <span class="text-green-600 font-medium">TABLE</span>.</li>
+      <li><strong>Example 3:</strong> Unscramble “KBOO”. Answer: <span class="text-green-600 font-medium">BOOK</span>.</li>
+    </ul>
+  </div>
+
+  <!-- Venn Diagram -->
+  <div>
+    <h3 class="text-2xl font-semibold text-blue-600">Venn Diagram</h3>
+    <p>Use Venn diagrams to solve problems involving overlapping sets.</p>
+    <ul class="list-disc list-inside space-y-2">
+      <li><strong>Example 1:</strong> 50 students play cricket, 30 play football, 10 play both.  
+        <br />How many play at least one? Total = 50 + 30 – 10 = <span class="text-green-600 font-medium">70</span>.
+      </li>
+      <li><strong>Example 2:</strong> 40 like tea, 25 like coffee, 15 like both.  
+        <br />Only tea = 40 – 15 = <span class="text-green-600 font-medium">25</span>.
+      </li>
+      <li><strong>Example 3:</strong> 60 speak English, 40 speak Hindi, 20 both, 10 neither.  
+        <br />Total = 60 + 40 – 20 + 10 = <span class="text-green-600 font-medium">90</span>.
+      </li>
+    </ul>
+  </div>
+
+  <!-- Data Interpretation and Sufficiency -->
+  <div>
+    <h3 class="text-2xl font-semibold text-blue-600">Data Interpretation and Sufficiency</h3>
+    <p>Analyze data to answer questions or determine if data is sufficient.</p>
+    <ul class="list-disc list-inside space-y-2">
+      <li><strong>Example 1:</strong> Sales: Jan: 100, Feb: 120, March: 90.  
+        <br />Average = (100 + 120 + 90)/3 = <span class="text-green-600 font-medium">103.33</span>.
+      </li>
+      <li><strong>Example 2:</strong> Statement 1: A > B, Statement 2: B > C.  
+        <br />Is A > C? <span class="text-green-600 font-medium">Yes</span>.
+      </li>
+      <li><strong>Example 3:</strong> Bar graph: Boys = 30, Girls = 20.  
+        <br />Total students = <span class="text-green-600 font-medium">50</span>.
+      </li>
+    </ul>
+  </div>
+</section>
+<section class="space-y-8">
+  <!-- Conclusions and Decision Making -->
+  <div>
+    <h3 class="text-2xl font-semibold text-blue-600">Conclusions and Decision Making</h3>
+    <p>Draw logical conclusions from given data.</p>
+    <ul class="list-disc list-inside space-y-2">
+      <li><strong>Example 1:</strong> If it rains, I’ll stay home. It’s raining.  
+        <br />Conclusion: <span class="text-green-600 font-medium">I’ll stay home</span>.
+      </li>
+      <li><strong>Example 2:</strong> All engineers are smart. Ram is an engineer.  
+        <br />Conclusion: <span class="text-green-600 font-medium">Ram is smart</span>.
+      </li>
+      <li><strong>Example 3:</strong> Some apples are red. This apple is red.  
+        <br />Conclusion: <span class="text-green-600 font-medium">This apple might be one of the red apples. True.</span>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Similarities and Differences -->
+  <div>
+    <h3 class="text-2xl font-semibold text-blue-600">Similarities and Differences</h3>
+    <p>Identify patterns or differences in shapes, numbers, or words.</p>
+    <ul class="list-disc list-inside space-y-2">
+      <li><strong>Example 1:</strong> Find the odd one: 1, 3, 5, 6, 7.  
+        <br /><span class="text-green-600 font-medium">6 is even</span>, others are odd.
+      </li>
+      <li><strong>Example 2:</strong> Spot the difference: 12345, 12346.  
+        <br /><span class="text-green-600 font-medium">Last digit differs</span> (5 vs 6).
+      </li>
+      <li><strong>Example 3:</strong> Which is different: Circle, Square, Triangle, Oval?  
+        <br /><span class="text-green-600 font-medium">Oval is not a polygon</span>, others are.
+      </li>
+    </ul>
+  </div>
+</section>
+<section class="space-y-8">
+  <!-- Analytical Reasoning -->
+  <div>
+    <h3 class="text-2xl font-semibold text-blue-600">Analytical Reasoning</h3>
+    <p>Solve problems requiring logical analysis, like seating arrangements.</p>
+    <ul class="list-disc list-inside space-y-2">
+      <li><strong>Example 1:</strong> A, B, C sit in a row. A is on the left of B, B is on the left of C.  
+        <br /><span class="text-green-600 font-medium">Order: A, B, C.</span>
+      </li>
+      <li><strong>Example 2:</strong> P, Q, R are in a circle. P is opposite R. Q is between P and R.  
+        <br /><span class="text-green-600 font-medium">Q faces outward.</span>
+      </li>
+      <li><strong>Example 3:</strong> X is taller than Y but shorter than Z.  
+        <br /><span class="text-green-600 font-medium">Order: Z, X, Y.</span>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Classification -->
+  <div>
+    <h3 class="text-2xl font-semibold text-blue-600">Classification</h3>
+    <p>Group items based on common properties.</p>
+    <ul class="list-disc list-inside space-y-2">
+      <li><strong>Example 1:</strong> Group: 4, 8, 12, 15, 16.  
+        <br />Odd one out: <span class="text-red-600 font-medium">15 (not a multiple of 4)</span>.
+      </li>
+      <li><strong>Example 2:</strong> Group: Dog, Cat, Lion, Tiger, Cow.  
+        <br />Odd one out: <span class="text-red-600 font-medium">Cow (not a carnivore)</span>.
+      </li>
+      <li><strong>Example 3:</strong> Group: Red, Blue, Green, Yellow, Black.  
+        <br />Odd one out: <span class="text-red-600 font-medium">Black (not a spectral color)</span>.
+      </li>
+    </ul>
+  </div>
+
+  <!-- Directions -->
+  <div>
+    <h3 class="text-2xl font-semibold text-blue-600">Directions</h3>
+    <p>Solve problems involving directions (North, South, East, West).</p>
+    <ul class="list-disc list-inside space-y-2">
+      <li><strong>Example 1:</strong> A man walks 5 km North, then 3 km East.  
+        <br />Distance = √(5² + 3²) = √34 ≈ <span class="text-green-600 font-medium">5.83 km</span>.
+      </li>
+      <li><strong>Example 2:</strong> A man faces East, turns 90° left, walks 4 km, turns 90° right.  
+        <br />Final direction: <span class="text-green-600 font-medium">North</span>.
+      </li>
+      <li><strong>Example 3:</strong> A car goes 10 km West, 10 km South, 10 km East.  
+        <br />Final position: <span class="text-green-600 font-medium">10 km South of the starting point</span>.
+      </li>
+    </ul>
+  </div>
+
+  <!-- Statement – Arguments and Assumptions -->
+  <div>
+    <h3 class="text-2xl font-semibold text-blue-600">Statement – Arguments and Assumptions</h3>
+    <p>Evaluate arguments or assumptions based on statements.</p>
+    <ul class="list-disc list-inside space-y-2">
+      <li><strong>Example 1:</strong> Statement: Study hard to pass.  
+        <br />Argument: Studying hard guarantees passing.  
+        <br />Conclusion: <span class="text-red-600 font-medium">Invalid</span> (not guaranteed).
+      </li>
+      <li><strong>Example 2:</strong> Statement: All birds fly.  
+        <br />Assumption: A penguin flies.  
+        <br />Conclusion: <span class="text-red-600 font-medium">Invalid</span> (penguins don’t fly).
+      </li>
+      <li><strong>Example 3:</strong> Statement: If you’re late, you’ll miss the bus.  
+        <br />Argument: Being late means missing the bus.  
+        <br />Conclusion: <span class="text-green-600 font-medium">Valid</span>.
+      </li>
+    </ul>
+  </div>
+</section>
+
+
+  </div>
+</main>
+
+
+  <!-- Footer -->
+  <footer id="contact" class="bg-black/70 text-white backdrop-blur text-center py-6 text-sm">
+    <p>&copy; 2025 RRB Group D Book. All rights reserved.</p>
+    <!-- <p>Made with ❤️ by Arvind Rawat</p> -->
+  </footer>
+
+  <!-- Theme Toggle Script -->
+  <script>
+    const toggleBtn = document.getElementById("theme-toggle");
+    const root = document.documentElement;
+
+    function applyTheme() {
+      const isDark = localStorage.theme === "dark";
+      if (isDark) {
+        root.classList.add("dark");
+        toggleBtn.textContent = "🌞";
+      } else {
+        root.classList.remove("dark");
+        toggleBtn.textContent = "🌜";
+      }
+    }
+
+    toggleBtn.addEventListener("click", () => {
+      const isDark = root.classList.contains("dark");
+      if (isDark) {
+        root.classList.remove("dark");
+        toggleBtn.textContent = "🌜";
+        localStorage.theme = "light";
+      } else {
+        root.classList.add("dark");
+        toggleBtn.textContent = "🌞";
+        localStorage.theme = "dark";
+      }
+    });
+
+    applyTheme();
+  </script>
+</body>
+</html>

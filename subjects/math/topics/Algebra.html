@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algebra Notes</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            line-height: 1.6;
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        .example, .practice {
+            background-color: #f9f9f9;
+            padding: 10px;
+            border-left: 4px solid #3498db;
+            margin: 10px 0;
+        }
+        ul, ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <button onclick="downloadPDF()" style="padding:10px 20px; margin-bottom:20px; background-color:#3498db; color:white; border:none; border-radius:5px; cursor:pointer;">Download Notes as PDF
+    </button>
+    <div id="algebra">
+    <h1>Algebra</h1>
+    <div class="section">
+        <h2>1. What is Algebra?</h2>
+        <p>Algebra is a branch of mathematics that deals with symbols and rules for manipulating those symbols. In algebra, letters like x, y, and z are used to represent unknown quantities. Algebra allows you to create mathematical models for real-world situations and solve problems by forming equations.</p>
+    </div>
+    <div class="section">
+        <h2>2. Linear Equations</h2>
+        <p>A linear equation is an algebraic equation in which the highest power of the variable is 1. It represents a straight line when graphed. These equations are of great importance in competitive exams, especially in the arithmetic and algebra sections.</p>
+    
+    <h3>Standard Form</h3>
+    <ul>
+        <li><strong>General Form:</strong> ax + b = c</li>
+        <li><strong>Where:</strong>
+            <ul>
+                <li><strong>a</strong> ≠ 0 (coefficient of x)</li>
+                <li><strong>b</strong> is a constant</li>
+                <li><strong>c</strong> is the constant on the RHS</li>
+            </ul>
+        </li>
+    </ul>
+
+    </div>
+    <div class="section">
+        <h2>3. Example 1: Solve Linear Equation</h2>
+        <div class="example">
+            <p><strong>Solve: 2x + 5 = 11.</strong></p>
+            <ul>
+                <li>Subtract 5: 2x = 6.</li>
+                <li>Divide by 2: x = 3.</li>
+                <li><strong>Answer</strong>: x = 3.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="section">
+        <h2>4. Quadratic Equations</h2>
+        <ul>
+            <li>Form: ax² + bx + c = 0.</li>
+            <li>Solve using factoring or quadratic formula: x = [-b ± √(b² – 4ac)] / (2a).</li>
+        </ul>
+    </div>
+    <div class="section">
+        <h2>5. Example 2: Solve Quadratic Equation</h2>
+        <div class="example">
+            <p><strong>Solve: x² – 5x + 6 = 0.</strong></p>
+            <ul>
+                <li>Factorize: (x – 2)(x – 3) = 0.</li>
+                <li>Solutions: x = 2, x = 3.</li>
+                <li><strong>Answer</strong>: x = 2, 3.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="section">
+        <h2>6. Example 3: Quadratic Formula</h2>
+        <div class="example">
+            <p><strong>Solve: 2x² – 4x – 6 = 0.</strong></p>
+            <ul>
+                <li>a = 2, b = -4, c = -6.</li>
+                <li>Discriminant = (-4)² – 4 × 2 × (-6) = 64.</li>
+                <li>x = [4 ± √64] / 4 = 3, -1.</li>
+                <li><strong>Answer</strong>: x = 3, -1.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="section">
+        <h2>7. Practice Problems</h2>
+        <div class="practice">
+            <ol>
+                <li>Solve: 3x – 7 = 8.</li>
+                <li>Solve: x² – 4x – 5 = 0.</li>
+                <li>Solve: 5x + 3 = 2x + 12.</li>
+                <li>Solve: 2x² + 3x – 2 = 0.</li>
+                <li>If 2x + y = 7 and x – y = 1, find x and y.</li>
+            </ol>
+        </div>
+    </div>
+    <div class="section">
+        <h2>8. Solutions</h2>
+        <div class="practice">
+            <ol>
+                <li>x = 5.</li>
+                <li>x = 5, -1.</li>
+                <li>x = 3.</li>
+                <li>x = 1/2, -2.</li>
+                <li>x = 8/3, y = 5/3.</li>
+            </ol>
+        </div>
+    </div>
+    <div class="section">
+        <h2>9. Tips</h2>
+        <ul>
+            <li>Check solutions by substituting back.</li>
+            <li>Practice factoring quadratics.</li>
+            <li>Use elimination or substitution for simultaneous equations.</li>
+        </ul>
+    </div>
+</body>
+<script>
+function downloadPDF() {
+    const element = document.getElementById('algebra');
+    const opt = {
+        margin:       0.5,
+        filename:     'Algebra Notes.pdf',
+        image:        { type: 'jpeg', quality: 0.98 },
+        html2canvas:  { scale: 2 },
+        jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
+    };
+    html2pdf().set(opt).from(element).save();
+}
+</script>
+</html>

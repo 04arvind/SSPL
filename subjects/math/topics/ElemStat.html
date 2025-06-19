@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elementary Statistics Notes</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            line-height: 1.6;
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        .example, .practice {
+            background-color: #f9f9f9;
+            padding: 10px;
+            border-left: 4px solid #3498db;
+            margin: 10px 0;
+        }
+        ul, ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <button onclick="downloadPDF()" style="padding:10px 20px; margin-bottom:20px; background-color:#3498db; color:white; border:none; border-radius:5px; cursor:pointer;">Download Notes as PDF
+    </button>
+    <div id="ElemStat">
+    <h1>Elementary Statistics</h1>
+    <div class="section">
+    <h2>1. What is Statistics?</h2>
+    <p><strong>Statistics</strong> is a branch of mathematics that deals with the collection, classification, presentation, analysis, and interpretation of numerical data.</p>
+    <ul>
+        <li><strong>Collection of Data:</strong> Gathering information or observations (e.g., heights of students in a class).</li>
+        <li><strong>Organization of Data:</strong> Arranging raw data into a systematic form like a frequency table.</li>
+        <li><strong>Presentation of Data:</strong> Displaying data using graphs, histograms, bar charts, or pie charts.</li>
+        <li><strong>Analysis:</strong> Finding patterns, trends, or averages (like mean, median, mode).</li>
+        <li><strong>Interpretation:</strong> Drawing conclusions or inferences based on the analyzed data.</li>
+    </ul>
+    <p><strong>Application:</strong> Statistics is widely used in real life — business, economics, medicine, sports, social science, and more. In exams, students often solve problems related to measures of central tendency (mean, median, mode).</p>
+</div>
+
+   <div class="section">
+    <h2>2. Measures of Central Tendency</h2>
+    <p>Measures of Central Tendency are values that represent the center or typical value of a dataset. The three most common measures are:</p>
+    <ul>
+        <li>
+            <strong>Mean (Arithmetic Mean):</strong><br>
+            It is the average of all observations.<br>
+            <strong>Formula:</strong> Mean = (Sum of all observations) ÷ (Total number of observations)<br>
+            <strong>Example:</strong> For data 4, 6, 8, 10:<br>
+            Sum = 4 + 6 + 8 + 10 = 28; Number of terms = 4<br>
+            Mean = 28 ÷ 4 = <strong>7</strong>
+        </li>
+        <li>
+            <strong>Median:</strong><br>
+            The median is the middle value when the data is arranged in ascending or descending order.<br>
+            <ul>
+                <li><strong>Odd number of terms:</strong> Median = Middle term</li>
+                <li><strong>Even number of terms:</strong> Median = (Sum of two middle terms) ÷ 2</li>
+            </ul>
+            <strong>Example (Odd):</strong> For 3, 5, 7, Median = 5<br>
+            <strong>Example (Even):</strong> For 3, 5, 7, 9, Median = (5 + 7)/2 = <strong>6</strong>
+        </li>
+        <li>
+            <strong>Mode:</strong><br>
+            The mode is the number that occurs most frequently in a dataset.<br>
+            <strong>Example:</strong> For data 2, 4, 4, 6, 7 → Mode = <strong>4</strong> (since 4 appears twice)<br>
+            <strong>Note:</strong> A dataset can be:
+            <ul>
+                <li><strong>Unimodal:</strong> One mode</li>
+                <li><strong>Bimodal:</strong> Two modes</li>
+                <li><strong>Multimodal:</strong> More than two modes</li>
+                <li><strong>No mode:</strong> If all values occur with the same frequency</li>
+            </ul>
+        </li>
+    </ul>
+    <p><strong>Applications:</strong> These measures help summarize large data sets with a single representative value and are commonly used in data analysis, economics, and exam questions.</p>
+</div>
+
+
+    <div class="section">
+        <h2>3. Example 1: Mean</h2>
+        <div class="example">
+            <p><strong>Find the mean of 2, 4, 6, 8, 10.</strong></p>
+            <ul>
+                <li>Sum = 2 + 4 + 6 + 8 + 10 = 30.</li>
+                <li>Mean = 30 / 5 = 6.</li>
+                <li><strong>Answer</strong>: 6.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="section">
+        <h2>4. Example 2: Median</h2>
+        <div class="example">
+            <p><strong>Find the median of 3, 1, 7, 4, 9.</strong></p>
+            <ul>
+                <li>Ordered: 1, 3, 4, 7, 9.</li>
+                <li>Median = 4.</li>
+                <li><strong>Answer</strong>: 4.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="section">
+        <h2>5. Example 3: Mode</h2>
+        <div class="example">
+            <p><strong>Find the mode of 2, 3, 3, 4, 5, 3.</strong></p>
+            <ul>
+                <li>3 appears 3 times.</li>
+                <li><strong>Answer</strong>: Mode = 3.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="section">
+        <h2>6. Example 4: Combined</h2>
+        <div class="example">
+            <p><strong>Find mean, median, mode of 5, 7, 7, 8, 10.</strong></p>
+            <ul>
+                <li>Mean = (5 + 7 + 7 + 8 + 10) / 5 = 7.4.</li>
+                <li>Median: Ordered = 5, 7, 7, 8, 10; Median = 7.</li>
+                <li>Mode = 7.</li>
+                <li><strong>Answer</strong>: Mean = 7.4, Median = 7, Mode = 7.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section">
+    <h2>7. Example 5: Find Mean, Median, and Mode</h2>
+    <div class="example">
+        <p><strong>Question:</strong> Find the mean, median, and mode of the following dataset:<br>
+        12, 15, 12, 18, 19, 12, 22, 25, 19</p>
+        <ul>
+            <li><strong>Step 1 – Arrange in order:</strong> 12, 12, 12, 15, 18, 19, 19, 22, 25</li>
+            <li><strong>Mean:</strong> (12 + 15 + 12 + 18 + 19 + 12 + 22 + 25 + 19) = 154 ÷ 9 = <strong>17.11</strong></li>
+            <li><strong>Median:</strong> Middle value = <strong>18</strong> (5th value in ordered list)</li>
+            <li><strong>Mode:</strong> Most frequent = <strong>12</strong> (appears 3 times)</li>
+        </ul>
+        <p><strong>Answer:</strong> Mean = 17.11, Median = 18, Mode = 12</p>
+    </div>
+</div>
+
+<div class="section">
+    <h2>8. Example 6: Mean from Frequency Table (Grouped Data)</h2>
+    <div class="example">
+        <p><strong>Question:</strong> The marks of 40 students are given below. Find the mean:</p>
+        <table border="1" cellpadding="8" cellspacing="0">
+            <thead>
+                <tr>
+                    <th>Marks (Class Interval)</th>
+                    <th>Frequency (f)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>0 – 10</td><td>4</td></tr>
+                <tr><td>10 – 20</td><td>6</td></tr>
+                <tr><td>20 – 30</td><td>10</td></tr>
+                <tr><td>30 – 40</td><td>12</td></tr>
+                <tr><td>40 – 50</td><td>8</td></tr>
+            </tbody>
+        </table>
+        <p><strong>Step 1 – Midpoints (x):</strong> 5, 15, 25, 35, 45</p>
+        <p><strong>Step 2 – Calculate f × x:</strong></p>
+        <ul>
+            <li>4×5 = 20, 6×15 = 90, 10×25 = 250, 12×35 = 420, 8×45 = 360</li>
+        </ul>
+        <p><strong>Total f = 40, Σ(fx) = 1140</strong></p>
+        <p><strong>Mean = Σ(fx)/Σf = 1140/40 = <strong>28.5</strong></strong></p>
+    </div>
+</div>
+
+
+
+    <div class="section">
+        <h2>9. Practice Problems</h2>
+        <div class="practice">
+            <ol>
+                <li>Find the mean of 1, 3, 5, 7, 9.</li>
+                <li>Find the median of 4, 2, 8, 6, 10.</li>
+                <li>Find the mode of 1, 2, 2, 3, 3, 3, 4.</li>
+                <li>Find mean, median, mode of 12, 15, 15, 17, 20.</li>
+                <li>If mean of 5 numbers is 10 and sum is 50, find one number if others are 8, 9, 10, 12.</li>
+            </ol>
+        </div>
+    </div>
+    <div class="section">
+        <h2>10. Solutions</h2>
+        <div class="practice">
+            <ol>
+                <li>Mean = 25 / 5 = 5.</li>
+                <li>Median = 6.</li>
+                <li>Mode = 3.</li>
+                <li>Mean = 15.8; Median = 15; Mode = 15.</li>
+                <li>Fifth number = 11.</li>
+            </ol>
+        </div>
+    </div>
+    <div class="section">
+        <h2>11. Tips</h2>
+        <ul>
+            <li>Sort data for median.</li>
+            <li>Check frequency for mode.</li>
+            <li>Verify mean by summing all values.</li>
+        </ul>
+    </div>
+</body>
+<script>
+function downloadPDF() {
+    const element = document.getElementById('ElemStat');
+    const opt = {
+        margin:       0.5,
+        filename:     'Elementary Statistics Notes.pdf',
+        image:        { type: 'jpeg', quality: 0.98 },
+        html2canvas:  { scale: 2 },
+        jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
+    };
+    html2pdf().set(opt).from(element).save();
+}
+</script>
+</html>

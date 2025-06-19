@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chemistry Notes</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            line-height: 1.6;
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        .example, .practice {
+            background-color: #f9f9f9;
+            padding: 10px;
+            border-left: 4px solid #3498db;
+            margin: 10px 0;
+        }
+        ul, ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <button onclick="downloadPDF()" style="padding:10px 20px; margin-bottom:20px; background-color:#3498db; color:white; border:none; border-radius:5px; cursor:pointer;">Download Notes as PDF
+    </button>
+    <div id="chem">
+    <h1>Chemistry (CBSE Class 10 Syllabus)</h1>
+    <div class="section">
+        <h2>1. What is Chemistry?</h2>
+        <p>Chemistry studies the composition, properties, and reactions of matter. The CBSE Class 10 syllabus covers chemical reactions, acids and bases, metals and non-metals, carbon compounds, and periodic classification.</p>
+    </div>
+    <div class="section">
+        <h2>2. Key Topics in Class 10</h2>
+        <ul>
+            <li>Chemical reactions and equations.</li>
+            <li>Acids, bases, and salts.</li>
+            <li>Metals and non-metals.</li>
+            <li>Carbon and its compounds.</li>
+            <li>Periodic classification of elements.</li>
+        </ul>
+    </div>
+    <div class="section">
+        <h2>3. Importance</h2>
+        <p>Chemistry explains processes like digestion, corrosion, and fuel combustion.</p>
+    </div>
+    <div class="section">
+        <h2>4. Chemical Reactions</h2>
+        <p>Definition: Process where reactants form products.</p>
+        <ul>
+            <li>Types: Combination, Decomposition, Displacement, Double Displacement.</li>
+            <li>Balancing: Equal atoms on both sides.</li>
+        </ul>
+    </div>
+    <div class="section">
+        <h2>5. Example 1: Balancing</h2>
+        <div class="example">
+            <p><strong>Balance: Fe + O₂ → Fe₂O₃.</strong></p>
+            <ul>
+                <li>Balanced: 4Fe + 3O₂ → 2Fe₂O₃.</li>
+                <li><strong>Answer</strong>: 4Fe + 3O₂ → 2Fe₂O₃.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="section">
+        <h2>6. Acids and Bases</h2>
+        <ul>
+            <li>Acids: Sour, H⁺ ions, blue litmus red.</li>
+            <li>Bases: Bitter, OH⁻ ions, red litmus blue.</li>
+            <li>pH Scale: 0 (acidic) to 14 (basic).</li>
+            <li>Neutralization: Acid + Base → Salt + Water.</li>
+        </ul>
+    </div>
+    <div class="section">
+        <h2>7. Example 2: Neutralization</h2>
+        <div class="example">
+            <p><strong>Write the reaction for HCl + NaOH.</strong></p>
+            <ul>
+                <li>HCl + NaOH → NaCl + H₂O.</li>
+                <li><strong>Answer</strong>: NaCl + H₂O.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="section">
+        <h2>8. Salts</h2>
+        <ul>
+            <li>Definition: From neutralization.</li>
+            <li>Types: Neutral, Acidic, Basic.</li>
+            <li>Uses: NaCl (cooking), NaHCO₃ (baking).</li>
+        </ul>
+    </div>
+    <div class="section">
+        <h2>9. Example 3: Salt Formation</h2>
+        <div class="example">
+            <p><strong>Identify the salt from H₂SO₄ + KOH.</strong></p>
+            <ul>
+                <li>H₂SO₄ + 2KOH → K₂SO₄ + 2H₂O.</li>
+                <li><strong>Answer</strong>: K₂SO₄.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="section">
+        <h2>10. Metals and Non-Metals</h2>
+        <ul>
+            <li>Metals: Shiny, conductive, malleable.</li>
+            <li>Non-Metals: Dull, poor conductors.</li>
+            <li>Reactivity Series: K > Na > Ca > … > Au.</li>
+            <li>Corrosion: Metal oxidation (e.g., rust).</li>
+        </ul>
+    </div>
+    <div class="section">
+        <h2>11. Example 4: Reactivity</h2>
+        <div class="example">
+            <p><strong>Will Zn displace Cu from CuSO₄?</strong></p>
+            <ul>
+                <li>Zn + CuSO₄ → ZnSO₄ + Cu.</li>
+                <li><strong>Answer</strong>: Yes.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="section">
+        <h2>12. Carbon and Its Compounds</h2>
+        <ul>
+            <li>Catenation: Forms chains/rings.</li>
+            <li>Tetravalency: 4 covalent bonds.</li>
+            <li>Hydrocarbons: Alkanes, Alkenes, Alkynes.</li>
+            <li>Functional Groups: OH, COOH.</li>
+        </ul>
+    </div>
+    <div class="section">
+        <h2>13. Example 5: Hydrocarbon</h2>
+        <div class="example">
+            <p><strong>Name C₃H₈ and its type.</strong></p>
+            <ul>
+                <li>C₃H₈ = Propane, alkane.</li>
+                <li><strong>Answer</strong>: Propane, alkane.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="section">
+        <h2>14. Soaps and Detergents</h2>
+        <ul>
+            <li>Soap: Fatty acid salts, soft water.</li>
+            <li>Detergent: Synthetic, hard water.</li>
+            <li>Cleansing: Micelles trap dirt.</li>
+        </ul>
+    </div>
+    <div class="section">
+        <h2>15. Example 6: Soap Reaction</h2>
+        <div class="example">
+            <p><strong>Write the saponification reaction.</strong></p>
+            <ul>
+                <li>Fat + NaOH → Soap + Glycerol.</li>
+                <li><strong>Answer</strong>: Soap + Glycerol.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="section">
+        <h2>16. Periodic Table</h2>
+        <ul>
+            <li>Mendeleev: By atomic mass.</li>
+            <li>Modern: By atomic number.</li>
+            <li>Trends: Atomic size, metallic character, valency.</li>
+        </ul>
+    </div>
+    <div class="section">
+        <h2>17. Example 7: Periodic Trend</h2>
+        <div class="example">
+            <p><strong>Compare atomic sizes of Na and Cl (Period 3).</strong></p>
+            <ul>
+                <li>Na > Cl (size decreases across period).</li>
+                <li><strong>Answer</strong>: Na > Cl.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="section">
+        <h2>18. Exothermic and Endothermic Reactions</h2>
+        <ul>
+            <li>Exothermic: Release heat.</li>
+            <li>Endothermic: Absorb heat.</li>
+            <li>Redox: Oxidation + Reduction.</li>
+        </ul>
+    </div>
+    <div class="section">
+        <h2>19. Example 8: Redox</h2>
+        <div class="example">
+            <p><strong>Identify oxidation in 2Mg + O₂ → 2MgO.</strong></p>
+            <ul>
+                <li>Mg → Mg²⁺ (oxidized).</li>
+                <li><strong>Answer</strong>: Mg is oxidized.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="section">
+        <h2>20. Practice Problems</h2>
+        <div class="practice">
+            <ol>
+                <li>Balance: Al + O₂ → Al₂O₃.</li>
+                <li>Write reaction for HNO₃ + Ca(OH)₂.</li>
+                <li>Identify salt from HCl + NH₄OH.</li>
+                <li>Will Mg displace Fe from FeSO₄?</li>
+                <li>Name C₄H₁₀ and its type.</li>
+                <li>Write reaction for ethanol combustion.</li>
+                <li>Compare electronegativity of F and O (Period 2).</li>
+                <li>Identify reduction in CuO + H₂ → Cu + H₂O.</li>
+                <li>What is pH of NaCl solution?</li>
+                <li>Write structure of ethene (C₂H₄).</li>
+            </ol>
+        </div>
+    </div>
+    <div class="section">
+        <h2>21. Solutions</h2>
+        <div class="practice">
+            <ol>
+                <li>4Al + 3O₂ → 2Al₂O₃.</li>
+                <li>2HNO₃ + Ca(OH)₂ → Ca(NO₃)₂ + 2H₂O.</li>
+                <li>NH₄Cl.</li>
+                <li>Yes.</li>
+                <li>Butane, alkane.</li>
+                <li>C₂H₅OH + 3O₂ → 2CO₂ + 3H₂O.</li>
+                <li>F > O.</li>
+                <li>Cu²⁺ → Cu.</li>
+                <li>pH ≈ 7.</li>
+                <li>H₂C=CH₂.</li>
+            </ol>
+        </div>
+    </div>
+    <div class="section">
+        <h2>22. Tips</h2>
+        <ul>
+            <li>Practice balancing equations.</li>
+            <li>Memorize reactivity series and functional groups.</li>
+            <li>Understand periodic trends with examples.</li>
+            <li>Draw structures for carbon compounds.</li>
+        </ul>
+    </div>
+</body>
+<script>
+function downloadPDF() {
+    const element = document.getElementById('chem');
+    const opt = {
+        margin:       0.5,
+        filename:     'Chemistry Notes.pdf',
+        image:        { type: 'jpeg', quality: 0.98 },
+        html2canvas:  { scale: 2 },
+        jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
+    };
+    html2pdf().set(opt).from(element).save();
+}
+</script>
+</html>

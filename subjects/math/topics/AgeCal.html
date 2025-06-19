@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time and Work Notes</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            line-height: 1.6;
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        .example, .practice {
+            background-color: #f9f9f9;
+            padding: 10px;
+            border-left: 4px solid #3498db;
+            margin: 10px 0;
+        }
+        ul, ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <button onclick="downloadPDF()" style="padding:10px 20px; margin-bottom:20px; background-color:#3498db; color:white; border:none; border-radius:5px; cursor:pointer;">Download Notes as PDF
+    </button>
+    <div id="ageCal">
+    <h1>Age Calculations</h1>
+    <div class="section">
+        <h2>1. What are Age Calculations?</h2>
+        <p>Age calculation problems involve finding the ages of people based on relationships between their ages now, in the past, or in the future.</p>
+    </div>
+    <div class="section">
+        <h2>2. Key Approach</h2>
+        <ul>
+            <li>Represent ages using variables (e.g., let present age = x).</li>
+            <li>Form equations based on given conditions.</li>
+            <li>Solve linear or simultaneous equations.</li>
+        </ul>
+    </div>
+    <div class="section">
+        <h2>3. Example 1: Simple Age Problem</h2>
+        <div class="example">
+            <p><strong>A father is 3 times as old as his son. If the father is 36 years old, find the son’s age.</strong></p>
+            <ul>
+                <li>Let son’s age = x.</li>
+                <li>Father’s age = 3x = 36.</li>
+                <li>x = 36 / 3 = 12.</li>
+                <li><strong>Answer</strong>: Son’s age = 12 years.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="section">
+        <h2>4. Example 2: Past Ages</h2>
+        <div class="example">
+            <p><strong>Five years ago, a mother was 4 times as old as her daughter. Now, the mother is 3 times as old. Find their present ages.</strong></p>
+            <ul>
+                <li>Let daughter’s present age = x, mother’s = y.</li>
+                <li>Five years ago: (y – 5) = 4(x – 5).</li>
+                <li>Now: y = 3x.</li>
+                <li>Solve: x = 15, y = 45.</li>
+                <li><strong>Answer</strong>: Daughter = 15 years, Mother = 45 years.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="section">
+        <h2>5. Example 3: Future Ages</h2>
+        <div class="example">
+            <p><strong>The sum of the ages of A and B is 50 years. In 10 years, A will be twice as old as B. Find their present ages.</strong></p>
+            <ul>
+                <li>Let A’s age = x, B’s = y.</li>
+                <li>x + y = 50.</li>
+                <li>In 10 years: (x + 10) = 2(y + 10).</li>
+                <li>Solve: x ≈ 36.67, y ≈ 13.33.</li>
+                <li><strong>Answer</strong>: A ≈ 36.67 years, B ≈ 13.33 years.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="section">
+        <h2>6. Practice Problems</h2>
+        <div class="practice">
+            <ol>
+                <li>A man is 5 times as old as his son, who is 8 years old. Find the man’s age.</li>
+                <li>Two years ago, a father was 6 times as old as his son. Now, he is 5 times as old. Find their present ages.</li>
+                <li>The sum of ages of X and Y is 60. Ten years ago, X was twice as old as Y. Find their ages.</li>
+                <li>In 5 years, a mother will be 3 times as old as her son. Their age difference is 20 years. Find their ages.</li>
+                <li>A’s age is twice B’s. In 8 years, A will be 1.5 times B’s age. Find their ages.</li>
+            </ol>
+        </div>
+    </div>
+    <div class="section">
+        <h2>7. Solutions</h2>
+        <div class="practice">
+            <ol>
+                <li>Man’s age = 40 years.</li>
+                <li>Son = 12, Father = 60.</li>
+                <li>X = 40, Y = 20.</li>
+                <li>Son = 10, Mother = 30.</li>
+                <li>A = 16, B = 8.</li>
+            </ol>
+        </div>
+    </div>
+    <div class="section">
+        <h2>8. Tips</h2>
+        <ul>
+            <li>Define variables clearly.</li>
+            <li>Check solutions by verifying past/future conditions.</li>
+            <li>Practice problems with fractional ages for accuracy.</li>
+        </ul>
+    </div>
+</body>
+<script>
+function downloadPDF() {
+    const element = document.getElementById('ageCal');
+    const opt = {
+        margin:       0.5,
+        filename:     'Age Calculation Notes.pdf',
+        image:        { type: 'jpeg', quality: 0.98 },
+        html2canvas:  { scale: 2 },
+        jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
+    };
+    html2pdf().set(opt).from(element).save();
+}
+</script>
+</html>

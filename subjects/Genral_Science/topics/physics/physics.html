@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Physics Notes</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            line-height: 1.6;
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        .example, .practice {
+            background-color: #f9f9f9;
+            padding: 10px;
+            border-left: 4px solid #3498db;
+            margin: 10px 0;
+        }
+        ul, ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <button onclick="downloadPDF()" style="padding:10px 20px; margin-bottom:20px; background-color:#3498db; color:white; border:none; border-radius:5px; cursor:pointer;">Download Notes as PDF
+    </button>
+    <div id="physics">
+    <h1>Physics (CBSE Class 10 Syllabus)</h1>
+    <div class="section">
+        <h2>1. What is Physics?</h2>
+        <p>Physics is the study of natural phenomena involving matter, energy, and their interactions. The CBSE Class 10 syllabus covers light, electricity, magnetism, motion, and energy.</p>
+    </div>
+    <div class="section">
+        <h2>2. Key Topics in Class 10</h2>
+        <ul>
+            <li>Light: Reflection and refraction.</li>
+            <li>Human eye and vision.</li>
+            <li>Electricity: Current, circuits, and power.</li>
+            <li>Magnetic effects of electric current.</li>
+            <li>Sources of energy.</li>
+        </ul>
+    </div>
+    <div class="section">
+        <h2>3. Importance</h2>
+        <p>Physics helps understand everyday phenomena (e.g., why mirrors reflect images, how electricity powers devices).</p>
+    </div>
+    <div class="section">
+        <h2>4. Reflection of Light</h2>
+        <p>Definition: Bouncing of light off a surface.</p>
+        <ul>
+            <li>Laws of Reflection: Angle of incidence = Angle of reflection; rays and normal in same plane.</li>
+            <li>Plane Mirror: Virtual, upright, same size, laterally inverted image.</li>
+        </ul>
+    </div>
+    <div class="section">
+        <h2>5. Example 1: Plane Mirror</h2>
+        <div class="example">
+            <p><strong>An object is placed 5 cm in front of a plane mirror. Find the image distance.</strong></p>
+            <ul>
+                <li>Image distance = 5 cm behind the mirror.</li>
+                <li><strong>Answer</strong>: 5 cm.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="section">
+        <h2>6. Refraction of Light</h2>
+        <p>Definition: Bending of light when passing between media.</p>
+        <ul>
+            <li>Laws of Refraction: Snell’s Law (sin i / sin r = n); rays and normal in same plane.</li>
+            <li>Refractive Index: n = c/v.</li>
+        </ul>
+    </div>
+    <div class="section">
+        <h2>7. Example 2: Refraction</h2>
+        <div class="example">
+            <p><strong>Light enters glass (n = 1.5) from air at 30°. Find angle of refraction.</strong></p>
+            <ul>
+                <li>sin r = 0.5 / 1.5 = 0.333; r ≈ 19.5°.</li>
+                <li><strong>Answer</strong>: 19.5°.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="section">
+        <h2>8. Lenses</h2>
+        <ul>
+            <li>Convex Lens: Converging; real/virtual images.</li>
+            <li>Concave Lens: Diverging; virtual images.</li>
+            <li>Lens Formula: 1/f = 1/v – 1/u.</li>
+            <li>Power: P = 1/f (dioptre).</li>
+        </ul>
+    </div>
+    <div class="section">
+        <h2>9. Example 3: Convex Lens</h2>
+        <div class="example">
+            <p><strong>A convex lens (f = 20 cm) has an object at 30 cm. Find image distance.</strong></p>
+            <ul>
+                <li>1/v = 1/20 + 1/30; v = 12 cm.</li>
+                <li><strong>Answer</strong>: 12 cm.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="section">
+        <h2>10. Human Eye</h2>
+        <ul>
+            <li>Parts: Cornea, iris, pupil, lens, retina.</li>
+            <li>Accommodation: Lens adjusts focus.</li>
+            <li>Defects: Myopia (concave lens), Hypermetropia (convex lens), Presbyopia (bifocal).</li>
+        </ul>
+    </div>
+    <div class="section">
+        <h2>11. Example 4: Myopia</h2>
+        <div class="example">
+            <p><strong>A person’s far point is 2 m. Find power of corrective lens.</strong></p>
+            <ul>
+                <li>P = 1/(–2) = –0.5 D.</li>
+                <li><strong>Answer</strong>: –0.5 D.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="section">
+        <h2>12. Electric Current</h2>
+        <ul>
+            <li>Definition: I = Q/t (ampere).</li>
+            <li>Ohm’s Law: V = IR.</li>
+            <li>Resistance: R = ρL/A.</li>
+        </ul>
+    </div>
+    <div class="section">
+        <h2>13. Example 5: Ohm’s Law</h2>
+        <div class="example">
+            <p><strong>A 12 V battery is connected to a 4 Ω resistor. Find current.</strong></p>
+            <ul>
+                <li>I = 12/4 = 3 A.</li>
+                <li><strong>Answer</strong>: 3 A.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="section">
+        <h2>14. Electric Circuits</h2>
+        <ul>
+            <li>Series: R_total = R1 + R2; same current.</li>
+            <li>Parallel: 1/R_total = 1/R1 + 1/R2; same voltage.</li>
+            <li>Power: P = VI.</li>
+        </ul>
+    </div>
+    <div class="section">
+        <h2>15. Example 6: Parallel Circuit</h2>
+        <div class="example">
+            <p><strong>Two resistors (6 Ω, 12 Ω) are in parallel. Find equivalent resistance.</strong></p>
+            <ul>
+                <li>1/R_total = 1/6 + 1/12; R_total = 4 Ω.</li>
+                <li><strong>Answer</strong>: 4 Ω.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="section">
+        <h2>16. Magnetic Field</h2>
+        <ul>
+            <li>Definition: Region of magnetic forces.</li>
+            <li>Field Lines: N to S, no intersection.</li>
+            <li>Right-Hand Rule: Thumb = current, fingers = field.</li>
+        </ul>
+    </div>
+    <div class="section">
+        <h2>17. Example 7: Magnetic Force</h2>
+        <div class="example">
+            <p><strong>A 2 A current flows in a 0.1 m wire in 0.5 T field (θ = 90°). Find force.</strong></p>
+            <ul>
+                <li>F = 0.5 × 2 × 0.1 = 0.1 N.</li>
+                <li><strong>Answer</strong>: 0.1 N.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="section">
+        <h2>18. Sources of Energy</h2>
+        <ul>
+            <li>Renewable: Solar, wind, hydro, biomass.</li>
+            <li>Non-Renewable: Coal, oil, gas, nuclear.</li>
+            <li>Solar Energy: Photovoltaic cells.</li>
+        </ul>
+    </div>
+    <div class="section">
+        <h2>19. Example 8: Solar Power</h2>
+        <div class="example">
+            <p><strong>A solar panel generates 200 W for 5 hours. Find energy in kWh.</strong></p>
+            <ul>
+                <li>Energy = 200 × 5 = 1000 Wh = 1 kWh.</li>
+                <li><strong>Answer</strong>: 1 kWh.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="section">
+        <h2>20. Practice Problems</h2>
+        <div class="practice">
+            <ol>
+                <li>An object is 10 cm from a plane mirror. Find image distance.</li>
+                <li>Find angle of refraction for light entering water (n = 1.33) at 45°.</li>
+                <li>A concave lens has f = –15 cm. Find image distance for object at 30 cm.</li>
+                <li>Calculate power of a lens with f = 50 cm.</li>
+                <li>Find current through a 10 Ω resistor with 20 V.</li>
+                <li>Two resistors (3 Ω, 6 Ω) in series. Find equivalent resistance.</li>
+                <li>Find force on a 0.2 m wire with 3 A in 0.4 T field (θ = 90°).</li>
+                <li>A wind turbine generates 500 W for 8 hours. Find energy in kWh.</li>
+                <li>A convex lens forms a real image at 40 cm for object at 20 cm. Find f.</li>
+                <li>A person’s near point is 50 cm. Find power of corrective lens for hypermetropia.</li>
+            </ol>
+        </div>
+    </div>
+    <div class="section">
+        <h2>21. Solutions</h2>
+        <div class="practice">
+            <ol>
+                <li>10 cm.</li>
+                <li>r ≈ 32°.</li>
+                <li>v = –10 cm.</li>
+                <li>P = 2 D.</li>
+                <li>I = 2 A.</li>
+                <li>R_total = 9 Ω.</li>
+                <li>F = 0.24 N.</li>
+                <li>4 kWh.</li>
+                <li>f = 40/3 cm.</li>
+                <li>P = 2 D.</li>
+            </ol>
+        </div>
+    </div>
+    <div class="section">
+        <h2>22. Tips</h2>
+        <ul>
+            <li>Draw ray diagrams for light and lenses.</li>
+            <li>Memorize Ohm’s Law and circuit formulas.</li>
+            <li>Practice magnetic field rules with diagrams.</li>
+            <li>Understand renewable vs. non-renewable energy.</li>
+        </ul>
+    </div>
+</body>
+<script>
+function downloadPDF() {
+    const element = document.getElementById('physics');
+    const opt = {
+        margin:       0.5,
+        filename:     'Physics Notes.pdf',
+        image:        { type: 'jpeg', quality: 0.98 },
+        html2canvas:  { scale: 2 },
+        jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
+    };
+    html2pdf().set(opt).from(element).save();
+}
+</script>
+</html>

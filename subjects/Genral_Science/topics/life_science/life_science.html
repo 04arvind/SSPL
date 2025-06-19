@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Life Science Notes</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            line-height: 1.6;
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        .example, .practice {
+            background-color: #f9f9f9;
+            padding: 10px;
+            border-left: 4px solid #3498db;
+            margin: 10px 0;
+        }
+        ul, ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <button onclick="downloadPDF()" style="padding:10px 20px; margin-bottom:20px; background-color:#3498db; color:white; border:none; border-radius:5px; cursor:pointer;">Download Notes as PDF
+    </button>
+    <div id="life_sci">
+    <h1>Life Sciences (CBSE Class 10 Syllabus)</h1>
+    <div class="section">
+        <h2>1. What is Life Sciences?</h2>
+        <p>Life Sciences (Biology) studies living organisms, their structure, functions, and interactions. CBSE Class 10 covers life processes, control and coordination, reproduction, heredity, and ecosystems.</p>
+    </div>
+    <div class="section">
+        <h2>2. Key Topics</h2>
+        <ul>
+            <li>Life Processes: Nutrition, respiration, transportation, excretion.</li>
+            <li>Control and Coordination: Nervous and hormonal systems.</li>
+            <li>Reproduction: Asexual and sexual.</li>
+            <li>Heredity and Evolution: Genetics, variation, evolution.</li>
+            <li>Our Environment: Ecosystems, food chains.</li>
+        </ul>
+    </div>
+    <div class="section">
+        <h2>3. Importance</h2>
+        <p>Understanding life processes explains how organisms survive, reproduce, and adapt.</p>
+    </div>
+    <div class="section">
+        <h2>4. Nutrition</h2>
+        <p>Definition: Obtaining and utilizing food for energy and growth.</p>
+        <ul>
+            <li>Autotrophic: Plants (photosynthesis).</li>
+            <li>Heterotrophic: Animals (holozoic, saprophytic, parasitic).</li>
+            <li>Human Nutrition: Mouth, stomach, small intestine.</li>
+        </ul>
+    </div>
+    <div class="section">
+        <h2>5. Example 1: Photosynthesis</h2>
+        <div class="example">
+            <p><strong>Write the balanced equation for photosynthesis.</strong></p>
+            <ul>
+                <li>6CO₂ + 6H₂O → C₆H₁₂O₆ + 6O₂.</li>
+                <li><strong>Answer</strong>: 6CO₂ + 6H₂O → C₆H₁₂O₆ + 6O₂.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="section">
+        <h2>6. Digestive System</h2>
+        <ul>
+            <li>Organs: Mouth, esophagus, stomach, intestines, liver, pancreas.</li>
+            <li>Enzymes: Amylase, pepsin, lipase.</li>
+            <li>Absorption: Villi in small intestine.</li>
+        </ul>
+    </div>
+    <div class="section">
+        <h2>7. Example 2: Digestion</h2>
+        <div class="example">
+            <p><strong>What enzyme in saliva breaks down starch?</strong></p>
+            <ul>
+                <li>Amylase (ptyalin).</li>
+                <li><strong>Answer</strong>: Amylase.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="section">
+        <h2>8. Respiration</h2>
+        <p>Definition: Breakdown of glucose for energy.</p>
+        <ul>
+            <li>Aerobic: Uses O₂, mitochondria.</li>
+            <li>Anaerobic: No O₂, e.g., lactic acid.</li>
+            <li>Human: Nose, trachea, lungs (alveoli).</li>
+        </ul>
+    </div>
+    <div class="section">
+        <h2>9. Example 3: Aerobic Respiration</h2>
+        <div class="example">
+            <p><strong>How much energy is released in aerobic respiration?</strong></p>
+            <ul>
+                <li>~32 ATP per glucose.</li>
+                <li><strong>Answer</strong>: ~32 ATP.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="section">
+        <h2>10. Transportation</h2>
+        <ul>
+            <li>Plants: Xylem, phloem.</li>
+            <li>Humans: Heart, blood vessels, blood (RBCs, WBCs, platelets).</li>
+            <li>Circulation: Double (pulmonary, systemic).</li>
+        </ul>
+    </div>
+    <div class="section">
+        <h2>11. Example 4: Blood Component</h2>
+        <div class="example">
+            <p><strong>What carries oxygen in blood?</strong></p>
+            <ul>
+                <li>Hemoglobin in RBCs.</li>
+                <li><strong>Answer</strong>: Hemoglobin.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="section">
+        <h2>12. Excretion</h2>
+        <p>Definition: Removal of metabolic wastes.</p>
+        <ul>
+            <li>Plants: Stomata, leaf shedding.</li>
+            <li>Humans: Kidneys (nephrons).</li>
+            <li>Dialysis: Artificial filtration.</li>
+        </ul>
+    </div>
+    <div class="section">
+        <h2>13. Example 5: Nephron</h2>
+        <div class="example">
+            <p><strong>What is the functional unit of the kidney?</strong></p>
+            <ul>
+                <li>Nephron.</li>
+                <li><strong>Answer</strong>: Nephron.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="section">
+        <h2>14. Nervous System</h2>
+        <ul>
+            <li>Components: Brain, spinal cord, nerves, neurons.</li>
+            <li>Neuron: Dendrites, cell body, axon.</li>
+            <li>Reflex Action: Involuntary, spinal cord-mediated.</li>
+        </ul>
+    </div>
+    <div class="section">
+        <h2>15. Example 6: Reflex Arc</h2>
+        <div class="example">
+            <p><strong>Describe reflex action for touching a hot object.</strong></p>
+            <ul>
+                <li>Receptor → Sensory → Spinal cord → Motor → Muscle.</li>
+                <li><strong>Answer</strong>: Receptor → Sensory → Spinal cord → Motor → Muscle.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="section">
+        <h2>16. Endocrine System</h2>
+        <ul>
+            <li>Glands: Pituitary, thyroid, adrenals, pancreas.</li>
+            <li>Hormones: Insulin, adrenaline.</li>
+            <li>Plant Hormones: Auxins, gibberellins.</li>
+        </ul>
+    </div>
+    <div class="section">
+        <h2>17. Example 7: Hormone</h2>
+        <div class="example">
+            <p><strong>Which hormone regulates blood sugar?</strong></p>
+            <ul>
+                <li>Insulin.</li>
+                <li><strong>Answer</strong>: Insulin.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="section">
+        <h2>18. Reproduction</h2>
+        <ul>
+            <li>Asexual: Vegetative, budding.</li>
+            <li>Sexual: Pollination, fertilization.</li>
+            <li>Flower Parts: Sepals, petals, stamens, pistil.</li>
+        </ul>
+    </div>
+    <div class="section">
+        <h2>19. Example 8: Pollination</h2>
+        <div class="example">
+            <p><strong>What transfers pollen in flowers?</strong></p>
+            <ul>
+                <li>Insects, wind, water, birds.</li>
+                <li><strong>Answer</strong>: Insects, wind, etc.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="section">
+        <h2>20. Human Reproduction</h2>
+        <ul>
+            <li>Male: Testes, vas deferens, penis.</li>
+            <li>Female: Ovaries, fallopian tubes, uterus.</li>
+            <li>Contraception: Barriers, hormonal, surgical.</li>
+        </ul>
+    </div>
+    <div class="section">
+        <h2>21. Example 9: Contraception</h2>
+        <div class="example">
+            <p><strong>Name a hormonal contraceptive method.</strong></p>
+            <ul>
+                <li>Oral pills.</li>
+                <li><strong>Answer</strong>: Pills.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="section">
+        <h2>22. Heredity</h2>
+        <ul>
+            <li>Genes: DNA segments.</li>
+            <li>Mendel’s Laws: Dominance, Segregation, Independent Assortment.</li>
+            <li>Sex Determination: XX, XY.</li>
+        </ul>
+    </div>
+    <div class="section">
+        <h2>23. Example 10: Monohybrid Cross</h2>
+        <div class="example">
+            <p><strong>Cross Tt with Tt. Find offspring ratio.</strong></p>
+            <ul>
+                <li>3 tall : 1 short.</li>
+                <li><strong>Answer</strong>: 3:1.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="section">
+        <h2>24. Evolution</h2>
+        <ul>
+            <li>Definition: Gradual change in species.</li>
+            <li>Evidences: Fossils, homologous structures, vestigial organs.</li>
+            <li>Natural Selection: Fittest survive.</li>
+        </ul>
+    </div>
+    <div class="section">
+        <h2>25. Example 11: Homologous Structure</h2>
+        <div class="example">
+            <p><strong>Give an example of homologous structures.</strong></p>
+            <ul>
+                <li>Human and bat forelimbs.</li>
+                <li><strong>Answer</strong>: Human and bat forelimbs.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="section">
+        <h2>26. Ecosystem</h2>
+        <ul>
+            <li>Components: Biotic, abiotic.</li>
+            <li>Food Chain: Grass → Deer → Lion.</li>
+            <li>Food Web: Interconnected chains.</li>
+        </ul>
+    </div>
+    <div class="section">
+        <h2>27. Example 12: Food Chain</h2>
+        <div class="example">
+            <p><strong>Construct a food chain with a hawk.</strong></p>
+            <ul>
+                <li>Grass → Mouse → Snake → Hawk.</li>
+                <li><strong>Answer</strong>: Grass → Mouse → Snake → Hawk.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="section">
+        <h2>28. Environmental Issues</h2>
+        <ul>
+            <li>Biodegradable: Paper, food.</li>
+            <li>Non-Biodegradable: Plastics.</li>
+            <li>Ozone Depletion: CFCs.</li>
+        </ul>
+    </div>
+    <div class="section">
+        <h2>29. Example 13: Biodegradable</h2>
+        <div class="example">
+            <p><strong>Classify paper and plastic.</strong></p>
+            <ul>
+                <li>Paper: Biodegradable; Plastic: Non-biodegradable.</li>
+                <li><strong>Answer</strong>: Paper (biodegradable), Plastic (non-biodegradable).</li>
+            </ul>
+        </div>
+    </div>
+    <div class="section">
+        <h2>30. Applications</h2>
+        <ul>
+            <li>Agriculture: Hybrid crops.</li>
+            <li>Medicine: Vaccines, gene therapy.</li>
+            <li>Biotechnology: GMOs, DNA fingerprinting.</li>
+        </ul>
+    </div>
+    <div class="section">
+        <h2>31. Example 14: Biotechnology</h2>
+        <div class="example">
+            <p><strong>What is DNA fingerprinting used for?</strong></p>
+            <ul>
+                <li>Identification (crime, paternity).</li>
+                <li><strong>Answer</strong>: Identification.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="section">
+        <h2>32. Key Diagrams</h2>
+        <ul>
+            <li>Human Digestive System: Mouth, stomach, intestines.</li>
+            <li>Neuron: Dendrites, axon.</li>
+            <li>Nephron: Glomerulus, tubules.</li>
+            <li>Flower: Sepals, stamens, pistil.</li>
+            <li>Mendel’s Cross: Punnett square.</li>
+        </ul>
+    </div>
+    <div class="section">
+        <h2>33. Example 15: Diagram</h2>
+        <div class="example">
+            <p><strong>Describe the structure of a nephron.</strong></p>
+            <ul>
+                <li>Glomerulus, Bowman’s capsule, tubules.</li>
+                <li><strong>Answer</strong>: Glomerulus, capsule, tubules.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="section">
+        <h2>34. Practice Problems</h2>
+        <div class="practice">
+            <ol>
+                <li>Write the equation for photosynthesis.</li>
+                <li>Name the enzyme that digests proteins in the stomach.</li>
+                <li>What is the site of gas exchange in human lungs?</li>
+                <li>Which blood vessel carries deoxygenated blood to the lungs?</li>
+                <li>What is the functional unit of the kidney?</li>
+                <li>Describe the reflex arc for blinking.</li>
+                <li>Which hormone promotes plant growth?</li>
+                <li>What is the male gamete in plants?</li>
+                <li>Cross tt (short) with Tt (tall). Find offspring ratio.</li>
+                <li>Give an example of a vestigial organ.</li>
+                <li>Construct a food web with grass, rabbit, and fox.</li>
+                <li>Classify glass as biodegradable or non-biodegradable.</li>
+                <li>What gas depletes the ozone layer?</li>
+                <li>Name a biotechnology application in agriculture.</li>
+                <li>Label parts of a neuron.</li>
+                <li>What is the role of bile in digestion?</li>
+                <li>Differentiate aerobic and anaerobic respiration.</li>
+                <li>What determines human sex (male/female)?</li>
+                <li>Name a conservation method for wildlife.</li>
+                <li>What is the product of anaerobic respiration in yeast?</li>
+            </ol>
+        </div>
+    </div>
+    <div class="section">
+        <h2>35. Solutions</h2>
+        <div class="practice">
+            <ol>
+                <li>6CO₂ + 6H₂O → C₆H₁₂O₆ + 6O₂.</li>
+                <li>Pepsin.</li>
+                <li>Alveoli.</li>
+                <li>Pulmonary artery.</li>
+                <li>Nephron.</li>
+                <li>Receptor → Sensory → Spinal cord → Motor → Muscle.</li>
+                <li>Auxin.</li>
+                <li>Pollen.</li>
+                <li>1 Tt : 1 tt; 1 tall : 1 short.</li>
+                <li>Appendix.</li>
+                <li>Grass → Rabbit → Fox; Grass → Mouse → Fox.</li>
+                <li>Non-biodegradable.</li>
+                <li>CFCs.</li>
+                <li>GM crops.</li>
+                <li>Dendrites, cell body, axon, synapse.</li>
+                <li>Emulsifies fats.</li>
+                <li>Aerobic: O₂, CO₂ + H₂O; Anaerobic: No O₂, lactic acid/alcohol.</li>
+                <li>XX (female), XY (male).</li>
+                <li>Wildlife sanctuaries.</li>
+                <li>Ethanol + CO₂.</li>
+            </ol>
+        </div>
+    </div>
+    <div class="section">
+        <h2>36. Tips</h2>
+        <ul>
+            <li>Memorize life processes with diagrams.</li>
+            <li>Practice Punnett squares.</li>
+            <li>Understand food chains/webs.</li>
+            <li>Revise hormones.</li>
+            <li>Draw key diagrams repeatedly.</li>
+        </ul>
+    </div>
+    <div class="section">
+        <h2>37. Revision Strategy</h2>
+        <ul>
+            <li>Focus on NCERT chapters.</li>
+            <li>Solve past CBSE questions.</li>
+            <li>Use flowcharts for processes.</li>
+            <li>Test diagrams weekly.</li>
+        </ul>
+    </div>
+</body>
+<script>
+    function downloadPDF() {
+    const element = document.getElementById('life_sci');
+    const opt = {
+        margin:       0.5,
+        filename:     'Life Science Notes.pdf',
+        image:        { type: 'jpeg', quality: 0.98 },
+        html2canvas:  { scale: 2 },
+        jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
+    };
+    html2pdf().set(opt).from(element).save();
+}
+</script>
+</html>

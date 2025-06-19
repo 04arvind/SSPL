@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ratio and Proportion Notes</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            line-height: 1.6;
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        .example, .practice {
+            background-color: #f9f9f9;
+            padding: 10px;
+            border-left: 4px solid #3498db;
+            margin: 10px 0;
+        }
+        ul, ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <button onclick="downloadPDF()" style="padding:10px 20px; margin-bottom:20px; background-color:#3498db; color:white; border:none; border-radius:5px; cursor:pointer;">Download Notes as PDF
+    </button>
+    <div id="percentage">
+    <h1>Percentages</h1>
+    <div class="section">
+        <h2>1. What is a Percentage?</h2>
+        <p>Percentage is a way to express a number as a fraction of 100, denoted by %. For example, 25% means 25/100 or 0.25.</p>
+    </div>
+    <div class="section">
+        <h2>2. Converting Percentages</h2>
+        <ul>
+            <li>To decimal: Divide by 100 (e.g., 40% = 0.4).</li>
+            <li>To fraction: Write as /100 and simplify (e.g., 75% = 3/4).</li>
+            <li>From decimal: Multiply by 100 (e.g., 0.6 = 60%).</li>
+            <li>From fraction: Convert to decimal, multiply by 100 (e.g., 1/4 = 25%).</li>
+        </ul>
+    </div>
+    <div class="section">
+        <h2>3. Percentage Formula</h2>
+        <ul>
+            <li>Percentage = (Part / Whole) × 100.</li>
+            <li>Part = (Percentage × Whole) / 100.</li>
+            <li>Whole = (Part × 100) / Percentage.</li>
+        </ul>
+    </div>
+    <div class="section">
+        <h2>4. Example 1: Find Percentage</h2>
+        <div class="example">
+            <p><strong>What is 30% of 200?</strong></p>
+            <ul>
+                <li>Part = (30 × 200) / 100 = 60.</li>
+                <li><strong>Answer</strong>: 60.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="section">
+        <h2>5. Example 2: Find Whole</h2>
+        <div class="example">
+            <p><strong>If 15% of a number is 45, find the number.</strong></p>
+            <ul>
+                <li>Whole = (45 × 100) / 15 = 300.</li>
+                <li><strong>Answer</strong>: 300.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="section">
+        <h2>6. Example 3: Percentage Increase</h2>
+        <div class="example">
+            <p><strong>A price increases from 100 to 120. Find the percentage increase.</strong></p>
+            <ul>
+                <li>Increase = 120 – 100 = 20.</li>
+                <li>Percentage increase = (20 / 100) × 100 = 20%.</li>
+                <li><strong>Answer</strong>: 20%.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="section">
+        <h2>7. Example 4: Percentage Decrease</h2>
+        <div class="example">
+            <p><strong>A shirt’s price drops from 500 to 400. Find the percentage decrease.</strong></p>
+            <ul>
+                <li>Decrease = 500 – 400 = 100.</li>
+                <li>Percentage decrease = (100 / 500) × 100 = 20%.</li>
+                <li><strong>Answer</strong>: 20%.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="section">
+        <h2>8. Practice Problems</h2>
+        <div class="practice">
+            <ol>
+                <li>Find 25% of 80.</li>
+                <li>If 40% of a number is 24, find the number.</li>
+                <li>A salary increases from 2000 to 2500. Find the percentage increase.</li>
+                <li>A product’s price drops from 300 to 240. Find the percentage decrease.</li>
+                <li>60 out of 150 students passed. Find the pass percentage.</li>
+            </ol>
+        </div>
+    </div>
+    <div class="section">
+        <h2>9. Solutions</h2>
+        <div class="practice">
+            <ol>
+                <li>(25 × 80) / 100 = 20.</li>
+                <li>(24 × 100) / 40 = 60.</li>
+                <li>Increase = 500; (500 / 2000) × 100 = 25%.</li>
+                <li>Decrease = 60; (60 / 300) × 100 = 20%.</li>
+                <li>(60 / 150) × 100 = 40%.</li>
+            </ol>
+        </div>
+    </div>
+    <div class="section">
+        <h2>10. Tips</h2>
+        <ul>
+            <li>Convert percentages to decimals for easier calculations.</li>
+            <li>Double-check percentage increase/decrease by reversing.</li>
+            <li>Practice real-world problems like discounts and taxes.</li>
+        </ul>
+    </div>
+</body>
+<script>
+function downloadPDF() {
+    const element = document.getElementById('percentage');
+    const opt = {
+        margin:       0.5,
+        filename:     'Percentage Notes.pdf',
+        image:        { type: 'jpeg', quality: 0.98 },
+        html2canvas:  { scale: 2 },
+        jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
+    };
+    html2pdf().set(opt).from(element).save();
+}
+</script>
+</html>

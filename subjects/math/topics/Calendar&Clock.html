@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calender and Clock Notes</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            line-height: 1.6;
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        .example, .practice {
+            background-color: #f9f9f9;
+            padding: 10px;
+            border-left: 4px solid #3498db;
+            margin: 10px 0;
+        }
+        ul, ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <button onclick="downloadPDF()" style="padding:10px 20px; margin-bottom:20px; background-color:#3498db; color:white; border:none; border-radius:5px; cursor:pointer;">Download Notes as PDF
+    </button>
+    <div id="Clndr&Clock">
+    <h1>Calendar</h1>
+    <div class="section">
+        <h2>1. What is Calendar?</h2>
+        <p>Calendar problems involve finding the day of the week for a given date or calculating intervals between dates.</p>
+    </div>
+    <div class="section">
+        <h2>2. Key Concepts</h2>
+        <ul>
+            <li>Ordinary Year: 365 days = 1 odd day.</li>
+            <li>Leap Year: 366 days = 2 odd days, divisible by 4 (except centuries, by 400).</li>
+            <li>Day Cycle: Days repeat every 7 days.</li>
+        </ul>
+    </div>
+    <div class="section">
+        <h2>3. Counting Odd Days</h2>
+        <ul>
+            <li>1 ordinary year = 1 odd day.</li>
+            <li>1 leap year = 2 odd days.</li>
+            <li>100 years = 5 odd days.</li>
+        </ul>
+    </div>
+    <div class="section">
+        <h2>4. Example 1: Day of Week</h2>
+        <div class="example">
+            <p><strong>Find the day on 15 August 1947 if 1 January 1900 was Monday.</strong></p>
+            <ul>
+                <li>Years 1900–1946: 12 leap, 35 ordinary = 59 odd days = 3 days.</li>
+                <li>1 Jan 1947 = Thursday; 1 Jan to 15 Aug = 226 days = 2 odd days.</li>
+                <li>Thursday + 2 = Saturday.</li>
+                <li><strong>Answer</strong>: Saturday.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="section">
+        <h2>5. Example 2: Same Day</h2>
+        <div class="example">
+            <p><strong>On what date in 2025 will the day be the same as 15 August 1947 (Saturday)?</strong></p>
+            <ul>
+                <li>1947–2024: 19 leap, 58 ordinary = 96 odd days = 5 days.</li>
+                <li>15 Aug 2024 = Thursday; 2025 adds 1 odd day = Friday.</li>
+                <li>Friday + 1 = 16 Aug 2025.</li>
+                <li><strong>Answer</strong>: 16 August 2025.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="section">
+        <h2>6. Practice Problems</h2>
+        <div class="practice">
+            <ol>
+                <li>If 1 January 2000 was Saturday, find the day on 1 January 2001.</li>
+                <li>Find the day on 26 January 1950 if 1 January 1900 was Monday.</li>
+                <li>How many days between 15 August 2023 and 15 August 2024?</li>
+                <li>Find the day on 31 December 2025 if 2025 is not a leap year.</li>
+                <li>January 2025 will be a Wednesday, on what date will it be the same day again in 2026?</label>
+            </ol>
+        </div>
+    </div>
+    <div>
+    <div class="section">
+        <h2>7. Solutions</h2>
+        <div class="practice">
+            <ol>
+                <li>2000 is leap; 1 odd day; Monday.</li>
+                <li><li>January 1950 = Friday; Jan 26 = Tuesday.</li>
+                <li><li>366 days (2024 is leap).</li>
+                </li><li>1 Jan 2025 = Wednesday; 1 Jan 1 odd day = Thursday.</li>
+                <li><li>1 Jan 2026 = Friday.</li>
+            </ol>
+        </div>
+    </div>
+    <div>
+    <div class="section">
+        <h2>8. Tips</h2>
+        <ul>
+            <li>Memorize leap year rules.</li>
+            <li>Break dates into years + months + months + days.</li>
+            <li><li>Check known dates.</li>
+        </ul>
+    </div>
+
+<br>
+<hr><hr>
+<br>
+
+
+    <h1>Clock</h1>
+    <div class="section">
+        <h2>1. What are Clock?</h2>
+        <p>Clock problems calculate angles between clock hands or time intervals for hands to align.</p>
+    </div>
+    <div class="section">
+        <h2>2. Key Concepts</h2>
+        <ul>
+            <li>Hour Hand: 6° per minute.</li>
+            <li>Minute Hand: 6° per minute.</li>
+            <li><li>Relatively Speed: 5.5° per minute.</li>
+            <li><li>Coinciding: Every 12/11 minutes.</li>
+        </ul>
+    </div>
+    <div class="section">
+        <h2>3. Example 1: Angle Between Hands</h2>
+        <div class="example">
+            <p><strong>Find angle at 3:00 p.m.</strong></p>
+            <ul>
+                <li>Hour hand: 3 × 30 = 90°.</li>
+                <li>Minute hand: 0°.</li>
+                <li>Angle: |90 – 0| = 90°.</li>
+                <li><strong>Answer</strong>: 90°.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="section">
+        <h2>4. Example 2: Coinciding</h2>
+        <div class="example">
+            <p><strong>At</strong> what time after 2:00 do hands coincide?</p>
+            <ul>
+                <li>Hour hand: 2 × 30 = 60°.</li>
+                <li>5.5 × M = 60; M ≈ 10.9 min.</li>
+                <li><strong>Answer</strong>: ≈ 2:11.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="section">
+        <h2>5. Example 3: Opposite Angle</h2>
+        <div class="example">
+            <p><strong>At</strong> what time after 4:00 are hands at 180°?</p>
+            <ul>
+                <li>|120 – 5.5t| = 180; t ≈ 21.82.</li>
+                <li><strong>Answer</strong>: ≈ 4:22.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="section">
+        <h2>6. Practice Problems</h2>
+        <div class="practice">
+            <ol>
+                <li>Find angle at 6:00.</li>
+                <li>Find time after 5:00 when hands coincide.</li>
+                <li>Find time after 3:00 when hands are at 90°.</li>
+                <li>How many times do hands coincide from 12:00 to 12:00 PM?</li>
+                <li>Find time after 7:00 when hands are at 180°.</li>
+            </ol>
+        </div>
+    </div>
+    <div class="section">
+        <h2>7. Solutions</h2>
+        <div class="practice">
+            <ol>
+                <li>180°.</li>
+                <li>≈ 5:27.</li>
+                <li>0 or ≈ 3:27.</li>
+                <li>11 times.</li>
+                <li>≈ 7:30 or 7:44.</li>
+            </ol>
+        </div>
+    </div>
+    <div class="section">
+        <h2>8. Tips</h2>
+        <ul>
+            <li>Use absolute value for smaller angle.</li>
+            <li>Check coinciding times by counting.</li>
+            <li>Practice with right and straight angles.</li>
+        </ul>
+    </div>
+</body>
+<script>
+function downloadPDF() {
+    const element = document.getElementById('Clndr&Clock');
+    const opt = {
+        margin:       0.5,
+        filename:     'Calender and Clock Notes.pdf',
+        image:        { type: 'jpeg', quality: 0.98 },
+        html2canvas:  { scale: 2 },
+        jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
+    };
+    html2pdf().set(opt).from(element).save();
+}
+</script>
+</html>

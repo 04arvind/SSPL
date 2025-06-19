@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profit and Loss Notes</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            line-height: 1.6;
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        .example, .practice {
+            background-color: #f9f9f9;
+            padding: 10px;
+            border-left: 4px solid #3498db;
+            margin: 10px 0;
+        }
+        ul, ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <button onclick="downloadPDF()" style="padding:10px 20px; margin-bottom:20px; background-color:#3498db; color:white; border:none; border-radius:5px; cursor:pointer;">Download Notes as PDF
+    </button>
+    <div id="ProfitLoss">
+    <h1>Profit and Loss</h1>
+    <div class="section">
+        <h2>1. What is Profit and Loss?</h2>
+        <p>Profit and Loss deals with calculating gains or losses in transactions, typically in buying and selling goods.</p>
+    </div>
+    <div class="section">
+        <h2>2. Key Terms</h2>
+        <ul>
+            <li>Cost Price (CP): Price at which an item is bought.</li>
+            <li>Selling Price (SP): Price at which an item is sold.</li>
+            <li>Profit: SP > CP; Profit = SP – CP.</li>
+            <li>Loss: SP < CP; Loss = CP – SP.</li>
+            <li>Profit % = (Profit / CP) × 100.</li>
+            <li>Loss % = (Loss / CP) × 100.</li>
+        </ul>
+    </div>
+    <div class="section">
+        <h2>3. Formulas</h2>
+        <ul>
+            <li>SP = CP + Profit or CP – Loss.</li>
+            <li>CP = (100 × SP) / (100 + Profit%) or (100 × SP) / (100 – Loss%).</li>
+        </ul>
+    </div>
+    <div class="section">
+        <h2>4. Example 1: Calculate Profit</h2>
+        <div class="example">
+            <p><strong>A book is bought for 200 and sold for 250. Find profit and profit %.</strong></p>
+            <ul>
+                <li>Profit = 250 – 200 = 50.</li>
+                <li>Profit % = (50 / 200) × 100 = 25%.</li>
+                <li><strong>Answer</strong>: Profit = 50, Profit % = 25%.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="section">
+        <h2>5. Example 2: Find Selling Price</h2>
+        <div class="example">
+            <p><strong>A shirt’s CP is 300, and a 20% profit is desired. Find SP.</strong></p>
+            <ul>
+                <li>SP = (100 + 20) × 300 / 100 = 360.</li>
+                <li><strong>Answer</strong>: SP = 360.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="section">
+        <h2>6. Example 3: Find Cost Price</h2>
+        <div class="example">
+            <p><strong>A watch is sold for 400 with a 25% loss. Find CP.</strong></p>
+            <ul>
+                <li>CP = (100 × 400) / (100 – 25) = 533.33.</li>
+                <li><strong>Answer</strong>: CP = 533.33.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="section">
+        <h2>7. Example 4: Discount</h2>
+        <div class="example">
+            <p><strong>A laptop’s marked price is 50000, sold at a 10% discount with 20% profit. Find CP.</strong></p>
+            <ul>
+                <li>SP = 50000 × (100 – 10) / 100 = 45000.</li>
+                <li>CP = (100 × 45000) / (100 + 20) = 37500.</li>
+                <li><strong>Answer</strong>: CP = 37500.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="section">
+        <h2>8. Practice Problems</h2>
+        <div class="practice">
+            <ol>
+                <li>A pen is bought for 50 and sold for 60. Find profit %.</li>
+                <li>A phone’s CP is 8000, sold at 10% loss. Find SP.</li>
+                <li>A table is sold for 1200 with 20% profit. Find CP.</li>
+                <li>A shopkeeper sells an item for 900 with 25% loss. Find CP.</li>
+                <li>A bike’s marked price is 40000, sold at 15% discount with 10% profit. Find CP.</li>
+            </ol>
+        </div>
+    </div>
+    <div class="section">
+        <h2>9. Solutions</h2>
+        <div class="practice">
+            <ol>
+                <li>Profit = 10; Profit % = 20%.</li>
+                <li>SP = (100 – 10) × 8000 / 100 = 7200.</li>
+                <li>CP = (100 × 1200) / (100 + 20) = 1000.</li>
+                <li>CP = (100 × 900) / (100 – 25) = 1200.</li>
+                <li>SP = 40000 × (100 – 15) / 100 = 34000; CP = 30909.09.</li>
+            </ol>
+        </div>
+    </div>
+    <div class="section">
+        <h2>10. Tips</h2>
+        <ul>
+            <li>Clearly identify CP and SP.</li>
+            <li>Use percentage formulas for quick calculations.</li>
+            <li>Check discounts by reversing calculations.</li>
+        </ul>
+    </div>
+</body>
+<script>
+function downloadPDF() {
+    const element = document.getElementById('ProfitLoss');
+    const opt = {
+        margin:       0.5,
+        filename:     'Profit and Loss Notes.pdf',
+        image:        { type: 'jpeg', quality: 0.98 },
+        html2canvas:  { scale: 2 },
+        jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
+    };
+    html2pdf().set(opt).from(element).save();
+}
+</script>
+</html>

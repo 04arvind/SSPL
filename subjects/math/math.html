@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Math</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+    };
+  </script>
+  <style>
+    .glass {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+  </style>
+</head>
+<body class="bg-white text-black dark:bg-gradient-to-br dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 dark:text-white transition duration-300 min-h-screen flex flex-col">
+
+  <!-- Navbar -->
+  <header class="bg-black/90 text-white backdrop-blur sticky top-0 z-50 shadow-md">
+    <div class="max-w-7xl mx-auto flex justify-between items-center px-4 py-4">
+      <h1 class="text-2xl font-bold">RRB Group D Book</h1>
+      <nav class="space-x-6 text-sm sm:text-base flex items-center">
+        <a href="../index.html" class="hover:text-blue-400">Home</a>
+        <a href="../syllabus.html" class="hover:text-blue-400">Syllabus</a>
+        <a href="#pyq" class="hover:text-blue-400">PYQs</a>
+        <a href="#mock" class="hover:text-blue-400">Mock Tests</a>
+        <a href="#contact" class="hover:text-blue-400">Contact</a>
+        <button id="theme-toggle" class="ml-4 p-2 text-xl rounded-full transition hover:bg-gray-700">
+          🌞
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Page Content -->
+   <!-- Downloads Section -->
+    <main class="flex-1 py-10 px-4 sm:px-6 lg:px-20">
+  <h2 class="text-3xl font-semibold mb-6 text-center">Math Topics</h2>
+  <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+    <a href="topics/number-system.html" class="p-4 bg-white/70 dark:bg-white/10 text-black dark:text-white rounded-xl shadow hover:bg-blue-100 dark:hover:bg-blue-900 transition font-medium text-center">Number System</a>
+    <a href="topics/bodmas.html" class="p-4 bg-white/70 dark:bg-white/10 text-black dark:text-white rounded-xl shadow hover:bg-blue-100 dark:hover:bg-blue-900 transition font-medium text-center">BODMAS</a>
+    <a href="topics/decimal-fractions.html" class="p-4 bg-white/70 dark:bg-white/10 text-black dark:text-white rounded-xl shadow hover:bg-blue-100 dark:hover:bg-blue-900 transition font-medium text-center">Decimals and Fractions</a>
+
+    <a href="topics/lcm-hcf.html" class="p-4 bg-white/70 dark:bg-white/10 text-black dark:text-white rounded-xl shadow hover:bg-blue-100 dark:hover:bg-blue-900 transition font-medium text-center">LCM and HCF</a>
+    <a href="topics/ratioAndproportion.html" class="p-4 bg-white/70 dark:bg-white/10 text-black dark:text-white rounded-xl shadow hover:bg-blue-100 dark:hover:bg-blue-900 transition font-medium text-center">Ratio and Proportion</a>
+
+    <a href="topics/percentage.html" class="p-4 bg-white/70 dark:bg-white/10 text-black dark:text-white rounded-xl shadow hover:bg-blue-100 dark:hover:bg-blue-900 transition font-medium text-center">Percentages</a>
+    <a href="topics/mensuration.html" class="p-4 bg-white/70 dark:bg-white/10 text-black dark:text-white rounded-xl shadow hover:bg-blue-100 dark:hover:bg-blue-900 transition font-medium text-center">Mensuration</a>
+    <a href="topics/time&work.html" class="p-4 bg-white/70 dark:bg-white/10 text-black dark:text-white rounded-xl shadow hover:bg-blue-100 dark:hover:bg-blue-900 transition font-medium text-center">Time and Work</a>
+    <a href="topics/timeAndDist.html" class="p-4 bg-white/70 dark:bg-white/10 text-black dark:text-white rounded-xl shadow hover:bg-blue-100 dark:hover:bg-blue-900 transition font-medium text-center">Time and Distance</a>
+    <a href="topics/Simp&Comp.html" class="p-4 bg-white/70 dark:bg-white/10 text-black dark:text-white rounded-xl shadow hover:bg-blue-100 dark:hover:bg-blue-900 transition font-medium text-center">Simple and Compound Interest</a>
+    <a href="topics/ProfitLoss.html" class="p-4 bg-white/70 dark:bg-white/10 text-black dark:text-white rounded-xl shadow hover:bg-blue-100 dark:hover:bg-blue-900 transition font-medium text-center">Profit and Loss</a>
+    <a href="topics/Algebra.html" class="p-4 bg-white/70 dark:bg-white/10 text-black dark:text-white rounded-xl shadow hover:bg-blue-100 dark:hover:bg-blue-900 transition font-medium text-center">Algebra</a>
+    <a href="topics/Geometry&Trigo.html" class="p-4 bg-white/70 dark:bg-white/10 text-black dark:text-white rounded-xl shadow hover:bg-blue-100 dark:hover:bg-blue-900 transition font-medium text-center">Geometry and Trigonometry</a>
+    <a href="topics/ElemStat.html" class="p-4 bg-white/70 dark:bg-white/10 text-black dark:text-white rounded-xl shadow hover:bg-blue-100 dark:hover:bg-blue-900 transition font-medium text-center">Elementary Statistics</a>
+    <a href="topics/SquareRoot.html" class="p-4 bg-white/70 dark:bg-white/10 text-black dark:text-white rounded-xl shadow hover:bg-blue-100 dark:hover:bg-blue-900 transition font-medium text-center">Square Root</a>
+    <a href="topics/AgeCal.html" class="p-4 bg-white/70 dark:bg-white/10 text-black dark:text-white rounded-xl shadow hover:bg-blue-100 dark:hover:bg-blue-900 transition font-medium text-center">Age Calculations</a>
+    <a href="topics/Calendar&Clock.html" class="p-4 bg-white/70 dark:bg-white/10 text-black dark:text-white rounded-xl shadow hover:bg-blue-100 dark:hover:bg-blue-900 transition font-medium text-center">Calendar & Clock</a>
+    <a href="topics/Pipes&Cistern.html" class="p-4 bg-white/70 dark:bg-white/10 text-black dark:text-white rounded-xl shadow hover:bg-blue-100 dark:hover:bg-blue-900 transition font-medium text-center">Pipes & Cistern</a>
+  </div>
+</main>
+   
+  <!-- Footer -->
+  <footer id="contact" class="bg-black/70 text-white backdrop-blur text-center py-6 text-sm">
+    <p>&copy; 2025 RRB Group D Book. All rights reserved.</p>
+    <!-- <p>Made with ❤️ by Arvind Rawat</p> -->
+  </footer>
+
+  <!-- Theme Toggle Script -->
+  <script>
+    const toggleBtn = document.getElementById("theme-toggle");
+    const root = document.documentElement;
+
+    function applyTheme() {
+      const isDark = localStorage.theme === "dark";
+      if (isDark) {
+        root.classList.add("dark");
+        toggleBtn.textContent = "🌞";
+      } else {
+        root.classList.remove("dark");
+        toggleBtn.textContent = "🌜";
+      }
+    }
+
+    toggleBtn.addEventListener("click", () => {
+      const isDark = root.classList.contains("dark");
+      if (isDark) {
+        root.classList.remove("dark");
+        toggleBtn.textContent = "🌜";
+        localStorage.theme = "light";
+      } else {
+        root.classList.add("dark");
+        toggleBtn.textContent = "🌞";
+        localStorage.theme = "dark";
+      }
+    });
+
+    applyTheme();
+  </script>
+</body>
+</html>

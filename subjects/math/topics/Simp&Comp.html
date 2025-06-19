@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple and Compound Interest Notes</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            line-height: 1.6;
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        .example, .practice {
+            background-color: #f9f9f9;
+            padding: 10px;
+            border-left: 4px solid #3498db;
+            margin: 10px 0;
+        }
+        ul, ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <button onclick="downloadPDF()" style="padding:10px 20px; margin-bottom:20px; background-color:#3498db; color:white; border:none; border-radius:5px; cursor:pointer;">Download Notes as PDF
+    </button>
+    <div id="simpComp">
+    <h1>Simple and Compound Interest</h1>
+    <div class="section">
+        <h2>1. What is Interest?</h2>
+        <p>Interest is the cost of borrowing money or the return on investment.</p>
+    </div>
+    <div class="section">
+        <h2>2. Simple Interest (SI)</h2>
+        <ul>
+            <li>Formula: SI = (Principal × Rate × Time) / 100.</li>
+            <li>Amount = Principal + SI.</li>
+        </ul>
+    </div>
+    <div class="section">
+        <h2>3. Example 1: Simple Interest</h2>
+        <div class="example">
+            <p><strong>Find SI on 5000 at 8% per year for 3 years.</strong></p>
+            <ul>
+                <li>SI = (5000 × 8 × 3) / 100 = 1200.</li>
+                <li><strong>Answer</strong>: 1200.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="section">
+        <h2>4. Example 2: Find Principal</h2>
+        <div class="example">
+            <p><strong>SI of 600 is earned at 5% per year for 4 years. Find the principal.</strong></p>
+            <ul>
+                <li>600 = (P × 5 × 4) / 100; P = 3000.</li>
+                <li><strong>Answer</strong>: 3000.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="section">
+        <h2>5. Compound Interest (CI)</h2>
+        <ul>
+            <li>Formula: Amount = P(1 + R/100)ⁿ; CI = Amount – P.</li>
+            <li>For half-yearly: R = R/2, n = 2n.</li>
+        </ul>
+    </div>
+    <div class="section">
+        <h2>6. Example 3: Compound Interest</h2>
+        <div class="example">
+            <p><strong>Find CI on 10000 at 10% per year for 2 years.</strong></p>
+            <ul>
+                <li>Amount = 10000 × (1 + 10/100)² = 12100.</li>
+                <li>CI = 12100 – 10000 = 2100.</li>
+                <li><strong>Answer</strong>: 2100.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="section">
+        <h2>7. Practice Problems</h2>
+        <div class="practice">
+            <ol>
+                <li>Find SI on 8000 at 6% per year for 5 years.</li>
+                <li>Find CI on 5000 at 4% per year for 2 years.</li>
+                <li>SI of 900 is earned at 3% per year for 5 years. Find the principal.</li>
+                <li>Find the amount for 2000 at 5% CI for 3 years.</li>
+                <li>Compare SI and CI on 10000 at 10% for 2 years.</li>
+            </ol>
+        </div>
+    </div>
+    <div class="section">
+        <h2>8. Solutions</h2>
+        <div class="practice">
+            <ol>
+                <li>SI = (8000 × 6 × 5) / 100 = 2400.</li>
+                <li>CI = 5408 – 5000 = 408.</li>
+                <li>P = (900 × 100) / 15 = 6000.</li>
+                <li>Amount = 2000 × (1 + 5/100)³ = 2315.25.</li>
+                <li>SI = 2000; CI = 2100; CI > SI by 100.</li>
+            </ol>
+        </div>
+    </div>
+    <div class="section">
+        <h2>9. Tips</h2>
+        <ul>
+            <li>Use SI for linear growth, CI for exponential.</li>
+            <li>Check time units (years, months).</li>
+            <li>Practice CI with different compounding frequencies.</li>
+        </ul>
+    </div>
+</body>
+<script>
+function downloadPDF() {
+    const element = document.getElementById('simpComp');
+    const opt = {
+        margin:       0.5,
+        filename:     'Simple and Compound Interest Notes.pdf',
+        image:        { type: 'jpeg', quality: 0.98 },
+        html2canvas:  { scale: 2 },
+        jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
+    };
+    html2pdf().set(opt).from(element).save();
+}
+</script>
+</html>

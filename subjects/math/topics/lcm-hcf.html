@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Decimals and Fractions</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            line-height: 1.6;
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        .example, .practice {
+            background-color: #f9f9f9;
+            padding: 10px;
+            border-left: 4px solid #3498db;
+            margin: 10px 0;
+        }
+        ul, ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <button onclick="downloadPDF()" style="padding:10px 20px; margin-bottom:20px; background-color:#3498db; color:white; border:none; border-radius:5px; cursor:pointer;">Download Notes as PDF
+    </button>
+    <div id="lcm-hcf">
+    <h1>LCM and HCF</h1>
+    <div class="section">
+  <h2>1. What are LCM and HCF?</h2>
+  <ul>
+    <li><strong>LCM (Least Common Multiple)</strong>: The smallest number that is exactly divisible by each of the given numbers. Used in problems related to repetition, common events, or scheduling.</li> <br>
+    <li><strong>HCF (Highest Common Factor)</strong>: The largest number that divides all the given numbers without leaving any remainder. Used in simplifying ratios, sharing quantities, etc.</li> <br>
+    <li><strong>Example:</strong> For 6 and 8:
+      <ul>
+        <li>LCM = 24</li>
+        <li>HCF = 2</li>
+      </ul>
+    </li>
+  </ul>
+</div>
+
+<div class="section">
+  <h2>2. Methods to Find HCF</h2>
+  <ul>
+    <li><strong>Method 1: Prime Factorization</strong>
+      <ul>
+        <li>Step 1: Write prime factors of each number.</li>
+        <li>Step 2: Take only the common factors with the smallest power.</li>
+        <li><strong>Example:</strong> HCF(24, 36)
+          <ul>
+            <li>24 = 2×2×2×3 = 2³×3</li>
+            <li>36 = 2×2×3×3 = 2²×3²</li>
+            <li>Common = 2²×3 = 12</li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><strong>Method 2: Euclidean Algorithm</strong>
+      <ul>
+        <li>Keep dividing the larger number by the smaller number until the remainder is 0. The divisor at this step is the HCF.</li>
+        <li><strong>Example:</strong> HCF(48, 18)
+          <ul>
+            <li>48 ÷ 18 = 2, remainder = 12</li>
+            <li>18 ÷ 12 = 1, remainder = 6</li>
+            <li>12 ÷ 6 = 2, remainder = 0</li>
+            <li>→ HCF = 6</li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+
+<div class="section">
+  <h2>3. Methods to Find LCM</h2>
+  <ul>
+    <li><strong>Method 1: Prime Factorization</strong>
+      <ul>
+        <li>Step 1: Write prime factors of each number.</li>
+        <li>Step 2: Take all factors with the highest power.</li>
+        <li><strong>Example:</strong> LCM(12, 15)
+          <ul>
+            <li>12 = 2²×3</li>
+            <li>15 = 3×5</li>
+            <li>LCM = 2²×3×5 = 60</li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><strong>Method 2: LCM Formula</strong>
+      <ul>
+        <li><strong>LCM(a, b) = (a × b) ÷ HCF(a, b)</strong></li>
+        <li><strong>Example:</strong> a = 12, b = 18</li>
+        <li>HCF = 6 → LCM = (12×18) / 6 = 216 / 6 = 36</li>
+      </ul>
+    </li>
+  </ul>
+</div>
+
+    <div class="section">
+        <h2>4. Example 1: HCF by Factorization</h2>
+        <div class="example">
+            <p><strong>Find HCF of 12 and 18.</strong></p>
+            <ul>
+                <li>12 = 2² × 3; 18 = 2 × 3².</li>
+                <li>HCF = 2 × 3 = 6.</li>
+                <li><strong>Answer</strong>: 6.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="section">
+        <h2>5. Example 2: LCM by Formula</h2>
+        <div class="example">
+            <p><strong>Find LCM of 8 and 12.</strong></p>
+            <ul>
+                <li>HCF(8, 12) = 4 (by factorization: 8 = 2³, 12 = 2² × 3).</li>
+                <li>LCM = (8 × 12) / 4 = 24.</li>
+                <li><strong>Answer</strong> 24.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="section">
+        <h2>6. Example 3: Euclidean Algorithm</h2>
+        <div class="example">
+            <p><strong>Find HCF of 48 and 18.</strong></p>
+            <ul>
+                <li>
+                <li>48 ÷ 18 = 2 remainder 12.</li>
+                <li>18 ÷ 6 = 3 remainder 0.</li>
+                <li>HCF = 6.</li>
+                <li><strong>Answer</strong></strong> 6.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="section">
+        <h2>7. Example 4: Application</h2>
+        <div class="example">
+            <p><strong>Two bells ring every 6 and 8 minutes. When do they ring together?</strong></p>
+            <ul>
+                <li>LCM(6, 8) = (6 × 8) / HCF(6, 8) = 48 / 2 = 24.</li>
+                <li><strong>Answer</strong>: After 24 minutes.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="section">
+        <h2>8. Practice Problems</h2>
+        <div class="practice">
+            <ol>
+                <li>Find HCF of 24 and 36.</li>
+                <li>Find LCM of 15 and 20.</li>
+                <li>Find HCF of 27 and 45 using Euclidean algorithm.</li>
+                <li>Two numbers have HCF 6 and LCM 72. Find one possible pair.</li>
+                <li>Three ropes of lengths 4, 6, 8 m. Find minimum length to cut equal pieces.</li>
+            </ol>
+        </div>
+    </div>
+    <div class="section">
+        <h2>9. Solutions</h2>
+        <div class="practice">
+            <ol>
+                <li>HCF(24, 36) = 12 (24 = 2³ × 3, 36 = 2² × 3²).</li>
+                <li>LCM(15, 20) = 60 (15 × 20 / 5).</li>
+                <li>45 ÷ 27 = 18, 27 ÷ 18 = 9, 18 ÷ 9 = 0; HCF = 9.</li>
+                <li>Possible pair: 18, 24 (HCF = 6, LCM = 72).</li>
+                <li>LCM(4, 6, 8) = 24 m.</li>
+            </ol>
+        </div>
+    </div>
+    <div class="section">
+        <h2>10. Tips</h2>
+        <ul>
+            <li>Use Euclidean algorithm for large numbers.</li>
+            <li>Verify LCM/HCF using formula.</li>
+            <li>Apply to real-world scenarios like time or ratios.</li>
+        </ul>
+    </div>
+</body>
+<script>
+function downloadPDF() {
+    const element = document.getElementById('lcm-hcf');
+    const opt = {
+        margin:       0.5,
+        filename:     'Number System Notes.pdf',
+        image:        { type: 'jpeg', quality: 0.98 },
+        html2canvas:  { scale: 2 },
+        jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
+    };
+    html2pdf().set(opt).from(element).save();
+}
+</script>
+</html>

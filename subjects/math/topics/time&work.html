@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time and Work Notes</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            line-height: 1.6;
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        .example, .practice {
+            background-color: #f9f9f9;
+            padding: 10px;
+            border-left: 4px solid #3498db;
+            margin: 10px 0;
+        }
+        ul, ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <button onclick="downloadPDF()" style="padding:10px 20px; margin-bottom:20px; background-color:#3498db; color:white; border:none; border-radius:5px; cursor:pointer;">Download Notes as PDF
+    </button>
+    <div id="TimeWork">
+    <h1>Time and Work</h1>
+    <div class="section">
+        <h2>1. What is Time and Work?</h2>
+        <p>Time and work problems calculate how long it takes for individuals or groups to complete tasks, based on their work rates.</p>
+    </div>
+    <div class="section">
+        <h2>2. Basic Concept</h2>
+        <ul>
+            <li>Work rate = Work done / Time taken.</li>
+            <li>If A completes a job in n days, A’s 1-day work = 1/n.</li>
+        </ul>
+    </div>
+    <div class="section">
+        <h2>3. Combined Work Formula</h2>
+        <ul>
+            <li>If A does a job in a days and B in b days, combined work = (1/a) + (1/b).</li>
+            <li>Time together = (a × b) / (a + b).</li>
+        </ul>
+    </div>
+    <div class="section">
+        <h2>4. Example 1: Individual Work</h2>
+        <div class="example">
+            <p><strong>A can do a job in 6 days. How much work does A do in 2 days?</strong></p>
+            <ul>
+                <li>A’s 1-day work = 1/6.</li>
+                <li>Work in 2 days = 2 × (1/6) = 1/3.</li>
+                <li><strong>Answer</strong>: 1/3 of the job.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="section">
+        <h2>5. Example 2: Combined Work</h2>
+        <div class="example">
+            <p><strong>A does a job in 10 days, B in 15 days. How long do they take together?</strong></p>
+            <ul>
+                <li>A’s 1-day work = 1/10; B’s = 1/15.</li>
+                <li>Combined work = (1/10) + (1/15) = 1/6.</li>
+                <li>Time together = 6 days.</li>
+                <li><strong>Answer</strong>: 6 days.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="section">
+        <h2>6. Example 3: Partial Work</h2>
+        <div class="example">
+            <p><strong>A can do a job in 12 days, B in 18 days. They work together for 4 days, then A leaves. How long does B take to finish?</strong></p>
+            <ul>
+                <li>Combined 1-day work = (1/12) + (1/18) = 5/36.</li>
+                <li>Work in 4 days = 4 × (5/36) = 5/9.</li>
+                <li>Remaining work = 1 – 5/9 = 4/9.</li>
+                <li>B’s time = (4/9) / (1/18) = 8 days.</li>
+                <li><strong>Answer</strong>: 8 days.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="section">
+        <h2>7. Practice Problems</h2>
+        <div class="practice">
+            <ol>
+                <li>A completes a job in 8 days. How much work is done in 3 days?</li>
+                <li>B can do a job in 20 days, C in 30 days. How long do they take together?</li>
+                <li>A and B together can do a job in 12 days. A alone takes 18 days. How long does B take alone?</li>
+                <li>A can do a job in 15 days. After 5 days, B joins and they finish in 6 more days. How long does B take alone?</li>
+                <li>A, B, C can do a job in 10, 15, 20 days. How long do they take together?</li>
+            </ol>
+        </div>
+    </div>
+    <div class="section">
+        <h2>8. Solutions</h2>
+        <div class="practice">
+            <ol>
+                <li>Work = 3 × (1/8) = 3/8.</li>
+                <li>Combined work = (1/20) + (1/30) = 1/12; Time = 12 days.</li>
+                <li>B’s work = 1/12 – 1/18 = 1/36; B alone = 36 days.</li>
+                <li>B alone = 22.5 days.</li>
+                <li>Combined work = (1/10) + (1/15) + (1/20) = 13/60; Time = 60/13 days.</li>
+            </ol>
+        </div>
+    </div>
+    <div class="section">
+        <h2>9. Tips</h2>
+        <ul>
+            <li>Focus on 1-day work rates.</li>
+            <li>Use LCM for combined work calculations.</li>
+            <li>Check partial work by summing contributions.</li>
+        </ul>
+    </div>
+</body>
+<script>
+function downloadPDF() {
+    const element = document.getElementById('TimeWork');
+    const opt = {
+        margin:       0.5,
+        filename:     'Time and Work Notes.pdf',
+        image:        { type: 'jpeg', quality: 0.98 },
+        html2canvas:  { scale: 2 },
+        jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
+    };
+    html2pdf().set(opt).from(element).save();
+}
+</script>
+</html>

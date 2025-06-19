@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Square Root Notes</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            line-height: 1.6;
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        .example, .practice {
+            background-color: #f9f9f9;
+            padding: 10px;
+            border-left: 4px solid #3498db;
+            margin: 10px 0;
+        }
+        ul, ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <button onclick="downloadPDF()" style="padding:10px 20px; margin-bottom:20px; background-color:#3498db; color:white; border:none; border-radius:5px; cursor:pointer;">Download Notes as PDF
+    </button>
+    <div id="squareRoot">
+    <h1>Square Root</h1>
+    <div class="section">
+        <h2>1. What is Square Root?</h2>
+        <p>Square root of a number x is a number y such that y² = x (e.g., √16 = 4).</p>
+    </div>
+    <div class="section">
+        <h2>2. Methods to Find Square Root</h2>
+        <ul>
+            <li>Prime Factorization: Factorize, pair factors (e.g., √36 = 6).</li>
+            <li>Long Division Method: For non-perfect squares.</li>
+            <li>Approximation: For irrationals like √2 ≈ 1.414.</li>
+        </ul>
+    </div>
+    <div class="section">
+        <h2>3. Example 1: Prime Factorization</h2>
+        <div class="example">
+            <p><strong>Find √144.</strong></p>
+            <ul>
+                <li>144 = 2⁴ × 3².</li>
+                <li>√144 = 2² × 3 = 12.</li>
+                <li><strong>Answer</strong>: 12.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="section">
+        <h2>4. Example 2: Long Division</h2>
+        <div class="example">
+            <p><strong>Find √27 (approximate to 2 decimals).</strong></p>
+            <ul>
+                <li>Pair digits: 27.00.</li>
+                <li>5² = 25, 27 – 25 = 2; Adjust: 5.2² = 27.04, 5.1² = 26.01.</li>
+                <li><strong>Answer</strong>: ≈ 5.20.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="section">
+        <h2>5. Example 3: Application</h2>
+        <div class="example">
+            <p><strong>Area of a square is 169 cm². Find side length.</strong></p>
+            <ul>
+                <li>Side = √169 = 13 cm.</li>
+                <li><strong>Answer</strong>: 13 cm.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="section">
+        <h2>6. Practice Problems</h2>
+        <div class="practice">
+            <ol>
+                <li>Find √64 using prime factorization.</li>
+                <li>Find √50 to 2 decimals using long division.</li>
+                <li>Find side of a square with area 225 cm².</li>
+                <li>Simplify: √(16 × 25).</li>
+                <li>If √x = 7, find x.</li>
+            </ol>
+        </div>
+    </div>
+    <div class="section">
+        <h2>7. Solutions</h2>
+        <div class="practice">
+            <ol>
+                <li>64 = 2⁶; √64 = 8.</li>
+                <li>√50 ≈ 7.07.</li>
+                <li>Side = 15 cm.</li>
+                <li>√(16 × 25) = 20.</li>
+                <li>x = 49.</li>
+            </ol>
+        </div>
+    </div>
+    <div class="section">
+        <h2>8. Tips</h2>
+        <ul>
+            <li>Check if number is perfect square first.</li>
+            <li>Practice long division for approximations.</li>
+            <li>Use √(a × b) = √a × √b for simplification.</li>
+        </ul>
+    </div>
+</body>
+<script>
+function downloadPDF() {
+    const element = document.getElementById('squareRoot');
+    const opt = {
+        margin:       0.5,
+        filename:     'Square Root Notes.pdf',
+        image:        { type: 'jpeg', quality: 0.98 },
+        html2canvas:  { scale: 2 },
+        jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
+    };
+    html2pdf().set(opt).from(element).save();
+}
+</script>
+</html>

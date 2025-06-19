@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Decimals and Fractions</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            line-height: 1.6;
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        .example, .practice {
+            background-color: #f9f9f9;
+            padding: 10px;
+            border-left: 4px solid #3498db;
+            margin: 10px 0;
+        }
+        ul, ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <button onclick="downloadPDF()" style="padding:10px 20px; margin-bottom:20px; background-color:#3498db; color:white; border:none; border-radius:5px; cursor:pointer;">Download Notes as PDF
+    </button>
+    <div id="deci-frac-content">
+    <h1>Decimals and Fractions</h1>
+    <div class="section">
+         <h2>1. Definitions</h2>
+  <ul>
+    <li><strong>Fraction:</strong> A number that represents a part of a whole. It has two parts: the numerator (top) and the denominator (bottom). Example: <code>3/4</code> means 3 parts out of 4.</li>
+    <li><strong>Decimal:</strong> A number expressed using a decimal point. It shows part of a whole using place values like tenths, hundredths, etc. Example: <code>0.75</code>.</li>
+    <li><strong>Terminating Decimal:</strong> A decimal that ends or terminates after a certain number of digits. Example: <code>0.25</code>.</li>
+    <li><strong>Non-Terminating Repeating Decimal:</strong> A decimal that repeats a pattern forever. Example: <code>0.333...</code>.</li>
+  </ul>
+</div>
+
+<div class="section">
+  <h2>2. Converting Fractions to Decimals</h2>
+  <p>To convert a fraction into a decimal, divide the numerator by the denominator.</p>
+  <ul>
+    <li><strong>Example 1:</strong> Convert <code>3/4</code> to decimal → <code>3 ÷ 4 = 0.75</code></li>
+    <li><strong>Example 2:</strong> Convert <code>1/2</code> → <code>1 ÷ 2 = 0.5</code></li>
+    <li><strong>Example 3:</strong> Convert <code>1/3</code> → <code>1 ÷ 3 = 0.333…</code> (Repeating Decimal)</li>
+  </ul>
+  <p><strong>Tip:</strong> If the denominator has only 2 and/or 5 as prime factors, the decimal will terminate.</p>
+</div>
+
+<div class="section">
+  <h2>3. Converting Decimals to Fractions</h2>
+  <p>Write the decimal as a fraction and simplify it.</p>
+  <ul>
+    <li><strong>Terminating Decimal:</strong>  
+      <br><strong>Example:</strong> <code>0.6 = 6/10 = 3/5</code></li>
+    <li><strong>Repeating Decimal:</strong> Use algebraic method:  
+      <br><strong>Example:</strong> Convert <code>0.666…</code> to fraction:  
+      <br>Let x = 0.666…  
+      <br>10x = 6.666…  
+      <br>Now subtract: 10x - x = 6.666… - 0.666…  
+      <br>9x = 6 → x = 6/9 = 2/3
+    </li>
+  </ul>
+</div>
+
+<div class="section">
+  <h2>4. Comparing Fractions and Decimals</h2>
+  <p>Convert either all to decimals or all to fractions, then compare.</p>
+  <ul>
+    <li><strong>Example:</strong> Compare <code>3/4</code> and <code>0.7</code> →  
+      <code>3/4 = 0.75</code>, so <code>0.75 > 0.7</code>
+    </li>
+    <li><strong>Tip:</strong> Use LCM if converting decimals to fractions with unlike denominators.</li>
+  </ul>
+</div>
+
+<div class="section">
+  <h2>5. Word Problems</h2>
+  <p>Understanding application-based questions is important in exams:</p>
+  <ul>
+    <li><strong>Q:</strong> A person spends <code>0.6</code> of his salary on rent. What fraction of his salary is spent on rent?<br>
+    <strong>Ans:</strong> <code>0.6 = 6/10 = 3/5</code></li>
+
+    <li><strong>Q:</strong> Which is greater: <code>7/10</code> or <code>0.65</code>?  
+    <br><strong>Ans:</strong> <code>7/10 = 0.7</code>, and <code>0.7 > 0.65</code></li>
+  </ul>
+</div>
+    <div class="section">
+        <h2>6. Example 1: Fraction to Decimal</h2>
+        <div class="example">
+            <p><strong>Convert 5/8 to decimal:</strong></p>
+            <ul>
+                <li>5 ÷ 8 = 0.625.</li>
+                <li><strong>Answer</strong>: 625.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="section">
+        <h2>7. Example 2: Decimal to Fraction</h2>
+        <div class="example">
+            <p><strong>Convert 0.4 to fraction:</strong></p>
+            <ul>
+                <li>0.4 = 4/10 = 2/5.</li>
+                <li><strong>Answer</strong>: 2/5.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="section">
+        <h2>8. Operations on Fractions</h2>
+        <ul>
+            <li>Addition: (a/b) + (c/d) = (ad + cb)/(bd).</li>
+            <li>Multiplication: (a/b) × (c/d) = (a×c)/(b×d).</li>
+            <li>Division: (a/b) ÷ (c/d) = (a/b) × (d/c).</li>
+        </ul>
+    </div>
+    <div class="section">
+        <h2>9. Example 3: Fraction Addition</h2>
+        <div class="example">
+            <p><strong>Solve</strong>: (2/3) + (1/4)</p>
+            <ul>
+                <li>LCM of 3, 4 = 12.</li>
+                <li>(2/3) = (8/12), (1/4) = (3/12).</li>
+                <li>(8/12) + (3/12) = 11/12.</li>
+                <li><strong>Answer</strong>: 11/12.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="section">
+        <h2>10. Example 4: Decimal Multiplication</h2>
+        <div class="example">
+            <p><strong>Solve</strong>: 0.3 × 0.6</p>
+            <ul>
+                <li>0.3 × 0.6 = 3/10 × 6/10 = 18/100 = 0.18.</li>
+                <li><strong>Answer</strong>: 0.18.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="section">
+        <h2>11. Practice Problems</h2>
+        <div class="practice">
+            <ol>
+                <li>Convert 7/20 to decimal.</li>
+                <li>Convert 0.125 to fraction.</li>
+                <li>Solve: (5/6) + (2/3).</li>
+                <li>Solve: 0.4 × 0.25.</li>
+                <li>Solve: (3/4) ÷ (5/3).</li>
+            </ol>
+        </div>
+    </div>
+    <div class="section">
+        <h2>12. Solutions</h2>
+        <div class="practice">
+            <ol>
+                <li>7/20 = 7 ÷ 20 = 0.35.</li>
+                <li>0.125 = 125/1000 = 1/8.</li>
+                <li>(5/6) + (4/6) = 9/6 = 3/2.</li>
+                <li>0.4 × 0.25 = 0.1.</li>
+                <li>(3/4) × (3/5) = 15/20 = 3/4.</li>
+            </ol>
+        </div>
+    </div>
+    <div class="section">
+        <h2>13. Tips</h2>
+        <ul>
+            <li>Simplify fractions to lowest terms.</li>
+            <li>Check decimal conversions by reversing.</li>
+            <li>Practice repeating decimal problems.</li>
+        </ul>
+    </div>
+</body>
+<script>
+function downloadPDF() {
+    const element = document.getElementById('deci-frac-content');
+    const opt = {
+        margin:       0.5,
+        filename:     'Decimal and Fraction Notes.pdf',
+        image:        { type: 'jpeg', quality: 0.98 },
+        html2canvas:  { scale: 2 },
+        jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
+    };
+    html2pdf().set(opt).from(element).save();
+}
+</script>
+</html>
