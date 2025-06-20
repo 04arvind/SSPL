@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classification - Reasoning Notes</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            line-height: 1.6;
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+        .section {
+            margin-bottom: 20px;
+            padding: 15px;
+            border-left: 4px solid #3498db;
+            background-color: #f9f9f9;
+        }
+        .example {
+            background-color: #e8f4f8;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        .question {
+            background-color: #fff3e0;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 10px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #3498db;
+            color: white;
+        }
+        .diagram {
+            background-color: #f0f0f0;
+            padding: 10px;
+            font-family: monospace;
+            text-align: center;
+            white-space: pre;
+        }
+    </style>
+</head>
+<body>
+      <button onclick="downloadPDF()" style="padding:10px 20px; margin-bottom:20px; background-color:#3498db; color:white; border:none; border-radius:5px; cursor:pointer;">Download Notes as PDF
+    </button>
+    <div id="classification">
+    <h1>Classification - General Intelligence and Reasoning</h1>
+    <div class="section">
+        <h2>1. Introduction to Classification</h2>
+        <p>Classification is a reasoning topic that involves grouping elements (words, numbers, figures, or objects) based on a common property or identifying the element that does not belong to the group (often called the "odd one out"). It tests the ability to recognize patterns, properties, or relationships and is a fundamental skill in logical reasoning, commonly appearing in competitive exams to assess analytical and categorization skills.</p>
+        <p><strong>Objective:</strong> Identify the common characteristic among a set of elements or find the element that deviates from the group based on specific criteria.</p>
+        <p><strong>Applications:</strong> Used in data organization, taxonomy, and decision-making processes.</p>
+    </div>
+
+    <div class="section">
+        <h2>2. Types of Classification Questions</h2>
+        <p>Classification questions can be categorized as follows:</p>
+        <ul>
+            <li><strong>Word Classification:</strong> Group words based on meaning, type, or structure (e.g., fruits, verbs).</li>
+            <li><strong>Number Classification:</strong> Group numbers based on properties (e.g., prime, even, multiples).</li>
+            <li><strong>Figure Classification:</strong> Group shapes or patterns based on visual properties (e.g., size, color).</li>
+            <li><strong>Odd One Out:</strong> Identify the element that does not share the common property.</li>
+            <li><strong>Coded Classification:</strong> Group elements based on coded patterns (e.g., letter-number pairs).</li>
+            <li><strong>Mixed Classification:</strong> Combine words, numbers, or figures with multiple criteria.</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>3. Key Concepts</h2>
+        <p>Understanding these concepts is essential:</p>
+        <ul>
+            <li><strong>Common Property:</strong> The shared characteristic that defines a group (e.g., all are animals).</li>
+            <li><strong>Deviation:</strong> The unique trait that makes an element the odd one out.</li>
+            <li><strong>Patterns:</strong> Numerical, alphabetical, or visual sequences (e.g., arithmetic progression, vowel-consonant).</li>
+            <li><strong>Categories:</strong> Broad classifications like parts of speech, shapes, or number types.</li>
+        </ul>
+        <table>
+            <tr>
+                <th>Question Type</th>
+                <th>Key Focus</th>
+            </tr>
+            <tr>
+                <td>Word Classification</td>
+                <td>Meaning, grammar, or category</td>
+            </tr>
+            <tr>
+                <td>Number Classification</td>
+                <td>Mathematical properties or patterns</td>
+            </tr>
+            <tr>
+                <td>Figure Classification</td>
+                <td>Shape, size, or pattern</td>
+            </tr>
+            <tr>
+                <td>Odd One Out</td>
+                <td>Identify unique element</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="section">
+        <h2>4. Steps to Solve Classification Questions</h2>
+        <ol>
+            <li>Identify the elements (words, numbers, figures) in the question.</li>
+            <li>Determine the possible basis for classification (e.g., category, property, pattern).</li>
+            <li>Analyze each element to find a common property or pattern.</li>
+            <li>For odd one out, identify the element that deviates from the common property.</li>
+            <li>Verify by checking all elements against the identified criterion.</li>
+        </ol>
+        <div class="example">
+            <p><strong>Example 1 (Word Classification):</strong> Find the odd one out: Apple, Banana, Carrot, Mango.</p>
+            <p><strong>Solution:</strong>
+                <ul>
+                    <li>Analyze: Apple, Banana, Mango are fruits; Carrot is a vegetable.</li>
+                    <li>Common property: Fruits.</li>
+                    <li>Odd one: Carrot (vegetable).</li>
+                    <li>Answer: Carrot.</li>
+                </ul>
+            </p>
+        </div>
+        <div class="example">
+            <p><strong>Example 2 (Number Classification):</strong> Find the common property: 4, 16, 36, 64.</p>
+            <p><strong>Solution:</strong>
+                <ul>
+                    <li>Analyze: 4 = 2², 16 = 4², 36 = 6², 64 = 8².</li>
+                    <li>Common property: Perfect squares of even numbers.</li>
+                    <li>Answer: Perfect squares.</li>
+                </ul>
+            </p>
+            <div class="diagram">
+                [4, 16, 36, 64] → All are n² (n = 2, 4, 6, 8)
+            </div>
+        </div>
+        <div class="example">
+            <p><strong>Example 3 (Figure Classification):</strong> Find the odd one out: Circle, Square, Triangle, Cube.</p>
+            <p><strong>Solution:</strong>
+                <ul>
+                    <li>Analyze: Circle, Square, Triangle are 2D shapes; Cube is 3D.</li>
+                    <li>Common property: 2D shapes.</li>
+                    <li>Odd one: Cube.</li>
+                    <li>Answer: Cube.</li>
+                </ul>
+            </p>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>5. Practice Questions</h2>
+        <div class="question">
+            <p><strong>Question 1 (Word Classification):</strong> Find the odd one out: Rose, Lily, Carrot, Tulip.</p>
+            <p>A) Rose B) Lily C) Carrot D) Tulip</p>
+            <p><strong>Solution:</strong>
+                <ul>
+                    <li>Rose, Lily, Tulip are flowers; Carrot is a vegetable.</li>
+                    <li>Answer: C) Carrot.</li>
+                </ul>
+            </p>
+        </div>
+        <div class="question">
+            <p><strong>Question 2 (Number Classification):</strong> Find the common property: 3, 9, 27, 81.</p>
+            <p>A) Odd numbers B) Prime numbers C) Powers of 3 D) Multiples of 9</p>
+            <p><strong>Solution:</strong>
+                <ul>
+                    <li>Analyze: 3 = 3¹, 9 = 3², 27 = 3³, 81 = 3⁴.</li>
+                    <li>Common property: Powers of 3.</li>
+                    <li>Answer: C.</li>
+                </ul>
+            </p>
+        </div>
+        <div class="question">
+            <p><strong>Question 3 (Odd One Out):</strong> Find the odd one: 2, 3, 5, 9.</p>
+            <p>A) 2 B) 3 C) 5 D) 9</p>
+            <p><strong>Solution:</strong>
+                <ul>
+                    <li>2, 3, 5 are prime numbers; 9 is composite.</li>
+                    <li>Answer: D) 9.</li>
+                </ul>
+            </p>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>6. Common Mistakes to Avoid</h2>
+        <ul>
+            <li>Focusing on irrelevant properties (e.g., word length instead of meaning).</li>
+            <li>Missing subtle differences (e.g., overlooking composite vs. prime numbers).</li>
+            <li>Assuming all elements share a property without checking.</li>
+            <li>Confusing the question type (e.g., finding similarity instead of odd one out).</li>
+            <li>Ignoring multiple criteria (e.g., both category and pattern).</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>7. Tips for Preparation</h2>
+        <ul>
+            <li>Practice identifying common properties in words, numbers, and figures.</li>
+            <li>Memorize number properties (e.g., prime, square, multiple).</li>
+            <li>Solve 20–30 classification questions daily to build speed.</li>
+            <li>Systematically compare all elements before concluding.</li>
+            <li>Use elimination to identify the odd one out.</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>8. Additional Examples</h2>
+        <table>
+            <tr>
+                <th>Question Type</th>
+                <th>Elements</th>
+                <th>Answer</th>
+            </tr>
+            <tr>
+                <td>Word Classification</td>
+                <td>Dog, Cat, Fish, Chair</td>
+                <td>Chair (not an animal)</td>
+            </tr>
+            <tr>
+                <td>Number Classification</td>
+                <td>1, 4, 7, 10</td>
+                <td>Arithmetic sequence (+3)</td>
+            </tr>
+            <tr>
+                <td>Figure Classification</td>
+                <td>Circle, Square, Pentagon, Line</td>
+                <td>Line (not a closed shape)</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="section">
+        <h2>9. Advanced Classification Questions</h2>
+        <p>Advanced questions involve multiple criteria or coded patterns.</p>
+        <div class="example">
+            <p><strong>Example (Coded Classification):</strong> Find the odd one out: A2, B5, C10, D17.</p>
+            <p><strong>Solution:</strong>
+                <ul>
+                    <li>Analyze: A2 (1+1²=2), B5 (2+1²=3), C10 (3+2²=7), D17 (4+3²=13).</li>
+                    <li>Pattern: Letter position + square of a number.</li>
+                    <li>Check: A2 (1+1=2), B5 (2+3=5), C10 (3+7=10), D17 (4+13=17).</li>
+                    <li>All follow the pattern; no odd one out (or check context).</li>
+                    <li>Answer: None.</li>
+                </ul>
+            </p>
+        </div>
+    </div>
+
+    <div class="section">
+  <h2>10. Practice Set (10 Questions)</h2>
+  <p>Additional questions to reinforce learning:</p>
+
+  <div class="question">
+    <p><strong>Question 1:</strong> Find the common property: 16, 25, 49, 64.</p>
+    <p>A) Even numbers B) Prime numbers C) Perfect squares D) Multiples of 4</p>
+    <p><strong>Solution:</strong> 4², 5², 7², 8² → All perfect squares. Answer: C</p>
+  </div>
+
+  <div class="question">
+    <p><strong>Question 2:</strong> Find the common property: 2, 3, 5, 7.</p>
+    <p>A) Prime numbers B) Odd numbers C) Consecutive numbers D) Cubes</p>
+    <p><strong>Solution:</strong> All are primes. Answer: A</p>
+  </div>
+
+  <div class="question">
+    <p><strong>Question 3:</strong> Find the common property: 27, 64, 125, 216.</p>
+    <p>A) Squares B) Cubes C) Multiples of 9 D) Odd numbers</p>
+    <p><strong>Solution:</strong> 3³, 4³, 5³, 6³ → Cubes. Answer: B</p>
+  </div>
+
+  <div class="question">
+    <p><strong>Question 4:</strong> Find the common property: Monday, Tuesday, Friday, Sunday.</p>
+    <p>A) All vowels B) Weekdays C) Days of week D) All end in 'y'</p>
+    <p><strong>Solution:</strong> All are names of days. Answer: C</p>
+  </div>
+
+  <div class="question">
+    <p><strong>Question 5:</strong> Find the common property: A, E, I, O.</p>
+    <p>A) Alphabets B) Vowels C) Consonants D) Symbols</p>
+    <p><strong>Solution:</strong> All are vowels. Answer: B</p>
+  </div>
+
+  <div class="question">
+    <p><strong>Question 6:</strong> Find the common property: 4, 6, 8, 10.</p>
+    <p>A) Odd numbers B) Even numbers C) Multiples of 3 D) Primes</p>
+    <p><strong>Solution:</strong> All are even. Answer: B</p>
+  </div>
+
+  <div class="question">
+    <p><strong>Question 7:</strong> Find the common property: Apple, Banana, Mango, Orange.</p>
+    <p>A) Colors B) Fruits C) Vegetables D) Trees</p>
+    <p><strong>Solution:</strong> All are fruits. Answer: B</p>
+  </div>
+
+  <div class="question">
+    <p><strong>Question 8:</strong> Find the common property: Square, Triangle, Circle, Rectangle.</p>
+    <p>A) Numbers B) Shapes C) Angles D) Colors</p>
+    <p><strong>Solution:</strong> All are geometrical shapes. Answer: B</p>
+  </div>
+
+  <div class="question">
+    <p><strong>Question 9:</strong> Find the common property: 100, 121, 144, 169.</p>
+    <p>A) Perfect squares B) Multiples of 11 C) Prime numbers D) Cubes</p>
+    <p><strong>Solution:</strong> 10², 11², 12², 13² → Squares. Answer: A</p>
+  </div>
+
+  <div class="question">
+    <p><strong>Question 10:</strong> Find the common property: Gold, Silver, Copper, Iron.</p>
+    <p>A) Liquids B) Gases C) Metals D) Alloys</p>
+    <p><strong>Solution:</strong> All are metals. Answer: C</p>
+  </div>
+</div>
+
+
+   
+
+    <div class="section">
+        <h2>11. Real-World Applications</h2>
+        <p>Used in biological taxonomy, data clustering, and market segmentation.</p>
+    </div>
+
+    
+    <div class="section">
+        <h2>12. Visual Aids</h2>
+        <p>Tables for properties and patterns:</p>
+        <table>
+            <tr>
+                <th>Type</th>
+                <th>Example</th>
+                <th>Common Property</th>
+            </tr>
+            <tr>
+                <td>Word</td>
+                <td>Apple, Banana, Mango</td>
+                <td>Fruits</td>
+            </tr>
+            <tr>
+                <td>Number</td>
+                <td>2, 3, 5</td>
+                <td>Prime numbers</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="section">
+  <h2>13. Strategies for Complex Classification</h2>
+  <p>In complex classification questions, options may seem similar or involve more than one logical rule. To tackle such problems efficiently, consider the following strategies:</p>
+  
+  <ul>
+    <li><strong>1. Identify the Domain:</strong> Determine whether the items belong to a category such as numbers, letters, words, shapes, or objects. This helps frame the context quickly.</li>
+    
+    <li><strong>2. Look for Hidden Patterns:</strong> Check for arithmetic patterns (like perfect squares, cubes, prime numbers), alphabetical sequences, or linguistic/semantic categories (like animals, metals, tools).</li>
+    
+    <li><strong>3. Eliminate Commonalities:</strong> Use the process of elimination by identifying features shared by all but one option—this is especially helpful in "Odd One Out" types.</li>
+    
+    <li><strong>4. Use Classification Grids:</strong> For multi-criteria questions, create a small table or grid to classify based on more than one attribute (e.g., even/odd + divisible by 3).</li>
+    
+    <li><strong>5. Decode Letter/Number Codes:</strong> For coded words or alphanumeric patterns, check the position of letters (A=1 to Z=26), reverse alphabets (Z=1), or consistent arithmetic shifts.</li>
+    
+    <li><strong>6. Don’t Overcomplicate:</strong> If two rules seem equally valid, choose the simpler pattern that applies to more options—competitive exams usually favor a dominant, simple logic.</li>
+    
+    <li><strong>7. Time Management:</strong> Don’t over-invest in a single question. If the classification is too obscure, move on and revisit it later.</li>
+  </ul>
+
+  <p>These strategies help break down apparently tough classification sets into manageable steps, increasing your accuracy and speed under exam pressure.</p>
+</div>
+
+
+    <div class="section">
+        <h2>14. Summary and Quick Reference</h2>
+        <p>Key points: Identify common properties, check for deviations, use systematic comparison. Memorize key patterns.</p>
+    </div>
+</body>
+<script>
+function downloadPDF() {
+    const element = document.getElementById('classification');
+    const opt = {
+        margin:       0.5,
+        filename:     'Classification Notes.pdf',
+        image:        { type: 'jpeg', quality: 0.98 },
+        html2canvas:  { scale: 2 },
+        jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
+    };
+    html2pdf().set(opt).from(element).save();
+}
+</script>
+</html>

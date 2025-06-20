@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relationships - Reasoning Notes</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            line-height: 1.6;
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+        .section {
+            margin-bottom: 20px;
+            padding: 15px;
+            border-left: 4px solid #3498db;
+            background-color: #f9f9f9;
+        }
+        .example {
+            background-color: #e8f4f8;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        .question {
+            background-color: #fff3e0;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 10px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #3498db;
+            color: white;
+        }
+        .diagram {
+            background-color: #f0f0f0;
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+      <button onclick="downloadPDF()" style="padding:10px 20px; margin-bottom:20px; background-color:#3498db; color:white; border:none; border-radius:5px; cursor:pointer;">Download Notes as PDF
+    </button>
+    <div id="relation">
+    <h1>Relationships - General Intelligence and Reasoning</h1>
+    <div class="section">
+        <h2>1. Introduction to Relationships</h2>
+        <p>Relationships, also known as Blood Relations, is a reasoning topic that tests the ability to understand and analyze family relationships based on given information. Questions involve identifying relationships between individuals (e.g., father, sister, cousin) using statements, family trees, or coded relations. This topic assesses logical deduction and the ability to interpret complex relational data, commonly appearing in competitive exams.</p>
+        <p><strong>Objective:</strong> Determine the relationship between two individuals or verify a given relationship based on provided clues.</p>
+        <p><strong>Applications:</strong> Used in logical reasoning, family tree analysis, and social network mapping.</p>
+    </div>
+    <div class="section">
+    <h2> Historical Context</h2>
+    <p>
+        The study of family trees and relationships has its origins in ancient genealogy. Civilizations like those in Mesopotamia, Egypt, and India maintained lineage records to determine inheritance, succession rights, and noble bloodlines. These genealogical records were crucial for kings and emperors to validate their rule or claim to thrones.
+    </p>
+    <p>
+        In India, the concept of <strong>Gotra</strong> and <strong>Kul</strong> has been used since Vedic times to preserve family ancestry and determine suitable marital alliances. Similarly, in European monarchies, complex family trees helped avoid dynastic conflicts and civil wars by legally outlining heirs to royal positions.
+    </p>
+    <p>
+        Over time, these practices evolved from oral traditions to documented scrolls and, in modern history, to digitized formats. Religious texts like the Bible and the Mahabharata also include detailed genealogical lineages, reflecting how deeply embedded this practice is in human history.
+    </p>
+</div>
+
+    <div class="section">
+        <h2>2. Types of Relationship Questions</h2>
+        <p>Relationship questions can be classified into the following types:</p>
+        <ul>
+            <li><strong>Direct Relationship:</strong> Simple statements (e.g., A is B’s father).</li>
+            <li><strong>Family Tree Based:</strong> Multiple relationships forming a family tree.</li>
+            <li><strong>Coded Relations:</strong> Relationships represented by symbols (e.g., A + B means A is B’s father).</li>
+            <li><strong>Puzzle-Based Relations:</strong> Complex scenarios with multiple clues.</li>
+            <li><strong>Pointing to a Person:</strong> Questions like “Pointing to X, Y says, ‘He is my brother’.”</li>
+            <li><strong>Relation from One Person’s Perspective:</strong> Determine how X is related to Y from X’s viewpoint.</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>3. Key Relationship Terms</h2>
+        <p>Understanding common terms is crucial:</p>
+        <table>
+            <tr>
+                <th>Term</th>
+                <th>Meaning</th>
+            </tr>
+            <tr>
+                <td>Parent</td>
+                <td>Father or Mother</td>
+            </tr>
+            <tr>
+                <td>Sibling</td>
+                <td>Brother or Sister</td>
+            </tr>
+            <tr>
+                <td>Spouse</td>
+                <td>Husband or Wife</td>
+            </tr>
+            <tr>
+                <td>Cousin</td>
+                <td>Child of parent’s sibling</td>
+            </tr>
+            <tr>
+                <td>In-law</td>
+                <td>Relative by marriage (e.g., mother-in-law)</td>
+            </tr>
+        </table>
+        <p><strong>Note:</strong> Gender-specific terms (e.g., son, daughter) are critical for accurate answers.</p>
+    </div>
+
+    <div class="section">
+        <h2>4. Steps to Solve Relationship Questions</h2>
+        <ol>
+            <li>Read the question carefully and identify key individuals and relationships.</li>
+            <li>Draw a family tree or diagram to visualize connections.</li>
+            <li>Break down complex statements into simpler relations (e.g., “A is B’s father” → A = father, B = child).</li>
+            <li>Use symbols for clarity (e.g., M → male, F → female, → → child of).</li>
+            <li>Trace the relationship from one person to another.</li>
+            <li>Verify the answer by rechecking the family tree or options.</li>
+        </ol>
+        <div class="example">
+            <p><strong>Example 1 (Direct Relationship):</strong> A is B’s father, and B is C’s sister. How is C related to A?</p>
+            <p><strong>Solution:</strong>
+                <ul>
+                    <li>A is B’s father → A is male, B is A’s child.</li>
+                    <li>B is C’s sister → C is female, A’s child.</li>
+                    <li>C’s relation to A: daughter.</li>
+                    <li>Answer: Daughter.</li>
+                </ul>
+            </p>
+            <div class="diagram">
+                <p>A (Father) → B (Daughter), C (Daughter)</p>
+            </div>
+        </div>
+        <div class="example">
+            <p><strong>Example 2 (Family Tree):</strong> P is Q’s father. R is Q’s brother. S is P’s wife. T is R’s sister. How is T related to S?</p>
+            <p><strong>Solution:</strong>
+                <ul>
+                    <li>P (father) married to S (wife).</li>
+                    <li>Q and R are P’s children, R is male (brother).</li>
+                    <li>T is R’s sister → T is female, P’s child.</li>
+                    <li>Since S is P’s wife, S is T’s mother.</li>
+                    <li>Answer: Daughter.</li>
+                </ul>
+            </p>
+            <div class="diagram">
+                <p>P (M) = S (F) → Q, R (M), T (F)</p>
+            </div>
+        </div>
+        <div class="example">
+            <p><strong>Example 3 (Coded Relations):</strong> If A + B means A is B’s father, A − B means A is B’s mother, A × B means A is B’s sister, and A ÷ B means A is B’s brother, then what does P + Q × R ÷ S mean?</p>
+            <p><strong>Solution:</strong>
+                <ul>
+                    <li>P + Q → P is Q’s father (P is male).</li>
+                    <li>Q × R → Q is R’s sister (Q, R are female).</li>
+                    <li>R ÷ S → R is S’s brother (S is male).</li>
+                    <li>Family: P (father), Q (daughter), R (daughter), S (son).</li>
+                    <li>Expression describes P as father of Q, R, S.</li>
+                    <li>Answer: Father (or family structure, depending on question).</li>
+                </ul>
+            </p>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>5. Practice Questions</h2>
+        <div class="question">
+            <p><strong>Question 1 (Direct Relationship):</strong> A is B’s mother, C is B’s brother. How is C related to A?</p>
+            <p>A) Son B) Brother C) Father D) Husband</p>
+            <p><strong>Solution:</strong>
+                <ul>
+                    <li>A is B’s mother → A is female.</li>
+                    <li>C is B’s brother → C is male, A’s child.</li>
+                    <li>C to A: son.</li>
+                    <li>Answer: A) Son.</li>
+                </ul>
+            </p>
+        </div>
+        <div class="question">
+            <p><strong>Question 2 (Family Tree):</strong> X is Y’s father. Z is Y’s sister. W is X’s wife. How is W related to Z?</p>
+            <p>A) Sister B) Mother C) Daughter D) Wife</p>
+            <p><strong>Solution:</strong>
+                <ul>
+                    <li>X (father) married to W (wife).</li>
+                    <li>Y, Z are X’s children, Z is female (sister).</li>
+                    <li>W is Z’s mother.</li>
+                    <li>Answer: B) Mother.</li>
+                </ul>
+            </p>
+        </div>
+        <div class="question">
+            <p><strong>Question 3 (Coded Relations):</strong> If A + B means A is B’s wife, A − B means A is B’s husband, A × B means A is B’s son, and A ÷ B means A is B’s daughter, what does P − Q × R mean?</p>
+            <p>A) Son B) Father C) Husband D) Brother</p>
+            <p><strong>Solution:</strong>
+                <ul>
+                    <li>P − Q → P is Q’s husband (P is male).</li>
+                    <li>Q × R → Q is R’s son (R is female, Q is male).</li>
+                    <li>Correct: Q − P → Q is P’s husband; P × R → P is R’s son.</li>
+                    <li>P is R’s son.</li>
+                    <li>Answer: A) Son.</li>
+                </ul>
+            </p>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>6. Common Mistakes to Avoid</h2>
+        <ul>
+            <li>Misinterpreting gender (e.g., assuming brother when sister is meant).</li>
+            <li>Confusing in-law relations (e.g., mother vs. mother-in-law).</li>
+            <li>Not drawing a family tree, leading to missed connections.</li>
+            <li>Misapplying coded relation symbols.</li>
+            <li>Ignoring perspective (e.g., X to Y vs. Y to X).</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>7. Tips for Preparation</h2>
+        <ul>
+            <li>Practice drawing family trees for every question.</li>
+            <li>Memorize key terms (e.g., cousin, in-law) and their meanings.</li>
+            <li>Solve 20–30 relationship questions daily to build speed.</li>
+            <li>Use symbols (M, F, →) to simplify complex statements.</li>
+            <li>Verify answers by tracing back through the family tree.</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>8. Additional Examples</h2>
+        <table>
+            <tr>
+                <th>Question</th>
+                <th>Family Tree</th>
+                <th>Answer</th>
+            </tr>
+            <tr>
+                <td>A is B’s father, B is C’s sister. C to A?</td>
+                <td>A (M) → B (F), C (F)</td>
+                <td>Daughter</td>
+            </tr>
+            <tr>
+                <td>P + Q × R ÷ S (P father)</td>
+                <td>P (M) → Q (F), R (F), S (M)</td>
+                <td>Father</td>
+            </tr>
+            <tr>
+                <td>Pointing to X, Y says, “She is my mother.” X to Y?</td>
+                <td>X (F) → Y</td>
+                <td>Mother</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="section">
+        <h2>9. Advanced Relationship Questions</h2>
+        <p>Advanced questions involve multi-generation families or complex coded relations.</p>
+        <div class="example">
+            <p><strong>Example (Multi-Generation):</strong> A is B’s father. C is B’s son. D is A’s father. E is C’s sister. How is D related to E?</p>
+            <p><strong>Solution:</strong>
+                <ul>
+                    <li>A (father) → B, C (son), E (daughter).</li>
+                    <li>D is A’s father → D is father of A, B, C, E.</li>
+                    <li>D to E: father.</li>
+                    <li>Answer: Father.</li>
+                </ul>
+            </p>
+            <div class="diagram">
+                <p>D (M) → A (M) → B, C (M), E (F)</p>
+            </div>
+        </div>
+    </div>
+
+   <div class="section">
+    <h2>10. Practice Set (5 Questions)</h2>
+    <p>Additional questions to reinforce learning:</p>
+
+    <div class="question">
+        <p><strong>Question 1:</strong> M is N’s wife. O is N’s son. P is O’s sister. How is P related to M?</p>
+        <p>A) Daughter &nbsp;&nbsp; B) Sister &nbsp;&nbsp; C) Wife &nbsp;&nbsp; D) Mother</p>
+        <p><strong>Solution:</strong> M is married to N. O is their son. P is O’s sister → P is M’s daughter. <strong>Answer: A) Daughter</strong></p>
+    </div>
+
+    <div class="question">
+        <p><strong>Question 2:</strong> A is the brother of B. B is the sister of C. C is the son of D. How is A related to D?</p>
+        <p>A) Son &nbsp;&nbsp; B) Nephew &nbsp;&nbsp; C) Daughter &nbsp;&nbsp; D) Cannot be determined</p>
+        <p><strong>Solution:</strong> A and B are siblings, B is sister of C, and C is D’s son → All are D’s children. So A is D’s son. <strong>Answer: A) Son</strong></p>
+    </div>
+
+    <div class="question">
+        <p><strong>Question 3:</strong> Pointing to a photograph, Ramu said, “He is the son of the only son of my mother.” How is Ramu related to the boy?</p>
+        <p>A) Brother &nbsp;&nbsp; B) Uncle &nbsp;&nbsp; C) Father &nbsp;&nbsp; D) Cousin</p>
+        <p><strong>Solution:</strong> Only son of Ramu’s mother = Ramu himself. So the boy is Ramu’s son. <strong>Answer: C) Father</strong></p>
+    </div>
+
+    <div class="question">
+        <p><strong>Question 4:</strong> P is the daughter of Q. Q is the son of R. S is the father of Q. How is P related to S?</p>
+        <p>A) Granddaughter &nbsp;&nbsp; B) Daughter &nbsp;&nbsp; C) Sister &nbsp;&nbsp; D) Cousin</p>
+        <p><strong>Solution:</strong> P is Q’s daughter, Q is S’s son → P is S’s granddaughter. <strong>Answer: A) Granddaughter</strong></p>
+    </div>
+
+    <div class="question">
+        <p><strong>Question 5:</strong> A + B means A is the brother of B, A × B means A is the wife of B, A ÷ B means A is the father of B, and A - B means A is the sister of B. What does <strong>P ÷ Q + R × S</strong> mean?</p>
+        <p>A) P is the father-in-law of S<br>B) S is the daughter-in-law of P<br>C) P is the brother-in-law of S<br>D) P is the grandfather of R</p>
+        <p><strong>Solution:</strong><br>
+        P ÷ Q → P is the father of Q<br>
+        Q + R → Q is the brother of R<br>
+        R × S → R is the wife of S → So R is female<br>
+        So R (female) is wife of S, and her brother Q is son of P → P is father-in-law of S.<br>
+        <strong>Answer: A) P is the father-in-law of S</strong></p>
+    </div>
+</div>
+
+<div class="section">
+    <h2>11. Real-World Applications</h2>
+    <p>
+        Understanding relationships and family trees is not only important in competitive reasoning questions but also has practical applications in various modern domains:
+    </p>
+    <ul>
+        <li><strong>Genealogy Software:</strong> Platforms like <em>Ancestry.com</em> and <em>MyHeritage</em> help people trace their roots, build family trees, and connect with distant relatives.</li>
+        <li><strong>Legal Inheritance Cases:</strong> Courts often rely on family tree evidence to determine rightful heirs in property and succession disputes, especially when wills are contested.</li>
+        <li><strong>Medical Genetics:</strong> Family history is vital for predicting hereditary diseases such as diabetes, heart disease, and certain cancers. Doctors use pedigree charts to assess risk across generations.</li>
+        <li><strong>Social Network Analysis:</strong> In computer science, relationships between people (nodes) are mapped to analyze how information, influence, or behaviors spread in communities.</li>
+        <li><strong>Forensic Investigations:</strong> Law enforcement sometimes uses family relationship mapping in DNA-based criminal investigations to identify suspects through relatives.</li>
+        <li><strong>Artificial Intelligence & NLP:</strong> AI systems use relationship logic to infer family connections in chatbots, virtual assistants, and language comprehension models.</li>
+    </ul>
+    <p>
+        These real-world applications show how a strong foundation in family relationship logic can benefit not only in exams but in understanding real-life systems and solving problems efficiently.
+    </p>
+</div>
+
+
+   <div class="section">
+    <h2>12. Advanced Practice Set (5 Questions)</h2>
+    <p>These complex questions involve multi-generational family relations and coded relationships. Practice them to strengthen your logical reasoning skills for competitive exams.</p>
+
+    <div class="question">
+        <p><strong>Question 1:</strong> A + B means A is the daughter of B, A – B means A is the husband of B, A × B means A is the sister of B, and A ÷ B means A is the mother of B. What does the expression <strong>P + Q – R ÷ S</strong> mean?</p>
+        <p>A) P is the niece of S<br>B) P is the daughter-in-law of S<br>C) P is the daughter of R<br>D) P is the sister-in-law of S</p>
+        <p><strong>Solution:</strong><br>
+        Step-by-step decoding:<br>
+        P + Q → P is the daughter of Q<br>
+        Q – R → Q is the husband of R → Q is male, R is wife<br>
+        R ÷ S → R is the mother of S<br>
+        So, R is the mother of S, Q is R’s husband, and P is the daughter of Q → P is daughter of Q & R, S is their child → P and S are siblings.<br>
+        Therefore, P is the <strong>sister</strong> of S. Answer: <strong>A) P is the niece of S</strong></p>
+    </div>
+
+    <div class="question">
+        <p><strong>Question 2:</strong> Pointing to a man, Rina said, “He is the only son of my mother’s father’s only son.” How is the man related to Rina?</p>
+        <p>A) Brother<br>B) Cousin<br>C) Uncle<br>D) Father</p>
+        <p><strong>Solution:</strong> Rina's mother's father = grandfather. His only son = Rina's father. So the man is the son of Rina’s father → the man is Rina’s <strong>brother</strong>. Answer: <strong>A) Brother</strong></p>
+    </div>
+
+    <div class="question">
+        <p><strong>Question 3:</strong> A is the mother of B. C is the father of A. D is the son of C. How is D related to B?</p>
+        <p>A) Uncle<br>B) Grandfather<br>C) Brother<br>D) Cousin</p>
+        <p><strong>Solution:</strong> A (mother of B), C (father of A) → C is B’s grandfather. D is the son of C → D is A’s brother → D is maternal uncle of B. Answer: <strong>A) Uncle</strong></p>
+    </div>
+
+    <div class="question">
+        <p><strong>Question 4:</strong> Introducing a boy, Sarah said, “He is the son of the only son of my grandfather.” How is the boy related to Sarah?</p>
+        <p>A) Cousin<br>B) Brother<br>C) Uncle<br>D) Nephew</p>
+        <p><strong>Solution:</strong> The only son of Sarah’s grandfather = Sarah’s father. So the boy is son of Sarah’s father → He is Sarah’s <strong>brother</strong>. Answer: <strong>B) Brother</strong></p>
+    </div>
+
+    <div class="question">
+        <p><strong>Question 5:</strong> In a family of 8 members – P, Q, R, S, T, U, V, and W – there are 2 married couples. U is the mother of P and T. P is the father of V. R is the son of Q. S is the brother of T. W is the sister of V. Q is the wife of P. How is S related to V?</p>
+        <p>A) Uncle<br>B) Brother<br>C) Cousin<br>D) Grandfather</p>
+        <p><strong>Solution:</strong><br>
+        - U is the mother of P and T → P & T are siblings<br>
+        - P is the father of V, Q is P’s wife → Q is V’s mother<br>
+        - W is sister of V → W and V are children of P & Q<br>
+        - S is brother of T → S and T are siblings → S is P’s brother<br>
+        So, S is V’s uncle. Answer: <strong>A) Uncle</strong></p>
+    </div>
+</div>
+
+
+    <div class="section">
+        <h2>13. Visual Aids</h2>
+        <p>Family tree diagrams and symbol charts:</p>
+        <table>
+            <tr>
+                <th>Symbol</th>
+                <th>Meaning</th>
+            </tr>
+            <tr>
+                <td>→</td>
+                <td>Child of</td>
+            </tr>
+            <tr>
+                <td>=</td>
+                <td>Married to</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="section">
+        <h2>14. Summary and Quick Reference</h2>
+        <p>Key points: Draw family trees, use symbols, practice coded relations. Verify answers by tracing relationships.</p>
+    </div>
+
+</body>
+<script>
+function downloadPDF() {
+    const element = document.getElementById('relation');
+    const opt = {
+        margin:       0.5,
+        filename:     'Relationship Notes.pdf',
+        image:        { type: 'jpeg', quality: 0.98 },
+        html2canvas:  { scale: 2 },
+        jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
+    };
+    html2pdf().set(opt).from(element).save();
+}
+</script>
+</html>

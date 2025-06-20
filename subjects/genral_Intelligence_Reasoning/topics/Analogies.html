@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analogies Notes</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            line-height: 1.6;
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        .example, .practice {
+            background-color: #f9f9f9;
+            padding: 10px;
+            border-left: 4px solid #3498db;
+            margin: 10px 0;
+        }
+        ul, ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <button onclick="downloadPDF()" style="padding:10px 20px; margin-bottom:20px; background-color:#3498db; color:white; border:none; border-radius:5px; cursor:pointer;">Download Notes as PDF
+    </button>
+    <div id="analogies">
+    <h1>Analogies - General Intelligence and Reasoning</h1>
+    <div class="section">
+        <h2>1. Introduction to Analogies</h2>
+        <p>An analogy is a comparison between two pairs of words or concepts that share a similar relationship. In reasoning, analogies test your ability to identify and apply relationships between words or numbers. Solving analogies enhances logical thinking and pattern recognition.</p>
+        <p><strong>Format:</strong> A : B :: C : D (A is to B as C is to D).</p>
+        <p><strong>Objective:</strong> Find the word that completes the analogy by identifying the relationship between A and B, then applying it to C and D.</p>
+    </div>
+
+    <div class="section">
+        <h2>2. Types of Analogies</h2>
+        <p>Analogies can be classified based on the relationship between the words. Common types include:</p>
+        <ul>
+            <li><strong>Synonym Analogy:</strong> Words are similar in meaning (e.g., Big : Large :: Small : Tiny).</li>
+            <li><strong>Antonym Analogy:</strong> Words are opposites (e.g., Big : Small :: Tall : Short).</li>
+            <li><strong>Part-Whole Analogy:</strong> One word is a part of the other (e.g., Finger : Hand :: Leaf : Tree).</li>
+            <li><strong>Function Analogy:</strong> One word describes the function of the other (e.g., Pen : Write :: Scissors : Cut).</li>
+            <li><strong>Degree Analogy:</strong> Difference in intensity (e.g., Warm : Hot :: Cool : Cold).</li>
+            <li><strong>Cause-Effect Analogy:</strong> One causes the other (e.g., Fire : Heat :: Rain : Wet).</li>
+            <li><strong>Number Analogy:</strong> Based on numerical patterns (e.g., 2 : 4 :: 3 : 9).</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>3. Steps to Solve Analogies</h2>
+        <ol>
+            <li>Identify the relationship between the first pair (A : B).</li>
+            <li>Apply the same relationship to the second pair (C : D).</li>
+            <li>Choose the word that completes the analogy.</li>
+            <li>Verify the relationship for consistency.</li>
+        </ol>
+        <div class="example">
+            <p><strong>Example 1:</strong> Cat : Kitten :: Dog : ?</p>
+            <p><strong>Solution:</strong> Cat is the adult, and Kitten is its young. Similarly, Dog is the adult, and Puppy is its young. Answer: Puppy.</p>
+        </div>
+        <div class="example">
+            <p><strong>Example 2:</strong> 3 : 9 :: 5 : ?</p>
+            <p><strong>Solution:</strong> 3 × 3 = 9. Similarly, 5 × 5 = 25. Answer: 25.</p>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>4. Practice Questions</h2>
+        <div class="question">
+            <p><strong>Question 1:</strong> Big : Small :: Heavy : ?</p>
+            <p>A) Light B) Large C) Tiny D) Strong</p>
+            <p><strong>Answer:</strong> A) Light (Big and Small are opposites, so Heavy’s opposite is Light).</p>
+        </div>
+        <div class="question">
+            <p><strong>Question 2:</strong> Pen : Paper :: Hammer : ?</p>
+            <p>A) Nail B) Wood C) Screw D) Wall</p>
+            <p><strong>Answer:</strong> A) Nail (Pen is used on Paper; Hammer is used on Nail).</p>
+        </div>
+        <div class="question">
+            <p><strong>Question 3:</strong> 4 : 16 :: 6 : ?</p>
+            <p>A) 24 B) 36 C) 18 D) 12</p>
+            <p><strong>Answer:</strong> B) 36 (4² = 16; 6² = 36).</p>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>5. Common Mistakes to Avoid</h2>
+        <ul>
+            <li>Misidentifying the relationship (e.g., confusing synonym with function).</li>
+            <li>Ignoring the order of words (A : B is not the same as B : A).</li>
+            <li>Choosing distractors that seem related but don’t fit the exact relationship.</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>6. Tips for Preparation</h2>
+        <ul>
+            <li>Build vocabulary to recognize synonyms, antonyms, and related words.</li>
+            <li>Practice number patterns for numerical analogies.</li>
+            <li>Solve at least 20 analogies daily to improve speed and accuracy.</li>
+            <li>Use elimination to narrow down answer choices.</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>7. Additional Examples</h2>
+        <table>
+            <tr>
+                <th>Analogy</th>
+                <th>Relationship</th>
+                <th>Answer</th>
+            </tr>
+            <tr>
+                <td>Doctor : Hospital :: Teacher : ?</td>
+                <td>Place of work</td>
+                <td>School</td>
+            </tr>
+            <tr>
+                <td>2 : 8 :: 3 : ?</td>
+                <td>Number cubed (n³)</td>
+                <td>27</td>
+            </tr>
+            <tr>
+                <td>Sun : Day :: Moon : ?</td>
+                <td>Associated time</td>
+                <td>Night</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="section">
+        <h2>8. Advanced Analogies</h2>
+        <p>For competitive exams, analogies may involve complex relationships or abstract concepts.</p>
+        <div class="example">
+            <p><strong>Example:</strong> Symphony : Composer :: Painting : ?</p>
+            <p><strong>Solution:</strong> A symphony is created by a composer; a painting is created by a painter. Answer: Painter.</p>
+        </div>
+    </div>
+</body>
+<script>
+function downloadPDF() {
+    const element = document.getElementById('analogies');
+    const opt = {
+        margin:       0.5,
+        filename:     'Analogies Notes.pdf',
+        image:        { type: 'jpeg', quality: 0.98 },
+        html2canvas:  { scale: 2 },
+        jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
+    };
+    html2pdf().set(opt).from(element).save();
+}
+</script>
+</html>

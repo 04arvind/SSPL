@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Statement – Arguments and Assumptions</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+    }
+    header {
+      background-color: #0066cc;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 20px;
+    }
+    .section {
+      background: #fff;
+      margin-bottom: 20px;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h2 {
+      color: #333;
+      border-bottom: 2px solid #0077cc;
+      padding-bottom: 5px;
+    }
+    ul, ol {
+      margin-left: 20px;
+    }
+    .question {
+      margin-top: 15px;
+      padding: 10px;
+      background: #eef;
+      border-left: 5px solid #0077cc;
+    }
+  </style>
+</head>
+<body>
+    <button onclick="downloadPDF()" style="padding:10px 20px; margin:20px; background-color:#3498db; color:white; border:none; border-radius:5px; cursor:pointer;">Download Notes as PDF
+    </button>
+    <div id="stat_args">
+  <header>
+    <h1>Statement – Arguments and Assumptions</h1>
+  </header>
+
+  <div class="container">
+    <div class="section">
+      <h2>1. Introduction</h2>
+      <p>In logical reasoning, questions based on arguments and assumptions test your ability to assess reasoning behind a statement. These types are frequently asked in competitive exams to evaluate analytical thinking and decision-making abilities.</p>
+    </div>
+
+    <div class="section">
+      <h2>2. What is a Statement?</h2>
+      <p>A statement is a sentence that expresses a fact, opinion, suggestion, or idea. It forms the basis of the question in both arguments and assumptions.</p>
+    </div>
+
+    <div class="section">
+      <h2>3. Understanding Arguments</h2>
+      <p>An argument is a reason or a set of reasons given to support or oppose a statement. It can be:</p>
+      <ul>
+        <li><strong>Strong Argument:</strong> Directly related, logical, and important to the statement.</li>
+        <li><strong>Weak Argument:</strong> Not directly related, based on emotional grounds, or irrelevant consequences.</li>
+      </ul>
+      <p><strong>Tip:</strong> Focus on whether the argument supports the core of the statement logically.</p>
+    </div>
+
+    <div class="section">
+      <h2>4. Understanding Assumptions</h2>
+      <p>An assumption is something that is not stated but is taken for granted or assumed to be true in the context of the statement.</p>
+      <p><strong>Tip:</strong> Ask: "What must be true for the statement to make sense?"</p>
+      <ul>
+        <li>Look for hidden beliefs or underlying thoughts.</li>
+        <li>Assumptions should be implicit and essential.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>5. Strategy to Solve Argument Questions</h2>
+      <ol>
+        <li>Read the statement and argument carefully.</li>
+        <li>Identify whether the argument is supporting or opposing.</li>
+        <li>Evaluate whether the argument is relevant and logically connected.</li>
+        <li>Eliminate emotional or extreme arguments.</li>
+      </ol>
+    </div>
+
+    <div class="section">
+      <h2>6. Strategy to Solve Assumption Questions</h2>
+      <ol>
+        <li>Read the statement carefully.</li>
+        <li>Ask yourself what must be assumed for this to be valid.</li>
+        <li>Assumptions should be reasonable and not far-fetched.</li>
+        <li>Use elimination to discard invalid assumptions.</li>
+      </ol>
+    </div>
+
+    <div class="section">
+      <h2>7. Practice Questions (Arguments)</h2>
+
+      <div class="question">
+        <p><strong>Statement:</strong> Should the government ban all vehicles older than 15 years?</p>
+        <p><strong>Argument I:</strong> Yes, they cause more pollution.</p>
+        <p><strong>Argument II:</strong> No, people cannot afford new vehicles.</p>
+        <p><strong>Answer:</strong> Argument I is strong; Argument II is weak (emotional).</p>
+      </div>
+
+      <div class="question">
+        <p><strong>Statement:</strong> Should online classes be made permanent for all universities?</p>
+        <p><strong>Argument I:</strong> Yes, it is more flexible for students and teachers.</p>
+        <p><strong>Argument II:</strong> No, not all students have access to good internet.</p>
+        <p><strong>Answer:</strong> Both arguments are strong.</p>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>8. Practice Questions (Assumptions)</h2>
+
+      <div class="question">
+        <p><strong>Statement:</strong> "Use hand sanitizers frequently to stay safe from viruses." — An advisory.</p>
+        <p><strong>Assumption I:</strong> Hand sanitizers kill viruses.</p>
+        <p><strong>Assumption II:</strong> People want to stay safe from viruses.</p>
+        <p><strong>Answer:</strong> Both assumptions are implicit and valid.</p>
+      </div>
+
+      <div class="question">
+        <p><strong>Statement:</strong> "Government should make yoga compulsory in schools."</p>
+        <p><strong>Assumption I:</strong> Yoga has health benefits.</p>
+        <p><strong>Assumption II:</strong> Students will oppose yoga classes.</p>
+        <p><strong>Answer:</strong> Only Assumption I is valid.</p>
+      </div>
+    </div>
+  </div>
+</body>
+<script>
+function downloadPDF() {
+    const element = document.getElementById('stat_args');
+    const opt = {
+        margin:       0.5,
+        filename:     'Statement – Arguments and Assumptions Notes.pdf',
+        image:        { type: 'jpeg', quality: 0.98 },
+        html2canvas:  { scale: 2 },
+        jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
+    };
+    html2pdf().set(opt).from(element).save();
+}
+</script>
+</html>

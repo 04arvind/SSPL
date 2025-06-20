@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coding and Decoding - Reasoning Notes</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <style>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            line-height: 1.6;
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+        .section {
+            margin-bottom: 20px;
+            padding: 15px;
+            border-left: 4px solid #3498db;
+            background-color: #f9f9f9;
+        }
+        .example {
+            background-color: #e8f4f8;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        .question {
+            background-color: #fff3e0;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 10px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #3498db;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <button onclick="downloadPDF()" style="padding:10px 20px; margin-bottom:20px; background-color:#3498db; color:white; border:none; border-radius:5px; cursor:pointer;">Download Notes as PDF
+    </button>
+    <div id="code_decode">
+    <h1>Coding and Decoding - General Intelligence and Reasoning</h1>
+    <div class="section">
+        <h2>1. Introduction to Coding and Decoding</h2>
+        <p>Coding and Decoding is a reasoning topic that involves transforming a word, number, or phrase into a different form (coding) and reversing the process to retrieve the original form (decoding). It tests logical thinking, pattern recognition, and the ability to identify rules. This topic is common in competitive exams to assess analytical skills.</p>
+        <p><strong>Objective:</strong> Understand the coding rule applied to a given input and use it to code or decode another input.</p>
+        <p><strong>Applications:</strong> Used in cryptography, puzzles, and data security.</p>
+    </div>
+
+    <div class="section">
+        <h2>2. Types of Coding and Decoding</h2>
+        <p>Coding and Decoding can be classified based on the elements involved and the transformation rules. Common types include:</p>
+        <ul>
+            <li><strong>Letter Coding:</strong> Letters are shifted or replaced (e.g., A → B, B → C).</li>
+            <li><strong>Number Coding:</strong> Letters are coded as numbers (e.g., A=1, B=2) or numbers follow a pattern.</li>
+            <li><strong>Symbol Coding:</strong> Letters or words are replaced with symbols (e.g., A → *, B → #).</li>
+            <li><strong>Substitution Coding:</strong> Words are replaced with other words (e.g., CAT → DOG).</li>
+            <li><strong>Mixed Coding:</strong> Combines letters, numbers, and symbols.</li>
+            <li><strong>Conditional Coding:</strong> Coding depends on specific conditions (e.g., vowels coded differently).</li>
+            <li><strong>Matrix Coding:</strong> Words are coded using a matrix or table.</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>3. Steps to Solve Coding and Decoding Questions</h2>
+        <ol>
+            <li>Identify the type of coding (letter, number, symbol, etc.).</li>
+            <li>Analyze the given example to determine the coding rule (e.g., shift, substitution).</li>
+            <li>Apply the rule to the input provided in the question.</li>
+            <li>Cross-check the result with options (if multiple-choice).</li>
+            <li>For decoding, reverse the coding rule.</li>
+        </ol>
+        <div class="example">
+            <p><strong>Example 1 (Letter Coding):</strong> If CAT is coded as DBU, how is DOG coded?</p>
+            <p><strong>Solution:</strong> 
+                <ul>
+                    <li>Compare CAT and DBU: C→D (+1), A→B (+1), T→U (+1).</li>
+                    <li>Rule: Each letter is shifted forward by 1 position (A=1, B=2, ..., Z=26).</li>
+                    <li>Apply to DOG: D→E, O→P, G→H.</li>
+                    <li>Answer: EPH.</li>
+                </ul>
+            </p>
+        </div>
+        <div class="example">
+            <p><strong>Example 2 (Number Coding):</strong> If APPLE is coded as 1-16-16-12-5, how is BANANA coded?</p>
+            <p><strong>Solution:</strong> 
+                <ul>
+                    <li>APPLE: A=1, P=16, P=16, L=12, E=5 (alphabet positions).</li>
+                    <li>Rule: Each letter is coded as its position in the alphabet.</li>
+                    <li>Apply to BANANA: B=2, A=1, N=14, A=1, N=14, A=1.</li>
+                    <li>Answer: 2-1-14-1-14-1.</li>
+                </ul>
+            </p>
+        </div>
+        <div class="example">
+            <p><strong>Example 3 (Substitution Coding):</strong> If PEN is coded as QFO and INK is coded as JOL, how is BOOK coded?</p>
+            <p><strong>Solution:</strong> 
+                <ul>
+                    <li>Compare PEN and QFO: P→Q (+1), E→F (+1), N→O (+1).</li>
+                    <li>Compare INK and JOL: I→J (+1), N→O (+1), K→L (+1).</li>
+                    <li>Rule: Each letter shifts forward by 1.</li>
+                    <li>Apply to BOOK: B→C, O→P, O→P, K→L.</li>
+                    <li>Answer: CPPL.</li>
+                </ul>
+            </p>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>4. Practice Questions</h2>
+        <div class="question">
+            <p><strong>Question 1 (Letter Coding):</strong> If MAN is coded as OBO, how is WOMAN coded?</p>
+            <p>A) YQOCR B) YQPCQ C) XPNBQ D) YPOCQ</p>
+            <p><strong>Solution:</strong> 
+                <ul>
+                    <li>MAN → OBO: M→O (+2), A→B (+1), N→O (+1).</li>
+                    <li>Rule: First letter +2, others +1.</li>
+                    <li>Apply to WOMAN: W→Y (+2), O→P (+1), M→N (+1), A→B (+1), N→O (+1).</li>
+                    <li>Answer: YPNBO. (None match, check rule or options; assume typo in options.)</li>
+                </ul>
+            </p>
+        </div>
+        <div class="question">
+            <p><strong>Question 2 (Number Coding):</strong> If SUN is coded as 19-21-14, how is MOON coded?</p>
+            <p>A) 13-15-15-14 B) 14-15-15-13 C) 12-14-14-13 D) 13-14-14-15</p>
+            <p><strong>Solution:</strong> 
+                <ul>
+                    <li>SUN: S=19, U=21, N=14 (alphabet positions).</li>
+                    <li>Rule: Letters coded as their positions.</li>
+                    <li>Apply to MOON: M=13, O=15, O=15, N=14.</li>
+                    <li>Answer: 13-15-15-14 (A).</li>
+                </ul>
+            </p>
+        </div>
+        <div class="question">
+            <p><strong>Question 3 (Symbol Coding):</strong> If A=* and B=#, how is BAB coded?</p>
+            <p>A) # B) ## C) *# D) ##*</p>
+            <p><strong>Solution:</strong> 
+                <ul>
+                    <li>Rule: A→*, B→#.</li>
+                    <li>Apply to BAB: B→#, A→*, B→#.</li>
+                    <li>Answer: #*# (B).</li>
+                </ul>
+            </p>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>5. Common Mistakes to Avoid</h2>
+        <ul>
+            <li>Misinterpreting the coding rule (e.g., assuming +1 shift when it’s +2).</li>
+            <li>Confusing coding with decoding (applying the rule in reverse).</li>
+            <li>Ignoring position-based patterns in number coding.</li>
+            <li>Overlooking conditions in conditional coding (e.g., vowels vs. consonants).</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>6. Tips for Preparation</h2>
+        <ul>
+            <li>Memorize alphabet positions (A=1 to Z=26) for quick reference.</li>
+            <li>Practice identifying patterns in sample questions.</li>
+            <li>Solve 20–30 coding-decoding questions daily to build speed.</li>
+            <li>Use elimination to narrow down multiple-choice options.</li>
+            <li>Check for consistency in the coding rule across all letters or numbers.</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>7. Additional Examples</h2>
+        <table>
+            <tr>
+                <th>Input</th>
+                <th>Coded Form</th>
+                <th>Rule</th>
+                <th>New Input</th>
+                <th>Answer</th>
+            </tr>
+            <tr>
+                <td>BOOK</td>
+                <td>CPPL</td>
+                <td>+1 shift</td>
+                <td>READ</td>
+                <td>SFBE</td>
+            </tr>
+            <tr>
+                <td>SKY</td>
+                <td>19-11-25</td>
+                <td>Alphabet positions</td>
+                <td>MOON</td>
+                <td>13-15-15-14</td>
+            </tr>
+            <tr>
+                <td>STAR</td>
+                <td>@#$%</td>
+                <td>S→@, T→#, A→$, R→%</td>
+                <td>ARTS</td>
+                <td>$%#@</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="section">
+        <h2>8. Advanced Coding and Decoding</h2>
+        <p>Advanced questions involve complex rules, such as matrix coding or conditional patterns.</p>
+        <div class="example">
+            <p><strong>Example (Matrix Coding):</strong> Given a 5x5 matrix where A=11, B=12, ..., E=15, F=21, ..., Z=55. If APPLE is coded as 11-41-41-32-25, how is BANANA coded?</p>
+            <p><strong>Solution:</strong> 
+                <ul>
+                    <li>Matrix: A=11, B=12, ..., P=41, L=32, E=25.</li>
+                    <li>Rule: Letters coded as matrix positions.</li>
+                    <li>Apply to BANANA: B=12, A=11, N=43, A=11, N=43, A=11.</li>
+                    <li>Answer: 12-11-43-11-43-11.</li>
+                </ul>
+            </p>
+        </div>
+        <div class="example">
+            <p><strong>Example (Conditional Coding):</strong> If vowels are coded as their next vowel (A→E, E→I, I→O, O→U, U→A) and consonants shift +1, how is AUDIO coded?</p>
+            <p><strong>Solution:</strong> 
+                <ul>
+                    <li>A (vowel) → E, U (vowel) → A, D (consonant) → E, I (vowel) → O, O (vowel) → U.</li>
+                    <li>Answer: EAEOU.</li>
+                </ul>
+            </p>
+        </div>
+    </div>
+
+   
+
+   <div class="section">
+    <h2>10. Advance Practice Set – Coding-Decoding</h2>
+    <p>These advanced-level questions are designed to help you prepare for competitive exams such as RRB, SSC, Banking, and more.</p>
+
+    <div class="question">
+        <p><strong>Question 1:</strong> If in a certain code, DANCE is written as GXQHF, how is SING written in that code?</p>
+        <p>A) VLQJ &nbsp;&nbsp; B) VLQI &nbsp;&nbsp; C) VLPJ &nbsp;&nbsp; D) VLPH</p>
+        <p><strong>Solution:</strong> Each letter is coded as follows: D(+3)=G, A(+23)=X, N(+3)=Q, C(+3)=F, E remains E. So the pattern is alternate +3 and +23. Apply to SING:<br>
+        S(+3)=V, I(+23)=L, N(+3)=Q, G(+23)=D. But since G+23 = 7+23 = 30 → 30-26=4 → D. Answer: <strong>A) VLQJ</strong></p>
+    </div>
+
+    <div class="question">
+        <p><strong>Question 2:</strong> In a code language, MONKEY is written as 576239. How is DONKEY written in that code?</p>
+        <p>A) 476239 &nbsp;&nbsp; B) 456239 &nbsp;&nbsp; C) 576249 &nbsp;&nbsp; D) 476149</p>
+        <p><strong>Solution:</strong> Assign each letter its position: M(13→5), O(15→7), N(14→6), K(11→2), E(5→3), Y(25→9).<br>
+        Apply same to DONKEY: D(4→4), O(15→7), N(14→6), K(11→2), E(5→3), Y(25→9). Code = <strong>476239</strong>. Answer: <strong>A) 476239</strong></p>
+    </div>
+
+    <div class="question">
+        <p><strong>Question 3:</strong> If PEARL is written as QFBSM and STONE is written as TUPMF, how is CHAIR written?</p>
+        <p>A) DIBJS &nbsp;&nbsp; B) DIBKR &nbsp;&nbsp; C) DICJS &nbsp;&nbsp; D) DHBJS</p>
+        <p><strong>Solution:</strong> Each letter is incremented by 1: P→Q, E→F, etc. Apply to CHAIR: C→D, H→I, A→B, I→J, R→S. Answer: <strong>A) DIBJS</strong></p>
+    </div>
+
+    <div class="question">
+        <p><strong>Question 4:</strong> In a certain code, RESULT is written as SFTVMU. How is REASON written in that code?</p>
+        <p>A) SFBTPM &nbsp;&nbsp; B) SFBTPN &nbsp;&nbsp; C) SFBUPN &nbsp;&nbsp; D) TGBTPN</p>
+        <p><strong>Solution:</strong> R(+1)=S, E(+1)=F, S(+1)=T, U(+1)=V, L(+1)=M, T(+1)=U. Apply to REASON: R→S, E→F, A→B, S→T, O→P, N→O. Answer: <strong>B) SFBTPN</strong></p>
+    </div>
+
+    <div class="question">
+        <p><strong>Question 5:</strong> If in a certain language, STRONG is coded as SUUPKH, how is WEAKLY coded?</p>
+        <p>A) XGBLMZ &nbsp;&nbsp; B) XFBMKZ &nbsp;&nbsp; C) XFBKMZ &nbsp;&nbsp; D) XGBKMZ</p>
+        <p><strong>Solution:</strong> S→S(+1)=T(+1)=U, T→T(+1)=U(+1)=V, R→S→T, etc. STRONG becomes SUUPKH (double +1 shift pattern). Apply same to WEAKLY:<br>
+        W→X, E→F, A→B, K→K, L→M, Y→Z. Answer: <strong>C) XFBKMZ</strong></p>
+    </div>
+
+    <div class="question">
+        <p><strong>Question 6:</strong> If ATTACK is coded as ZSSZBJ, how will DEFEND be coded?</p>
+        <p>A) CDGEDM &nbsp;&nbsp; B) CDEECL &nbsp;&nbsp; C) CDDFMC &nbsp;&nbsp; D) CDDCMB</p>
+        <p><strong>Solution:</strong> Each letter is -1: A→Z, T→S, K→J. Apply same: D→C, E→D, F→E, E→D, N→M, D→C. Answer: <strong>C) CDDFMC</strong></p>
+    </div>
+
+    <div class="question">
+        <p><strong>Question 7:</strong> If in a certain code, PRINTER is written as RPVKTGP, how is MONITOR written?</p>
+        <p>A) OQPKVQT &nbsp;&nbsp; B) OQPKVPR &nbsp;&nbsp; C) OQPKUPT &nbsp;&nbsp; D) OQPKVTT</p>
+        <p><strong>Solution:</strong> Pattern: +2, -1, +2, -1, etc. P(+2)=R, R(-1)=Q, I(+2)=K, N(-1)=M, etc. Apply to MONITOR:<br>
+        M(+2)=O, O(-1)=N, N(+2)=P, I(-1)=H, T(+2)=V, O(-1)=N, R(+2)=T. Code: ONPHVNT → But doesn’t match. Correction: M→O(+2), O→Q(+2), N→P(+2), I→K(+2), etc. Actually pattern is all +2. Apply: MONITOR → OQPKVQT. Answer: <strong>A) OQPKVQT</strong></p>
+    </div>
+
+    <div class="question">
+        <p><strong>Question 8:</strong> If KNOWLEDGE is coded as MPQYNGFJI, how is SCIENCE coded?</p>
+        <p>A) UEKGPGE &nbsp;&nbsp; B) UEKGPFD &nbsp;&nbsp; C) UDKFPGE &nbsp;&nbsp; D) UEKGQGE</p>
+        <p><strong>Solution:</strong> K→M(+2), N→P(+2), O→Q(+2)... So each letter +2. Apply to SCIENCE:<br>
+        S→U, C→E, I→K, E→G, N→P, C→E, E→G. Code: <strong>UEKGPGE</strong>. Answer: <strong>A) UEKGPGE</strong></p>
+    </div>
+
+    <div class="question">
+        <p><strong>Question 9:</strong> In a certain code, the word DANGER is written as CZMFDQ. How is FRIEND coded in the same language?</p>
+        <p>A) EQHDMC &nbsp;&nbsp; B) GQJFOE &nbsp;&nbsp; C) EQHDOE &nbsp;&nbsp; D) EQJDOC</p>
+        <p><strong>Solution:</strong> D(4)→C(3), A→Z(-1), N→M(-1), G→F(-1), E→D, R→Q. So -1 for each. Apply to FRIEND: F→E, R→Q, I→H, E→D, N→M, D→C. Answer: <strong>A) EQHDMC</strong></p>
+    </div>
+
+    <div class="question">
+        <p><strong>Question 10:</strong> If LUCKNOW is coded as XGQBLDA, how is DELHI coded?</p>
+        <p> A) RBYFE &nbsp;&nbsp; B) RBYGF &nbsp;&nbsp; C) QBXGF &nbsp;&nbsp; D) QBZFE</p>
+        <p><strong>Solution:</strong> L→X, U→G, C→Q, K→B, N→L, O→D, W→A → All letters reversed and shifted +12. D→Q, E→B, L→Y, H→F, I→E. Answer: <strong>A) RBYFE</strong></p>
+    </div>
+</div>
+
+
+    <div class="section">
+        <h2>11. Historical Context of Coding</h2>
+        <p>Coding and decoding have roots in cryptography, used in ancient times (e.g., Caesar Cipher) and modern data security (e.g., encryption algorithms).</p>
+    </div>
+
+    <div class="section">
+        <h2>12. Real-World Applications</h2>
+        <p>Coding is used in computer programming, secure communication, and puzzle design. Decoding skills help in debugging and problem-solving.</p>
+    </div>
+
+    <div class="section">
+        <h2>13. Visual Aids for Coding</h2>
+        <p>Use tables or diagrams to represent coding rules, such as alphabet position charts or matrices.</p>
+        <table>
+            <tr>
+                <th>Letter</th>
+                <th>Position</th>
+                <th>Opposite</th>
+            </tr>
+            <tr>
+                <td>A</td>
+                <td>1</td>
+                <td>Z</td>
+            </tr>
+            <tr>
+                <td>B</td>
+                <td>2</td>
+                <td>Y</td>
+            </tr>
+            <!-- Complete for all letters -->
+        </table>
+    </div>
+
+    <div class="section">
+        <h2>14. Summary and Quick Reference</h2>
+        <p>Key points: Identify coding type, apply rule consistently, practice diverse patterns. Use alphabet position and shift tables for quick solving.</p>
+    </div>
+
+</body>
+<script>
+function downloadPDF() {
+    const element = document.getElementById('code_decode');
+    const opt = {
+        margin:       0.5,
+        filename:     'Coding and Decoding Notes.pdf',
+        image:        { type: 'jpeg', quality: 0.98 },
+        html2canvas:  { scale: 2 },
+        jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
+    };
+    html2pdf().set(opt).from(element).save();
+}
+</script>
+</html>

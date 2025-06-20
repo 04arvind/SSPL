@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analytical Reasoning - Reasoning Notes</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            line-height: 1.6;
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+        .section {
+            margin-bottom: 20px;
+            padding: 15px;
+            border-left: 4px solid #3498db;
+            background-color: #f9f9f9;
+        }
+        .example {
+            background-color: #e8f4f8;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        .question {
+            background-color: #fff3e0;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 10px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #3498db;
+            color: white;
+        }
+        .diagram {
+            background-color: #f0f0f0;
+            padding: 10px;
+            font-family: monospace;
+            text-align: center;
+            white-space: pre;
+        }
+    </style>
+</head>
+<body>
+     <button onclick="downloadPDF()" style="padding:10px 20px; margin-bottom:20px; background-color:#3498db; color:white; border:none; border-radius:5px; cursor:pointer;">Download Notes as PDF
+    </button>
+    <div id="analytic">
+    <h1>Analytical Reasoning - General Intelligence and Reasoning</h1>
+    <div class="section">
+        <h2>1. Introduction to Analytical Reasoning</h2>
+        <p>Analytical Reasoning involves solving complex problems by analyzing relationships, conditions, or constraints to deduce logical outcomes. It tests the ability to organize information, identify patterns, and make decisions based on given data, often presented as puzzles, seating arrangements, or logical deductions. This topic is a cornerstone of competitive exams, assessing critical thinking, problem-solving, and logical structuring skills.</p>
+        <p><strong>Objective:</strong> Solve problems by systematically analyzing conditions to determine arrangements, relationships, or conclusions.</p>
+        <p><strong>Applications:</strong> Used in project management, strategic planning, and data analysis.</p>
+    </div>
+
+    <div class="section">
+        <h2>2. Types of Analytical Reasoning Questions</h2>
+        <p>Analytical Reasoning questions can be categorized as follows:</p>
+        <ul>
+            <li><strong>Seating Arrangement:</strong> Arrange people or objects in linear, circular, or complex setups (e.g., people around a table).</li>
+            <li><strong>Blood Relations:</strong> Deduce family relationships based on given clues.</li>
+            <li><strong>Logical Puzzles:</strong> Solve problems involving matching, grouping, or scheduling.</li>
+            <li><strong>Order and Ranking:</strong> Determine positions or ranks based on conditions.</li>
+            <li><strong>Data Sufficiency:</strong> Evaluate if given statements suffice to answer a question.</li>
+            <li><strong>Coded Inequalities:</strong> Analyze relationships using coded symbols (e.g., A > B).</li>
+            <li><strong>Input-Output:</strong> Trace transformations in a sequence of inputs.</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>3. Key Concepts</h2>
+        <p>Understanding these concepts is essential:</p>
+        <ul>
+            <li><strong>Constraints:</strong> Conditions that limit possible solutions (e.g., A sits next to B).</li>
+            <li><strong>Logical Deduction:</strong> Drawing conclusions based on given information.</li>
+            <li><strong>Tabular Representation:</strong> Organizing data in tables or charts for clarity.</li>
+            <li><strong>Elimination:</strong> Ruling out impossible scenarios.</li>
+            <li><strong>Patterns:</strong> Identifying sequences or relationships in data.</li>
+        </ul>
+        <table>
+            <tr>
+                <th>Question Type</th>
+                <th>Key Focus</th>
+            </tr>
+            <tr>
+                <td>Seating Arrangement</td>
+                <td>Positioning based on constraints</td>
+            </tr>
+            <tr>
+                <td>Logical Puzzles</td>
+                <td>Matching or grouping</td>
+            </tr>
+            <tr>
+                <td>Coded Inequalities</td>
+                <td>Interpreting symbols</td>
+            </tr>
+            <tr>
+                <td>Input-Output</td>
+                <td>Tracing transformations</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="section">
+        <h2>4. Steps to Solve Analytical Reasoning Questions</h2>
+        <ol>
+            <li>Read the problem carefully to identify elements (people, objects) and conditions.</li>
+            <li>Organize information using tables, diagrams, or charts.</li>
+            <li>Apply constraints to narrow down possibilities.</li>
+            <li>Deduce relationships or arrangements step-by-step.</li>
+            <li>Test possible solutions and eliminate invalid ones.</li>
+            <li>Verify the final answer against all conditions.</li>
+        </ol>
+        <div class="example">
+            <p><strong>Example 1 (Seating Arrangement):</strong> Five people (A, B, C, D, E) sit in a row. A is to the left of B. C is not at an end. D is next to E. B is not next to D. Who is in the middle?</p>
+            <p><strong>Solution:</strong>
+                <ul>
+                    <li>Positions: 1, 2, 3, 4, 5 (middle = 3).</li>
+                    <li>A left of B → A-B sequence.</li>
+                    <li>C not at ends (1, 5) → C in 2, 3, or 4.</li>
+                    <li>D next to E → D-E or E-D.</li>
+                    <li>B not next to D → B and D separated.</li>
+                    <li>Possible arrangement: A-C-B-D-E (1=A, 2=C, 3=B, 4=D, 5=E).</li>
+                    <li>Middle (3) = B.</li>
+                    <li>Answer: B.</li>
+                </ul>
+            </p>
+            <div class="diagram">
+                [A] [C] [B] [D] [E]
+            </div>
+        </div>
+        <div class="example">
+            <p><strong>Example 2 (Logical Puzzle):</strong> Three houses (1, 2, 3) are painted Red, Blue, or Green. House 1 is not Red. House 2 is Green. The Blue house is next to Green. Which house is Blue?</p>
+            <p><strong>Solution:</strong>
+                <ul>
+                    <li>House 2 = Green.</li>
+                    <li>House 1 ≠ Red → Blue or Green (but 2 is Green, so 1 = Blue).</li>
+                    <li>Blue (1) next to Green (2) → Satisfied.</li>
+                    <li>House 3 = Red (only color left).</li>
+                    <li>Answer: House 1.</li>
+                </ul>
+            </p>
+            <div class="diagram">
+                [1: Blue] [2: Green] [3: Red]
+            </div>
+        </div>
+        <div class="example">
+            <p><strong>Example 3 (Coded Inequalities):</strong> If A > B, B ≤ C, C < D, D ≤ E, then which is true?</p>
+            <p>A) A > E B) B < E C) C > E D) A = E</p>
+            <p><strong>Solution:</strong>
+                <ul>
+                    <li>Combine: A > B, B ≤ C, C < D, D ≤ E → A > B ≤ C < D ≤ E.</li>
+                    <li>B < E (since B ≤ C < D ≤ E).</li>
+                    <li>Answer: B.</li>
+                </ul>
+            </p>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>5. Practice Questions</h2>
+        <div class="question">
+            <p><strong>Question 1 (Seating Arrangement):</strong> Four people (P, Q, R, S) sit in a row. P is next to Q. R is not at an end. S is to the left of R. Who is at the left end?</p>
+            <p>A) P B) Q C) S D) R</p>
+            <p><strong>Solution:</strong>
+                <ul>
+                    <li>Positions: 1, 2, 3, 4.</li>
+                    <li>P next to Q → P-Q or Q-P.</li>
+                    <li>R not at ends (1, 4) → R in 2 or 3.</li>
+                    <li>S left of R → S-R sequence.</li>
+                    <li>Arrangement: S-P-Q-R (1=S, 2=P, 3=Q, 4=R).</li>
+                    <li>Left end = S.</li>
+                    <li>Answer: C.</li>
+                </ul>
+            </p>
+        </div>
+        <div class="question">
+            <p><strong>Question 2 (Logical Puzzle):</strong> Three boxes (A, B, C) contain Gold, Silver, or Bronze. A is not Gold. B is next to Silver. C is Bronze. Which box has Silver?</p>
+            <p>A) A B) B C) C D) None</p>
+            <p><strong>Solution:</strong>
+                <ul>
+                    <li>C = Bronze.</li>
+                    <li>A ≠ Gold → A = Silver or Bronze (but C = Bronze, so A = Silver).</li>
+                    <li>B next to Silver (A) → Satisfied if B is adjacent.</li>
+                    <li>B = Gold (only left).</li>
+                    <li>Answer: A.</li>
+                </ul>
+            </p>
+        </div>
+        <div class="question">
+            <p><strong>Question 3 (Coded Inequalities):</strong> If X ≥ Y, Y > Z, Z ≤ W, then which is true?</p>
+            <p>A) X > W B) Y ≤ W C) X = W D) Y > W</p>
+            <p><strong>Solution:</strong>
+                <ul>
+                    <li>Combine: X ≥ Y > Z ≤ W.</li>
+                    <li>Y > Z ≤ W → Y > W (since Y > Z and Z ≤ W).</li>
+                    <li>Answer: D.</li>
+                </ul>
+            </p>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>6. Common Mistakes to Avoid</h2>
+        <ul>
+            <li>Misinterpreting conditions (e.g., “next to” as “immediately next”).</li>
+            <li>Ignoring all constraints, leading to invalid arrangements.</li>
+            <li>Failing to use tables or diagrams for organization.</li>
+            <li>Overcomplicating simple puzzles by assuming extra conditions.</li>
+            <li>Not verifying solutions against all given clues.</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>7. Tips for Preparation</h2>
+        <ul>
+            <li>Practice organizing data in tables or diagrams.</li>
+            <li>Memorize common patterns (e.g., seating constraints, inequality symbols).</li>
+            <li>Solve 20–30 analytical reasoning questions daily.</li>
+            <li>Use elimination to narrow down possibilities.</li>
+            <li>Double-check solutions for consistency with all conditions.</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>8. Additional Examples</h2>
+        <table>
+            <tr>
+                <th>Question Type</th>
+                <th>Details</th>
+                <th>Answer</th>
+            </tr>
+            <tr>
+                <td>Seating Arrangement</td>
+                <td>A, B, C in a row; A not at end, B next to C</td>
+                <td>B-C-A</td>
+            </tr>
+            <tr>
+                <td>Logical Puzzle</td>
+                <td>3 people, 3 jobs; A not doctor, B is lawyer</td>
+                <td>A = engineer</td>
+            </tr>
+            <tr>
+                <td>Coded Inequalities</td>
+                <td>P > Q, Q ≥ R, R < S</td>
+                <td>P > S</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="section">
+        <h2>9. Advanced Analytical Reasoning</h2>
+        <p>Advanced questions involve multiple constraints or complex puzzles.</p>
+        <div class="example">
+            <p><strong>Example (Complex Seating):</strong> Six people (A, B, C, D, E, F) sit in a circle. A is opposite B. C is next to A. D is not next to C. E is next to F. Who is opposite C?</p>
+            <p><strong>Solution:</strong>
+                <ul>
+                    <li>Positions: 1, 2, 3, 4, 5, 6 (opposite: 1-4, 2-5, 3-6).</li>
+                    <li>A opposite B → A at 1, B at 4 (or vice versa).</li>
+                    <li>C next to A → C at 2 or 6.</li>
+                    <li>D not next to C → D not at 1, 3, 5, or 6 if C at 2.</li>
+                    <li>E next to F → E-F or F-E.</li>
+                    <li>Arrangement: A(1)-C(2)-F(3)-B(4)-E(5)-D(6).</li>
+                    <li>Opposite C (2) = 5 = E.</li>
+                    <li>Answer: E.</li>
+                </ul>
+            </p>
+            <div class="diagram">
+                [1:A]---[4:B]
+                 |       |
+                [2:C]---[5:E]
+                 |       |
+                [6:D]---[3:F]
+            </div>
+        </div>
+    </div>
+
+   <div class="section">
+  <h2>10. Practice Set (10 Questions)</h2>
+  <p>Additional questions to reinforce learning:</p>
+
+  <div class="question">
+    <p><strong>Question 1:</strong> Four people (W, X, Y, Z) sit in a row. W is next to X. Y is at an end. Z is not next to W. Who is second from the left?</p>
+    <p>A) W B) X C) Y D) Z</p>
+    <p><strong>Solution:</strong> Y is at 1 or 4. W-X pair must be together. Z not next to W. Try Y-W-X-Z ⇒ W is 2nd from left. Answer: A</p>
+  </div>
+
+  <div class="question">
+    <p><strong>Question 2:</strong> A, B, C, D are sitting in a circle. A is to the right of B. C is opposite A. Who is to the left of D?</p>
+    <p>A) A B) B C) C D) Cannot be determined</p>
+    <p><strong>Solution:</strong> Circular seating. A is right of B → A is clockwise to B. C is opposite A. Only one arrangement fits. Left of D is B. Answer: B</p>
+  </div>
+
+  <div class="question">
+    <p><strong>Question 3:</strong> Six people sit in a row. P is left of Q, but right of R. S is between P and Q. Who is in the middle?</p>
+    <p>A) P B) Q C) S D) R</p>
+    <p><strong>Solution:</strong> R < P < S < Q. Only S is in the middle. Answer: C</p>
+  </div>
+
+  <div class="question">
+    <p><strong>Question 4:</strong> Five friends sit in a row. A is to the left of B. C is between A and D. E is to the right of D. Who is at the center?</p>
+    <p>A) A B) B C) C D) E</p>
+    <p><strong>Solution:</strong> A < C < D < E and A < B. Valid order: A C D E B. Middle is D. Answer: C</p>
+  </div>
+
+  <div class="question">
+    <p><strong>Question 5:</strong> In a circle of 6 friends, T is to the immediate right of R, who is opposite V. Who is between T and V?</p>
+    <p>A) R B) W C) U D) Cannot be determined</p>
+    <p><strong>Solution:</strong> R is opposite V, T is immediate right of R. So, R-T-?-V in circle ⇒ U is between. Answer: C</p>
+  </div>
+
+  <div class="question">
+    <p><strong>Question 6:</strong> A, B, C, D, E sit in a row. C is at one end. A is not next to C. B is left of D but right of A. Who is in the center?</p>
+    <p>A) B B) D C) A D) C</p>
+    <p><strong>Solution:</strong> Valid arrangement: C E A B D. Middle is A. Answer: C</p>
+  </div>
+
+  <div class="question">
+    <p><strong>Question 7:</strong> Six people sit in a circle. A is between B and C. D is opposite A. Who is to the right of D?</p>
+    <p>A) A B) B C) C D) E</p>
+    <p><strong>Solution:</strong> A between B and C ⇒ B-A-C. D opposite A, so right of D = C. Answer: C</p>
+  </div>
+
+  <div class="question">
+    <p><strong>Question 8:</strong> P, Q, R, S, T sit in a row. Q is between P and R. T is to the right of R. Who is at the extreme right?</p>
+    <p>A) Q B) T C) P D) S</p>
+    <p><strong>Solution:</strong> P Q R T. T is at the end. Answer: B</p>
+  </div>
+
+  <div class="question">
+    <p><strong>Question 9:</strong> Seven people sit facing north. A sits 3rd left of B. C is at one end. Who is exactly in the center?</p>
+    <p>A) A B) B C) D D) Cannot be determined</p>
+    <p><strong>Solution:</strong> Try placing A 3rd left of B. Valid: C _ _ A _ _ B ⇒ A is center. Answer: A</p>
+  </div>
+
+  <div class="question">
+    <p><strong>Question 10:</strong> In a circular arrangement, 8 people sit. F is third to the right of G. H is opposite F. Who is to the left of H?</p>
+    <p>A) G B) E C) F D) Cannot be determined</p>
+    <p><strong>Solution:</strong> F is 3rd right of G ⇒ place G, trace F. H opposite F ⇒ Left of H = G. Answer: A</p>
+  </div>
+</div>
+
+
+    <div class="section">
+        <h2>12. Real-World Applications</h2>
+        <p>Used in scheduling, resource allocation, and strategic decision-making.</p>
+    </div>
+
+    <div class="section">
+        <h2>13. Visual Aids</h2>
+        <p>Tables and diagrams for problem-solving:</p>
+        <table>
+            <tr>
+                <th>Type</th>
+                <th>Visualization</th>
+            </tr>
+            <tr>
+                <td>Seating Arrangement</td>
+                <td>Linear or circular diagrams</td>
+            </tr>
+            <tr>
+                <td>Logical Puzzle</td>
+                <td>Matching tables</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="section">
+        <h2>14. Summary and Quick Reference</h2>
+        <p>Key points: Organize data systematically, apply constraints, use diagrams. Practice diverse question types.</p>
+    </div>
+</body>
+<script>
+function downloadPDF() {
+    const element = document.getElementById('analytic');
+    const opt = {
+        margin:       0.5,
+        filename:     'Analytics Reasoning Notes.pdf',
+        image:        { type: 'jpeg', quality: 0.98 },
+        html2canvas:  { scale: 2 },
+        jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
+    };
+    html2pdf().set(opt).from(element).save();
+}
+</script>
+</html>

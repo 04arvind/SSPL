@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jumbling - Reasoning Notes</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            line-height: 1.6;
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+        .section {
+            margin-bottom: 20px;
+            padding: 15px;
+            border-left: 4px solid #3498db;
+            background-color: #f9f9f9;
+        }
+        .example {
+            background-color: #e8f4f8;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        .question {
+            background-color: #fff3e0;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 10px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #3498db;
+            color: white;
+        }
+        .diagram {
+            background-color: #f0f0f0;
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+     <button onclick="downloadPDF()" style="padding:10px 20px; margin-bottom:20px; background-color:#3498db; color:white; border:none; border-radius:5px; cursor:pointer;">Download Notes as PDF
+    </button>
+    <div id="jumble">
+    <h1>Jumbling - General Intelligence and Reasoning</h1>
+    <div class="section">
+        <h2>1. Introduction to Jumbling</h2>
+        <p>Jumbling, also known as rearrangement, is a reasoning topic that involves arranging jumbled words, sentences, or paragraphs in a logical order to form a meaningful sequence. It tests the ability to understand coherence, grammar, and logical flow. Jumbling questions are common in competitive exams to assess analytical and language skills.</p>
+        <p><strong>Objective:</strong> Rearrange given elements (words, sentences, or paragraphs) to form a coherent and meaningful sequence.</p>
+        <p><strong>Applications:</strong> Used in writing, editing, communication, and logical structuring of ideas.</p>
+    </div>
+
+    <div class="section">
+        <h2>2. Types of Jumbling Questions</h2>
+        <p>Jumbling questions can be classified based on the elements to be rearranged:</p>
+        <ul>
+            <li><strong>Word Jumbling:</strong> Rearrange words to form a meaningful sentence (e.g., is / book / this / a → This is a book).</li>
+            <li><strong>Sentence Jumbling:</strong> Arrange sentences to form a coherent paragraph.</li>
+            <li><strong>Paragraph Jumbling:</strong> Rearrange paragraphs to form a logical passage.</li>
+            <li><strong>Mixed Jumbling:</strong> Combine words and sentences or involve additional clues (e.g., first word is “The”).</li>
+            <li><strong>Coded Jumbling:</strong> Sentences or words are coded, and rearrangement follows specific rules.</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>3. Key Concepts in Jumbling</h2>
+        <p>Understanding the following concepts is essential for solving jumbling questions:</p>
+        <ul>
+            <li><strong>Grammar Rules:</strong> Subject-verb-object structure, articles, prepositions.</li>
+            <li><strong>Logical Flow:</strong> Chronological order, cause-effect, or thematic progression.</li>
+            <li><strong>Connectors:</strong> Words like “therefore,” “however,” or pronouns linking sentences.</li>
+            <li><strong>Context Clues:</strong> Keywords indicating sequence (e.g., “firstly,” “finally”).</li>
+        </ul>
+        <table>
+            <tr>
+                <th>Element</th>
+                <th>Role in Jumbling</th>
+            </tr>
+            <tr>
+                <td>Articles (a, an, the)</td>
+                <td>Often start sentences</td>
+            </tr>
+            <tr>
+                <td>Connectors</td>
+                <td>Link sentences logically</td>
+            </tr>
+            <tr>
+                <td>Pronouns</td>
+                <td>Refer to previous nouns</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="section">
+        <h2>4. Steps to Solve Jumbling Questions</h2>
+        <ol>
+            <li>Identify the type of jumbling (word, sentence, or paragraph).</li>
+            <li>Look for grammatical clues (e.g., articles, verbs) or logical connectors.</li>
+            <li>Determine the starting element (e.g., sentence with “The” or introductory idea).</li>
+            <li>Arrange elements to ensure coherence and logical flow.</li>
+            <li>Test the sequence by reading it to check for meaning.</li>
+            <li>Verify against options (if multiple-choice) or recheck for errors.</li>
+        </ol>
+        <div class="example">
+            <p><strong>Example 1 (Word Jumbling):</strong> Arrange the words to form a meaningful sentence: is / book / this / a.</p>
+            <p><strong>Solution:</strong>
+                <ul>
+                    <li>Identify parts: “this” (pronoun), “is” (verb), “a” (article), “book” (noun).</li>
+                    <li>Standard sentence: Subject + Verb + Object.</li>
+                    <li>“a” and “book” form “a book”; “this” is subject; “is” is verb.</li>
+                    <li>Sequence: This is a book.</li>
+                    <li>Answer: This is a book.</li>
+                </ul>
+            </p>
+        </div>
+        <div class="example">
+            <p><strong>Example 2 (Sentence Jumbling):</strong> Arrange the sentences:
+                <ul>
+                    <li>A. She went to the market.</li>
+                    <li>B. She bought some fruits.</li>
+                    <li>C. She returned home.</li>
+                    <li>D. She was hungry.</li>
+                </ul>
+            </p>
+            <p><strong>Solution:</strong>
+                <ul>
+                    <li>Logical flow: Cause → Action → Result.</li>
+                    <li>D (hungry) is cause; A (market) and B (bought fruits) are actions; C (returned) is result.</li>
+                    <li>Sequence: D, A, B, C (She was hungry. She went to the market. She bought some fruits. She returned home).</li>
+                    <li>Answer: DABC.</li>
+                </ul>
+            </p>
+        </div>
+        <div class="example">
+            <p><strong>Example 3 (Coded Jumbling):</strong> Arrange the sentences where first sentence starts with “The”:
+                <ul>
+                    <li>P. It was a sunny day.</li>
+                    <li>Q. The team played well.</li>
+                    <li>R. They won the match.</li>
+                    <li>S. Fans cheered loudly.</li>
+                </ul>
+            </p>
+            <p><strong>Solution:</strong>
+                <ul>
+                    <li>Q starts with “The” → Q is first.</li>
+                    <li>P (sunny day) sets context; R (won match) follows Q; S (cheered) is result.</li>
+                    <li>Sequence: Q, P, R, S.</li>
+                    <li>Answer: QPRS.</li>
+                </ul>
+            </p>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>5. Practice Questions</h2>
+        <div class="question">
+            <p><strong>Question 1 (Word Jumbling):</strong> Arrange: was / reading / she / a / book.</p>
+            <p>A) She was reading a book. B) A book was she reading. C) She was a book reading. D) Reading was she a book.</p>
+            <p><strong>Solution:</strong>
+                <ul>
+                    <li>Parts: “she” (subject), “was” (auxiliary verb), “reading” (main verb), “a book” (object).</li>
+                    <li>Sequence: She was reading a book.</li>
+                    <li>Answer: A.</li>
+                </ul>
+            </p>
+        </div>
+        <div class="question">
+            <p><strong>Question 2 (Sentence Jumbling):</strong> Arrange:
+                <ul>
+                    <li>A. He finished his homework.</li>
+                    <li>B. He was tired.</li>
+                    <li>C. He went to bed.</li>
+                    <li>D. He studied for hours.</li>
+                </ul>
+            </p>
+            <p>A) ADBC B) BDAC C) DBAC D) ADCB</p>
+            <p><strong>Solution:</strong>
+                <ul>
+                    <li>Logical flow: D (studied) → A (finished) → B (tired) → C (bed).</li>
+                    <li>Answer: C) DBAC.</li>
+                </ul>
+            </p>
+        </div>
+        <div class="question">
+            <p><strong>Question 3 (Coded Jumbling):</strong> Arrange, given first sentence introduces topic:
+                <ul>
+                    <li>P. It reduces pollution.</li>
+                    <li>Q. Electric cars are popular.</li>
+                    <li>R. They are eco-friendly.</li>
+                    <li>S. Many people buy them.</li>
+                </ul>
+            </p>
+            <p>A) QRSP B) QSPR C) PQRS D) RQPS</p>
+            <p><strong>Solution:</strong>
+                <ul>
+                    <li>Q introduces topic (electric cars); R (eco-friendly) explains; P (reduces pollution) elaborates; S (buy them) concludes.</li>
+                    <li>Answer: A) QRSP.</li>
+                </ul>
+            </p>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>6. Common Mistakes to Avoid</h2>
+        <ul>
+            <li>Ignoring grammatical structure (e.g., placing verb before subject).</li>
+            <li>Missing logical connectors (e.g., “therefore,” “then”).</li>
+            <li>Not identifying the starting sentence or word.</li>
+            <li>Creating incoherent sequences by neglecting context.</li>
+            <li>Failing to recheck the final sequence for meaning.</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>7. Tips for Preparation</h2>
+        <ul>
+            <li>Practice basic grammar (subject-verb-object, articles).</li>
+            <li>Look for logical flow (cause-effect, chronological order).</li>
+            <li>Solve 20–30 jumbling questions daily to improve speed.</li>
+            <li>Use connectors and pronouns to link sentences.</li>
+            <li>Test sequences by reading aloud for coherence.</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>8. Additional Examples</h2>
+        <table>
+            <tr>
+                <th>Jumbled Elements</th>
+                <th>Correct Sequence</th>
+                <th>Answer</th>
+            </tr>
+            <tr>
+                <td>is / my / this / house</td>
+                <td>This is my house.</td>
+                <td>This is my house.</td>
+            </tr>
+            <tr>
+                <td>A. She smiled. B. He waved. C. They met. D. It was morning.</td>
+                <td>D, C, B, A</td>
+                <td>DCBA</td>
+            </tr>
+            <tr>
+                <td>P. It was raining. Q. The match was canceled. R. Players were ready. S. The day was gloomy.</td>
+                <td>P, S, R, Q</td>
+                <td>PSRQ</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="section">
+        <h2>9. Advanced Jumbling Questions</h2>
+        <p>Advanced questions involve longer paragraphs or complex clues.</p>
+        <div class="example">
+            <p><strong>Example (Paragraph Jumbling):</strong> Arrange:
+                <ul>
+                    <li>A. It attracted many tourists.</li>
+                    <li>B. The festival was vibrant.</li>
+                    <li>C. Stalls sold local crafts.</li>
+                    <li>D. Music filled the air.</li>
+                    <li>E. It was held annually.</li>
+                </ul>
+            </p>
+            <p><strong>Solution:</strong>
+                <ul>
+                    <li>E (annually) introduces; B (vibrant) describes; D (music) and C (stalls) elaborate; A (tourists) concludes.</li>
+                    <li>Answer: EBDCA.</li>
+                </ul>
+            </p>
+        </div>
+    </div>
+
+   <div class="section">
+    <h2>10. Practice Set (10 Questions)</h2> 
+    <p>Additional questions to reinforce learning:</p>
+
+    <div class="question">
+        <p><strong>Question 1:</strong> Arrange: quickly / the / dog / ran / away.</p>
+        <p>A) The dog ran away quickly. B) Ran away quickly the dog. C) Quickly ran away the dog. D) The dog quickly ran away.</p>
+        <p><strong>Answer:</strong> D</p>
+    </div>
+
+    <div class="question">
+        <p><strong>Question 2:</strong> Arrange: has / she / never / Europe / visited.</p>
+        <p>A) She never visited has Europe. B) She has never visited Europe. C) Europe she has never visited. D) Has she visited never Europe.</p>
+        <p><strong>Answer:</strong> B</p>
+    </div>
+
+    <div class="question">
+        <p><strong>Question 3:</strong> Arrange: if / rains / the match / will / cancelled / be.</p>
+        <p>A) If rains the match will be cancelled. B) The match will be cancelled if it rains. C) If it rains, the match will be cancelled. D) Will be cancelled the match if rains.</p>
+        <p><strong>Answer:</strong> C</p>
+    </div>
+
+    <div class="question">
+        <p><strong>Question 4:</strong> Arrange: to / went / she / school.</p>
+        <p>A) She went to school. B) To school she went. C) Went she to school. D) She to school went.</p>
+        <p><strong>Answer:</strong> A</p>
+    </div>
+
+    <div class="question">
+        <p><strong>Question 5:</strong> Arrange: being / he / late / punished / was / for.</p>
+        <p>A) He was punished for being late. B) Being late he was punished. C) For being late punished he was. D) Punished was he for being late.</p>
+        <p><strong>Answer:</strong> A</p>
+    </div>
+
+    <div class="question">
+        <p><strong>Question 6:</strong> Arrange: as / as / not / John / is / quick / David.</p>
+        <p>A) John is not as quick as David. B) Not as quick as David is John. C) David is as quick as not John. D) John not is quick as David.</p>
+        <p><strong>Answer:</strong> A</p>
+    </div>
+
+    <div class="question">
+        <p><strong>Question 7:</strong> Arrange: hardly / I / believe / can / this.</p>
+        <p>A) I can hardly believe this. B) Hardly believe I can this. C) Believe I can hardly this. D) This I believe hardly can.</p>
+        <p><strong>Answer:</strong> A</p>
+    </div>
+
+    <div class="question">
+        <p><strong>Question 8:</strong> Arrange: the / is / what / problem?</p>
+        <p>A) What is the problem? B) The problem is what? C) Is the what problem? D) What problem is the?</p>
+        <p><strong>Answer:</strong> A</p>
+    </div>
+
+    <div class="question">
+        <p><strong>Question 9:</strong> Arrange: had / he / left / already / when / arrived / we.</p>
+        <p>A) When we arrived, he had already left. B) He left had already when we arrived. C) He had when we already left arrived. D) Arrived when we, already left he had.</p>
+        <p><strong>Answer:</strong> A</p>
+    </div>
+
+    <div class="question">
+        <p><strong>Question 10:</strong> Arrange: must / you / obey / rules / the.</p>
+        <p>A) You must obey the rules. B) Obey the rules you must. C) The rules must obey you. D) You the must obey rules.</p>
+        <p><strong>Answer:</strong> A</p>
+    </div>
+</div>
+
+
+
+    <div class="section">
+        <h2>11. Real-World Applications</h2>
+        <p>Used in editing, content creation, and structuring arguments in debates.</p>
+    </div>
+
+    <div class="section">
+        <h2>12. Advanced Practice Set (20 Questions)</h2>
+        <p>Include complex paragraph and coded jumbling questions.</p>
+    </div>
+
+    <div class="section">
+        <h2>13. Visual Aids</h2>
+        <p>Tables for grammatical roles and logical connectors:</p>
+        <table>
+            <tr>
+                <th>Element</th>
+                <th>Example</th>
+                <th>Role</th>
+            </tr>
+            <tr>
+                <td>Article</td>
+                <td>The, A</td>
+                <td>Starts sentence</td>
+            </tr>
+            <tr>
+                <td>Connector</td>
+                <td>Therefore</td>
+                <td>Links ideas</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="section">
+        <h2>14. Summary and Quick Reference</h2>
+        <p>Key points: Identify grammar and logical flow, start with introductory elements, practice coherence. Use tables for quick reference.</p>
+    </div>
+
+    
+</body>
+<script>
+function downloadPDF() {
+    const element = document.getElementById('jumble');
+    const opt = {
+        margin:       0.5,
+        filename:     'Jumbling Notes.pdf',
+        image:        { type: 'jpeg', quality: 0.98 },
+        html2canvas:  { scale: 2 },
+        jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
+    };
+    html2pdf().set(opt).from(element).save();
+}
+</script>
+</html>
