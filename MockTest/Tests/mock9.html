@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RRB Group-D Mock Test 9</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .correct {
+      background-color: #d4edda;
+      color: #155724;
+      padding: 4px;
+      border-radius: 4px;
+    }
+    .incorrect {
+      background-color: #f8d7da;
+      color: #721c24;
+      padding: 4px;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body class="bg-gray-100 text-gray-900">
+  <div class="max-w-4xl mx-auto p-6">
+    <h1 class="text-3xl font-bold text-center mb-4 text-blue-600 animate-pulse">RRB Group-D Mock Test 9</h1>
+     <!-- Instructions Section -->
+    <div class="mb-4 p-4 bg-yellow-100 border border-yellow-300 rounded">
+      <h2 class="text-xl font-semibold mb-2">Instructions</h2>
+      <ul class="list-disc list-inside text-sm space-y-1">
+        <li>Total Questions: <strong>100</strong></li>
+        <li>Total Time: <strong>90 minutes</strong></li>
+        <li>Each correct answer awards <strong>+1 mark</strong></li>
+        <li>Each wrong answer incurs <strong>1/3 mark</strong></li>
+        <li>Unattempted questions carry <strong>no penalty</strong></li>
+        <li>Click "Submit" when finished or wait for time to run out for auto-submit</li>
+      </ul>
+    </div>
+    <div id="timer" class="text-xl font-semibold text-red-600 text-center mb-4">Time Left: 90:00</div>
+    <form id="mockTest" class="bg-white p-6 rounded-lg shadow-lg">
+      <div id="questions"></div>
+      <button type="submit" class="mt-4 bg-blue-500 text-white px-6 py-2 rounded hover:bg-blue-600">Submit</button>
+    </form>
+    <div id="result" class="hidden mt-6 bg-white p-6 rounded-lg shadow">
+      <h2 class="text-2xl font-bold text-center mb-2">Your Score: <span id="score"></span>/100</h2>
+      <p class="text-center text-lg" id="scoreMessage"></p>
+    </div>
+  </div>
+
+  <script>
+    const QUESTIONS = [
+        ///    questions 
+         {
+    "id": "m1",
+    "text": "Find the greatest 4-digit number which is exactly divisible by 15, 25, 40, and 75.",
+    "options": ["9600", "9000", "9500", "9800"],
+    "correct": "A"
+  },
+  {
+    "id": "m2",
+    "text": "What will be the remainder when 7^100 is divided by 6?",
+    "options": ["1", "0", "5", "3"],
+    "correct": "A"
+  },
+  {
+    "id": "m3",
+    "text": "A number when divided by 5 leaves remainder 4. What will be the remainder when the square of that number is divided by 5?",
+    "options": ["1", "4", "3", "2"],
+    "correct": "A"
+  },
+  {
+    "id": "m4",
+    "text": "Simplify: 999^2 - 1",
+    "options": ["998000", "998001", "999999", "1000000"],
+    "correct": "B"
+  },
+  {
+    "id": "m5",
+    "text": "If x + 1/x = 3, what is the value of x^2 + 1/x^2?",
+    "options": ["7", "9", "11", "13"],
+    "correct": "C"
+  },
+  {
+    "id": "m6",
+    "text": "If A = 60% of B, and B = 80% of C, then A is what percent of C?",
+    "options": ["48%", "50%", "60%", "70%"],
+    "correct": "A"
+  },
+  {
+    "id": "m7",
+    "text": "A man covers 600 m in 5 minutes. What is his speed in km/hr?",
+    "options": ["6", "7.2", "8", "10"],
+    "correct": "B"
+  },
+  {
+    "id": "m8",
+    "text": "A train 120 meters long crosses a platform 180 meters long in 20 seconds. Find the speed of the train.",
+    "options": ["54 km/hr", "60 km/hr", "72 km/hr", "90 km/hr"],
+    "correct": "C"
+  },
+  {
+    "id": "m9",
+    "text": "If a sum becomes double in 5 years at simple interest, in how many years will it become triple?",
+    "options": ["10", "15", "20", "8"],
+    "correct": "B"
+  },
+  {
+    "id": "m10",
+    "text": "What is the compound interest on ₹5000 for 2 years at 10% per annum compounded annually?",
+    "options": ["₹1000", "₹1050", "₹1100", "₹1155"],
+    "correct": "D"
+  },
+  {
+    "id": "m11",
+    "text": "The average of first 10 natural numbers is:",
+    "options": ["5.5", "6", "6.5", "7"],
+    "correct": "A"
+  },
+  {
+    "id": "m12",
+    "text": "A shopkeeper marks his goods 20% above cost price and allows a discount of 10%. His gain percent is:",
+    "options": ["8%", "10%", "9%", "12%"],
+    "correct": "A"
+  },
+  {
+    "id": "m13",
+    "text": "Two numbers are in the ratio 3:4. If their LCM is 180, what is the smaller number?",
+    "options": ["45", "60", "90", "30"],
+    "correct": "A"
+  },
+  {
+    "id": "m14",
+    "text": "The perimeter of a semicircle is 72 cm. Find its diameter. (Take π = 22/7)",
+    "options": ["28 cm", "35 cm", "36 cm", "42 cm"],
+    "correct": "D"
+  },
+  {
+    "id": "m15",
+    "text": "Area of a rhombus with diagonals 12 cm and 10 cm is:",
+    "options": ["60 cm²", "70 cm²", "80 cm²", "50 cm²"],
+    "correct": "A"
+  },
+  {
+    "id": "m16",
+    "text": "A rectangular room is 12 m long and 9 m wide. Find the cost of flooring it at ₹50/m².",
+    "options": ["₹5400", "₹6000", "₹7200", "₹4800"],
+    "correct": "A"
+  },
+  {
+    "id": "m17",
+    "text": "The value of sin²30° + cos²30° is:",
+    "options": ["1", "√3", "0.5", "2"],
+    "correct": "A"
+  },
+  {
+    "id": "m18",
+    "text": "If the mean of 10 numbers is 20, what is the total sum of the numbers?",
+    "options": ["200", "220", "180", "210"],
+    "correct": "A"
+  },
+  {
+    "id": "m19",
+    "text": "The number of sides in a polygon with sum of interior angles equal to 1080° is:",
+    "options": ["6", "7", "8", "9"],
+    "correct": "C"
+  },
+  {
+    "id": "m20",
+    "text": "A cube has volume 729 cm³. What is the length of one side?",
+    "options": ["9 cm", "8 cm", "7 cm", "6 cm"],
+    "correct": "A"
+  },
+  {
+    "id": "m21",
+    "text": "What is the HCF of 36, 60 and 84?",
+    "options": ["6", "12", "18", "24"],
+    "correct": "B"
+  },
+  {
+    "id": "m22",
+    "text": "Ravi can do a work in 20 days. Mohan can do the same work in 30 days. In how many days will they complete the work together?",
+    "options": ["10", "12", "15", "25"],
+    "correct": "B"
+  },
+  {
+    "id": "m23",
+    "text": "The difference between the simple and compound interest on ₹2500 for 2 years at 4% is:",
+    "options": ["₹4", "₹3", "₹2", "₹5"],
+    "correct": "A"
+  },
+  {
+    "id": "m24",
+    "text": "Find the missing number in the series: 3, 9, 27, ?, 243",
+    "options": ["81", "72", "90", "99"],
+    "correct": "A"
+  },
+  {
+    "id": "m25",
+    "text": "If the radius of a circle is doubled, then its area becomes:",
+    "options": ["2 times", "3 times", "4 times", "8 times"],
+    "correct": "C"
+  },
+    {
+    "id": "r1",
+    "text": "Complete the analogy: Foot : Sock :: Hand : ?",
+    "options": ["Watch", "Glove", "Ring", "Sleeve"],
+    "correct": "B"
+  },
+  {
+    "id": "r2",
+    "text": "What comes next in the series: A, C, F, J, O, ?",
+    "options": ["U", "S", "V", "T"],
+    "correct": "A"
+  },
+  {
+    "id": "r3",
+    "text": "If TREE is coded as VSJG, then PLANT is coded as:",
+    "options": ["RNCPV", "RNCVU", "RNEVU", "QMBOS"],
+    "correct": "B"
+  },
+  {
+    "id": "r4",
+    "text": "Pointing to a boy, Neha said, 'He is the son of my mother's only son'. How is the boy related to Neha?",
+    "options": ["Brother", "Nephew", "Cousin", "Son"],
+    "correct": "B"
+  },
+  {
+    "id": "r5",
+    "text": "Which one does not belong to the group?",
+    "options": ["Triangle", "Rectangle", "Square", "Circle"],
+    "correct": "D"
+  },
+  {
+    "id": "r6",
+    "text": "If 2 + 3 = 13, 3 + 4 = 25, 4 + 5 = 41, then 5 + 6 = ?",
+    "options": ["61", "65", "67", "71"],
+    "correct": "C"
+  },
+  {
+    "id": "r7",
+    "text": "If in a certain code, MOBILE is written as 642139, then LIME will be written as:",
+    "options": ["9314", "4139", "3914", "4913"],
+    "correct": "B"
+  },
+  {
+    "id": "r8",
+    "text": "Statements: All dogs are animals. All animals are living beings. Conclusion I: All dogs are living beings. Conclusion II: Some living beings are dogs.",
+    "options": ["Only I follows", "Only II follows", "Both follow", "Neither follows"],
+    "correct": "C"
+  },
+  {
+    "id": "r9",
+    "text": "Which number will complete the series: 2, 6, 12, 20, ?, 42",
+    "options": ["28", "30", "32", "34"],
+    "correct": "C"
+  },
+  {
+    "id": "r10",
+    "text": "Find the odd one out: Mirror, Glass, Lens, Spectacles",
+    "options": ["Mirror", "Glass", "Lens", "Spectacles"],
+    "correct": "A"
+  },
+  {
+    "id": "r11",
+    "text": "Rahul is facing west. He turns 90° right, then left, then 180°. Which direction is he facing now?",
+    "options": ["East", "West", "South", "North"],
+    "correct": "C"
+  },
+  {
+    "id": "r12",
+    "text": "Find the missing term: BDF, CFI, DHL, ?",
+    "options": ["EGN", "EIM", "EJO", "EHL"],
+    "correct": "C"
+  },
+  {
+    "id": "r13",
+    "text": "If in a certain code, BREAK is coded as 25184, then BAKE is coded as:",
+    "options": ["2518", "2184", "5814", "5184"],
+    "correct": "D"
+  },
+  {
+    "id": "r14",
+    "text": "Choose the word which is different from others:",
+    "options": ["Apple", "Banana", "Mango", "Potato"],
+    "correct": "D"
+  },
+  {
+    "id": "r15",
+    "text": "Which number replaces the question mark: 4, 9, 19, 39, ?, 159",
+    "options": ["69", "79", "89", "99"],
+    "correct": "C"
+  },
+  {
+    "id": "r16",
+    "text": "Which word cannot be made from the letters of the word 'ESTABLISHMENT'?",
+    "options": ["MENTAL", "TABLES", "BATHES", "MACHINE"],
+    "correct": "D"
+  },
+  {
+    "id": "r17",
+    "text": "Find the odd one out: 16, 36, 49, 64, 81",
+    "options": ["16", "36", "49", "64"],
+    "correct": "C"
+  },
+  {
+    "id": "r18",
+    "text": "Which of the following is a valid conclusion from: All painters are artists. Some artists are singers.",
+    "options": ["All painters are singers", "Some painters are singers", "Some artists are painters", "All artists are painters"],
+    "correct": "C"
+  },
+  {
+    "id": "r19",
+    "text": "If ROME is coded as 18-15-13-5, how is PARIS coded?",
+    "options": ["16-1-18-9-19", "15-1-17-9-18", "16-2-19-9-19", "17-2-18-10-20"],
+    "correct": "A"
+  },
+  {
+    "id": "r20",
+    "text": "If in a mirror, EAST appears as WEST, then NORTH will appear as?",
+    "options": ["SOUTH", "NORTH", "WEST", "EAST"],
+    "correct": "A"
+  },
+  {
+    "id": "r21",
+    "text": "If 1 = 5, 2 = 25, 3 = 325, 4 = 4325, then 5 = ?",
+    "options": ["54325", "5325", "5", "6525"],
+    "correct": "A"
+  },
+  {
+    "id": "r22",
+    "text": "What comes next: 3, 7, 15, 31, ?",
+    "options": ["63", "62", "64", "61"],
+    "correct": "C"
+  },
+  {
+    "id": "r23",
+    "text": "A is the brother of B. C is the sister of B. D is the father of A. How is C related to D?",
+    "options": ["Daughter", "Niece", "Wife", "Sister"],
+    "correct": "A"
+  },
+  {
+    "id": "r24",
+    "text": "Find the term that does not belong: Cow, Buffalo, Goat, Tiger",
+    "options": ["Cow", "Buffalo", "Goat", "Tiger"],
+    "correct": "D"
+  },
+  {
+    "id": "r25",
+    "text": "If MONDAY is 123456, then what is CODED for WEDNESDAY?",
+    "options": ["789123456", "913264578", "813265479", "981327645"],
+    "correct": "C"
+  },
+  {
+    "id": "r26",
+    "text": "In a certain language, FLOWER is written as EKNVDQ. How is GARDEN written in that code?",
+    "options": ["FBQCDM", "FZQCDM", "EZPBCM", "FZPBDM"],
+    "correct": "B"
+  },
+  {
+    "id": "r27",
+    "text": "Which number replaces the question mark: 11, 13, 17, 19, ?, 29",
+    "options": ["23", "24", "25", "27"],
+    "correct": "A"
+  },
+  {
+    "id": "r28",
+    "text": "Ravi travels 5 km north, then turns right and goes 3 km, then turns right again and goes 5 km. In which direction is he from the starting point?",
+    "options": ["East", "West", "South", "North"],
+    "correct": "A"
+  },
+  {
+    "id": "r29",
+    "text": "Find the odd one: Pen, Pencil, Brush, Paper",
+    "options": ["Pen", "Pencil", "Brush", "Paper"],
+    "correct": "D"
+  },
+  {
+    "id": "r30",
+    "text": "Which diagram represents 'Teachers', 'Women' and 'Singers' correctly?",
+    "options": ["Three intersecting circles", "One circle inside another", "Separate circles", "Two intersecting and one separate"],
+    "correct": "A"
+  },
+   {
+    "id": "gs1",
+    "text": "Which part of the human brain is responsible for maintaining posture and balance?",
+    "options": ["Cerebrum", "Medulla", "Cerebellum", "Pons"],
+    "correct": "C"
+  },
+  {
+    "id": "gs2",
+    "text": "Which gas is produced during the anaerobic respiration in yeast?",
+    "options": ["Carbon dioxide", "Oxygen", "Nitrogen", "Hydrogen"],
+    "correct": "A"
+  },
+  {
+    "id": "gs3",
+    "text": "The blue colour of the sky is due to:",
+    "options": ["Reflection", "Refraction", "Scattering", "Diffraction"],
+    "correct": "C"
+  },
+  {
+    "id": "gs4",
+    "text": "Which vitamin helps in blood clotting?",
+    "options": ["Vitamin A", "Vitamin B", "Vitamin K", "Vitamin D"],
+    "correct": "C"
+  },
+  {
+    "id": "gs5",
+    "text": "Which chemical is used in the preparation of soaps?",
+    "options": ["Sulphuric acid", "Sodium hydroxide", "Hydrochloric acid", "Nitric acid"],
+    "correct": "B"
+  },
+  {
+    "id": "gs6",
+    "text": "What is the SI unit of force?",
+    "options": ["Joule", "Pascal", "Newton", "Watt"],
+    "correct": "C"
+  },
+  {
+    "id": "gs7",
+    "text": "Which of the following is not a plant hormone?",
+    "options": ["Auxin", "Cytokinin", "Thyroxine", "Gibberellin"],
+    "correct": "C"
+  },
+  {
+    "id": "gs8",
+    "text": "The image formed by a plane mirror is:",
+    "options": ["Real and inverted", "Virtual and upright", "Real and upright", "Inverted and diminished"],
+    "correct": "B"
+  },
+  {
+    "id": "gs9",
+    "text": "What is the main component of biogas?",
+    "options": ["Methane", "Carbon dioxide", "Ethane", "Hydrogen"],
+    "correct": "A"
+  },
+  {
+    "id": "gs10",
+    "text": "Which of the following diseases is caused by a virus?",
+    "options": ["Tuberculosis", "Typhoid", "Hepatitis B", "Cholera"],
+    "correct": "C"
+  },
+  {
+    "id": "gs11",
+    "text": "Which element is used in thermometers because it expands uniformly?",
+    "options": ["Mercury", "Lead", "Zinc", "Copper"],
+    "correct": "A"
+  },
+  {
+    "id": "gs12",
+    "text": "Which organ in the human body produces bile?",
+    "options": ["Stomach", "Pancreas", "Liver", "Gallbladder"],
+    "correct": "C"
+  },
+  {
+    "id": "gs13",
+    "text": "The chemical formula of washing soda is:",
+    "options": ["Na2CO3", "NaHCO3", "CaCO3", "NaOH"],
+    "correct": "A"
+  },
+  {
+    "id": "gs14",
+    "text": "Which of the following is a conductor of electricity?",
+    "options": ["Distilled water", "Rubber", "Graphite", "Plastic"],
+    "correct": "C"
+  },
+  {
+    "id": "gs15",
+    "text": "Which gas is used in fire extinguishers?",
+    "options": ["Oxygen", "Carbon dioxide", "Nitrogen", "Hydrogen"],
+    "correct": "B"
+  },
+  {
+    "id": "gs16",
+    "text": "In humans, how many chromosomes are present in a zygote?",
+    "options": ["23", "46", "44", "48"],
+    "correct": "B"
+  },
+  {
+    "id": "gs17",
+    "text": "Rusting of iron is an example of:",
+    "options": ["Reduction", "Neutralization", "Oxidation", "Decomposition"],
+    "correct": "C"
+  },
+  {
+    "id": "gs18",
+    "text": "Which part of the cell contains genetic material?",
+    "options": ["Mitochondria", "Nucleus", "Ribosome", "Cytoplasm"],
+    "correct": "B"
+  },
+  {
+    "id": "gs19",
+    "text": "Which law states that energy can neither be created nor destroyed?",
+    "options": ["Ohm’s Law", "Newton’s Third Law", "Law of Conservation of Energy", "Hooke’s Law"],
+    "correct": "C"
+  },
+  {
+    "id": "gs20",
+    "text": "Which of the following is a physical change?",
+    "options": ["Rusting", "Burning", "Melting of ice", "Cooking of food"],
+    "correct": "C"
+  },
+  {
+    "id": "gs21",
+    "text": "Which of these planets has the largest number of moons?",
+    "options": ["Earth", "Jupiter", "Mars", "Venus"],
+    "correct": "B"
+  },
+  {
+    "id": "gs22",
+    "text": "Which organ helps in detoxifying chemicals and metabolizing drugs?",
+    "options": ["Kidney", "Lungs", "Liver", "Heart"],
+    "correct": "C"
+  },
+  {
+    "id": "gs23",
+    "text": "Which of the following is an example of an exothermic reaction?",
+    "options": ["Melting ice", "Photosynthesis", "Combustion", "Evaporation"],
+    "correct": "C"
+  },
+  {
+    "id": "gs24",
+    "text": "What is the normal pH range of human blood?",
+    "options": ["4.5 – 5.5", "6.0 – 6.5", "7.35 – 7.45", "8.0 – 8.5"],
+    "correct": "C"
+  },
+  {
+    "id": "gs25",
+    "text": "Which blood cells help in clotting?",
+    "options": ["Red blood cells", "White blood cells", "Platelets", "Plasma"],
+    "correct": "C"
+  },
+   {
+    "id": "ga1",
+    "text": "Who is the current Chief Election Commissioner of India (as of May 2025)?",
+    "options": ["Rajiv Kumar", "Sushil Chandra", "Arun Goel", "T. S. Krishnamurthy"],
+    "correct": "A"
+  },
+  {
+    "id": "ga2",
+    "text": "Which Indian state recently launched the ‘Mukhyamantri Gram Sadak Yojana’?",
+    "options": ["Uttar Pradesh", "Madhya Pradesh", "Odisha", "Bihar"],
+    "correct": "C"
+  },
+  {
+    "id": "ga3",
+    "text": "Which country has been granted permanent membership of BRICS in its 2024 expansion?",
+    "options": ["Iran", "Argentina", "Ethiopia", "All of the above"],
+    "correct": "D"
+  },
+  {
+    "id": "ga4",
+    "text": "Who won the Nobel Peace Prize in 2024?",
+    "options": ["Narges Mohammadi", "Abiy Ahmed", "Maria Ressa", "Volodymyr Zelensky"],
+    "correct": "A"
+  },
+  {
+    "id": "ga5",
+    "text": "Which Indian has been included in TIME’s 100 Most Influential People of 2024?",
+    "options": ["Virat Kohli", "Ratan Tata", "Deepika Padukone", "Narayana Murthy"],
+    "correct": "C"
+  },
+  {
+    "id": "ga6",
+    "text": "What is the GDP growth rate of India projected by IMF for FY 2025?",
+    "options": ["6.5%", "7.0%", "7.2%", "6.8%"],
+    "correct": "B"
+  },
+  {
+    "id": "ga7",
+    "text": "Which Indian airport was awarded the ‘Best Airport in Asia-Pacific’ (2024, under 15 million category)?",
+    "options": ["Kolkata", "Goa", "Lucknow", "Chandigarh"],
+    "correct": "C"
+  },
+  {
+    "id": "ga8",
+    "text": "‘Vibrant Villages Programme’ was launched by which ministry?",
+    "options": ["Ministry of Agriculture", "Ministry of Rural Development", "Ministry of Home Affairs", "Ministry of Defence"],
+    "correct": "C"
+  },
+  {
+    "id": "ga9",
+    "text": "Who is the first female fighter pilot to take part in Republic Day 2024 fly-past?",
+    "options": ["Avani Chaturvedi", "Shivangi Singh", "Bhavana Kanth", "Shaliza Dhami"],
+    "correct": "B"
+  },
+  {
+    "id": "ga10",
+    "text": "What is the rank of India in the Global Innovation Index 2024?",
+    "options": ["38th", "40th", "42nd", "48th"],
+    "correct": "C"
+  },
+  {
+    "id": "ga11",
+    "text": "Which Indian state topped the SDG India Index 2024 released by NITI Aayog?",
+    "options": ["Kerala", "Himachal Pradesh", "Tamil Nadu", "Karnataka"],
+    "correct": "A"
+  },
+  {
+    "id": "ga12",
+    "text": "Which Indian bank recently launched ‘Project VIKAS’ for digital transformation?",
+    "options": ["SBI", "PNB", "Canara Bank", "BOI"],
+    "correct": "C"
+  },
+  {
+    "id": "ga13",
+    "text": "Who is the current Comptroller and Auditor General (CAG) of India?",
+    "options": ["Rajiv Mehrishi", "Girish Chandra Murmu", "Vinod Rai", "Shashi Kant Sharma"],
+    "correct": "B"
+  },
+  {
+    "id": "ga14",
+    "text": "Which country will host the **2030 FIFA World Cup**?",
+    "options": ["Spain, Portugal, Morocco", "USA, Canada, Mexico", "Argentina", "Saudi Arabia"],
+    "correct": "A"
+  },
+  {
+    "id": "ga15",
+    "text": "The Chandrayaan-3 mission landed near which lunar feature?",
+    "options": ["Tycho Crater", "South Pole", "Sea of Tranquility", "Lunar Highlands"],
+    "correct": "B"
+  },
+  {
+    "id": "ga16",
+    "text": "‘PM MITRA’ scheme is related to which sector?",
+    "options": ["Railways", "Textile", "Agriculture", "Defence"],
+    "correct": "B"
+  },
+  {
+    "id": "ga17",
+    "text": "Which act provides legal protection to whistleblowers in India?",
+    "options": ["RTI Act", "Whistleblower Protection Act", "Lokpal Act", "IPC Section 420"],
+    "correct": "B"
+  },
+  {
+    "id": "ga18",
+    "text": "India’s first underwater metro tunnel is in which city?",
+    "options": ["Mumbai", "Chennai", "Kolkata", "Visakhapatnam"],
+    "correct": "C"
+  },
+  {
+    "id": "ga19",
+    "text": "Which Indian female athlete won a medal at the 2024 Paris Olympics (Youth)?",
+    "options": ["Hima Das", "Jyothi Yarraji", "Antim Panghal", "Priyanka Goswami"],
+    "correct": "C"
+  },
+  {
+    "id": "ga20",
+    "text": "What is India’s current Foreign Exchange Reserve (approx. as of May 2025)?",
+    "options": ["$570 billion", "$620 billion", "$595 billion", "$650 billion"],
+    "correct": "C"
+  }
+
+  ];
+
+  
+  const renderQuestions = () => {
+      const container = document.getElementById('questions');
+      QUESTIONS.forEach((q, index) => {
+        const div = document.createElement('div');
+        div.className = 'mb-4';
+        div.innerHTML = `<p class="font-semibold mb-1">${index + 1}. ${q.text}</p>` +
+          q.options.map((opt, i) => {
+            const optVal = String.fromCharCode(65 + i);
+            return `<label class="block ml-4 my-1">
+              <input type="radio" name="${q.id}" value="${optVal}" class="mr-2"> (${optVal}) ${opt}
+            </label>`;
+          }).join('');
+        container.appendChild(div);
+      });
+    };
+
+    let timeLeft = 5400; // 90 mins
+    const timerEl = document.getElementById('timer');
+    const timerId = setInterval(() => {
+      const min = Math.floor(timeLeft / 60);
+      const sec = timeLeft % 60;
+      timerEl.textContent = `Time Left: ${min}:${sec < 10 ? '0' : ''}${sec}`;
+      timeLeft--;
+      if (timeLeft < 0) {
+        clearInterval(timerId);
+        timerEl.textContent = 'Time’s Up!';
+        document.getElementById('mockTest').dispatchEvent(new Event('submit'));
+      }
+    }, 1000);
+
+    document.getElementById('mockTest').addEventListener('submit', function (e) {
+      e.preventDefault();
+      clearInterval(timerId);
+      timerEl.textContent = 'Test Submitted!';
+
+      let score = 0, correct = 0, wrong = 0, attempted = 0;
+
+      QUESTIONS.forEach((q) => {
+        const sel = document.querySelector(`input[name="${q.id}"]:checked`);
+        if (sel) {
+          attempted++;
+          if (sel.value === q.correct) {
+            score += 1;
+            correct++;
+            sel.parentElement.classList.add('correct');
+          } else {
+            score -= 0.33;
+            wrong++;
+            sel.parentElement.classList.add('incorrect');
+          }
+        }
+        const correctEl = document.querySelector(`input[name="${q.id}"][value="${q.correct}"]`);
+        if (correctEl) correctEl.parentElement.classList.add('correct');
+      });
+
+      document.getElementById('score').textContent = score.toFixed(2);
+
+      const msg = document.getElementById('scoreMessage');
+      if (score >= 80) msg.textContent = 'Outstanding! 🌟';
+      else if (score >= 60) msg.textContent = 'Great Job! 🚀';
+      else if (score >= 40) msg.textContent = 'Good Effort! 💪';
+      else msg.textContent = 'Don’t Give Up! 😊';
+
+      document.getElementById('result').classList.remove('hidden');
+      document.getElementById('result').scrollIntoView({ behavior: 'smooth' });
+    });
+
+    renderQuestions();
+  </script>
+</body>
+</html>

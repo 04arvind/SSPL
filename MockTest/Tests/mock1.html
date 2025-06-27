@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RRB Group-D Mock Test 1</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .correct {
+      background-color: #d4edda;
+      color: #155724;
+      padding: 4px;
+      border-radius: 4px;
+    }
+    .incorrect {
+      background-color: #f8d7da;
+      color: #721c24;
+      padding: 4px;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body class="bg-gray-100 text-gray-900">
+  <div class="max-w-4xl mx-auto p-6">
+    <h1 class="text-3xl font-bold text-center mb-4 text-blue-600 animate-pulse">RRB Group-D Mock Test</h1>
+     <!-- Instructions Section -->
+    <div class="mb-4 p-4 bg-yellow-100 border border-yellow-300 rounded">
+      <h2 class="text-xl font-semibold mb-2">Instructions</h2>
+      <ul class="list-disc list-inside text-sm space-y-1">
+        <li>Total Questions: <strong>100</strong></li>
+        <li>Total Time: <strong>90 minutes</strong></li>
+        <li>Each correct answer awards <strong>+1 mark</strong></li>
+        <li>Each wrong answer incurs <strong>1/3 mark</strong></li>
+        <li>Unattempted questions carry <strong>no penalty</strong></li>
+        <li>Click "Submit" when finished or wait for time to run out for auto-submit</li>
+      </ul>
+    </div>
+    <div id="timer" class="text-xl font-semibold text-red-600 text-center mb-4">Time Left: 90:00</div>
+    <form id="mockTest" class="bg-white p-6 rounded-lg shadow-lg">
+      <div id="questions"></div>
+      <button type="submit" class="mt-4 bg-blue-500 text-white px-6 py-2 rounded hover:bg-blue-600">Submit</button>
+    </form>
+    <div id="result" class="hidden mt-6 bg-white p-6 rounded-lg shadow">
+      <h2 class="text-2xl font-bold text-center mb-2">Your Score: <span id="score"></span>/100</h2>
+      <p class="text-center text-lg" id="scoreMessage"></p>
+    </div>
+  </div>
+
+  <script>
+    const QUESTIONS = [
+
+
+      // Math
+  { id: 'q1', text: 'If the simple interest on ₹12000 for 3 years is ₹4320, what is the rate of interest per annum?', options: ['10%', '12%', '14%', '15%'], correct: 'B' },
+  { id: 'q2', text: 'A train 180 meters long is running at 54 km/h. How much time will it take to cross a platform 120 meters long?', options: ['10 sec', '15 sec', '20 sec', '18 sec'], correct: 'C' },
+  { id: 'q3', text: 'If 3A = 2B = 4C, then A : B : C = ?', options: ['8:6:3', '2:3:4', '4:3:2', '3:2:1'], correct: 'A' },
+  { id: 'q4', text: 'If the perimeter of a square is 64 cm, what is its area?', options: ['256 cm²', '64 cm²', '128 cm²', '32 cm²'], correct: 'A' },
+  { id: 'q5', text: 'The average of first 10 natural numbers is:', options: ['5.5', '6', '4.5', '5'], correct: 'A' },
+  { id: 'q6', text: 'A person sold an article at a loss of 10%. If the selling price was ₹4500, what was the cost price?', options: ['₹5000', '₹4800', '₹4700', '₹4950'], correct: 'A' },
+  { id: 'q7', text: 'If (x + 1/x) = 5, then the value of (x² + 1/x²) is:', options: ['21', '23', '25', '27'], correct: 'B' },
+  { id: 'q8', text: 'A and B together can complete a work in 20 days. B alone can do it in 30 days. In how many days can A alone do it?', options: ['40 days', '60 days', '50 days', '45 days'], correct: 'A' },
+  { id: 'q9', text: 'The sum of present ages of a father and son is 60 years. Five years ago, the father was four times as old as his son. What is the present age of the son?', options: ['12', '10', '15', '18'], correct: 'A' },
+  { id: 'q10', text: 'If sin A = 3/5, find cos A.', options: ['4/5', '5/3', '3/4', '5/4'], correct: 'A' },
+  { id: 'q11', text: 'What will be the compound interest on ₹10000 for 2 years at 10% per annum, compounded annually?', options: ['₹2100', '₹2000', '₹2200', '₹1210'], correct: 'A' },
+  { id: 'q12', text: 'If 12 workers can complete a task in 15 days, how many days will 20 workers take to complete the same task?', options: ['10', '8', '9', '12'], correct: 'C' },
+  { id: 'q13', text: 'A bag contains coins of ₹1, ₹2, and ₹5 in the ratio 3:4:5. If the total money is ₹240, find the number of ₹2 coins.', options: ['24', '32', '40', '48'], correct: 'B' },
+  { id: 'q14', text: 'Find the smallest number which when divided by 12, 15 and 18 leaves a remainder of 1 in each case.', options: ['181', '181', '361', '181'], correct: 'A' },
+  { id: 'q15', text: 'What is the value of √(256) + √(144)?', options: ['28', '30', '32', '36'], correct: 'B' },
+  { id: 'q16', text: 'If 3x – 7 = 2x + 5, then x = ?', options: ['12', '10', '9', '7'], correct: 'D' },
+  { id: 'q17', text: 'The area of a circle is 154 cm². Find its radius.', options: ['7 cm', '14 cm', '5 cm', '11 cm'], correct: 'A' },
+  { id: 'q18', text: 'A man purchases 11 articles for ₹10 and sells them at 10 articles for ₹11. What is his profit percent?', options: ['21%', '22%', '20%', '25%'], correct: 'B' },
+  { id: 'q19', text: 'Find the value of: (25% of 480) + (15% of 320).', options: ['210', '240', '220', '230'], correct: 'C' },
+  { id: 'q20', text: 'If A:B = 2:3 and B:C = 4:5, then A:C = ?', options: ['8:15', '3:5', '4:5', '2:5'], correct: 'A' },
+  { id: 'q21', text: 'If the radius of a cylinder is doubled and height is halved, its volume will:', options: ['Remain same', 'Double', 'Halve', 'Quadruple'], correct: 'A' },
+  { id: 'q22', text: 'The perimeter of a rectangle is 80 cm and its length is 24 cm. Find its breadth.', options: ['16 cm', '10 cm', '18 cm', '12 cm'], correct: 'D' },
+  { id: 'q23', text: 'How many prime numbers are there between 10 and 50?', options: ['10', '11', '12', '9'], correct: 'B' },
+  { id: 'q24', text: 'A man spends 80% of his income. If his income is increased by 20% and he maintains the same expenditure percent, what is the percent increase in his savings?', options: ['20%', '25%', '50%', '100%'], correct: 'C' },
+  { id: 'q25', text: 'If a² + b² = 29 and ab = 10, find the value of (a + b)².', options: ['49', '59', '39', '69'], correct: 'A' },
+
+  // General Intelligence & Reasoning questions
+  { id: 'q26', text: 'If A = 1, B = 2, ..., then what is the sum of the letters in "RAILWAY"?', options: ['87', '88', '89', '90'], correct: 'C' },
+  { id: 'q27', text: 'Which number will complete the series: 2, 6, 12, 20, 30, ?', options: ['38', '40', '42', '44'], correct: 'C' },
+  { id: 'q28', text: 'In a certain code, TREE is written as USFF. How is LEAF written?', options: ['MFBG', 'KDBE', 'MEBG', 'MFAE'], correct: 'A' },
+  { id: 'q29', text: 'Select the related word: Book : Reading :: Fork : ?', options: ['Drawing', 'Stirring', 'Eating', 'Writing'], correct: 'C' },
+  { id: 'q30', text: 'If South-East becomes North, what will North become?', options: ['North-East', 'South-West', 'West', 'South-East'], correct: 'B' },
+  { id: 'q31', text: 'Which word does NOT belong to the group?', options: ['Tulip', 'Rose', 'Lily', 'Lotus', 'Apple'], correct: 'E' },
+  { id: 'q32', text: 'Mohan is taller than Sohan but shorter than Rohan. Who is the shortest?', options: ['Mohan', 'Sohan', 'Rohan', 'None'], correct: 'B' },
+  { id: 'q33', text: 'What comes next in series: A, C, F, J, O, ?', options: ['U', 'S', 'W', 'V'], correct: 'A' },
+  { id: 'q34', text: 'What is the angle between the hour and minute hand at 3:30?', options: ['75°', '90°', '60°', '105°'], correct: 'D' },
+  { id: 'q35', text: 'Introducing a man, a woman says: “He is the only son of my mother’s mother”. How is the man related to the woman?', options: ['Brother', 'Uncle', 'Cousin', 'Nephew'], correct: 'A' },
+  { id: 'q36', text: 'Find the odd one out: 7, 9, 11, 13, 15, 17, 20', options: ['9', '11', '17', '20'], correct: 'D' },
+  { id: 'q37', text: 'If 3 × 4 = 25, 5 × 2 = 27, then 6 × 3 = ?', options: ['35', '36', '38', '39'], correct: 'C' },
+  { id: 'q38', text: 'Which is the mirror image of “PQR”?', options: ['RPQ', 'QRP', 'ƃpɹ', 'ɹbq'], correct: 'D' },
+  { id: 'q39', text: 'In a row of students, A is 18th from the left end and B is 15th from the right end. If they interchange their positions, A becomes 25th from the left. What is B’s new position from the right?', options: ['8th', '7th', '9th', '10th'], correct: 'C' },
+  { id: 'q40', text: 'Which number is missing: 1, 8, 27, ?, 125', options: ['45', '56', '64', '49'], correct: 'C' },
+  { id: 'q41', text: 'If RED is coded as 729, then BLUE is coded as:', options: ['222', '512', '648', '624'], correct: 'B' },
+  { id: 'q42', text: 'Which number will replace the question mark: 7, 14, 28, ?, 112', options: ['56', '72', '48', '54'], correct: 'A' },
+  { id: 'q43', text: 'If + means ×, × means –, – means ÷ and ÷ means +, then 8 + 4 – 2 × 1 = ?', options: ['4', '5', '6', '8'], correct: 'B' },
+  { id: 'q44', text: 'Arrange the words in logical order: 1. Seeds, 2. Plants, 3. Flowers, 4. Fruits, 5. Tree', options: ['1, 2, 5, 3, 4', '1, 2, 3, 4, 5', '1, 3, 2, 4, 5', '2, 1, 3, 5, 4'], correct: 'A' },
+  { id: 'q45', text: 'If “BALL” is 72, “CAT” is 48, then “DOG” is:', options: ['52', '56', '60', '64'], correct: 'C' },
+  { id: 'q46', text: 'From the given options, select the one that has same relationship: CE:FH :: IK: ?', options: ['LN', 'ML', 'NM', 'LO'], correct: 'A' },
+  { id: 'q47', text: 'If 2 is subtracted from each even digit and 1 is added to each odd digit in 5623, what is the new number?', options: ['4404', '4534', '4734', '5534'], correct: 'C' },
+  { id: 'q48', text: 'Which Venn diagram is best for: Teacher, Men, Women?', options: ['Three overlapping circles', 'Two overlapping and one separate', 'All circles separate', 'All circles completely overlap'], correct: 'A' },
+  { id: 'q49', text: 'If “VOLT” is written as “TLOV”, then “COLD” is:', options: ['DLCO', 'DLOC', 'DCLO', 'COLC'], correct: 'B' },
+  { id: 'q50', text: 'Which letter is two to the right of the letter that is three to the left of H?', options: ['F', 'E', 'G', 'D'], correct: 'A' },
+  { id: 'q51', text: 'Which figure comes next: ◯, ◯◯, ◯◯◯, ◯◯◯◯, ?', options: ['◯◯◯◯◯', '◯◯◯◯◯◯', '◯◯◯', '◯◯◯◯'], correct: 'A' },
+  { id: 'q52', text: 'If “WATER” is 23-1-20-5-18, then “FIRE” is:', options: ['6-9-18-5', '5-18-9-6', '6-18-9-5', '6-9-5-18'], correct: 'A' },
+  { id: 'q53', text: 'Which number has same relationship as 6:36 :: 9: ?', options: ['81', '72', '90', '96'], correct: 'A' },
+  { id: 'q54', text: 'If “TOUCH” is coded as “VQWDF”, then “LIGHT” is:', options: ['NKJIV', 'NJUIV', 'NJUIV', 'MJUHV'], correct: 'C' },
+  { id: 'q55', text: 'Complete the analogy: Hour : Second :: Litre : ?', options: ['Bottle', 'Gram', 'Millilitre', 'Glass'], correct: 'C' },
+      
+            // GS
+  
+  { id: 'q56', text: 'What is the SI unit of electric resistance?', options: ['Watt', 'Ohm', 'Ampere', 'Volt'], correct: 'B' },
+  { id: 'q57', text: 'Which part of the cell contains the genetic material?', options: ['Cytoplasm', 'Nucleus', 'Ribosome', 'Mitochondria'], correct: 'B' },
+  { id: 'q58', text: 'Which acid is found in the human stomach?', options: ['Acetic acid', 'Sulfuric acid', 'Hydrochloric acid', 'Nitric acid'], correct: 'C' },
+  { id: 'q59', text: 'Which gas turns lime water milky?', options: ['CO', 'CO₂', 'SO₂', 'NO₂'], correct: 'B' },
+  { id: 'q60', text: 'Who discovered the electron?', options: ['Newton', 'Thomson', 'Rutherford', 'Bohr'], correct: 'B' },
+  { id: 'q61', text: 'Which vitamin helps in blood clotting?', options: ['Vitamin A', 'Vitamin B', 'Vitamin K', 'Vitamin D'], correct: 'C' },
+  { id: 'q62', text: 'Which blood cells fight infection?', options: ['Red blood cells', 'White blood cells', 'Platelets', 'Plasma'], correct: 'B' },
+  { id: 'q63', text: 'Which is known as the powerhouse of the cell?', options: ['Nucleus', 'Ribosome', 'Chloroplast', 'Mitochondria'], correct: 'D' },
+  { id: 'q64', text: 'What is the chemical symbol for Potassium?', options: ['P', 'Pt', 'K', 'Po'], correct: 'C' },
+  { id: 'q65', text: 'Which metal is liquid at room temperature?', options: ['Mercury', 'Lead', 'Aluminum', 'Zinc'], correct: 'A' },
+  { id: 'q66', text: 'Which part of the brain controls breathing?', options: ['Cerebrum', 'Cerebellum', 'Medulla', 'Thalamus'], correct: 'C' },
+  { id: 'q67', text: 'Which type of lens is used in a magnifying glass?', options: ['Concave', 'Convex', 'Plane', 'Cylindrical'], correct: 'B' },
+  { id: 'q68', text: 'Which law states that "energy can neither be created nor destroyed"?', options: ['Boyle’s law', 'Ohm’s law', 'Law of conservation of energy', 'Newton’s third law'], correct: 'C' },
+  { id: 'q69', text: 'Which is the main gas found in the exhaled air?', options: ['Oxygen', 'Nitrogen', 'Carbon dioxide', 'Hydrogen'], correct: 'C' },
+  { id: 'q70', text: 'Which device is used to measure atmospheric pressure?', options: ['Thermometer', 'Barometer', 'Hygrometer', 'Manometer'], correct: 'B' },
+  { id: 'q71', text: 'Which disease is caused by a deficiency of iodine?', options: ['Rickets', 'Goitre', 'Scurvy', 'Anemia'], correct: 'B' },
+  { id: 'q72', text: 'Which of the following is not a greenhouse gas?', options: ['CO₂', 'CH₄', 'O₂', 'N₂O'], correct: 'C' },
+  { id: 'q73', text: 'What is the speed of light in vacuum?', options: ['3×10⁸ m/s', '3×10⁶ m/s', '3×10⁵ m/s', '3×10⁷ m/s'], correct: 'A' },
+  { id: 'q74', text: 'Which organ is responsible for detoxifying chemicals in the human body?', options: ['Kidney', 'Liver', 'Lungs', 'Heart'], correct: 'B' },
+  { id: 'q75', text: 'Which element is used in electric bulbs?', options: ['Carbon', 'Tungsten', 'Iron', 'Copper'], correct: 'B' },
+  { id: 'q76', text: 'What is the pH of pure water at 25°C?', options: ['6', '7', '8', '5'], correct: 'B' },
+  { id: 'q77', text: 'Who proposed the theory of relativity?', options: ['Einstein', 'Newton', 'Bohr', 'Faraday'], correct: 'A' },
+  { id: 'q78', text: 'Which of the following is NOT a component of DNA?', options: ['Adenine', 'Thymine', 'Uracil', 'Cytosine'], correct: 'C' },
+  { id: 'q79', text: 'Which part of the plant conducts photosynthesis?', options: ['Stem', 'Root', 'Flower', 'Leaf'], correct: 'D' },
+  { id: 'q80', text: 'Which of these is NOT a simple machine?', options: ['Lever', 'Inclined plane', 'Screwdriver', 'Motor'], correct: 'D' },
+
+    // General Awareness and Current Affairs 
+  { id: 'q81', text: 'Who is the current President of India (as of 2025)?', options: ['Ram Nath Kovind', 'Droupadi Murmu', 'Pratibha Patil', 'Narendra Modi'], correct: 'B' },
+  { id: 'q82', text: 'Which country hosted the G20 Summit 2023?', options: ['USA', 'India', 'Japan', 'UK'], correct: 'B' },
+  { id: 'q83', text: 'Where is the headquarters of the Reserve Bank of India located?', options: ['New Delhi', 'Mumbai', 'Hyderabad', 'Chennai'], correct: 'B' },
+  { id: 'q84', text: 'Who was the first woman Prime Minister of India?', options: ['Sushma Swaraj', 'Pratibha Patil', 'Indira Gandhi', 'Sarojini Naidu'], correct: 'C' },
+  { id: 'q85', text: 'Which city is known as the "Pink City" of India?', options: ['Jaipur', 'Jodhpur', 'Udaipur', 'Bhopal'], correct: 'A' },
+  { id: 'q86', text: 'What is the currency of Bangladesh?', options: ['Taka', 'Rupee', 'Rial', 'Dollar'], correct: 'A' },
+  { id: 'q87', text: 'Which state is the largest producer of wheat in India?', options: ['Punjab', 'Haryana', 'Uttar Pradesh', 'Madhya Pradesh'], correct: 'C' },
+  { id: 'q88', text: 'Who authored the book "Wings of Fire"?', options: ['Narendra Modi', 'A.P.J. Abdul Kalam', 'Chetan Bhagat', 'Arundhati Roy'], correct: 'B' },
+  { id: 'q89', text: 'What is the capital of Australia?', options: ['Sydney', 'Melbourne', 'Canberra', 'Perth'], correct: 'C' },
+  { id: 'q90', text: 'Which of the following festivals is celebrated in Kerala?', options: ['Bihu', 'Onam', 'Lohri', 'Pongal'], correct: 'B' },
+  { id: 'q91', text: 'When is National Science Day celebrated in India?', options: ['28 February', '15 March', '5 April', '21 June'], correct: 'A' },
+  { id: 'q92', text: 'Which Indian city is famous for Charminar?', options: ['Delhi', 'Agra', 'Hyderabad', 'Ahmedabad'], correct: 'C' },
+  { id: 'q93', text: 'Who is known as the "Father of the Indian Constitution"?', options: ['Jawaharlal Nehru', 'Mahatma Gandhi', 'B.R. Ambedkar', 'Rajendra Prasad'], correct: 'C' },
+  { id: 'q94', text: 'Which country shares the longest international border with India?', options: ['Pakistan', 'China', 'Bangladesh', 'Nepal'], correct: 'C' },
+  { id: 'q95', text: 'What is India’s rank in the Global Hunger Index 2024?', options: ['111', '107', '98', '83'], correct: 'A' },
+  { id: 'q96', text: 'Which award is known as the highest civilian award of India?', options: ['Padma Shri', 'Padma Bhushan', 'Padma Vibhushan', 'Bharat Ratna'], correct: 'D' },
+  { id: 'q97', text: 'Which planet is known as the "Red Planet"?', options: ['Venus', 'Jupiter', 'Mars', 'Saturn'], correct: 'C' },
+  { id: 'q98', text: 'Who was the first Indian to win an individual Olympic gold medal?', options: ['Abhinav Bindra', 'Milkha Singh', 'Leander Paes', 'P.V. Sindhu'], correct: 'A' },
+  { id: 'q99', text: 'Which ministry is responsible for issuing passports in India?', options: ['Home Ministry', 'Ministry of External Affairs', 'Defense Ministry', 'Finance Ministry'], correct: 'B' },
+  { id: 'q100', text: 'Which city will host the Summer Olympics 2028?', options: ['Tokyo', 'Paris', 'Los Angeles', 'Beijing'], correct: 'C' },
+
+    ];
+
+    const renderQuestions = () => {
+      const container = document.getElementById('questions');
+      QUESTIONS.forEach((q, index) => {
+        const div = document.createElement('div');
+        div.className = 'mb-4';
+        div.innerHTML = `<p class="font-semibold mb-1">${index + 1}. ${q.text}</p>` +
+          q.options.map((opt, i) => {
+            const optVal = String.fromCharCode(65 + i);
+            return `<label class="block ml-4 my-1">
+              <input type="radio" name="${q.id}" value="${optVal}" class="mr-2"> (${optVal}) ${opt}
+            </label>`;
+          }).join('');
+        container.appendChild(div);
+      });
+    };
+
+    let timeLeft = 5400; // 90 mins
+    const timerEl = document.getElementById('timer');
+    const timerId = setInterval(() => {
+      const min = Math.floor(timeLeft / 60);
+      const sec = timeLeft % 60;
+      timerEl.textContent = `Time Left: ${min}:${sec < 10 ? '0' : ''}${sec}`;
+      timeLeft--;
+      if (timeLeft < 0) {
+        clearInterval(timerId);
+        timerEl.textContent = 'Time’s Up!';
+        document.getElementById('mockTest').dispatchEvent(new Event('submit'));
+      }
+    }, 1000);
+
+    document.getElementById('mockTest').addEventListener('submit', function (e) {
+      e.preventDefault();
+      clearInterval(timerId);
+      timerEl.textContent = 'Test Submitted!';
+
+      let score = 0, correct = 0, wrong = 0, attempted = 0;
+
+      QUESTIONS.forEach((q) => {
+        const sel = document.querySelector(`input[name="${q.id}"]:checked`);
+        if (sel) {
+          attempted++;
+          if (sel.value === q.correct) {
+            score += 1;
+            correct++;
+            sel.parentElement.classList.add('correct');
+          } else {
+            score -= 0.33;
+            wrong++;
+            sel.parentElement.classList.add('incorrect');
+          }
+        }
+        const correctEl = document.querySelector(`input[name="${q.id}"][value="${q.correct}"]`);
+        if (correctEl) correctEl.parentElement.classList.add('correct');
+      });
+
+      document.getElementById('score').textContent = score.toFixed(2);
+
+      const msg = document.getElementById('scoreMessage');
+      if (score >= 80) msg.textContent = 'Outstanding! 🌟';
+      else if (score >= 60) msg.textContent = 'Great Job! 🚀';
+      else if (score >= 40) msg.textContent = 'Good Effort! 💪';
+      else msg.textContent = 'Don’t Give Up! 😊';
+
+      document.getElementById('result').classList.remove('hidden');
+      document.getElementById('result').scrollIntoView({ behavior: 'smooth' });
+    });
+
+    renderQuestions();
+  </script>
+</body>
+</html>

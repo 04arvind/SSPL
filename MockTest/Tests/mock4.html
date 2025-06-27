@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RRB Group-D Mock Test</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .correct {
+      background-color: #d4edda;
+      color: #155724;
+      padding: 4px;
+      border-radius: 4px;
+    }
+    .incorrect {
+      background-color: #f8d7da;
+      color: #721c24;
+      padding: 4px;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body class="bg-gray-100 text-gray-900">
+  <div class="max-w-4xl mx-auto p-6">
+    <h1 class="text-3xl font-bold text-center mb-4 text-blue-600 animate-pulse">RRB Group-D Mock Test 4</h1>
+     <!-- Instructions Section -->
+    <div class="mb-4 p-4 bg-yellow-100 border border-yellow-300 rounded">
+      <h2 class="text-xl font-semibold mb-2">Instructions</h2>
+      <ul class="list-disc list-inside text-sm space-y-1">
+        <li>Total Questions: <strong>100</strong></li>
+        <li>Total Time: <strong>90 minutes</strong></li>
+        <li>Each correct answer awards <strong>+1 mark</strong></li>
+        <li>Each wrong answer incurs <strong>1/3 mark</strong></li>
+        <li>Unattempted questions carry <strong>no penalty</strong></li>
+        <li>Click "Submit" when finished or wait for time to run out for auto-submit</li>
+      </ul>
+    </div>
+    <div id="timer" class="text-xl font-semibold text-red-600 text-center mb-4">Time Left: 90:00</div>
+    <form id="mockTest" class="bg-white p-6 rounded-lg shadow-lg">
+      <div id="questions"></div>
+      <button type="submit" class="mt-4 bg-blue-500 text-white px-6 py-2 rounded hover:bg-blue-600">Submit</button>
+    </form>
+    <div id="result" class="hidden mt-6 bg-white p-6 rounded-lg shadow">
+      <h2 class="text-2xl font-bold text-center mb-2">Your Score: <span id="score"></span>/100</h2>
+      <p class="text-center text-lg" id="scoreMessage"></p>
+    </div>
+  </div>
+
+  <script>
+    const QUESTIONS = [
+        ///    questions 
+        {
+    "id": "m126",
+    "text": "Find the value of: 15 + 25 × 2 - 10 ÷ 2",
+    "options": ["60", "65", "70", "55"],
+    "correct": "A"
+  },
+  {
+    "id": "m127",
+    "text": "A train running at 60 km/h crosses a pole in 30 seconds. Find the length of the train.",
+    "options": ["500 m", "600 m", "400 m", "450 m"],
+    "correct": "A"
+  },
+  {
+    "id": "m128",
+    "text": "The LCM of 15, 25 and 30 is:",
+    "options": ["150", "300", "120", "90"],
+    "correct": "A"
+  },
+  {
+    "id": "m129",
+    "text": "What is 25% of 480?",
+    "options": ["120", "125", "140", "100"],
+    "correct": "A"
+  },
+  {
+    "id": "m130",
+    "text": "A number is increased by 20% and then decreased by 20%. What is the net percentage change?",
+    "options": ["4% decrease", "0%", "4% increase", "2% decrease"],
+    "correct": "A"
+  },
+  {
+    "id": "m131",
+    "text": "A man can cover 60 km in 5 hours. What is his speed?",
+    "options": ["12 km/h", "10 km/h", "15 km/h", "11 km/h"],
+    "correct": "A"
+  },
+  {
+    "id": "m132",
+    "text": "If the radius of a circle is 7 cm, what is its area?",
+    "options": ["154 cm²", "144 cm²", "168 cm²", "150 cm²"],
+    "correct": "A"
+  },
+  {
+    "id": "m133",
+    "text": "Simplify: 2/3 + 1/6 - 1/2",
+    "options": ["1/6", "2/3", "1/3", "5/6"],
+    "correct": "A"
+  },
+  {
+    "id": "m134",
+    "text": "The average of 8, 12, 16, and 24 is:",
+    "options": ["15", "14", "16", "12"],
+    "correct": "A"
+  },
+  {
+    "id": "m135",
+    "text": "What is the square root of 625?",
+    "options": ["25", "20", "15", "30"],
+    "correct": "A"
+  },
+  {
+    "id": "m136",
+    "text": "Selling price of ₹240 gives a loss of 20%. What is the cost price?",
+    "options": ["₹300", "₹280", "₹250", "₹290"],
+    "correct": "A"
+  },
+  {
+    "id": "m137",
+    "text": "If 5x = 20, what is the value of x?",
+    "options": ["4", "5", "2", "6"],
+    "correct": "A"
+  },
+  {
+    "id": "m138",
+    "text": "A boat takes 3 hours to travel 36 km downstream. Speed of current is 2 km/h. What is the speed of boat in still water?",
+    "options": ["10 km/h", "12 km/h", "14 km/h", "11 km/h"],
+    "correct": "A"
+  },
+  {
+    "id": "m139",
+    "text": "Find the compound interest on ₹1000 at 10% per annum for 2 years, compounded annually.",
+    "options": ["₹210", "₹200", "₹220", "₹190"],
+    "correct": "A"
+  },
+  {
+    "id": "m140",
+    "text": "Find the missing number in the series: 4, 9, 16, 25, ?, 49",
+    "options": ["36", "30", "40", "32"],
+    "correct": "A"
+  },
+  {
+    "id": "m141",
+    "text": "If the perimeter of a square is 32 cm, what is its area?",
+    "options": ["64 cm²", "32 cm²", "128 cm²", "256 cm²"],
+    "correct": "A"
+  },
+  {
+    "id": "m142",
+    "text": "Ravi scored 72 out of 80 in English. What percentage did he score?",
+    "options": ["90%", "85%", "92%", "95%"],
+    "correct": "A"
+  },
+  {
+    "id": "m143",
+    "text": "A shopkeeper allows a 10% discount on marked price and still gains 8%. If cost price is ₹100, what is the marked price?",
+    "options": ["₹120", "₹118", "₹125", "₹110"],
+    "correct": "A"
+  },
+  {
+    "id": "m144",
+    "text": "If a train travels 360 km in 6 hours, what is its average speed?",
+    "options": ["60 km/h", "55 km/h", "50 km/h", "65 km/h"],
+    "correct": "A"
+  },
+  {
+    "id": "m145",
+    "text": "What is the HCF of 36, 60 and 72?",
+    "options": ["12", "18", "6", "24"],
+    "correct": "A"
+  },
+  {
+    "id": "m146",
+    "text": "If a sum of ₹500 is split in the ratio 2:3, what is the larger share?",
+    "options": ["₹300", "₹350", "₹250", "₹200"],
+    "correct": "A"
+  },
+  {
+    "id": "m147",
+    "text": "The product of two consecutive natural numbers is 132. What are the numbers?",
+    "options": ["11 and 12", "10 and 11", "12 and 13", "9 and 10"],
+    "correct": "A"
+  },
+  {
+    "id": "m148",
+    "text": "A sum triples itself in 6 years at simple interest. What is the rate of interest per annum?",
+    "options": ["33.33%", "50%", "25%", "20%"],
+    "correct": "A"
+  },
+  {
+    "id": "m149",
+    "text": "Find the value of: (9² - 3²) ÷ 6",
+    "options": ["9", "10", "12", "8"],
+    "correct": "A"
+  },
+  {
+    "id": "m150",
+    "text": "The difference between simple and compound interest on ₹5000 for 2 years at 10% is:",
+    "options": ["₹25", "₹50", "₹30", "₹40"],
+    "correct": "A"
+  },
+  // Easy Questions
+  {
+    "id": "gr201",
+    "text": "Which number will replace the question mark? 3, 9, 27, ?, 243",
+    "options": ["54", "81", "90", "72"],
+    "correct": "B"
+  },
+  {
+    "id": "gr202",
+    "text": "Find the odd one out: Cow, Goat, Hen, Buffalo",
+    "options": ["Cow", "Goat", "Hen", "Buffalo"],
+    "correct": "C"
+  },
+  {
+    "id": "gr203",
+    "text": "If A=1, B=2, ..., Z=26, what is the value of the word \"DOG\"?",
+    "options": ["26", "30", "34", "40"],
+    "correct": "C"
+  },
+  {
+    "id": "gr204",
+    "text": "Fish : Water :: Bird : ?",
+    "options": ["Nest", "Sky", "Air", "Tree"],
+    "correct": "C"
+  },
+  {
+    "id": "gr205",
+    "text": "Which cube cannot be formed from the given unfolded pattern?<br><div style=\"display: grid; grid-template-columns: repeat(2, 30px); gap: 4px;\"><div style=\"width:30px;height:30px;border:1px solid #000;\"></div><div style=\"width:30px;height:30px;border:1px solid #000;\"></div><div style=\"width:30px;height:30px;border:1px solid #000;\"></div><div style=\"width:30px;height:30px;border:1px solid #000;\"></div><div style=\"width:30px;height:30px;border:1px solid #000;\"></div><div style=\"width:30px;height:30px;border:1px solid #000;\"></div></div>",
+    "options": ["Figure 1", "Figure 2", "Figure 3", "Figure 4"],
+    "correct": "B"
+  },
+  {
+    "id": "gr206",
+    "text": "Pointing to a boy, Rita said, \"He is the son of my grandfather’s only son.\" How is Rita related to the boy?",
+    "options": ["Sister", "Cousin", "Mother", "Aunt"],
+    "correct": "A"
+  },
+  {
+    "id": "gr207",
+    "text": "What comes next in the pattern? 2, 4, 8, 16, 32, ?",
+    "options": ["64", "48", "36", "40"],
+    "correct": "A"
+  },
+  {
+    "id": "gr208",
+    "text": "Which word cannot be formed from the letters of \"MOUNTAIN\"?",
+    "options": ["MOUNT", "TUNA", "ATOM", "NOTHING"],
+    "correct": "D"
+  },
+  {
+    "id": "gr209",
+    "text": "Mirror image of \"RAILWAY\" is:",
+    "options": ["WAYLIAR", "YAWLIAR", "YAWLIAR", "YAWLIAR"],
+    "correct": "B"
+  },
+  {
+    "id": "gr210",
+    "text": "Find the missing term: AZ, BY, CX, DW, ?",
+    "options": ["EV", "FV", "EU", "EX"],
+    "correct": "A"
+  },
+
+  // Medium Questions
+  {
+    "id": "gr211",
+    "text": "Which number comes next in the series? 5, 11, 23, 47, ?",
+    "options": ["94", "95", "96", "97"],
+    "correct": "B"
+  },
+  {
+    "id": "gr212",
+    "text": "In a code language, MONKEY is written as XLMRVB. How is TIGER written in that code?",
+    "options": ["GRVXL", "GRUXM", "HQUXL", "HSUXL"],
+    "correct": "D"
+  },
+  {
+    "id": "gr213",
+    "text": "Select the related pair: Doctor : Hospital :: Teacher : ?",
+    "options": ["Home", "Classroom", "Lab", "Market"],
+    "correct": "B"
+  },
+  {
+    "id": "gr214",
+    "text": "Ramesh is older than Suresh. Suresh is older than Mukesh. Who is the youngest?",
+    "options": ["Ramesh", "Suresh", "Mukesh", "Cannot determine"],
+    "correct": "C"
+  },
+  {
+    "id": "gr215",
+    "text": "A clock is showing 3:15. What is the angle between the hour and minute hands?",
+    "options": ["7.5°", "0°", "15°", "22.5°"],
+    "correct": "D"
+  },
+ {
+  "id": "gr216",
+  "text": "Which of the following diagrams best represents a relationship between Pens, Stationery, and Pencils?<br><div style=\"display: flex; gap: 20px; margin-top: 10px;\"><div style=\"text-align:center;\"><div style='position: relative; width: 100px; height: 100px;'><div style='position:absolute; width:60px; height:60px; border-radius:50%; background-color:rgba(0,0,255,0.2); left:0; top:20px;'></div><div style='position:absolute; width:60px; height:60px; border-radius:50%; background-color:rgba(255,0,0,0.2); left:30px; top:20px;'></div><div style='position:absolute; width:60px; height:60px; border-radius:50%; background-color:rgba(0,255,0,0.2); left:15px; top:-10px;'></div></div><div style='margin-top:5px;'>Venn diagram 1</div></div><div style=\"text-align:center;\"><div style='position: relative; width: 100px; height: 100px;'><div style='position:absolute; width:60px; height:60px; border-radius:50%; background-color:rgba(0,0,255,0.2); left:0; top:20px;'></div><div style='position:absolute; width:60px; height:60px; border-radius:50%; background-color:rgba(255,0,0,0.2); left:40px; top:20px;'></div><div style='position:absolute; width:60px; height:60px; border-radius:50%; background-color:rgba(0,255,0,0.2); left:80px; top:20px;'></div></div><div style='margin-top:5px;'>Venn diagram 2</div></div><div style=\"text-align:center;\"><div style='position: relative; width: 100px; height: 100px;'><div style='position:absolute; width:80px; height:80px; border-radius:50%; background-color:rgba(0,0,255,0.2); left:10px; top:10px;'></div><div style='position:absolute; width:40px; height:40px; border-radius:50%; background-color:rgba(255,0,0,0.3); left:30px; top:30px;'></div></div><div style='margin-top:5px;'>Venn diagram 3</div></div><div style=\"text-align:center;\"><div style='position: relative; width: 100px; height: 100px;'><div style='position:absolute; width:60px; height:60px; border-radius:50%; background-color:rgba(0,0,255,0.2); left:20px; top:20px;'></div><div style='position:absolute; width:30px; height:30px; border-radius:50%; background-color:rgba(255,0,0,0.3); left:35px; top:35px;'></div></div><div style='margin-top:5px;'>Venn diagram 4</div></div></div>",
+  "options": ["Venn diagram 1", "Venn diagram 2", "Venn diagram 3", "Venn diagram 4"],
+  "correct": "A"
+},
+  {
+    "id": "gr217",
+    "text": "How many triangles are there in this figure?<br><svg width=\"100\" height=\"100\"><polygon points=\"50,10 90,90 10,90\" fill=\"none\" stroke=\"black\"/><line x1=\"50\" y1=\"10\" x2=\"50\" y2=\"90\" stroke=\"black\"/><line x1=\"10\" y1=\"90\" x2=\"90\" y2=\"90\" stroke=\"black\"/></svg>",
+    "options": ["10", "12", "14", "16"],
+    "correct": "C"
+  },
+  {
+    "id": "gr218",
+    "text": "If TABLE is coded as UBCMF, what is CHAIR?",
+    "options": ["DBBJS", "DBBIS", "DIBJS", "DIBJT"],
+    "correct": "A"
+  },
+  {
+    "id": "gr219",
+    "text": "Arrange the words in logical order: 1. School 2. Birth 3. Job 4. College 5. Retirement",
+    "options": ["2,1,4,3,5", "1,2,4,3,5", "2,4,1,3,5", "2,1,3,4,5"],
+    "correct": "A"
+  },
+  {
+    "id": "gr220",
+    "text": "Which letter comes next in the series: A, D, G, J, ?",
+    "options": ["L", "M", "N", "O"],
+    "correct": "B"
+  },
+
+  // Hard Questions
+  {
+    "id": "gr221",
+    "text": "Ravi walks 10 m North, then turns right and walks 10 m. Again turns right and walks 10 m. In which direction is he from the starting point?",
+    "options": ["North", "South", "West", "East"],
+    "correct": "C"
+  },
+  {
+    "id": "gr222",
+    "text": "How many squares are in a 3x3 grid?",
+    "options": ["9", "14", "16", "30"],
+    "correct": "C"
+  },
+  {
+    "id": "gr223",
+    "text": "In a family of 6 members A, B, C, D, E, F: A is the mother of B. D is the brother of A. E is the father of D. How is E related to B?",
+    "options": ["Father", "Uncle", "Grandfather", "Brother"],
+    "correct": "C"
+  },
+  {
+    "id": "gr224",
+    "text": "Which figure is different from the rest?<br><div style=\"display:flex;gap:10px;\"><div style=\"width:50px;height:50px;background:#ccc;\">Cube</div><div style=\"width:50px;height:50px;border-radius:50%;background:#ccc;\">Sphere</div><div style=\"width:60px;height:40px;background:#ccc;\">Cuboid</div><div style=\"width:0;height:0;border-left:25px solid transparent;border-right:25px solid transparent;border-bottom:50px solid #ccc;\"></div></div>",
+    "options": ["Cube", "Sphere", "Cuboid", "Cone"],
+    "correct": "B"
+  },
+  {
+    "id": "gr225",
+    "text": "Complete the series: 121, 144, 169, ?, 225",
+    "options": ["180", "196", "200", "205"],
+    "correct": "B"
+  },
+  {
+    "id": "gr226",
+    "text": "Which figure is a rotation of the given one?<br><svg width=\"60\" height=\"60\"><polygon points=\"10,50 30,10 50,50\" fill=\"#ccc\" stroke=\"#333\"/></svg><br><div style=\"display:flex;gap:10px;\"><svg width=\"60\" height=\"60\"><polygon points=\"10,50 30,10 50,50\" fill=\"#ccc\" stroke=\"#333\"/></svg><svg width=\"60\" height=\"60\"><polygon points=\"10,10 30,50 50,10\" fill=\"#ccc\" stroke=\"#333\"/></svg><svg width=\"60\" height=\"60\"><g transform=\"rotate(180,30,30)\"><polygon points=\"10,50 30,10 50,50\" fill=\"#ccc\" stroke=\"#333\"/></g></svg><svg width=\"60\" height=\"60\"><g transform=\"rotate(90,30,30)\"><polygon points=\"10,50 30,10 50,50\" fill=\"#ccc\" stroke=\"#333\"/></g></svg></div>",
+    "options": ["Shape 1", "Shape 2", "Shape 3", "Shape 4"],
+    "correct": "C"
+  },
+   {
+  id: "gr401",
+  text: "Which diagram best represents the relationship among Engineers, Males, and Government Employees?",
+  options: [
+    "① Three intersecting circles (some Engineers are Males and Govt. Employees)\n\n      ◯           ◯\n     ◯◯◯       ← All overlap partially",
+    "② One circle inside another (All Engineers are Males, some are Govt. Employees)\n\n      ◯ (Males)\n     ◯◯ (Engineers inside)\n     Govt. overlaps slightly",
+    "③ Two overlapping circles and one separate (Males & Engineers overlap, Govt. Employees are separate)\n\n     ◯◯       ◯\n    (Eng & Males)   (Govt)",
+    "④ All circles separate (No relation between any)\n\n     ◯     ◯     ◯"
+  ],
+  correct: "A"
+},
+  {
+  id: "gr402",
+  text: `
+A cube is painted red on all faces and then cut into 64 smaller cubes of equal size. 
+How many cubes will have exactly <strong>2 faces painted</strong>?
+
+<!-- 3D Cube Styling -->
+<style>
+  .cube-container {
+    width: 120px;
+    height: 120px;
+    perspective: 500px;
+    margin: 20px 0;
+  }
+  .cube {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transform: rotateX(-20deg) rotateY(30deg);
+    animation: spin 10s infinite linear;
+  }
+  .face {
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    background: red;
+    opacity: 0.85;
+    border: 2px solid #fff;
+  }
+  .front  { transform: translateZ(60px); }
+  .back   { transform: rotateY(180deg) translateZ(60px); }
+  .right  { transform: rotateY(90deg) translateZ(60px); }
+  .left   { transform: rotateY(-90deg) translateZ(60px); }
+  .top    { transform: rotateX(90deg) translateZ(60px); }
+  .bottom { transform: rotateX(-90deg) translateZ(60px); }
+
+  @keyframes spin {
+    0%   { transform: rotateX(-20deg) rotateY(30deg); }
+    100% { transform: rotateX(-20deg) rotateY(390deg); }
+  }
+</style>
+
+<div class="cube-container">
+  <div class="cube">
+    <div class="face front"></div>
+    <div class="face back"></div>
+    <div class="face right"></div>
+    <div class="face left"></div>
+    <div class="face top"></div>
+    <div class="face bottom"></div>
+  </div>
+</div>
+`,
+  options: [
+    "24",
+    "12",
+    "8",
+    "16"
+  ],
+  correct: "A"
+},
+  {
+    id: "gr403",
+    text: "Complete the series:\n2, 6, 12, 20, 30, ?",
+    options: [
+      "40",
+      "42",
+      "44",
+      "46"
+    ],
+    correct: "B"
+  },
+  {
+    id: "gr404",
+    text: "Select the correct mirror image of the following figure when a mirror is placed on the right side.\n\nShape: 'L' shaped figure facing right ⅃",
+    options: [
+      "Unchanged 'L'",
+      "Mirrored '⅂'",
+      "Rotated 'L'",
+      "Mirrored vertically"
+    ],
+    correct: "B"
+  },
+   {
+    id: "gs101",
+    text: "Which gas is most abundant in Earth's atmosphere?",
+    options: ["Oxygen", "Carbon Dioxide", "Nitrogen", "Hydrogen"],
+    correct: "C"
+  },
+  {
+    id: "gs102",
+    text: "Which part of the plant conducts photosynthesis?",
+    options: ["Stem", "Roots", "Leaves", "Flowers"],
+    correct: "C"
+  },
+  {
+    id: "gs103",
+    text: "What is the chemical formula of water?",
+    options: ["H2O", "CO2", "O2", "NaCl"],
+    correct: "A"
+  },
+  {
+    id: "gs104",
+    text: "Which organ in the human body purifies blood?",
+    options: ["Lungs", "Liver", "Kidneys", "Heart"],
+    correct: "C"
+  },
+  {
+    id: "gs105",
+    text: "What is the unit of force?",
+    options: ["Newton", "Pascal", "Joule", "Watt"],
+    correct: "A"
+  },
+  {
+    id: "gs106",
+    text: "How many bones are there in an adult human body?",
+    options: ["206", "201", "208", "210"],
+    correct: "A"
+  },
+  {
+    id: "gs107",
+    text: "Which vitamin is produced in the human body by sunlight?",
+    options: ["Vitamin A", "Vitamin B12", "Vitamin D", "Vitamin C"],
+    correct: "C"
+  },
+  {
+    id: "gs108",
+    text: "What is the boiling point of water at sea level?",
+    options: ["90°C", "100°C", "110°C", "95°C"],
+    correct: "B"
+  },
+  {
+    id: "gs109",
+    text: "What type of energy is stored in food?",
+    options: ["Kinetic", "Chemical", "Potential", "Thermal"],
+    correct: "B"
+  },
+  {
+    id: "gs110",
+    text: "Which sense organ is responsible for hearing?",
+    options: ["Eye", "Ear", "Nose", "Skin"],
+    correct: "B"
+  },
+
+  // Medium (11–20)
+  {
+    id: "gs111",
+    text: "Which of the following is a non-metal and a good conductor of electricity?",
+    options: ["Silicon", "Phosphorus", "Graphite", "Sulphur"],
+    correct: "C"
+  },
+  {
+    id: "gs112",
+    text: "Which blood cells help in clotting of blood?",
+    options: ["RBC", "WBC", "Platelets", "Plasma"],
+    correct: "C"
+  },
+  {
+    id: "gs113",
+    text: "Which organ controls all the activities of a human body?",
+    options: ["Liver", "Heart", "Brain", "Lungs"],
+    correct: "C"
+  },
+  {
+    id: "gs114",
+    text: "Which part of the cell contains the genetic material?",
+    options: ["Ribosome", "Cytoplasm", "Nucleus", "Cell wall"],
+    correct: "C"
+  },
+  {
+    id: "gs115",
+    text: "Which gas is used in fire extinguishers?",
+    options: ["Oxygen", "Nitrogen", "Carbon Dioxide", "Hydrogen"],
+    correct: "C"
+  },
+  {
+    id: "gs116",
+    text: "Which gland is called the master gland?",
+    options: ["Thyroid", "Pituitary", "Adrenal", "Pineal"],
+    correct: "B"
+  },
+  {
+    id: "gs117",
+    text: "Which physical quantity is measured in amperes?",
+    options: ["Voltage", "Resistance", "Current", "Power"],
+    correct: "C"
+  },
+  {
+    id: "gs118",
+    text: "Which of the following is a greenhouse gas?",
+    options: ["Oxygen", "Nitrogen", "Methane", "Hydrogen"],
+    correct: "C"
+  },
+  {
+    id: "gs119",
+    text: "What is the function of hemoglobin?",
+    options: ["Digestion", "Oxygen transport", "Immunity", "Blood clotting"],
+    correct: "B"
+  },
+  {
+    id: "gs120",
+    text: "Which of the following is not a renewable energy source?",
+    options: ["Solar", "Wind", "Coal", "Hydropower"],
+    correct: "C"
+  },
+
+  // Hard (21–25)
+  {
+    id: "gs121",
+    text: "What is the SI unit of electric capacitance?",
+    options: ["Henry", "Farad", "Coulomb", "Ohm"],
+    correct: "B"
+  },
+  {
+    id: "gs122",
+    text: "Which disease is caused by the deficiency of Vitamin B1?",
+    options: ["Rickets", "Scurvy", "Beri-Beri", "Pellagra"],
+    correct: "C"
+  },
+  {
+    id: "gs123",
+    text: "Which law explains the relation between pressure and volume of a gas at constant temperature?",
+    options: ["Boyle’s Law", "Ohm’s Law", "Newton’s Law", "Hooke’s Law"],
+    correct: "A"
+  },
+  {
+    id: "gs124",
+    text: "Which component of blood is responsible for fighting infection?",
+    options: ["Platelets", "Red blood cells", "Plasma", "White blood cells"],
+    correct: "D"
+  },
+  {
+    id: "gs125",
+    text: "Which phenomenon explains the blue color of the sky?",
+    options: ["Dispersion", "Diffusion", "Scattering", "Reflection"],
+    correct: "C"
+  },
+    {
+    id: "ga201",
+    text: "Who is the current President of India (as of 2025)?",
+    options: ["Droupadi Murmu", "Ram Nath Kovind", "Venkaiah Naidu", "Amit Shah"],
+    correct: "A"
+  },
+  {
+    id: "ga202",
+    text: "Which Indian state is the largest producer of wheat?",
+    options: ["Punjab", "Uttar Pradesh", "Haryana", "Madhya Pradesh"],
+    correct: "B"
+  },
+  {
+    id: "ga203",
+    text: "Which country hosted the 2024 Summer Olympics?",
+    options: ["Japan", "France", "USA", "Germany"],
+    correct: "B"
+  },
+  {
+    id: "ga204",
+    text: "What is the full form of G20?",
+    options: ["Group of Twenty", "Global 20 Nations", "Governance 20", "Growth 20"],
+    correct: "A"
+  },
+  {
+    id: "ga205",
+    text: "Which river is known as the 'Dakshin Ganga' (Ganga of the South)?",
+    options: ["Narmada", "Krishna", "Kaveri", "Godavari"],
+    correct: "D"
+  },
+  {
+    id: "ga206",
+    text: "Which day is observed as National Science Day in India?",
+    options: ["28 February", "5 June", "15 August", "11 May"],
+    correct: "A"
+  },
+  {
+    id: "ga207",
+    text: "What is the capital of Uttarakhand?",
+    options: ["Dehradun", "Haridwar", "Nainital", "Haldwani"],
+    correct: "A"
+  },
+  {
+    id: "ga208",
+    text: "Who is the CEO of Tesla Inc. (as of 2025)?",
+    options: ["Jeff Bezos", "Sundar Pichai", "Elon Musk", "Tim Cook"],
+    correct: "C"
+  },
+  {
+    id: "ga209",
+    text: "Which country recently became the 100th member of the International Solar Alliance?",
+    options: ["Nepal", "Brazil", "Spain", "Argentina"],
+    correct: "D"
+  },
+  {
+    id: "ga210",
+    text: "Which Indian state launched the 'Mukhyamantri Ladli Behna Yojana'?",
+    options: ["Madhya Pradesh", "Uttar Pradesh", "Bihar", "Rajasthan"],
+    correct: "A"
+  },
+  {
+    id: "ga211",
+    text: "Which city is known as the 'Silicon Valley of India'?",
+    options: ["Hyderabad", "Chennai", "Pune", "Bengaluru"],
+    correct: "D"
+  },
+  {
+    id: "ga212",
+    text: "In which year was the Indian Constitution adopted?",
+    options: ["1947", "1950", "1952", "1949"],
+    correct: "D"
+  },
+  {
+    id: "ga213",
+    text: "Which organization releases the Human Development Index (HDI)?",
+    options: ["UNESCO", "UNDP", "IMF", "World Bank"],
+    correct: "B"
+  },
+  {
+    id: "ga214",
+    text: "Who won the ICC Men’s ODI Cricketer of the Year 2024?",
+    options: ["Virat Kohli", "Babar Azam", "Rohit Sharma", "Travis Head"],
+    correct: "A"
+  },
+  {
+    id: "ga215",
+    text: "Which Indian city is the headquarters of ISRO?",
+    options: ["Mumbai", "Hyderabad", "Bengaluru", "Thiruvananthapuram"],
+    correct: "C"
+  },
+  {
+    id: "ga216",
+    text: "Which Indian freedom fighter is known as the 'Iron Man of India'?",
+    options: ["Bhagat Singh", "Subhash Chandra Bose", "Sardar Vallabhbhai Patel", "Jawaharlal Nehru"],
+    correct: "C"
+  },
+  {
+    id: "ga217",
+    text: "Which Indian has won a Nobel Prize in Economics?",
+    options: ["Amartya Sen", "Venkatraman Ramakrishnan", "C.V. Raman", "Kailash Satyarthi"],
+    correct: "A"
+  },
+  {
+    id: "ga218",
+    text: "Which is the longest national highway in India?",
+    options: ["NH44", "NH27", "NH2", "NH7"],
+    correct: "A"
+  },
+  {
+    id: "ga219",
+    text: "India shares the longest land border with which country?",
+    options: ["Pakistan", "China", "Nepal", "Bangladesh"],
+    correct: "D"
+  },
+  {
+    id: "ga220",
+    text: "Which is the official currency of Bangladesh?",
+    options: ["Rupee", "Taka", "Rial", "Peso"],
+    correct: "B"
+  },
+  ];
+
+  
+  const renderQuestions = () => {
+      const container = document.getElementById('questions');
+      QUESTIONS.forEach((q, index) => {
+        const div = document.createElement('div');
+        div.className = 'mb-4';
+        div.innerHTML = `<p class="font-semibold mb-1">${index + 1}. ${q.text}</p>` +
+          q.options.map((opt, i) => {
+            const optVal = String.fromCharCode(65 + i);
+            return `<label class="block ml-4 my-1">
+              <input type="radio" name="${q.id}" value="${optVal}" class="mr-2"> (${optVal}) ${opt}
+            </label>`;
+          }).join('');
+        container.appendChild(div);
+      });
+    };
+
+    let timeLeft = 5400; // 90 mins
+    const timerEl = document.getElementById('timer');
+    const timerId = setInterval(() => {
+      const min = Math.floor(timeLeft / 60);
+      const sec = timeLeft % 60;
+      timerEl.textContent = `Time Left: ${min}:${sec < 10 ? '0' : ''}${sec}`;
+      timeLeft--;
+      if (timeLeft < 0) {
+        clearInterval(timerId);
+        timerEl.textContent = 'Time’s Up!';
+        document.getElementById('mockTest').dispatchEvent(new Event('submit'));
+      }
+    }, 1000);
+
+    document.getElementById('mockTest').addEventListener('submit', function (e) {
+      e.preventDefault();
+      clearInterval(timerId);
+      timerEl.textContent = 'Test Submitted!';
+
+      let score = 0, correct = 0, wrong = 0, attempted = 0;
+
+      QUESTIONS.forEach((q) => {
+        const sel = document.querySelector(`input[name="${q.id}"]:checked`);
+        if (sel) {
+          attempted++;
+          if (sel.value === q.correct) {
+            score += 1;
+            correct++;
+            sel.parentElement.classList.add('correct');
+          } else {
+            score -= 0.33;
+            wrong++;
+            sel.parentElement.classList.add('incorrect');
+          }
+        }
+        const correctEl = document.querySelector(`input[name="${q.id}"][value="${q.correct}"]`);
+        if (correctEl) correctEl.parentElement.classList.add('correct');
+      });
+
+      document.getElementById('score').textContent = score.toFixed(2);
+
+      const msg = document.getElementById('scoreMessage');
+      if (score >= 80) msg.textContent = 'Outstanding! 🌟';
+      else if (score >= 60) msg.textContent = 'Great Job! 🚀';
+      else if (score >= 40) msg.textContent = 'Good Effort! 💪';
+      else msg.textContent = 'Don’t Give Up! 😊';
+
+      document.getElementById('result').classList.remove('hidden');
+      document.getElementById('result').scrollIntoView({ behavior: 'smooth' });
+    });
+
+    renderQuestions();
+  </script>
+</body>
+</html>

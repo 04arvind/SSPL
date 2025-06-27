@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RRB Group-D Mock Test 8</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .correct {
+      background-color: #d4edda;
+      color: #155724;
+      padding: 4px;
+      border-radius: 4px;
+    }
+    .incorrect {
+      background-color: #f8d7da;
+      color: #721c24;
+      padding: 4px;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body class="bg-gray-100 text-gray-900">
+  <div class="max-w-4xl mx-auto p-6">
+    <h1 class="text-3xl font-bold text-center mb-4 text-blue-600 animate-pulse">RRB Group-D Mock Test</h1>
+     <!-- Instructions Section -->
+    <div class="mb-4 p-4 bg-yellow-100 border border-yellow-300 rounded">
+      <h2 class="text-xl font-semibold mb-2">Instructions</h2>
+      <ul class="list-disc list-inside text-sm space-y-1">
+        <li>Total Questions: <strong>100</strong></li>
+        <li>Total Time: <strong>90 minutes</strong></li>
+        <li>Each correct answer awards <strong>+1 mark</strong></li>
+        <li>Each wrong answer incurs <strong>1/3 mark</strong></li>
+        <li>Unattempted questions carry <strong>no penalty</strong></li>
+        <li>Click "Submit" when finished or wait for time to run out for auto-submit</li>
+      </ul>
+    </div>
+    <div id="timer" class="text-xl font-semibold text-red-600 text-center mb-4">Time Left: 90:00</div>
+    <form id="mockTest" class="bg-white p-6 rounded-lg shadow-lg">
+      <div id="questions"></div>
+      <button type="submit" class="mt-4 bg-blue-500 text-white px-6 py-2 rounded hover:bg-blue-600">Submit</button>
+    </form>
+    <div id="result" class="hidden mt-6 bg-white p-6 rounded-lg shadow">
+      <h2 class="text-2xl font-bold text-center mb-2">Your Score: <span id="score"></span>/100</h2>
+      <p class="text-center text-lg" id="scoreMessage"></p>
+    </div>
+  </div>
+
+  <script>
+    const QUESTIONS = [
+  {
+    "id": "m1",
+    "text": "If the product of two numbers is 432 and their HCF is 12, what is their LCM?",
+    "options": ["36", "48", "24", "60"],
+    "correct": "A"
+  },
+  {
+    "id": "m2",
+    "text": "A boat covers 48 km downstream in 3 hours and 36 km upstream in 4 hours. What is the speed of the stream in km/h?",
+    "options": ["2", "3", "1.5", "2.5"],
+    "correct": "A"
+  },
+  {
+    "id": "m3",
+    "text": "The ages of A and B are in the ratio 5:7. After 10 years, the ratio becomes 3:4. What is the sum of their present ages?",
+    "options": ["48 years", "60 years", "72 years", "36 years"],
+    "correct": "A"
+  },
+  {
+    "id": "m4",
+    "text": "If sin θ + cos θ = √3, what is the value of sin θ × cos θ?",
+    "options": ["1/2", "1/4", "1/3", "1/6"],
+    "correct": "A"
+  },
+  {
+    "id": "m5",
+    "text": "A shopkeeper marks an article 50% above cost price and offers a 20% discount. If the selling price is ₹600, what is the cost price?",
+    "options": ["₹500", "₹480", "₹450", "₹520"],
+    "correct": "A"
+  },
+  {
+    "id": "m6",
+    "text": "What is the LCM of 45, 60, and 90?",
+    "options": ["180", "360", "540", "720"],
+    "correct": "A"
+  },
+  {
+    "id": "m7",
+    "text": "A train 400 m long crosses a platform 600 m long in 40 seconds. What is the speed of the train in km/h?",
+    "options": ["90", "72", "108", "54"],
+    "correct": "A"
+  },
+  {
+    "id": "m8",
+    "text": "The average of 8 numbers is 50. If three numbers are replaced by 40, 45, and 55, the new average is 48. What is the sum of the three replaced numbers?",
+    "options": ["156", "144", "150", "162"],
+    "correct": "A"
+  },
+  {
+    "id": "m9",
+    "text": "What is the HCF of 135 and 225?",
+    "options": ["45", "30", "15", "60"],
+    "correct": "A"
+  },
+  {
+    "id": "m10",
+    "text": "If a : b = 3 : 5 and b : c = 10 : 13, what is a : c?",
+    "options": ["6 : 13", "3 : 13", "15 : 26", "5 : 13"],
+    "correct": "A"
+  },
+  {
+    "id": "m11",
+    "text": "A sum of ₹15000 amounts to ₹24389.25 in 5 years at compound interest compounded annually. What is the rate of interest per annum?",
+    "options": ["10%", "12%", "8%", "15%"],
+    "correct": "A"
+  },
+  {
+    "id": "m12",
+    "text": "The area of a sector of a circle with radius 15 cm is equal to the area of a square with side 12 cm. What is the sector angle?",
+    "options": ["76.8°", "68.4°", "85.2°", "61.2°"],
+    "correct": "A"
+  },
+  {
+    "id": "m13",
+    "text": "If x² + 1/x² = 27, what is the value of x³ + 1/x³?",
+    "options": ["162", "140", "125", "189"],
+    "correct": "A"
+  },
+  {
+    "id": "m14",
+    "text": "A, B, and C can complete a work in 12, 15, and 20 days, respectively. In how many days can they complete it together?",
+    "options": ["5 days", "6 days", "7 days", "4 days"],
+    "correct": "A"
+  },
+  {
+    "id": "m15",
+    "text": "If 3x + 5y = 22 and 2x - 3y = 1, what is the value of x² + y²?",
+    "options": ["25", "29", "21", "33"],
+    "correct": "A"
+  },
+  {
+    "id": "m16",
+    "text": "The total surface area of a hemisphere with radius 7 cm is:",
+    "options": ["462 cm²", "308 cm²", "616 cm²", "231 cm²"],
+    "correct": "A"
+  },
+  {
+    "id": "m17",
+    "text": "If tan θ = 5/12, what is the value of (sin θ + cos θ)/(sin θ - cos θ)?",
+    "options": ["17/7", "7/17", "12/5", "5/12"],
+    "correct": "A"
+  },
+  {
+    "id": "m18",
+    "text": "A sum becomes five times in 8 years at simple interest. What is the rate of interest per annum?",
+    "options": ["50%", "37.5%", "25%", "62.5%"],
+    "correct": "A"
+  },
+  {
+    "id": "m19",
+    "text": "A pipe can fill a tank in 6 hours, and another can empty it in 9 hours. If both are opened, how long will it take to fill the tank?",
+    "options": ["18 hours", "12 hours", "15 hours", "9 hours"],
+    "correct": "A"
+  },
+  {
+    "id": "m20",
+    "text": "If 25% of a number is 50, and 10% of the same number is subtracted from it, what is the result?",
+    "options": ["150", "180", "200", "160"],
+    "correct": "A"
+  },
+  {
+    "id": "m21",
+    "text": "The area of a triangle with sides 7 cm, 24 cm, and 25 cm is:",
+    "options": ["84 cm²", "96 cm²", "72 cm²", "108 cm²"],
+    "correct": "A"
+  },
+  {
+    "id": "m22",
+    "text": "A man travels 120 km at 60 km/h and returns at 40 km/h. What is his average speed for the entire journey?",
+    "options": ["48 km/h", "50 km/h", "45 km/h", "52 km/h"],
+    "correct": "A"
+  },
+  {
+    "id": "m23",
+    "text": "If x + 1/x = 8, what is x³ + 1/x³?",
+    "options": ["488", "512", "464", "476"],
+    "correct": "A"
+  },
+  {
+    "id": "m24",
+    "text": "An article is sold at ₹1200 after a 25% profit. If a 25% discount is given on the marked price, what is the marked price?",
+    "options": ["₹1600", "₹1500", "₹1400", "₹1700"],
+    "correct": "A"
+  },
+  {
+    "id": "m25",
+    "text": "What is the probability of drawing a black ace from a standard deck of 52 cards?",
+    "options": ["1/26", "1/13", "2/13", "1/52"],
+    "correct": "A"
+  },
+  
+  {
+    "id": "gr121",
+    "text": "If 6 : 216 :: 8 : ?",
+    "options": ["512", "343", "729", "256"],
+    "correct": "A"
+  },
+  {
+    "id": "gr122",
+    "text": "CJNR : GLTY :: EKPU : ?",
+    "options": ["IMVB", "JNWX", "KOXA", "LPZC"],
+    "correct": "A"
+  },
+  {
+    "id": "gr123",
+    "text": "Pen : Paper :: Knife : ?",
+    "options": ["Cutting board", "Cloth", "Canvas", "Wood"],
+    "correct": "A"
+  },
+  {
+    "id": "gr124",
+    "text": "In a code, if JUNGLE is written as KVOHMF, how is FOREST written?",
+    "options": ["GQHLTK", "HPSIVM", "IQTJWL", "JRUNMX"],
+    "correct": "A"
+  },
+  {
+    "id": "gr125",
+    "text": "If 7890 is coded as 8901, and 3456 is coded as 4567, how is 1234 coded?",
+    "options": ["2345", "3456", "1234", "5678"],
+    "correct": "A"
+  },
+  {
+    "id": "gr126",
+    "text": "In a code, 'MOON' is written as '13-15-15-14'. How is 'SUN' written?",
+    "options": ["19-21-14", "20-22-15", "18-20-13", "21-23-16"],
+    "correct": "A"
+  },
+  {
+    "id": "gr127",
+    "text": "What is the next term in the series: 9, 26, 56, 100, 156, ?",
+    "options": ["236", "246", "226", "256"],
+    "correct": "A"
+  },
+  {
+    "id": "gr128",
+    "text": "Find the missing term in the series: E, K, I, ?, I, I",
+    "options": ["I", "J", "K", "L"],
+    "correct": "A"
+  },
+  {
+    "id": "gr129",
+    "text": "What is the next number in the series: 5, 25, 625, 390625, ?",
+    "options": ["6103515625", "15625", "78125", "1953125"],
+    "correct": "A"
+  },
+  {
+    "id": "gr130",
+    "text": "Pointing to a man, a woman said, 'His daughter is my sister’s only child.' How is the man related to the woman?",
+    "options": ["Husband", "Brother", "Father", "Son"],
+    "correct": "A"
+  },
+  {
+    "id": "gr131",
+    "text": "A is the mother of B, C is the brother of D, and D is the son of A. How is B related to C?",
+    "options": ["Sister", "Mother", "Daughter", "Wife"],
+    "correct": "A"
+  },
+  {
+    "id": "gr132",
+    "text": "P is the sister of Q, R is the mother of S, and S is the daughter of P. How is Q related to R?",
+    "options": ["Husband", "Son", "Brother", "Father"],
+    "correct": "A"
+  },
+  {
+    "id": "gr133",
+    "text": "A man walks 12 km east, turns left and walks 9 km, then turns right and walks 5 km, and finally turns right and walks 9 km. How far is he from the starting point?",
+    "options": ["17 km", "13 km", "15 km", "19 km"],
+    "correct": "A"
+  },
+  {
+    "id": "gr134",
+    "text": "A person facing east turns 180° clockwise, then 90° anticlockwise, and finally 45° clockwise. Which direction is he facing now?",
+    "options": ["South-East", "North-East", "South-West", "North-West"],
+    "correct": "A"
+  },
+  {
+    "id": "gr135",
+    "text": "All lilies are flowers. Some flowers are white. Which conclusion follows? I: Some lilies are white. II: All white things are flowers.",
+    "options": ["Only I", "Only II", "Both I and II", "Neither I nor II"],
+    "correct": "D"
+  },
+  {
+    "id": "gr136",
+    "text": "If all dogs are pets and some pets are loyal, which statement is definitely true?",
+    "options": ["Some dogs are loyal", "All dogs are loyal", "Some pets are dogs", "No dogs are loyal"],
+    "correct": "C"
+  },
+  {
+    "id": "gr137",
+    "text": "Statement: If it’s hot, the fan is on. It is not hot. Conclusion: The fan is off.",
+    "options": ["True", "False", "Cannot be determined", "Invalid statement"],
+    "correct": "C"
+  },
+  {
+    "id": "gr138",
+    "text": "Six people A, B, C, D, E, F are sitting in a row facing north. A is to the immediate left of B. C is not next to D. E is second to the right of F. Who is in the middle?",
+    "options": ["B", "C", "D", "E"],
+    "correct": "B"
+  },
+  {
+    "id": "gr139",
+    "text": "In a group of 6 friends, P is taller than Q but shorter than R. S is shorter than T but taller than U. R is not the tallest. Who is the tallest?",
+    "options": ["T", "R", "S", "P"],
+    "correct": "A"
+  },
+  {
+    "id": "gr140",
+    "text": "Three boxes are labeled 'Red,' 'Blue,' and 'Green.' All labels are incorrect. If you pick one ball from the 'Blue' box and it’s red, what’s in the 'Red' box?",
+    "options": ["Green", "Blue", "Red", "Cannot be determined"],
+    "correct": "A"
+  },
+  {
+    "id": "gr141",
+    "text": "How many squares are there in a 5x5 grid?",
+    "options": ["25", "55", "36", "40"],
+    "correct": "B"
+  },
+  {
+    "id": "gr142",
+    "text": "What is the mirror image of the word 'BOLD'?",
+    "options": ["DLOB", "BOLD", "LOBD", "OBLD"],
+    "correct": "A"
+  },
+  {
+    "id": "gr143",
+    "text": "If + means ×, × means ÷, ÷ means -, and - means +, what is 30 + 6 × 2 ÷ 4 - 5?",
+    "options": ["88", "92", "86", "90"],
+    "correct": "A"
+  },
+  {
+    "id": "gr144",
+    "text": "If * means -, # means ×, @ means ÷, and $ means +, what is 25 * 5 # 4 @ 2 $ 3?",
+    "options": ["18", "20", "22", "24"],
+    "correct": "A"
+  },
+  {
+    "id": "gr145",
+    "text": "In a class, 40 students like biology, 35 like chemistry, and 25 like both. How many students like at least one subject?",
+    "options": ["50", "55", "60", "65"],
+    "correct": "A"
+  },
+  {
+    "id": "gr146",
+    "text": "In a group of 90 people, 55 like tea, 45 like coffee, and 30 like neither. How many like both tea and coffee?",
+    "options": ["20", "25", "30", "35"],
+    "correct": "A"
+  },
+  {
+    "id": "gr147",
+    "text": "Find the odd one out: 16, 25, 36, 49, 64, 80.",
+    "options": ["16", "25", "64", "80"],
+    "correct": "D"
+  },
+  {
+    "id": "gr148",
+    "text": "Which word does not belong? Tiger, Lion, Cheetah, Elephant.",
+    "options": ["Tiger", "Lion", "Cheetah", "Elephant"],
+    "correct": "D"
+  },
+  {
+    "id": "gr149",
+    "text": "If today is Tuesday, what day will it be after 120 days?",
+    "options": ["Monday", "Tuesday", "Wednesday", "Thursday"],
+    "correct": "A"
+  },
+  {
+    "id": "gr150",
+    "text": "A clock shows 12:00. What will be the angle between the hour and minute hands after 18 minutes?",
+    "options": ["99°", "90°", "108°", "81°"],
+    "correct": "A"
+  },
+   {
+    "id": "gs136",
+    "text": "A body of mass 6 kg is moving at 8 m/s. It comes to rest after 4 seconds. What is the average force applied? (Assume uniform deceleration)",
+    "options": ["-3 N", "-4 N", "-2 N", "-5 N"],
+    "correct": "A"
+  },
+  {
+    "id": "gs137",
+    "text": "A concave lens has a focal length of 20 cm. If an object is placed 30 cm from the lens, what is the image distance?",
+    "options": ["-12 cm", "-15 cm", "-10 cm", "-18 cm"],
+    "correct": "A"
+  },
+  {
+    "id": "gs138",
+    "text": "A sound wave has a frequency of 500 Hz and travels at 340 m/s. What is the wavelength?",
+    "options": ["0.68 m", "0.85 m", "0.5 m", "0.75 m"],
+    "correct": "A"
+  },
+  {
+    "id": "gs139",
+    "text": "Two resistors of 10 Ω and 15 Ω are connected in parallel. What is the equivalent resistance?",
+    "options": ["6 Ω", "8 Ω", "12 Ω", "25 Ω"],
+    "correct": "A"
+  },
+  {
+    "id": "gs140",
+    "text": "A stone is thrown vertically upwards with a velocity of 25 m/s. What is the time taken to reach the maximum height? (g = 10 m/s²)",
+    "options": ["2.5 s", "2 s", "3 s", "1.5 s"],
+    "correct": "A"
+  },
+  {
+    "id": "gs141",
+    "text": "What is the pressure exerted by a 70 kg mass on an area of 0.35 m²? (g = 10 m/s²)",
+    "options": ["2000 Pa", "1500 Pa", "2500 Pa", "3000 Pa"],
+    "correct": "A"
+  },
+  {
+    "id": "gs142",
+    "text": "A 500 W appliance runs for 2 hours daily. How many units of electricity are consumed in 30 days? (1 unit = 1 kWh)",
+    "options": ["30 units", "15 units", "45 units", "60 units"],
+    "correct": "A"
+  },
+  {
+    "id": "gs143",
+    "text": "The refractive index of a medium is 2. If light travels at 3 × 10⁸ m/s in vacuum, what is its speed in the medium?",
+    "options": ["1.5 × 10⁸ m/s", "2 × 10⁸ m/s", "1 × 10⁸ m/s", "2.5 × 10⁸ m/s"],
+    "correct": "A"
+  },
+  {
+    "id": "gs144",
+    "text": "What is the molar mass of NaHCO₃? (Na = 23, H = 1, C = 12, O = 16)",
+    "options": ["84 g/mol", "72 g/mol", "96 g/mol", "60 g/mol"],
+    "correct": "A"
+  },
+  {
+    "id": "gs145",
+    "text": "What is the oxidation number of nitrogen in N₂O?",
+    "options": ["+1", "+2", "-1", "-2"],
+    "correct": "A"
+  },
+  {
+    "id": "gs146",
+    "text": "Which element has the electron configuration 1s² 2s² 2p⁶ 3s² 3p⁴?",
+    "options": ["Sulfur", "Phosphorus", "Chlorine", "Silicon"],
+    "correct": "A"
+  },
+  {
+    "id": "gs147",
+    "text": "In the reaction 2H₂ + O₂ → 2H₂O, how many grams of H₂O are produced from 4 g of H₂? (H = 1, O = 16)",
+    "options": ["36 g", "18 g", "72 g", "9 g"],
+    "correct": "A"
+  },
+  {
+    "id": "gs148",
+    "text": "What is the pH of a 0.00001 M NaOH solution?",
+    "options": ["5", "4", "6", "7"],
+    "correct": "A"
+  },
+  {
+    "id": "gs149",
+    "text": "Which metal is used in the filament of incandescent bulbs?",
+    "options": ["Tungsten", "Copper", "Aluminum", "Iron"],
+    "correct": "A"
+  },
+  {
+    "id": "gs150",
+    "text": "Which part of the human excretory system filters blood to form urine?",
+    "options": ["Kidneys", "Ureters", "Bladder", "Urethra"],
+    "correct": "A"
+  },
+  {
+    "id": "gs151",
+    "text": "Which plant hormone promotes cell division?",
+    "options": ["Cytokinin", "Gibberellin", "Ethylene", "Abscisic acid"],
+    "correct": "A"
+  },
+  {
+    "id": "gs152",
+    "text": "Which disease is caused by the deficiency of Vitamin B3?",
+    "options": ["Pellagra", "Beriberi", "Scurvy", "Rickets"],
+    "correct": "A"
+  },
+  {
+    "id": "gs153",
+    "text": "Which organelle is responsible for packaging and transporting proteins in a cell?",
+    "options": ["Golgi apparatus", "Ribosome", "Mitochondria", "Lysosome"],
+    "correct": "A"
+  },
+  {
+    "id": "gs154",
+    "text": "Which gas is primarily responsible for photochemical smog?",
+    "options": ["Ozone", "Carbon dioxide", "Sulfur dioxide", "Nitrogen dioxide"],
+    "correct": "A"
+  },
+  {
+    "id": "gs155",
+    "text": "Which part of the human nervous system controls voluntary actions?",
+    "options": ["Somatic nervous system", "Autonomic nervous system", "Sympathetic nervous system", "Parasympathetic nervous system"],
+    "correct": "A"
+  },
+  {
+    "id": "gs156",
+    "text": "Which vitamin is essential for blood clotting?",
+    "options": ["Vitamin K", "Vitamin A", "Vitamin C", "Vitamin B12"],
+    "correct": "A"
+  },
+  {
+    "id": "gs157",
+    "text": "Which part of the cell is known as the ‘powerhouse’?",
+    "options": ["Mitochondria", "Nucleus", "Ribosome", "Chloroplast"],
+    "correct": "A"
+  },
+  {
+    "id": "gs158",
+    "text": "What type of lens is used to correct myopia?",
+    "options": ["Concave", "Convex", "Cylindrical", "Bifocal"],
+    "correct": "A"
+  },
+  {
+    "id": "gs159",
+    "text": "Which of the following is a scalar quantity?",
+    "options": ["Speed", "Velocity", "Displacement", "Force"],
+    "correct": "A"
+  },
+  {
+    "id": "gs160",
+    "text": "Which of the following is an example of a chemical change?",
+    "options": ["Rusting of iron", "Melting of ice", "Boiling of water", "Breaking of glass"],
+    "correct": "A"
+  },
+    {
+    "id": "ga101",
+    "text": "Who was the first Indian woman to win an Olympic medal?",
+    "options": ["Karnam Malleswari", "PV Sindhu", "Saina Nehwal", "Sakshi Malik"],
+    "correct": "A"
+  },
+  {
+    "id": "ga102",
+    "text": "Which Indian river is known as the 'Lifeline of Gujarat'?",
+    "options": ["Sabarmati", "Narmada", "Tapi", "Mahi"],
+    "correct": "B"
+  },
+  {
+    "id": "ga103",
+    "text": "Which article of the Indian Constitution provides for the Right to Freedom of Speech and Expression?",
+    "options": ["Article 19", "Article 21", "Article 14", "Article 25"],
+    "correct": "A"
+  },
+  {
+    "id": "ga104",
+    "text": "Which Indian city is known as the 'City of Lakes'?",
+    "options": ["Udaipur", "Bhopal", "Srinagar", "Guwahati"],
+    "correct": "A"
+  },
+  {
+    "id": "ga105",
+    "text": "Who authored the book 'The Discovery of India'?",
+    "options": ["Jawaharlal Nehru", "Mahatma Gandhi", "Rabindranath Tagore", "Sardar Patel"],
+    "correct": "A"
+  },
+  {
+    "id": "ga106",
+    "text": "Which Indian classical dance form is associated with Andhra Pradesh?",
+    "options": ["Kuchipudi", "Kathak", "Odissi", "Manipuri"],
+    "correct": "A"
+  },
+  {
+    "id": "ga107",
+    "text": "What is the currency of Japan?",
+    "options": ["Yen", "Won", "Dollar", "Euro"],
+    "correct": "A"
+  },
+  {
+    "id": "ga108",
+    "text": "Which Indian freedom fighter was known as the 'Grand Old Man of India'?",
+    "options": ["Dadabhai Naoroji", "Bal Gangadhar Tilak", "Gopal Krishna Gokhale", "Lala Lajpat Rai"],
+    "correct": "A"
+  },
+  {
+    "id": "ga109",
+    "text": "Which schedule of the Indian Constitution lists the powers of the President and Governors?",
+    "options": ["Second Schedule", "Third Schedule", "Fourth Schedule", "Fifth Schedule"],
+    "correct": "A"
+  },
+  {
+    "id": "ga110",
+    "text": "Which Indian scientist developed the Bose-Einstein Statistics?",
+    "options": ["Satyendra Nath Bose", "C.V. Raman", "Homi J. Bhabha", "Jagadish Chandra Bose"],
+    "correct": "A"
+  },
+  {
+    "id": "ga111",
+    "text": "Which Indian national park is known for its population of Asiatic lions?",
+    "options": ["Gir National Park", "Kaziranga National Park", "Sundarbans National Park", "Ranthambore National Park"],
+    "correct": "A"
+  },
+  {
+    "id": "ga112",
+    "text": "In which year was the Champaran Satyagraha launched by Mahatma Gandhi?",
+    "options": ["1917", "1919", "1921", "1915"],
+    "correct": "A"
+  },
+  {
+    "id": "ga113",
+    "text": "Which Indian state launched the 'Mukhyamantri Kisan Kalyan Yojana' in 2024 to support farmers?",
+    "options": ["Madhya Pradesh", "Uttar Pradesh", "Haryana", "Punjab"],
+    "correct": "A"
+  },
+  {
+    "id": "ga114",
+    "text": "Which Indian wrestler won a bronze medal at the 2024 Paris Olympics?",
+    "options": ["Vinesh Phogat", "Bajrang Punia", "Ravi Dahiya", "Aman Sehrawat"],
+    "correct": "A"
+  },
+  {
+    "id": "ga115",
+    "text": "Which Indian mission, planned for 2025, aims to study Venus’s atmosphere?",
+    "options": ["Shukrayaan-1", "Chandrayaan-4", "Aditya-L2", "Gaganyaan-2"],
+    "correct": "A"
+  },
+  {
+    "id": "ga116",
+    "text": "Which country hosted the G20 Summit in 2024?",
+    "options": ["Brazil", "India", "South Africa", "Australia"],
+    "correct": "A"
+  },
+  {
+    "id": "ga117",
+    "text": "Which Indian woman cricketer became the first to score a double century in Test cricket in 2024?",
+    "options": ["Shafali Verma", "Smriti Mandhana", "Harmanpreet Kaur", "Jemimah Rodrigues"],
+    "correct": "A"
+  },
+  {
+    "id": "ga118",
+    "text": "What was the name of the Indian government scheme launched in 2025 to promote digital literacy in rural areas?",
+    "options": ["Digital Gram Yojana", "Bharat Net 2.0", "E-Vidya Mission", "Samvidhan Yojana"],
+    "correct": "A"
+  },
+  {
+    "id": "ga119",
+    "text": "Which international organization declared 2025 as the 'International Year of Cooperatives'?",
+    "options": ["United Nations", "UNESCO", "ILO", "FAO"],
+    "correct": "A"
+  },
+  {
+    "id": "ga120",
+    "text": "Who was awarded the Sahitya Akademi Award in 2025 for Hindi literature?",
+    "options": ["Krishna Sobti", "Uday Prakash", "Vinod Kumar Shukla", "Geetanjali Shree"],
+    "correct": "C"
+  }
+  ];
+
+  
+  const renderQuestions = () => {
+      const container = document.getElementById('questions');
+      QUESTIONS.forEach((q, index) => {
+        const div = document.createElement('div');
+        div.className = 'mb-4';
+        div.innerHTML = `<p class="font-semibold mb-1">${index + 1}. ${q.text}</p>` +
+          q.options.map((opt, i) => {
+            const optVal = String.fromCharCode(65 + i);
+            return `<label class="block ml-4 my-1">
+              <input type="radio" name="${q.id}" value="${optVal}" class="mr-2"> (${optVal}) ${opt}
+            </label>`;
+          }).join('');
+        container.appendChild(div);
+      });
+    };
+
+    let timeLeft = 5400; // 90 mins
+    const timerEl = document.getElementById('timer');
+    const timerId = setInterval(() => {
+      const min = Math.floor(timeLeft / 60);
+      const sec = timeLeft % 60;
+      timerEl.textContent = `Time Left: ${min}:${sec < 10 ? '0' : ''}${sec}`;
+      timeLeft--;
+      if (timeLeft < 0) {
+        clearInterval(timerId);
+        timerEl.textContent = 'Time’s Up!';
+        document.getElementById('mockTest').dispatchEvent(new Event('submit'));
+      }
+    }, 1000);
+
+    document.getElementById('mockTest').addEventListener('submit', function (e) {
+      e.preventDefault();
+      clearInterval(timerId);
+      timerEl.textContent = 'Test Submitted!';
+
+      let score = 0, correct = 0, wrong = 0, attempted = 0;
+
+      QUESTIONS.forEach((q) => {
+        const sel = document.querySelector(`input[name="${q.id}"]:checked`);
+        if (sel) {
+          attempted++;
+          if (sel.value === q.correct) {
+            score += 1;
+            correct++;
+            sel.parentElement.classList.add('correct');
+          } else {
+            score -= 0.33;
+            wrong++;
+            sel.parentElement.classList.add('incorrect');
+          }
+        }
+        const correctEl = document.querySelector(`input[name="${q.id}"][value="${q.correct}"]`);
+        if (correctEl) correctEl.parentElement.classList.add('correct');
+      });
+
+      document.getElementById('score').textContent = score.toFixed(2);
+
+      const msg = document.getElementById('scoreMessage');
+      if (score >= 80) msg.textContent = 'Outstanding! 🌟';
+      else if (score >= 60) msg.textContent = 'Great Job! 🚀';
+      else if (score >= 40) msg.textContent = 'Good Effort! 💪';
+      else msg.textContent = 'Don’t Give Up! 😊';
+
+      document.getElementById('result').classList.remove('hidden');
+      document.getElementById('result').scrollIntoView({ behavior: 'smooth' });
+    });
+
+    renderQuestions();
+  </script>
+</body>
+</html>

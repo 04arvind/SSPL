@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RRB Group-D Mock Test 7</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .correct {
+      background-color: #d4edda;
+      color: #155724;
+      padding: 4px;
+      border-radius: 4px;
+    }
+    .incorrect {
+      background-color: #f8d7da;
+      color: #721c24;
+      padding: 4px;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body class="bg-gray-100 text-gray-900">
+  <div class="max-w-4xl mx-auto p-6">
+    <h1 class="text-3xl font-bold text-center mb-4 text-blue-600 animate-pulse">RRB Group-D Mock Test</h1>
+     <!-- Instructions Section -->
+    <div class="mb-4 p-4 bg-yellow-100 border border-yellow-300 rounded">
+      <h2 class="text-xl font-semibold mb-2">Instructions</h2>
+      <ul class="list-disc list-inside text-sm space-y-1">
+        <li>Total Questions: <strong>100</strong></li>
+        <li>Total Time: <strong>90 minutes</strong></li>
+        <li>Each correct answer awards <strong>+1 mark</strong></li>
+        <li>Each wrong answer incurs <strong>1/3 mark</strong></li>
+        <li>Unattempted questions carry <strong>no penalty</strong></li>
+        <li>Click "Submit" when finished or wait for time to run out for auto-submit</li>
+      </ul>
+    </div>
+    <div id="timer" class="text-xl font-semibold text-red-600 text-center mb-4">Time Left: 90:00</div>
+    <form id="mockTest" class="bg-white p-6 rounded-lg shadow-lg">
+      <div id="questions"></div>
+      <button type="submit" class="mt-4 bg-blue-500 text-white px-6 py-2 rounded hover:bg-blue-600">Submit</button>
+    </form>
+    <div id="result" class="hidden mt-6 bg-white p-6 rounded-lg shadow">
+      <h2 class="text-2xl font-bold text-center mb-2">Your Score: <span id="score"></span>/100</h2>
+      <p class="text-center text-lg" id="scoreMessage"></p>
+    </div>
+  </div>
+
+  <script>
+    const QUESTIONS = [
+        {
+    id: 'm1',
+    text: 'If the sum of cubes of two numbers is 152 and their sum is 8, what is the product of the numbers?',
+    options: ['15', '12', '18', '21'],
+    correct: 'A'
+  },
+  {
+    id: 'm2',
+    text: 'A boat covers 40 km downstream in 2 hours and 30 km upstream in 3 hours. What is the ratio of the speed of the boat to the speed of the stream?',
+    options: ['7:1', '5:1', '6:1', '4:1'],
+    correct: 'A'
+  },
+  {
+    id: 'm3',
+    text: 'The ages of A, B, and C are in the ratio 2:3:4. After 5 years, their ages will be in the ratio 5:7:9. What is A’s present age?',
+    options: ['10 years', '15 years', '20 years', '25 years'],
+    correct: 'A'
+  },
+  {
+    id: 'm4',
+    text: 'If sinθ × cosθ = 1/3 and sin²θ + cos²θ = 1, then sin⁴θ + cos⁴θ is:',
+    options: ['7/9', '5/9', '8/9', '4/9'],
+    correct: 'A'
+  },
+  {
+    id: 'm5',
+    text: 'A sum of ₹12000 amounts to ₹17280 in 4 years at compound interest compounded annually. What is the rate of interest per annum?',
+    options: ['9.52%', '10%', '8%', '12%'],
+    correct: 'A'
+  },
+  {
+    id: 'm6',
+    text: 'The area of a sector of a circle with radius 28 cm and sector angle 45° is equal to the area of a rectangle with length 22 cm. What is the breadth of the rectangle?',
+    options: ['14 cm', '12 cm', '16 cm', '10 cm'],
+    correct: 'A'
+  },
+  {
+    id: 'm7',
+    text: 'If x² + 1/x² = 23, what is the value of x³ - 1/x³?',
+    options: ['±72', '±60', '±84', '±96'],
+    correct: 'A'
+  },
+  {
+    id: 'm8',
+    text: 'A, B, and C can complete a work in 24, 36, and 48 days respectively. How many days will they take to complete the work together?',
+    options: ['12', '14', '16', '10'],
+    correct: 'A'
+  },
+  {
+    id: 'm9',
+    text: 'The LCM of 60, 80, and 120 is:',
+    options: ['240', '480', '360', '720'],
+    correct: 'B'
+  },
+  {
+    id: 'm10',
+    text: 'A shopkeeper marks an article 40% above cost and allows 25% discount. Cost price is ₹600. What is the profit %?',
+    options: ['5%', '10%', '12.5%', '15%'],
+    correct: 'A'
+  },
+  {
+    id: 'm11',
+    text: 'If secθ = 13/12, find the value of sinθ + cosθ.',
+    options: ['25/13', '12/13', '13/12', '24/13'],
+    correct: 'A'
+  },
+  {
+    id: 'm12',
+    text: 'A sum quadruples in 12 years at simple interest. Find the annual rate.',
+    options: ['25%', '20%', '30%', '15%'],
+    correct: 'A'
+  },
+  {
+    id: 'm13',
+    text: 'If 40% of a number is 80, what is the number increased by 15% of itself?',
+    options: ['230', '260', '200', '240'],
+    correct: 'A'
+  },
+  {
+    id: 'm14',
+    text: 'The area of triangle with vertices at (0,0), (4,0), (0,3) is:',
+    options: ['6 sq units', '12 sq units', '8 sq units', '10 sq units'],
+    correct: 'A'
+  },
+  {
+    id: 'm15',
+    text: 'Train 300 m long crosses a platform 200 m in 25 sec. Speed in km/h?',
+    options: ['72', '60', '54', '80'],
+    correct: 'A'
+  },
+  {
+    id: 'm16',
+    text: 'If x + 1/x = 7, what is x⁴ - 1/x⁴?',
+    options: ['2303', '2401', '2209', '2501'],
+    correct: 'A'
+  },
+  {
+    id: 'm17',
+    text: 'Solve: 5x - 2y = 13 and 3x + 4y = 23. Find x² - y².',
+    options: ['24', '20', '28', '16'],
+    correct: 'A'
+  },
+  {
+    id: 'm18',
+    text: 'HCF of 108 and 180 is:',
+    options: ['36', '18', '54', '27'],
+    correct: 'A'
+  },
+  {
+    id: 'm19',
+    text: 'Pipe A fills a tank in 8 hrs, Pipe B empties in 12 hrs. Together time to fill?',
+    options: ['24', '16', '20', '28'],
+    correct: 'A'
+  },
+  {
+    id: 'm20',
+    text: 'A man travels 100 km at 50 km/h, returns at 25 km/h. Avg. speed?',
+    options: ['33.33 km/h', '30 km/h', '35 km/h', '40 km/h'],
+    correct: 'A'
+  },
+  {
+    id: 'm21',
+    text: 'In a triangle, the angles are in the ratio 2:3:4. The largest angle is:',
+    options: ['80°', '100°', '60°', '90°'],
+    correct: 'B'
+  },
+  {
+    id: 'm22',
+    text: 'A cylinder has height 10 cm and base radius 7 cm. Volume is:',
+    options: ['1540 cm³', '1430 cm³', '1570 cm³', '1400 cm³'],
+    correct: 'A'
+  },
+  {
+    id: 'm23',
+    text: 'Solve: √(x+9) = 5. Find x.',
+    options: ['16', '15', '17', '18'],
+    correct: 'A'
+  },
+  {
+    id: 'm24',
+    text: 'A train moving at 60 km/h crosses a man in 6 sec. Find length.',
+    options: ['100 m', '120 m', '90 m', '150 m'],
+    correct: 'A'
+  },
+  {
+    id: 'm25',
+    text: 'What is the probability of drawing a red face card from a standard 52-card deck?',
+    options: ['3/26', '1/13', '1/26', '3/13'],
+    correct: 'A'
+  },
+  {
+    "id": 1,
+    "text": "If 5 : 125 :: 7 : ?",
+    "options": ["343", "216", "512", "729"],
+    "correct": "A"
+  },
+  {
+    "id": 2,
+    "text": "Clock : Time :: Thermometer : ?",
+    "options": ["Temperature", "Pressure", "Length", "Weight"],
+    "correct": "A"
+  },
+  {
+    "id": 3,
+    "text": "If MONKEY is written as NPLAFZ, how is TIGER written?",
+    "options": ["UJHFS", "VKIHT", "WJHLU", "XIKMV"],
+    "correct": "A"
+  },
+  {
+    "id": 4,
+    "text": "If 4567 is coded as 5678, and 2345 is coded as 3456, how is 6789 coded?",
+    "options": ["7890", "5678", "8901", "9012"],
+    "correct": "A"
+  },
+  {
+    "id": 5,
+    "text": "In a code, 'RIVER' is written as '18-9-22-5-18'. How is 'WIND' written?",
+    "options": ["23-9-14-4", "24-10-15-5", "22-8-13-3", "25-11-16-6"],
+    "correct": "A"
+  },
+  {
+    "id": 6,
+    "text": "BGLQ : FJTX :: DHOS : ?",
+    "options": ["IKPW", "JLRX", "KMSY", "LNTA"],
+    "correct": "A"
+  },
+  {
+    "id": 7,
+    "text": "What is the next term in the series: 7, 20, 44, 80, 128, ?",
+    "options": ["188", "200", "176", "212"],
+    "correct": "A"
+  },
+  {
+    "id": 8,
+    "text": "Find the missing term in the series: D, J, I, ?, I, I",
+    "options": ["I", "J", "K", "L"],
+    "correct": "A"
+  },
+  {
+    "id": 9,
+    "text": "What is the next number in the series: 4, 16, 128, 2048, ?",
+    "options": ["65536", "32768", "131072", "262144"],
+    "correct": "A"
+  },
+  {
+    "id": 10,
+    "text": "If today is Monday, what day will it be after 100 days?",
+    "options": ["Wednesday", "Thursday", "Friday", "Saturday"],
+    "correct": "A"
+  },
+  {
+    "id": 11,
+    "text": "Pointing to a girl, a man said, 'Her mother is the wife of my father’s only son.' How is the girl related to the man?",
+    "options": ["Sister", "Daughter", "Wife", "Mother"],
+    "correct": "B"
+  },
+  {
+    "id": 12,
+    "text": "A is the father of B, C is the mother of D, and D is the sister of B. How is C related to A?",
+    "options": ["Sister", "Wife", "Daughter", "Mother"],
+    "correct": "B"
+  },
+  {
+    "id": 13,
+    "text": "P is the brother of Q, R is the father of S, and S is the daughter of Q. How is R related to P?",
+    "options": ["Brother", "Father", "Husband", "Son"],
+    "correct": "C"
+  },
+  {
+    "id": 14,
+    "text": "A man walks 10 km south, turns left and walks 8 km, then turns right and walks 6 km, and finally turns right and walks 8 km. How far is he from the starting point?",
+    "options": ["16 km", "14 km", "12 km", "10 km"],
+    "correct": "A"
+  },
+  {
+    "id": 15,
+    "text": "A person facing north turns 135° anticlockwise, then 180° clockwise, and finally 45° anticlockwise. Which direction is he facing now?",
+    "options": ["North-West", "South-West", "North-East", "South-East"],
+    "correct": "A"
+  },
+  {
+    "id": 16,
+    "text": "All roses are flowers. Some flowers are red. Which conclusion follows?",
+    "options": ["Only I", "Only II", "Both I and II", "Neither I nor II"],
+    "correct": "D"
+  },
+  {
+    "id": 17,
+    "text": "If all cats are mammals and some mammals are black, which statement is definitely true?",
+    "options": ["Some cats are black", "All cats are black", "Some mammals are cats", "No cats are black"],
+    "correct": "C"
+  },
+  {
+    "id": 18,
+    "text": "Statement: If it’s raining, the match is canceled. It is not raining. Conclusion: The match is not canceled.",
+    "options": ["True", "False", "Cannot be determined", "Invalid statement"],
+    "correct": "C"
+  },
+  {
+    "id": 19,
+    "text": "How many rectangles are there in a 3x4 grid?",
+    "options": ["18", "24", "30", "36"],
+    "correct": "B"
+  },
+  {
+    "id": 20,
+    "text": "If + means ÷, × means -, - means +, and ÷ means ×, what is 24 + 4 × 3 - 5 ÷ 2?",
+    "options": ["8", "10", "12", "14"],
+    "correct": "A"
+  },
+  {
+    "id": 21,
+    "text": "What is the water image of the word 'RACE'?",
+    "options": ["ECAR", "RACE", "ACRE", "CARE"],
+    "correct": "A"
+  },
+  {
+    "id": 22,
+    "text": "If * means ×, # means +, @ means -, and $ means ÷, what is 20 * 3 @ 12 # 8 $ 4?",
+    "options": ["17", "15", "19", "21"],
+    "correct": "A"
+  },
+  {
+    "id": 23,
+    "text": "In a class, 35 students like physics, 30 like chemistry, and 20 like both. How many students like at least one subject?",
+    "options": ["45", "50", "55", "60"],
+    "correct": "A"
+  },
+  {
+    "id": 24,
+    "text": "In a group of 80 people, 50 like coffee, 40 like tea, and 25 like neither. How many like both coffee and tea?",
+    "options": ["15", "20", "25", "30"],
+    "correct": "A"
+  },
+  {
+    "id": 25,
+    "text": "Find the odd one out: 8, 27, 64, 125, 216, 343, 512.",
+    "options": ["8", "27", "64", "125"],
+    "correct": "D"
+  },
+  {
+    "id": 26,
+    "text": "Which word does not belong? Apple, Banana, Carrot, Orange.",
+    "options": ["Apple", "Banana", "Carrot", "Orange"],
+    "correct": "C"
+  },
+  {
+    "id": 27,
+    "text": "A clock shows 3:00. What will be the angle between the hour and minute hands after 20 minutes?",
+    "options": ["90°", "100°", "110°", "120°"],
+    "correct": "C"
+  },
+  {
+    "id": 28,
+    "text": "Three boxes are labeled 'Gold,' 'Silver,' and 'Bronze.' All labels are incorrect. If you pick one coin from the 'Silver' box and it’s gold, what’s in the 'Gold' box?",
+    "options": ["Silver", "Gold", "Bronze", "Cannot be determined"],
+    "correct": "A"
+  },
+  {
+    "id": 29,
+    "text": "Seven people A, B, C, D, E, F, G are sitting in a circle facing the center. A is to the immediate right of B. C is not next to D. E is second to the left of F. G is not at the end. Who is second to the right of C?",
+    "options": ["A", "B", "E", "F"],
+    "correct": "A"
+  },
+  {
+    "id": 30,
+    "text": "In a group of 5 students, A is taller than B but shorter than C. D is taller than E but shorter than B. Who is the second tallest?",
+    "options": ["A", "B", "C", "D"],
+    "correct": "A"
+  },
+
+  {
+    "id": 1,
+    "text": "A body of mass 4 kg is accelerated from rest to 10 m/s in 5 seconds. What is the average force applied?",
+    "options": ["8 N", "6 N", "10 N", "12 N"],
+    "correct": "A"
+  },
+  {
+    "id": 2,
+    "text": "A convex lens forms a real image at 30 cm when an object is placed 20 cm from it. What is the magnification of the image?",
+    "options": ["-1.5", "-2.0", "-1.0", "-2.5"],
+    "correct": "A"
+  },
+  {
+    "id": 3,
+    "text": "A sound wave travels at 350 m/s with a frequency of 700 Hz. What is the wavelength?",
+    "options": ["0.5 m", "0.4 m", "0.6 m", "0.7 m"],
+    "correct": "A"
+  },
+  {
+    "id": 4,
+    "text": "Four resistors of 8 Ω each are connected in parallel. What is the equivalent resistance?",
+    "options": ["2 Ω", "4 Ω", "8 Ω", "16 Ω"],
+    "correct": "A"
+  },
+  {
+    "id": 5,
+    "text": "A ball is thrown vertically upwards with a velocity of 15 m/s. What is the maximum height reached? (g = 10 m/s²)",
+    "options": ["11.25 m", "7.5 m", "15 m", "22.5 m"],
+    "correct": "A"
+  },
+  {
+    "id": 6,
+    "text": "What is the pressure exerted by a 50 kg mass on an area of 0.25 m²? (g = 10 m/s²)",
+    "options": ["2000 Pa", "1500 Pa", "2500 Pa", "1000 Pa"],
+    "correct": "A"
+  },
+  {
+    "id": 7,
+    "text": "A 400 W appliance runs for 3 hours daily. How many units of electricity are consumed in 20 days? (1 unit = 1 kWh)",
+    "options": ["24 units", "18 units", "30 units", "12 units"],
+    "correct": "A"
+  },
+  {
+    "id": 8,
+    "text": "The refractive index of glass is 1.5. If light travels at 3 × 10⁸ m/s in vacuum, what is its speed in glass?",
+    "options": ["2 × 10⁸ m/s", "1.5 × 10⁸ m/s", "2.5 × 10⁸ m/s", "1 × 10⁸ m/s"],
+    "correct": "A"
+  },
+  {
+    "id": 9,
+    "text": "What is the molar mass of CaCl₂? (Ca = 40, Cl = 35.5)",
+    "options": ["111 g/mol", "75.5 g/mol", "95 g/mol", "147 g/mol"],
+    "correct": "A"
+  },
+  {
+    "id": 10,
+    "text": "What is the oxidation number of phosphorus in PO₄³⁻?",
+    "options": ["+5", "+3", "-3", "-5"],
+    "correct": "A"
+  },
+  {
+    "id": 11,
+    "text": "Which element has the electron configuration 1s² 2s² 2p⁶ 3s² 3p²?",
+    "options": ["Silicon", "Aluminum", "Phosphorus", "Magnesium"],
+    "correct": "A"
+  },
+  {
+    "id": 12,
+    "text": "In the reaction 2Na + Cl₂ → 2NaCl, how many grams of NaCl are produced from 23 g of Na? (Na = 23, Cl = 35.5)",
+    "options": ["58.5 g", "29.25 g", "117 g", "71 g"],
+    "correct": "A"
+  },
+  {
+    "id": 13,
+    "text": "What is the pH of a 0.001 M HCl solution?",
+    "options": ["3", "2", "4", "1"],
+    "correct": "A"
+  },
+  {
+    "id": 14,
+    "text": "Which metal is extracted from the ore hematite?",
+    "options": ["Iron", "Aluminum", "Copper", "Zinc"],
+    "correct": "A"
+  },
+  {
+    "id": 15,
+    "text": "Which part of the human circulatory system carries deoxygenated blood to the lungs?",
+    "options": ["Pulmonary artery", "Pulmonary vein", "Aorta", "Vena cava"],
+    "correct": "A"
+  },
+  {
+    "id": 16,
+    "text": "Which plant hormone inhibits growth and promotes seed dormancy?",
+    "options": ["Abscisic acid", "Ethylene", "Gibberellin", "Auxin"],
+    "correct": "A"
+  },
+  {
+    "id": 17,
+    "text": "Which disease is caused by the deficiency of Vitamin B1?",
+    "options": ["Beriberi", "Scurvy", "Rickets", "Pellagra"],
+    "correct": "A"
+  },
+  {
+    "id": 18,
+    "text": "Which organelle is responsible for ATP production in a cell?",
+    "options": ["Mitochondria", "Ribosome", "Lysosome", "Golgi apparatus"],
+    "correct": "A"
+  },
+  {
+    "id": 19,
+    "text": "Which gas is primarily responsible for the greenhouse effect?",
+    "options": ["Carbon dioxide", "Methane", "Nitrous oxide", "Ozone"],
+    "correct": "A"
+  },
+  {
+    "id": 20,
+    "text": "Which part of the human brain regulates heartbeat and breathing?",
+    "options": ["Medulla oblongata", "Cerebellum", "Cerebrum", "Hypothalamus"],
+    "correct": "A"
+  },
+  {
+    "id": 21,
+    "text": "Which vitamin helps in the clotting of blood?",
+    "options": ["Vitamin K", "Vitamin A", "Vitamin B", "Vitamin C"],
+    "correct": "A"
+  },
+  {
+    "id": 22,
+    "text": "What is the primary function of white blood cells?",
+    "options": ["Fight infection", "Carry oxygen", "Clot blood", "Store energy"],
+    "correct": "A"
+  },
+  {
+    "id": 23,
+    "text": "Which of the following is NOT a greenhouse gas?",
+    "options": ["Oxygen", "Methane", "Carbon dioxide", "Nitrous oxide"],
+    "correct": "A"
+  },
+  {
+    "id": 24,
+    "text": "Which instrument is used to measure atmospheric pressure?",
+    "options": ["Barometer", "Thermometer", "Hygrometer", "Anemometer"],
+    "correct": "A"
+  },
+  {
+    "id": 25,
+    "text": "Which organ is responsible for filtering blood in the human body?",
+    "options": ["Kidney", "Heart", "Liver", "Lungs"],
+    "correct": "A"
+  },
+  {
+    "id": 1,
+    "text": "Who was the first Indian to win an individual Olympic gold medal?",
+    "options": ["Abhinav Bindra", "Neeraj Chopra", "PV Sindhu", "Sushil Kumar"],
+    "correct": "A"
+  },
+  {
+    "id": 2,
+    "text": "Which Indian river is known as the \"Lifeline of Madhya Pradesh\"?",
+    "options": ["Narmada", "Tapti", "Chambal", "Betwa"],
+    "correct": "A"
+  },
+  {
+    "id": 3,
+    "text": "Which article of the Indian Constitution provides for the formation of new states?",
+    "options": ["Article 3", "Article 4", "Article 5", "Article 6"],
+    "correct": "A"
+  },
+  {
+    "id": 4,
+    "text": "Which Indian city is known as the \"Silicon Valley of India\"?",
+    "options": ["Hyderabad", "Bengaluru", "Pune", "Chennai"],
+    "correct": "B"
+  },
+  {
+    "id": 5,
+    "text": "Who authored the book \"An Era of Darkness: The British Empire in India\"?",
+    "options": ["Shashi Tharoor", "Amartya Sen", "Ramachandra Guha", "Vikram Seth"],
+    "correct": "A"
+  },
+  {
+    "id": 6,
+    "text": "Which Indian classical dance form is known for its narrative storytelling through hand gestures?",
+    "options": ["Kathak", "Kathakali", "Bharatanatyam", "Manipuri"],
+    "correct": "B"
+  },
+  {
+    "id": 7,
+    "text": "What is the currency of Russia?",
+    "options": ["Ruble", "Euro", "Dollar", "Yen"],
+    "correct": "A"
+  },
+  {
+    "id": 8,
+    "text": "Which Indian freedom fighter was known as the \"Punjab Kesari\"?",
+    "options": ["Lala Lajpat Rai", "Bhagat Singh", "Chandrashekhar Azad", "Bipin Chandra Pal"],
+    "correct": "A"
+  },
+  {
+    "id": 9,
+    "text": "Which schedule of the Indian Constitution deals with anti-defection law?",
+    "options": ["Tenth Schedule", "Ninth Schedule", "Eighth Schedule", "Seventh Schedule"],
+    "correct": "A"
+  },
+  {
+    "id": 10,
+    "text": "Which Indian scientist is known as the \"Missile Man of India\"?",
+    "options": ["A.P.J. Abdul Kalam", "Vikram Sarabhai", "Homi J. Bhabha", "Satish Dhawan"],
+    "correct": "A"
+  },
+  {
+    "id": 11,
+    "text": "Which Indian biosphere reserve is known for its lion-tailed macaques?",
+    "options": ["Nilgiri Biosphere Reserve", "Sundarbans Biosphere Reserve", "Nanda Devi Biosphere Reserve", "Manas Biosphere Reserve"],
+    "correct": "A"
+  },
+  {
+    "id": 12,
+    "text": "In which year was the Non-Cooperation Movement launched by Mahatma Gandhi?",
+    "options": ["1920", "1918", "1922", "1916"],
+    "correct": "A"
+  },
+  {
+    "id": 13,
+    "text": "Which Indian state launched the \"Ladli Behna Yojana\" in 2023 to provide financial assistance to women?",
+    "options": ["Madhya Pradesh", "Rajasthan", "Uttar Pradesh", "Gujarat"],
+    "correct": "A"
+  },
+  {
+    "id": 14,
+    "text": "Which Indian athlete won two medals in shooting at the 2024 Paris Olympics?",
+    "options": ["Manu Bhaker", "Saurabh Chaudhary", "Abhishek Verma", "Anish Bhanwala"],
+    "correct": "A"
+  },
+  {
+    "id": 15,
+    "text": "Which Indian mission, launched in 2024, aimed to study solar flares and coronal mass ejections?",
+    "options": ["Aditya-L1", "Chandrayaan-3", "Gaganyaan", "Mangalyaan-2"],
+    "correct": "A"
+  },
+  {
+    "id": 16,
+    "text": "Which country hosted the ASEAN Summit in 2024?",
+    "options": ["Indonesia", "Thailand", "Vietnam", "Malaysia"],
+    "correct": "A"
+  },
+  {
+    "id": 17,
+    "text": "Which Indian cricketer became the fastest to score 10000 runs in T20 cricket in 2024?",
+    "options": ["Virat Kohli", "Rohit Sharma", "KL Rahul", "Suryakumar Yadav"],
+    "correct": "A"
+  },
+  {
+    "id": 18,
+    "text": "What was the name of the Indian government scheme launched in 2025 to promote women’s entrepreneurship?",
+    "options": ["Nari Shakti Yojana", "Mahila Udyam Scheme", "Stree Saksham Yojana", "Ujjwala 2.0"],
+    "correct": "A"
+  },
+  {
+    "id": 20,
+    "text": "Who was awarded the Dadasaheb Phalke Award in 2025 for contributions to Indian cinema?",
+    "options": ["Amitabh Bachchan", "Shah Rukh Khan", "Rajinikanth", "Aamir Khan"],
+    "correct": "A"
+  },
+  {
+    "id": 21,
+    "text": "Which Indian city was selected as a UNESCO Creative City for Literature in 2024?",
+    "options": ["Kozhikode", "Varanasi", "Jaipur", "Kolkata"],
+    "correct": "A"
+  }
+
+
+
+  ];
+
+  
+  const renderQuestions = () => {
+      const container = document.getElementById('questions');
+      QUESTIONS.forEach((q, index) => {
+        const div = document.createElement('div');
+        div.className = 'mb-4';
+        div.innerHTML = `<p class="font-semibold mb-1">${index + 1}. ${q.text}</p>` +
+          q.options.map((opt, i) => {
+            const optVal = String.fromCharCode(65 + i);
+            return `<label class="block ml-4 my-1">
+              <input type="radio" name="${q.id}" value="${optVal}" class="mr-2"> (${optVal}) ${opt}
+            </label>`;
+          }).join('');
+        container.appendChild(div);
+      });
+    };
+
+    let timeLeft = 5400; // 90 mins
+    const timerEl = document.getElementById('timer');
+    const timerId = setInterval(() => {
+      const min = Math.floor(timeLeft / 60);
+      const sec = timeLeft % 60;
+      timerEl.textContent = `Time Left: ${min}:${sec < 10 ? '0' : ''}${sec}`;
+      timeLeft--;
+      if (timeLeft < 0) {
+        clearInterval(timerId);
+        timerEl.textContent = 'Time’s Up!';
+        document.getElementById('mockTest').dispatchEvent(new Event('submit'));
+      }
+    }, 1000);
+
+    document.getElementById('mockTest').addEventListener('submit', function (e) {
+      e.preventDefault();
+      clearInterval(timerId);
+      timerEl.textContent = 'Test Submitted!';
+
+      let score = 0, correct = 0, wrong = 0, attempted = 0;
+
+      QUESTIONS.forEach((q) => {
+        const sel = document.querySelector(`input[name="${q.id}"]:checked`);
+        if (sel) {
+          attempted++;
+          if (sel.value === q.correct) {
+            score += 1;
+            correct++;
+            sel.parentElement.classList.add('correct');
+          } else {
+            score -= 0.33;
+            wrong++;
+            sel.parentElement.classList.add('incorrect');
+          }
+        }
+        const correctEl = document.querySelector(`input[name="${q.id}"][value="${q.correct}"]`);
+        if (correctEl) correctEl.parentElement.classList.add('correct');
+      });
+
+      document.getElementById('score').textContent = score.toFixed(2);
+
+      const msg = document.getElementById('scoreMessage');
+      if (score >= 80) msg.textContent = 'Outstanding! 🌟';
+      else if (score >= 60) msg.textContent = 'Great Job! 🚀';
+      else if (score >= 40) msg.textContent = 'Good Effort! 💪';
+      else msg.textContent = 'Don’t Give Up! 😊';
+
+      document.getElementById('result').classList.remove('hidden');
+      document.getElementById('result').scrollIntoView({ behavior: 'smooth' });
+    });
+
+    renderQuestions();
+  </script>
+</body>
+</html>

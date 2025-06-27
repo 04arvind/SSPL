@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RRB Group-D Mock Test 3</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .correct {
+      background-color: #d4edda;
+      color: #155724;
+      padding: 4px;
+      border-radius: 4px;
+    }
+    .incorrect {
+      background-color: #f8d7da;
+      color: #721c24;
+      padding: 4px;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body class="bg-gray-100 text-gray-900">
+  <div class="max-w-4xl mx-auto p-6">
+    <h1 class="text-3xl font-bold text-center mb-4 text-blue-600 animate-pulse">RRB Group-D Mock Test</h1>
+     <!-- Instructions Section -->
+    <div class="mb-4 p-4 bg-yellow-100 border border-yellow-300 rounded">
+      <h2 class="text-xl font-semibold mb-2">Instructions</h2>
+      <ul class="list-disc list-inside text-sm space-y-1">
+        <li>Total Questions: <strong>100</strong></li>
+        <li>Total Time: <strong>90 minutes</strong></li>
+        <li>Each correct answer awards <strong>+1 mark</strong></li>
+        <li>Each wrong answer incurs <strong>1/3 mark</strong></li>
+        <li>Unattempted questions carry <strong>no penalty</strong></li>
+        <li>Click "Submit" when finished or wait for time to run out for auto-submit</li>
+      </ul>
+    </div>
+    <div id="timer" class="text-xl font-semibold text-red-600 text-center mb-4">Time Left: 90:00</div>
+    <form id="mockTest" class="bg-white p-6 rounded-lg shadow-lg">
+      <div id="questions"></div>
+      <button type="submit" class="mt-4 bg-blue-500 text-white px-6 py-2 rounded hover:bg-blue-600">Submit</button>
+    </form>
+    <div id="result" class="hidden mt-6 bg-white p-6 rounded-lg shadow">
+      <h2 class="text-2xl font-bold text-center mb-2">Your Score: <span id="score"></span>/100</h2>
+      <p class="text-center text-lg" id="scoreMessage"></p>
+    </div>
+  </div>
+
+  <script>
+    const QUESTIONS = [
+  { id: 'm1', text: 'The difference between compound interest and simple interest on ₹15,000 for 2 years at 8% per annum is:', options: ['₹18', '₹24', '₹30', '₹36'], correct: 'A' },
+  { id: 'm2', text: 'If a number x is increased by 20% and then decreased by 20%, the final is:', options: ['Same as x', '4% less than x', '2.4% less than x', '8% less than x'], correct: 'C' },
+  { id: 'm3', text: 'A boat goes upstream at 12 km/h and downstream at 18 km/h. What is the speed of the current?', options: ['3 km/h', '5 km/h', '4 km/h', '6 km/h'], correct: 'C' },
+  { id: 'm4', text: 'A man covers 120 km in 2 hours. How long will he take to cover 90 km at the same speed?', options: ['1 h', '1.5 h', '2 h', '1 h 30 m'], correct: 'B' },
+  { id: 'm5', text: 'The perimeter of an equilateral triangle is 36 cm. The area is:', options: ['36√3 cm²', '54√3 cm²', '64√3 cm²', '48√3 cm²'], correct: 'A' },
+  { id: 'm6', text: 'If x:y = 5:7 and x+y = 96, find x and y.', options: ['40,56', '44,52', '45,51', '50,46'], correct: 'A' },
+  { id: 'm7', text: 'The compound interest on ₹8000 at 5% per annum for 3 years (annual compounding) is approximately:', options: ['₹1260', '₹1200', '₹1150', '₹1250'], correct: 'A' },
+  { id: 'm8', text: 'In triangle ABC, angle A = 90°, AB = 6, AC = 8. BC is:', options: ['10', '14', '12', '9'], correct: 'A' },
+  { id: 'm9', text: 'How many liters of water must be added to 10 L acid solution to reduce its concentration from 20% to 10%?', options: ['10 L', '15 L', '5 L', '20 L'], correct: 'A' },
+  { id: 'm10', text: 'If (x – 2)(x + 3) = 0, then x is:', options: ['2 or –3', '3 or –2', '2 or 3', '–2 or –3'], correct: 'A' },
+  { id: 'm11', text: 'What is the median of: 12, 14, 17, 19, 21?', options: ['17', '16', '19', '18'], correct: 'A' },
+  { id: 'm12', text: 'The area of a sector of angle 120° in a circle of radius 7 cm is:', options: ['28π cm²', '49π/3 cm²', '49π/2 cm²', '14π cm²'], correct: 'B' },
+  { id: 'm13', text: 'If 3/x = 4/6 = x/12, then x equals:', options: ['3', '4', '6', '2'], correct: 'D' },
+  { id: 'm14', text: 'A cistern can be filled by one pipe in 6 hours and emptied by another in 9 hours. Net time to fill it?', options: ['18 h', '15 h', '27 h', '54 h'], correct: 'B' },
+  { id: 'm15', text: 'If angles of a quadrilateral are in ratio 2:3:4:6, find the largest angle.', options: ['72°', '108°', '120°', '144°'], correct: 'D' },
+  { id: 'm16', text: 'Find x if 5^x = 125.', options: ['2', '3', '4', '5'], correct: 'B' },
+  { id: 'm17', text: 'The average of five consecutive odd numbers is 37. The smallest is:', options: ['31', '33', '35', '39'], correct: 'A' },
+  { id: 'm18', text: 'What is the LCM of 14, 18, and 21?', options: ['126', '252', '378', '504'], correct: 'A' },
+  { id: 'm19', text: 'A retailer marks his goods 25% above cost and offers 12.5% discount. His profit percent is:', options: ['10.9375%', '12.5%', '11.25%', '9.38%'], correct: 'A' },
+  { id: 'm20', text: 'If log₁₀ x = 2, x equals:', options: ['20', '100', '10', '1'], correct: 'B' },
+  { id: 'm21', text: 'Area of a rhombus whose diagonals are 10 cm and 24 cm is:', options: ['120 cm²', '240 cm²', '180 cm²', '144 cm²'], correct: 'A' },
+  { id: 'm22', text: 'If a number is divisible by 9 and 11, it is also divisible by:', options: ['99', '19', '101', '999'], correct: 'A' },
+  { id: 'm23', text: 'The marked price is ₹1200, discount is 15%. Selling price becomes:', options: ['₹1020', '₹1030', '₹1040', '₹1080'], correct: 'A' },
+  { id: 'm24', text: 'In how many ways can the letters of the word “RAIL” be arranged?', options: ['24', '12', '6', '48'], correct: 'A' },
+  { id: 'm25', text: 'Value of tan 60° + cot 30° is:', options: ['2√3', '√3', '3', '4'], correct: 'A' },
+  {
+    id: 'gr1',
+    text: 'Knife : Cut :: Pen : ?',
+    options: ['Write', 'Ink', 'Sharp', 'Book'],
+    correct: 'A'
+  },
+  {
+    id: 'gr2',
+    text: 'Clock : Time :: Thermometer : ?',
+    options: ['Mercury', 'Temperature', 'Weather', 'Glass'],
+    correct: 'B'
+  },
+  {
+    id: 'gr3',
+    text: 'Which is the odd one out: Car, Bus, Train, Aeroplane?',
+    options: ['Car', 'Bus', 'Train', 'Aeroplane'],
+    correct: 'C'
+  },
+  {
+    id: 'gr4',
+    text: 'Which is the odd one out: 121, 144, 169, 190?',
+    options: ['121', '144', '169', '190'],
+    correct: 'D'
+  },
+  {
+    id: 'gr5',
+    text: 'Find the next number: 3, 6, 11, 18, 27, ?',
+    options: ['36', '38', '40', '37'],
+    correct: 'B'
+  },
+  {
+    id: 'gr6',
+    text: 'Find the next letter: D, E, G, J, N, ?',
+    options: ['T', 'U', 'S', 'V'],
+    correct: 'C'
+  },
+  {
+    id: 'gr7',
+    text: 'If TREE = USFF, then WOOD = ?',
+    options: ['XPPE', 'XQQE', 'XPOE', 'XOOE'],
+    correct: 'A'
+  },
+  {
+    id: 'gr8',
+    text: 'If in a code, CLOUD is written as BNTMC, how is STORM written?',
+    options: ['RSPQL', 'RSQLL', 'RSQNL', 'TRQNL'],
+    correct: 'B'
+  },
+  {
+    id: 'gr9',
+    text: 'A is the brother of B. B is the sister of C. C is the daughter of D. How is A related to D?',
+    options: ['Son', 'Daughter', 'Father', 'Cannot be determined'],
+    correct: 'A'
+  },
+  {
+    id: 'gr10',
+    text: 'Pointing to a man, a woman said, "His mother is the only daughter of my mother-in-law." How is the woman related to the man?',
+    options: ['Mother', 'Aunt', 'Sister', 'Grandmother'],
+    correct: 'A'
+  },
+  {
+    id: 'gr11',
+    text: 'Ravi walks 20 meters north, turns right and walks 30 meters, turns right again and walks 20 meters. How far is he from the starting point?',
+    options: ['20 m', '30 m', '40 m', '50 m'],
+    correct: 'B'
+  },
+  {
+    id: 'gr12',
+    text: 'You are facing East. Turn 270° clockwise. Which direction are you facing now?',
+    options: ['South', 'North', 'West', 'East'],
+    correct: 'B'
+  },
+  {
+    id: 'gr13',
+    text: 'Statements: All dogs are animals. Some animals are cats. Conclusion: I. Some dogs are cats. II. Some animals are dogs.',
+    options: ['Only I', 'Only II', 'Both', 'Neither'],
+    correct: 'B'
+  },
+  {
+    id: 'gr14',
+    text: 'Statements: All students are boys. No boy is dull. Conclusion: I. No student is dull. II. Some students are dull.',
+    options: ['Only I', 'Only II', 'Both', 'Neither'],
+    correct: 'A'
+  },
+  {
+    id: 'gr15',
+    text: 'Five friends are standing in a line. A is to the left of B but to the right of E. C is to the right of B and D is between B and C. Who is standing in the middle?',
+    options: ['B', 'D', 'A', 'C'],
+    correct: 'A'
+  },
+  {
+    id: 'gr16',
+    text: 'In a row of 15 students, John is 6th from the left end. What is his position from the right?',
+    options: ['9th', '10th', '8th', '11th'],
+    correct: 'B'
+  },
+  {
+    id: 'gr17',
+    text: 'Statement: Most children like chocolates. Conclusion: 1) All children like chocolates. 2) Some children like chocolates.',
+    options: ['Only 1', 'Only 2', 'Both', 'Neither'],
+    correct: 'B'
+  },
+  {
+    id: 'gr18',
+    text: 'Statement: Roads are wet. Conclusion: 1) It has rained. 2) Water is spilled on the road.',
+    options: ['Only 1', 'Only 2', 'Either 1 or 2', 'Both'],
+    correct: 'C'
+  },
+  {
+    id: 'gr19',
+    text: 'If 6 + 3 = 27, 8 + 2 = 40, then 7 + 4 = ?',
+    options: ['44', '48', '42', '39'],
+    correct: 'B'
+  },
+  {
+    id: 'gr20',
+    text: 'If * means ÷, + means ×, - means +, and ÷ means -, then what is 6 + 3 * 2 ÷ 1 - 5?',
+    options: ['5', '9', '7', '6'],
+    correct: 'C'
+  },
+  {
+    id: 'gr21',
+    text: 'At what time between 2 and 3 o’clock will the hands of a clock be together?',
+    options: ['2:32', '2:26', '2:20', '2:17'],
+    correct: 'D'
+  },
+  {
+    id: 'gr22',
+    text: 'If 15th August, 1947 was a Friday, what day was 26th January, 1950?',
+    options: ['Wednesday', 'Thursday', 'Friday', 'Saturday'],
+    correct: 'B'
+  },
+  {
+    id: 'gr23',
+    text: 'Identify the best group that relates: "Car", "Bus", "Vehicle"',
+    options: ['All intersecting', 'Car and Bus inside Vehicle', 'Bus inside Car', 'Disjoint'],
+    correct: 'B'
+  },
+  {
+    id: 'gr24',
+    text: 'If a clock shows 3:15, what will be its mirror image?',
+    options: ['8:45', '9:45', '8:30', '9:15'],
+    correct: 'A'
+  },
+  {
+    id: 'gr25',
+    text: 'In a class of 40 students, Rahul ranks 10th from top. What is his rank from the bottom?',
+    options: ['30', '31', '29', '32'],
+    correct: 'B'
+  },
+  {
+    id: 'gr26',
+    text: 'Find the missing letter: AZ, BY, CX, ?, EV',
+    options: ['DW', 'DU', 'DV', 'DX'],
+    correct: 'A'
+  },
+  {
+    id: 'gr27',
+    text: 'Which shape comes next: Square, Triangle, Circle, Square, Triangle, ?',
+    options: ['Square', 'Circle', 'Triangle', 'Rectangle'],
+    correct: 'B'
+  },
+  {
+    id: 'gr28',
+    text: 'All men are mortal. Socrates is a man. Therefore —',
+    options: ['Socrates is immortal', 'Socrates is mortal', 'Men are Socrates', 'None'],
+    correct: 'B'
+  },
+  {
+    id: 'gr29',
+    text: 'A train running at 60 km/h takes 1 minute to pass a lamp post. What is the length of the train?',
+    options: ['1000 m', '500 m', '600 m', '800 m'],
+    correct: 'A'
+  },
+  {
+    id: 'gr30',
+    text: 'A is older than B, B is older than C, but younger than D. Who is the oldest?',
+    options: ['A', 'B', 'C', 'D'],
+    correct: 'D'
+  },
+
+  {
+    id: 'gsu1',
+    text: 'A ball is thrown vertically upward with a velocity of 20 m/s. What is the time taken to reach the highest point? (g = 10 m/s²)',
+    options: ['2 s', '1 s', '3 s', '4 s'],
+    correct: 'A'
+  },
+  {
+    id: 'gsu2',
+    text: 'Which physical quantity is measured in Weber?',
+    options: ['Electric field', 'Magnetic flux', 'Capacitance', 'Inductance'],
+    correct: 'B'
+  },
+  {
+    id: 'gsu3',
+    text: 'Which law explains why passengers fall forward when a bus suddenly stops?',
+    options: ['Newton’s First Law', 'Newton’s Second Law', 'Newton’s Third Law', 'Law of Gravitation'],
+    correct: 'A'
+  },
+  {
+    id: 'gsu4',
+    text: 'Which of the following has the highest refractive index?',
+    options: ['Glass', 'Water', 'Diamond', 'Air'],
+    correct: 'C'
+  },
+  {
+    id: 'gsu5',
+    text: 'A wire of resistance 10 Ω is bent in the form of a circle. What is the resistance across any two diametrically opposite points?',
+    options: ['10 Ω', '20 Ω', '5 Ω', '2.5 Ω'],
+    correct: 'D'
+  },
+  {
+    id: 'gsu6',
+    text: 'What color of light has the shortest wavelength?',
+    options: ['Red', 'Green', 'Violet', 'Blue'],
+    correct: 'C'
+  },
+
+  // Chemistry
+  {
+    id: 'gsu7',
+    text: 'Which compound is commonly used as a preservative in pickles?',
+    options: ['Sodium chloride', 'Sodium benzoate', 'Calcium carbonate', 'Potassium nitrate'],
+    correct: 'B'
+  },
+  {
+    id: 'gsu8',
+    text: 'What is formed when an acid reacts with a base?',
+    options: ['Salt and water', 'Salt and acid', 'Salt only', 'Acid only'],
+    correct: 'A'
+  },
+  {
+    id: 'gsu9',
+    text: 'Which of the following is not a greenhouse gas?',
+    options: ['Carbon dioxide', 'Methane', 'Nitrogen', 'Ozone'],
+    correct: 'C'
+  },
+  {
+    id: 'gsu10',
+    text: 'Which metal is used in the galvanization of iron?',
+    options: ['Aluminium', 'Zinc', 'Copper', 'Lead'],
+    correct: 'B'
+  },
+  {
+    id: 'gsu11',
+    text: 'Which acid is present in vinegar?',
+    options: ['Citric acid', 'Acetic acid', 'Lactic acid', 'Oxalic acid'],
+    correct: 'B'
+  },
+  {
+    id: 'gsu12',
+    text: 'What is the pH value of pure water at 25°C?',
+    options: ['7', '0', '14', '5'],
+    correct: 'A'
+  },
+  {
+    id: 'gsu13',
+    text: 'What is the chemical formula of rust?',
+    options: ['FeO', 'Fe₂O₃·xH₂O', 'Fe₃O₄', 'Fe(OH)₂'],
+    correct: 'B'
+  },
+
+  // Biology
+  {
+    id: 'gsu14',
+    text: 'Which plant tissue is responsible for transport of water?',
+    options: ['Phloem', 'Xylem', 'Parenchyma', 'Collenchyma'],
+    correct: 'B'
+  },
+  {
+    id: 'gsu15',
+    text: 'Which vitamin helps in blood clotting?',
+    options: ['Vitamin A', 'Vitamin D', 'Vitamin K', 'Vitamin C'],
+    correct: 'C'
+  },
+  {
+    id: 'gsu16',
+    text: 'Which disease is caused by the Plasmodium parasite?',
+    options: ['Dengue', 'Malaria', 'Cholera', 'Typhoid'],
+    correct: 'B'
+  },
+  {
+    id: 'gsu17',
+    text: 'What type of joint is found in the shoulder?',
+    options: ['Hinge joint', 'Ball and socket joint', 'Pivot joint', 'Gliding joint'],
+    correct: 'B'
+  },
+  {
+    id: 'gsu18',
+    text: 'What is the function of ribosomes in a cell?',
+    options: ['Energy production', 'Protein synthesis', 'Transport', 'Digestion'],
+    correct: 'B'
+  },
+  {
+    id: 'gsu19',
+    text: 'Which hormone regulates blood sugar level?',
+    options: ['Insulin', 'Adrenaline', 'Thyroxine', 'Glucagon'],
+    correct: 'A'
+  },
+  {
+    id: 'gsu20',
+    text: 'Which part of the digestive system absorbs water?',
+    options: ['Small intestine', 'Stomach', 'Large intestine', 'Pancreas'],
+    correct: 'C'
+  },
+  {
+    id: 'gsu21',
+    text: 'Which part of the plant is responsible for transpiration?',
+    options: ['Root', 'Stem', 'Stomata', 'Flower'],
+    correct: 'C'
+  },
+  {
+    id: 'gsu22',
+    text: 'Which organelle is called the "powerhouse of the cell"?',
+    options: ['Mitochondria', 'Nucleus', 'Chloroplast', 'Golgi body'],
+    correct: 'A'
+  },
+  {
+    id: 'gsu23',
+    text: 'Which structure in human lungs increases surface area for gas exchange?',
+    options: ['Bronchi', 'Trachea', 'Alveoli', 'Diaphragm'],
+    correct: 'C'
+  },
+  {
+    id: 'gsu24',
+    text: 'Which component of blood helps in clotting?',
+    options: ['Red blood cells', 'White blood cells', 'Platelets', 'Plasma'],
+    correct: 'C'
+  },
+  {
+    id: 'gsu25',
+    text: 'Which scientist discovered the cell in cork tissue?',
+    options: ['Robert Hooke', 'Anton van Leeuwenhoek', 'Charles Darwin', 'Louis Pasteur'],
+    correct: 'A'
+  },
+
+  
+
+  
+  {
+    id: 'gacu1',
+    text: 'Which article of the Indian Constitution guarantees the Right to Constitutional Remedies?',
+    options: ['Article 32', 'Article 21', 'Article 19', 'Article 14'],
+    correct: 'A'
+  },
+  {
+    id: 'gacu2',
+    text: 'Who was the first woman President of the Indian National Congress?',
+    options: ['Sarojini Naidu', 'Annie Besant', 'Indira Gandhi', 'Kasturba Gandhi'],
+    correct: 'B'
+  },
+  {
+    id: 'gacu3',
+    text: 'Which of the following is the oldest mountain range in India?',
+    options: ['Himalayas', 'Aravalli', 'Satpura', 'Vindhyas'],
+    correct: 'B'
+  },
+  {
+    id: 'gacu4',
+    text: 'In which year was the Reserve Bank of India nationalized?',
+    options: ['1947', '1950', '1949', '1935'],
+    correct: 'C'
+  },
+  {
+    id: 'gacu5',
+    text: 'What is the capital of the Union Territory of Ladakh?',
+    options: ['Leh', 'Kargil', 'Srinagar', 'Jammu'],
+    correct: 'A'
+  },
+  {
+    id: 'gacu6',
+    text: 'Which Indian freedom fighter is known as “Lokmanya”?',
+    options: ['Subhas Chandra Bose', 'Bal Gangadhar Tilak', 'Lala Lajpat Rai', 'Bipin Chandra Pal'],
+    correct: 'B'
+  },
+  {
+    id: 'gacu7',
+    text: 'Which Mughal emperor built the Red Fort in Delhi?',
+    options: ['Babur', 'Humayun', 'Shah Jahan', 'Akbar'],
+    correct: 'C'
+  },
+  {
+    id: 'gacu8',
+    text: 'What is the term length of a Rajya Sabha member?',
+    options: ['5 years', '4 years', '6 years', '7 years'],
+    correct: 'C'
+  },
+  {
+    id: 'gacu9',
+    text: 'Who was the first Indian to win a Nobel Prize?',
+    options: ['Mother Teresa', 'C. V. Raman', 'Rabindranath Tagore', 'Amartya Sen'],
+    correct: 'C'
+  },
+  {
+    id: 'gacu10',
+    text: 'Which Indian classical dance form originated in Kerala?',
+    options: ['Kathak', 'Odissi', 'Mohiniyattam', 'Bharatanatyam'],
+    correct: 'C'
+  },
+
+  // -------- Current Affairs (10 Questions, as of 2024–2025) --------
+  {
+    id: 'gacu11',
+    text: 'Who is the current Chief Justice of India (as of June 2025)?',
+    options: ['Dhananjaya Y. Chandrachud', 'U. U. Lalit', 'N. V. Ramana', 'Ajay Kumar Mishra'],
+    correct: 'A'
+  },
+  {
+    id: 'gacu12',
+    text: 'Which Indian city was declared the UNESCO World Book Capital for 2024?',
+    options: ['Delhi', 'Hyderabad', 'Ahmedabad', 'Kolkata'],
+    correct: 'C'
+  },
+  {
+    id: 'gacu13',
+    text: 'Who is the current President of Sri Lanka (as of June 2025)?',
+    options: ['Gotabaya Rajapaksa', 'Ranil Wickremesinghe', 'Maithripala Sirisena', 'Sajith Premadasa'],
+    correct: 'B'
+  },
+  {
+    id: 'gacu14',
+    text: 'India’s Chandrayaan-3 successfully landed on which lunar region?',
+    options: ['North Pole', 'Equator', 'South Pole', 'Far Side'],
+    correct: 'C'
+  },
+  {
+    id: 'gacu15',
+    text: 'Which country hosted the COP29 Climate Summit in 2024?',
+    options: ['India', 'Azerbaijan', 'Germany', 'Brazil'],
+    correct: 'B'
+  },
+  {
+    id: 'gacu16',
+    text: 'Who was appointed as the CEO of Twitter (now X) in early 2024?',
+    options: ['Elon Musk', 'Parag Agrawal', 'Linda Yaccarino', 'Sheryl Sandberg'],
+    correct: 'C'
+  },
+  {
+    id: 'gacu17',
+    text: 'Which team won the ICC Men’s T20 World Cup 2024?',
+    options: ['India', 'Australia', 'England', 'South Africa'],
+    correct: 'A'
+  },
+  {
+    id: 'gacu18',
+    text: 'Which tech company launched India’s first AI-powered laptop “BharOS Book” in 2025?',
+    options: ['HP', 'Dell', 'Bharat Electronics', 'HCL'],
+    correct: 'D'
+  },
+  {
+    id: 'gacu19',
+    text: 'What is the name of the recently launched Indian digital health ID platform?',
+    options: ['e-Swasthya', 'Ayushman Bharat Digital Mission', 'HealthLink', 'MyHealth India'],
+    correct: 'B'
+  },
+  {
+    id: 'gacu20',
+    text: 'Which country was India’s largest trading partner in the year 2024?',
+    options: ['USA', 'China', 'UAE', 'Germany'],
+    correct: 'A'
+  }
+
+
+
+  ];
+
+  
+  const renderQuestions = () => {
+      const container = document.getElementById('questions');
+      QUESTIONS.forEach((q, index) => {
+        const div = document.createElement('div');
+        div.className = 'mb-4';
+        div.innerHTML = `<p class="font-semibold mb-1">${index + 1}. ${q.text}</p>` +
+          q.options.map((opt, i) => {
+            const optVal = String.fromCharCode(65 + i);
+            return `<label class="block ml-4 my-1">
+              <input type="radio" name="${q.id}" value="${optVal}" class="mr-2"> (${optVal}) ${opt}
+            </label>`;
+          }).join('');
+        container.appendChild(div);
+      });
+    };
+
+    let timeLeft = 5400; // 90 mins
+    const timerEl = document.getElementById('timer');
+    const timerId = setInterval(() => {
+      const min = Math.floor(timeLeft / 60);
+      const sec = timeLeft % 60;
+      timerEl.textContent = `Time Left: ${min}:${sec < 10 ? '0' : ''}${sec}`;
+      timeLeft--;
+      if (timeLeft < 0) {
+        clearInterval(timerId);
+        timerEl.textContent = 'Time’s Up!';
+        document.getElementById('mockTest').dispatchEvent(new Event('submit'));
+      }
+    }, 1000);
+
+    document.getElementById('mockTest').addEventListener('submit', function (e) {
+      e.preventDefault();
+      clearInterval(timerId);
+      timerEl.textContent = 'Test Submitted!';
+
+      let score = 0, correct = 0, wrong = 0, attempted = 0;
+
+      QUESTIONS.forEach((q) => {
+        const sel = document.querySelector(`input[name="${q.id}"]:checked`);
+        if (sel) {
+          attempted++;
+          if (sel.value === q.correct) {
+            score += 1;
+            correct++;
+            sel.parentElement.classList.add('correct');
+          } else {
+            score -= 0.33;
+            wrong++;
+            sel.parentElement.classList.add('incorrect');
+          }
+        }
+        const correctEl = document.querySelector(`input[name="${q.id}"][value="${q.correct}"]`);
+        if (correctEl) correctEl.parentElement.classList.add('correct');
+      });
+
+      document.getElementById('score').textContent = score.toFixed(2);
+
+      const msg = document.getElementById('scoreMessage');
+      if (score >= 80) msg.textContent = 'Outstanding! 🌟';
+      else if (score >= 60) msg.textContent = 'Great Job! 🚀';
+      else if (score >= 40) msg.textContent = 'Good Effort! 💪';
+      else msg.textContent = 'Don’t Give Up! 😊';
+
+      document.getElementById('result').classList.remove('hidden');
+      document.getElementById('result').scrollIntoView({ behavior: 'smooth' });
+    });
+
+    renderQuestions();
+  </script>
+</body>
+</html>

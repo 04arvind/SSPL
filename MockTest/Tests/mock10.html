@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RRB Group-D Mock Test 10</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .correct {
+      background-color: #d4edda;
+      color: #155724;
+      padding: 4px;
+      border-radius: 4px;
+    }
+    .incorrect {
+      background-color: #f8d7da;
+      color: #721c24;
+      padding: 4px;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body class="bg-gray-100 text-gray-900">
+  <div class="max-w-4xl mx-auto p-6">
+    <h1 class="text-3xl font-bold text-center mb-4 text-blue-600 animate-pulse">RRB Group-D Mock Test</h1>
+     <!-- Instructions Section -->
+    <div class="mb-4 p-4 bg-yellow-100 border border-yellow-300 rounded">
+      <h2 class="text-xl font-semibold mb-2">Instructions</h2>
+      <ul class="list-disc list-inside text-sm space-y-1">
+        <li>Total Questions: <strong>100</strong></li>
+        <li>Total Time: <strong>90 minutes</strong></li>
+        <li>Each correct answer awards <strong>+1 mark</strong></li>
+        <li>Each wrong answer incurs <strong>1/3 mark</strong></li>
+        <li>Unattempted questions carry <strong>no penalty</strong></li>
+        <li>Click "Submit" when finished or wait for time to run out for auto-submit</li>
+      </ul>
+    </div>
+    <div id="timer" class="text-xl font-semibold text-red-600 text-center mb-4">Time Left: 90:00</div>
+    <form id="mockTest" class="bg-white p-6 rounded-lg shadow-lg">
+      <div id="questions"></div>
+      <button type="submit" class="mt-4 bg-blue-500 text-white px-6 py-2 rounded hover:bg-blue-600">Submit</button>
+    </form>
+    <div id="result" class="hidden mt-6 bg-white p-6 rounded-lg shadow">
+      <h2 class="text-2xl font-bold text-center mb-2">Your Score: <span id="score"></span>/100</h2>
+      <p class="text-center text-lg" id="scoreMessage"></p>
+    </div>
+  </div>
+
+  <script>
+    const QUESTIONS = [
+        ///    questions 
+         {
+    "id": "m101",
+    "text": "A man can row 30 km upstream and 44 km downstream in 10 hours. Also, he can row 40 km upstream and 55 km downstream in 13 hours. Find the speed of the man in still water.",
+    "options": ["6 km/hr", "7 km/hr", "8 km/hr", "9 km/hr"],
+    "correct": "C"
+  },
+  {
+    "id": "m102",
+    "text": "What is the smallest number that leaves a remainder of 1 when divided by 2, 3, 4, 5, and 6 but is divisible by 7?",
+    "options": ["301", "421", "721", "211"],
+    "correct": "A"
+  },
+  {
+    "id": "m103",
+    "text": "If 12 men complete a work in 15 days, how many men are required to complete double the work in 10 days?",
+    "options": ["36", "30", "24", "45"],
+    "correct": "D"
+  },
+  {
+    "id": "m104",
+    "text": "The average of 9 consecutive odd numbers is 53. What is the smallest of these numbers?",
+    "options": ["47", "49", "45", "43"],
+    "correct": "C"
+  },
+  {
+    "id": "m105",
+    "text": "A shopkeeper marks his goods 40% above cost price and gives a discount of 10%. What is his profit percentage?",
+    "options": ["26%", "30%", "28%", "25%"],
+    "correct": "A"
+  },
+  {
+    "id": "m106",
+    "text": "If sin A = 3/5, and A is an acute angle, what is cos A?",
+    "options": ["4/5", "3/4", "5/4", "5/3"],
+    "correct": "A"
+  },
+  {
+    "id": "m107",
+    "text": "Two trains of equal lengths take 10 sec and 15 sec respectively to cross a pole. Find the time (in sec) they take to cross each other moving in opposite direction.",
+    "options": ["12 sec", "10 sec", "8 sec", "6 sec"],
+    "correct": "C"
+  },
+  {
+    "id": "m108",
+    "text": "Find the number of trailing zeros in 1000!",
+    "options": ["249", "248", "247", "245"],
+    "correct": "A"
+  },
+  {
+    "id": "m109",
+    "text": "What is the unit digit of 7^99?",
+    "options": ["3", "7", "9", "1"],
+    "correct": "C"
+  },
+  {
+    "id": "m110",
+    "text": "A tank is filled by Pipe A in 20 minutes and Pipe B in 30 minutes. Pipe C can empty it in 40 minutes. If all are opened together, how much time will it take to fill the tank?",
+    "options": ["17.14 min", "16 min", "18 min", "15 min"],
+    "correct": "A"
+  },
+  {
+    "id": "m111",
+    "text": "The compound interest on ₹10,000 at 10% p.a. compounded annually for 2 years is:",
+    "options": ["2100", "2000", "2200", "2100"],
+    "correct": "A"
+  },
+  {
+    "id": "m112",
+    "text": "A can do a piece of work in 18 days. B is 50% more efficient than A. In how many days can they together do the same work?",
+    "options": ["7.2", "8", "10", "9"],
+    "correct": "B"
+  },
+  {
+    "id": "m113",
+    "text": "Find the HCF of 2^4 × 3^3 × 5 and 2^2 × 3^4 × 7.",
+    "options": ["2^2 × 3^3", "2^2 × 3", "2^3 × 3^4", "2 × 3^3"],
+    "correct": "A"
+  },
+  {
+    "id": "m114",
+    "text": "In how many years will ₹8000 amount to ₹9261 at 5% p.a. compound interest?",
+    "options": ["3", "2.5", "2", "4"],
+    "correct": "A"
+  },
+  {
+    "id": "m115",
+    "text": "A number when divided by 899 gives a remainder 63. What is the remainder when the same number is divided by 29?",
+    "options": ["5", "6", "7", "6"],
+    "correct": "B"
+  },
+  {
+    "id": "m116",
+    "text": "A man borrowed ₹16,000 at 5% p.a. simple interest. After 4 years he repaid ₹20,800. What was the total interest paid?",
+    "options": ["₹4800", "₹4000", "₹5200", "₹3800"],
+    "correct": "B"
+  },
+  {
+    "id": "m117",
+    "text": "If the radius of a cylinder is doubled and height is halved, then the volume will be:",
+    "options": ["Same", "Doubled", "Quadrupled", "Tripled"],
+    "correct": "B"
+  },
+  {
+    "id": "m118",
+    "text": "If x + 1/x = 5, find the value of x^2 + 1/x^2.",
+    "options": ["23", "21", "24", "25"],
+    "correct": "A"
+  },
+  {
+    "id": "m119",
+    "text": "Find the largest 4-digit number divisible by 88.",
+    "options": ["9988", "9996", "9944", "9976"],
+    "correct": "C"
+  },
+  {
+    "id": "m120",
+    "text": "If 10 men can build a wall in 6 days, how many days will 15 men take to build the same wall?",
+    "options": ["4", "5", "3", "6"],
+    "correct": "A"
+  },
+  {
+    "id": "m121",
+    "text": "Find the sum of all natural numbers from 1 to 100 divisible by 7.",
+    "options": ["735", "742", "707", "735"],
+    "correct": "D"
+  },
+  {
+    "id": "m122",
+    "text": "A car covers 360 km at a speed of 90 km/hr. How much time will it take to cover 540 km at a speed of 60 km/hr?",
+    "options": ["9 hours", "7 hours", "6 hours", "5 hours"],
+    "correct": "A"
+  },
+  {
+    "id": "m123",
+    "text": "If a:b = 2:3 and b:c = 4:5, then a:c = ?",
+    "options": ["8:15", "2:5", "3:5", "4:5"],
+    "correct": "A"
+  },
+  {
+    "id": "m124",
+    "text": "If 40% of a number is 160, what is 25% of that number?",
+    "options": ["100", "120", "90", "80"],
+    "correct": "D"
+  },
+  {
+    "id": "m125",
+    "text": "In a triangle ABC, if angle A = 90°, and sides AB = 3, AC = 4, then BC = ?",
+    "options": ["5", "6", "7", "8"],
+    "correct": "A"
+  },
+   {
+    "id": "gr201",
+    "text": "If MANGO is coded as NZOHQ, how will PEACH be coded?",
+    "options": ["QFBDI", "QFBDG", "QDBCI", "QFBDJ"],
+    "correct": "A"
+  },
+  {
+    "id": "gr202",
+    "text": "Pointing to a girl, Ramesh said, 'She is the only daughter of my mother's only son.' How is the girl related to Ramesh?",
+    "options": ["Sister", "Niece", "Daughter", "Cousin"],
+    "correct": "A"
+  },
+  {
+    "id": "gr203",
+    "text": "In a certain code, FLOWER is written as GNVZFS. How is GARDEN written?",
+    "options": ["HBSEFO", "HBSFMO", "HBSFEO", "HBSFEN"],
+    "correct": "C"
+  },
+  {
+    "id": "gr204",
+    "text": "Which number will replace the question mark: 7, 14, 28, 56, ?, 224",
+    "options": ["112", "108", "84", "96"],
+    "correct": "A"
+  },
+  {
+    "id": "gr205",
+    "text": "Statement: Some apples are mangoes. All mangoes are oranges.\nConclusion: Some apples are oranges.\nIs the conclusion valid?",
+    "options": ["Yes", "No", "Uncertain", "Cannot be determined"],
+    "correct": "D"
+  },
+  {
+    "id": "gr206",
+    "text": "If 5 * 2 = 17, 6 * 3 = 27, then 7 * 4 = ?",
+    "options": ["37", "38", "41", "39"],
+    "correct": "D"
+  },
+  {
+    "id": "gr207",
+    "text": "Which word cannot be made from the letters of 'CONSTITUTION'?",
+    "options": ["SITUATION", "COUNT", "NOTION", "STATION"],
+    "correct": "D"
+  },
+  {
+    "id": "gr208",
+    "text": "Which number is wrong in the series: 121, 144, 169, 196, 221, 256?",
+    "options": ["144", "221", "196", "256"],
+    "correct": "B"
+  },
+  {
+    "id": "gr209",
+    "text": "If in a code language, TREE is coded as 20-18-5-5, how is BUSH coded?",
+    "options": ["2-21-19-8", "2-20-19-8", "3-21-19-8", "2-22-19-8"],
+    "correct": "A"
+  },
+  {
+    "id": "gr210",
+    "text": "Choose the odd pair:\n(A) Dog – Bark\n(B) Lion – Roar\n(C) Snake – Hiss\n(D) Crow – Howl",
+    "options": ["A", "B", "C", "D"],
+    "correct": "D"
+  },
+  {
+    "id": "gr211",
+    "text": "Which of the following diagrams best represents Pen, Stationery, and Eraser?",
+    "options": ["All intersecting", "Pen and Eraser disjoint", "Pen subset of Stationery", "Pen intersect Stationery only"],
+    "correct": "C"
+  },
+  {
+    "id": "gr212",
+    "text": "Arrange the following words in a logical sequence: 1. College 2. School 3. Job 4. Interview 5. Degree",
+    "options": ["2-1-5-4-3", "1-2-5-3-4", "2-1-3-4-5", "2-1-5-3-4"],
+    "correct": "A"
+  },
+  {
+    "id": "gr213",
+    "text": "Direction: Raj walks 10m north, turns right and walks 10m, turns left and walks 5m. Where is he from his starting point?",
+    "options": ["15m East", "10m North-East", "15m North-East", "10m East-North"],
+    "correct": "C"
+  },
+  {
+    "id": "gr214",
+    "text": "Which number will complete the analogy: 12 : 144 :: 14 : ?",
+    "options": ["169", "196", "182", "162"],
+    "correct": "B"
+  },
+  {
+    "id": "gr215",
+    "text": "If WHITE is coded as XGJWF, then BLACK is coded as?",
+    "options": ["CMDJL", "CNEJL", "CNDJL", "CNDIL"],
+    "correct": "C"
+  },
+  {
+    "id": "gr216",
+    "text": "If A=1, B=4, C=9, D=16..., then Z=?",
+    "options": ["676", "729", "841", "625"],
+    "correct": "A"
+  },
+  {
+    "id": "gr217",
+    "text": "Which of the following does not belong to the group?\n(A) 21, (B) 35, (C) 49, (D) 65",
+    "options": ["A", "B", "C", "D"],
+    "correct": "D"
+  },
+  {
+    "id": "gr218",
+    "text": "Find the missing term: ACE, BDF, ?, DJH",
+    "options": ["CGG", "CEF", "CGL", "CEG"],
+    "correct": "D"
+  },
+  {
+  "id": "gr219",
+  "text": "A cube has numbers 1 to 6 on its faces. Opposite faces sum to 7. Which pair of numbers can never be adjacent?",
+  "options": ["1 and 6", "2 and 5", "3 and 4", "1 and 4"],
+  "correct": "C"
+},
+  {
+    "id": "gr220",
+    "text": "Select the related letters: DGH : KLO :: TVX : ?",
+    "options": ["ABC", "ZAB", "YZA", "XZA"],
+    "correct": "C"
+  },
+  {
+    "id": "gr221",
+    "text": "In a family, A is the father of B. C is the sister of A. D is the daughter of B. How is C related to D?",
+    "options": ["Aunt", "Grandmother", "Mother", "Sister"],
+    "correct": "A"
+  },
+  {
+    "id": "gr222",
+    "text": "Find the odd one out:\n(A) Knife\n(B) Axe\n(C) Hammer\n(D) Gun",
+    "options": ["A", "B", "C", "D"],
+    "correct": "D"
+  },
+  {
+    "id": "gr223",
+    "text": "Complete the series: 2, 4, 12, 48, ?, 1440",
+    "options": ["240", "192", "196", "168"],
+    "correct": "B"
+  },
+  {
+    "id": "gr224",
+    "text": "Which number comes next: 31, 29, 31, 30, 31, ?",
+    "options": ["31", "30", "28", "29"],
+    "correct": "B"
+  },
+  {
+    "id": "gr225",
+    "text": "If STAR is coded as 100, and MOON as 102, then what is SUN?",
+    "options": ["89", "92", "95", "97"],
+    "correct": "D"
+  },
+  {
+    "id": "gr226",
+    "text": "Which number should replace the question mark?\n6, 13, 27, 55, ?, 223",
+    "options": ["111", "108", "112", "113"],
+    "correct": "C"
+  },
+  {
+    "id": "gr227",
+    "text": "In a certain language, 'apple' is coded as 'xqqjb'. How is 'grape' coded?",
+    "options": ["epznb", "etqob", "fqqpb", "fpqnb"],
+    "correct": "D"
+  },
+  {
+  "id": "gr228",
+  "text": "Which word is the odd one out based on the pattern of repeating letters?\n(A) MOM\n(B) EYE\n(C) DAD\n(D) MAP",
+  "options": ["A", "B", "C", "D"],
+  "correct": "D"
+},
+  {
+    "id": "gr229",
+    "text": "Find the missing number in the matrix: \n[8 2 10]\n[7 ? 12]\n[5 6 11]",
+    "options": ["4", "5", "3", "6"],
+    "correct": "A"
+  },
+  {
+  "id": "gr230",
+  "text": "Which of the following is the mirror image of the word 'bED6'?",
+  "options": ["9Ǝqd", "9bƎd", "9ᗡƎq", "9Ǝᗡb"],
+  "correct": "D"
+},
+  {
+    "id": "gs101",
+    "text": "Which vitamin helps in the absorption of calcium in the human body?",
+    "options": ["Vitamin D", "Vitamin A", "Vitamin C", "Vitamin K"],
+    "correct": "A"
+  },
+  {
+    "id": "gs102",
+    "text": "Which gas is used in the artificial ripening of fruits?",
+    "options": ["Ethylene", "Methane", "Carbon dioxide", "Hydrogen"],
+    "correct": "A"
+  },
+  {
+    "id": "gs103",
+    "text": "Which part of the brain controls voluntary actions?",
+    "options": ["Cerebrum", "Cerebellum", "Medulla", "Pons"],
+    "correct": "A"
+  },
+  {
+    "id": "gs104",
+    "text": "What is the SI unit of force?",
+    "options": ["Newton", "Joule", "Pascal", "Watt"],
+    "correct": "A"
+  },
+  {
+    "id": "gs105",
+    "text": "Which acid is present in ant stings?",
+    "options": ["Formic acid", "Acetic acid", "Lactic acid", "Sulfuric acid"],
+    "correct": "A"
+  },
+  {
+    "id": "gs106",
+    "text": "The powerhouse of the cell is:",
+    "options": ["Mitochondria", "Ribosome", "Nucleus", "Golgi body"],
+    "correct": "A"
+  },
+  {
+    "id": "gs107",
+    "text": "Which metal is liquid at room temperature?",
+    "options": ["Mercury", "Lead", "Zinc", "Aluminium"],
+    "correct": "A"
+  },
+  {
+    "id": "gs108",
+    "text": "Which type of lens is used to correct myopia?",
+    "options": ["Concave", "Convex", "Cylindrical", "Bifocal"],
+    "correct": "A"
+  },
+  {
+    "id": "gs109",
+    "text": "Which hormone regulates blood sugar level?",
+    "options": ["Insulin", "Adrenaline", "Thyroxine", "Estrogen"],
+    "correct": "A"
+  },
+  {
+    "id": "gs110",
+    "text": "What is the chemical formula of baking soda?",
+    "options": ["NaHCO₃", "Na₂CO₃", "CaCO₃", "NaCl"],
+    "correct": "A"
+  },
+  {
+    "id": "gs111",
+    "text": "Which layer of the atmosphere contains the ozone layer?",
+    "options": ["Stratosphere", "Troposphere", "Mesosphere", "Exosphere"],
+    "correct": "A"
+  },
+  {
+    "id": "gs112",
+    "text": "What is the function of hemoglobin in the blood?",
+    "options": ["Transport oxygen", "Produce antibodies", "Aid in clotting", "Regulate temperature"],
+    "correct": "A"
+  },
+  {
+    "id": "gs113",
+    "text": "Which planet has the maximum number of moons?",
+    "options": ["Saturn", "Jupiter", "Uranus", "Neptune"],
+    "correct": "A"
+  },
+  {
+    "id": "gs114",
+    "text": "The process of conversion of sugar into alcohol is called:",
+    "options": ["Fermentation", "Sublimation", "Evaporation", "Distillation"],
+    "correct": "A"
+  },
+  {
+    "id": "gs115",
+    "text": "Which gas is responsible for the greenhouse effect?",
+    "options": ["Carbon dioxide", "Nitrogen", "Oxygen", "Helium"],
+    "correct": "A"
+  },
+  {
+    "id": "gs116",
+    "text": "The instrument used to measure atmospheric pressure is:",
+    "options": ["Barometer", "Hygrometer", "Thermometer", "Anemometer"],
+    "correct": "A"
+  },
+  {
+    "id": "gs117",
+    "text": "Which organ of the human body is affected by hepatitis?",
+    "options": ["Liver", "Kidney", "Heart", "Lungs"],
+    "correct": "A"
+  },
+  {
+    "id": "gs118",
+    "text": "Which type of mirror is used in vehicles as rear-view mirrors?",
+    "options": ["Convex", "Concave", "Plane", "Spherical"],
+    "correct": "A"
+  },
+  {
+    "id": "gs119",
+    "text": "Which element is essential for the production of thyroid hormone?",
+    "options": ["Iodine", "Calcium", "Iron", "Phosphorus"],
+    "correct": "A"
+  },
+  {
+    "id": "gs120",
+    "text": "Which of the following diseases is caused by a virus?",
+    "options": ["Influenza", "Tuberculosis", "Typhoid", "Cholera"],
+    "correct": "A"
+  },
+  {
+    "id": "gs121",
+    "text": "Which part of the plant conducts photosynthesis?",
+    "options": ["Leaves", "Stem", "Roots", "Flowers"],
+    "correct": "A"
+  },
+  {
+    "id": "gs122",
+    "text": "Which blood group is called the universal donor?",
+    "options": ["O negative", "AB positive", "A negative", "B positive"],
+    "correct": "A"
+  },
+  {
+    "id": "gs123",
+    "text": "Which organelle is responsible for protein synthesis?",
+    "options": ["Ribosome", "Mitochondria", "Nucleus", "Lysosome"],
+    "correct": "A"
+  },
+  {
+    "id": "gs124",
+    "text": "Which gas turns lime water milky?",
+    "options": ["Carbon dioxide", "Hydrogen", "Oxygen", "Nitrogen"],
+    "correct": "A"
+  },
+  {
+    "id": "gs125",
+    "text": "What is the normal pH value of human blood?",
+    "options": ["7.4", "6.5", "7.0", "8.2"],
+    "correct": "A"
+  },
+  {
+    "id": "ga201",
+    "text": "Who is the current Chief Election Commissioner of India (as of June 2025)?",
+    "options": ["Rajiv Kumar", "Arun Goel", "Vivek Joshi", "Anup Chandra Pandey"],
+    "correct": "A"
+  },
+  {
+    "id": "ga202",
+    "text": "Which Indian city was declared as the UNESCO World Book Capital for 2025?",
+    "options": ["Kolkata", "Hyderabad", "Pune", "Chennai"],
+    "correct": "B"
+  },
+  {
+    "id": "ga203",
+    "text": "Who won the ICC Men's Cricketer of the Year 2024?",
+    "options": ["Virat Kohli", "Travis Head", "Babar Azam", "Pat Cummins"],
+    "correct": "D"
+  },
+  {
+    "id": "ga204",
+    "text": "Which country hosted the G20 Summit in 2024?",
+    "options": ["Brazil", "India", "Italy", "South Africa"],
+    "correct": "A"
+  },
+  {
+    "id": "ga205",
+    "text": "Which Indian state launched the ‘Mukhyamantri Free Solar Pump Yojana’ in 2025?",
+    "options": ["Madhya Pradesh", "Bihar", "Uttar Pradesh", "Maharashtra"],
+    "correct": "C"
+  },
+  {
+    "id": "ga206",
+    "text": "Who was awarded the 2024 Jnanpith Award?",
+    "options": ["Gulzar", "Pratibha Ray", "Namita Gokhale", "Vinod Kumar Shukla"],
+    "correct": "D"
+  },
+  {
+    "id": "ga207",
+    "text": "Which Indian airport was ranked as the cleanest in Asia in 2025 (Airports Council International)?",
+    "options": ["Indira Gandhi International Airport", "Rajiv Gandhi Intl Airport", "Chhatrapati Shivaji Maharaj Airport", "Kempegowda International Airport"],
+    "correct": "A"
+  },
+  {
+    "id": "ga208",
+    "text": "Which Indian city was declared as the 'Start-Up Capital of India' in 2025?",
+    "options": ["Bengaluru", "Pune", "Hyderabad", "Ahmedabad"],
+    "correct": "C"
+  },
+  {
+    "id": "ga209",
+    "text": "Which bank recently launched India's first AI-based personal voice banking assistant 'AksharAI'?",
+    "options": ["Axis Bank", "HDFC Bank", "ICICI Bank", "Kotak Mahindra Bank"],
+    "correct": "C"
+  },
+  {
+    "id": "ga210",
+    "text": "Who is the first Indian woman to win the prestigious Turing Award (Computer Science) in 2025?",
+    "options": ["Neelam Dhawan", "Aruna Jayanthi", "Sunita Sarawagi", "Debjani Ghosh"],
+    "correct": "C"
+  },
+  {
+    "id": "ga211",
+    "text": "What is India’s GDP growth rate for FY 2024–25 (as per RBI June 2025 projection)?",
+    "options": ["6.8%", "7.0%", "6.3%", "7.2%"],
+    "correct": "B"
+  },
+  {
+    "id": "ga212",
+    "text": "Which Indian won the Ramon Magsaysay Award in 2024?",
+    "options": ["Dr. Kiran Seth", "Sonam Wangchuk", "Dr. Rukmini Banerji", "Arunachalam Muruganantham"],
+    "correct": "C"
+  },
+  {
+    "id": "ga213",
+    "text": "Which country topped the Global Happiness Index 2025?",
+    "options": ["Finland", "Switzerland", "Denmark", "Netherlands"],
+    "correct": "A"
+  },
+  {
+    "id": "ga214",
+    "text": "Which Indian state has the largest installed solar energy capacity (as of 2025)?",
+    "options": ["Rajasthan", "Gujarat", "Tamil Nadu", "Karnataka"],
+    "correct": "A"
+  },
+  {
+    "id": "ga215",
+    "text": "Where will the 2036 Olympic Games be held (announced in 2025)?",
+    "options": ["Ahmedabad", "Doha", "Madrid", "Still undecided"],
+    "correct": "D"
+  },
+  {
+    "id": "ga216",
+    "text": "Which company became the first to manufacture semiconductor chips in India (2024-25)?",
+    "options": ["Micron", "Foxconn", "Intel", "Tata Electronics"],
+    "correct": "A"
+  },
+  {
+    "id": "ga217",
+    "text": "Which Indian railway station became the first to be powered entirely by solar energy (2025)?",
+    "options": ["Gandhinagar", "Secunderabad", "Vijayawada", "Bhopal"],
+    "correct": "A"
+  },
+  {
+    "id": "ga218",
+    "text": "Who is the current Chief Justice of India (June 2025)?",
+    "options": ["D.Y. Chandrachud", "Sanjiv Khanna", "Surya Kant", "U.U. Lalit"],
+    "correct": "B"
+  },
+  {
+    "id": "ga219",
+    "text": "Which state topped the NITI Aayog SDG India Index 2024-25?",
+    "options": ["Kerala", "Himachal Pradesh", "Tamil Nadu", "Goa"],
+    "correct": "A"
+  },
+  {
+    "id": "ga220",
+    "text": "Which Indian city hosted the 2025 Defence Expo?",
+    "options": ["Lucknow", "Chennai", "Gandhinagar", "Bhopal"],
+    "correct": "C"
+  }
+
+  ];
+
+  
+  const renderQuestions = () => {
+      const container = document.getElementById('questions');
+      QUESTIONS.forEach((q, index) => {
+        const div = document.createElement('div');
+        div.className = 'mb-4';
+        div.innerHTML = `<p class="font-semibold mb-1">${index + 1}. ${q.text}</p>` +
+          q.options.map((opt, i) => {
+            const optVal = String.fromCharCode(65 + i);
+            return `<label class="block ml-4 my-1">
+              <input type="radio" name="${q.id}" value="${optVal}" class="mr-2"> (${optVal}) ${opt}
+            </label>`;
+          }).join('');
+        container.appendChild(div);
+      });
+    };
+
+    let timeLeft = 5400; // 90 mins
+    const timerEl = document.getElementById('timer');
+    const timerId = setInterval(() => {
+      const min = Math.floor(timeLeft / 60);
+      const sec = timeLeft % 60;
+      timerEl.textContent = `Time Left: ${min}:${sec < 10 ? '0' : ''}${sec}`;
+      timeLeft--;
+      if (timeLeft < 0) {
+        clearInterval(timerId);
+        timerEl.textContent = 'Time’s Up!';
+        document.getElementById('mockTest').dispatchEvent(new Event('submit'));
+      }
+    }, 1000);
+
+    document.getElementById('mockTest').addEventListener('submit', function (e) {
+      e.preventDefault();
+      clearInterval(timerId);
+      timerEl.textContent = 'Test Submitted!';
+
+      let score = 0, correct = 0, wrong = 0, attempted = 0;
+
+      QUESTIONS.forEach((q) => {
+        const sel = document.querySelector(`input[name="${q.id}"]:checked`);
+        if (sel) {
+          attempted++;
+          if (sel.value === q.correct) {
+            score += 1;
+            correct++;
+            sel.parentElement.classList.add('correct');
+          } else {
+            score -= 0.33;
+            wrong++;
+            sel.parentElement.classList.add('incorrect');
+          }
+        }
+        const correctEl = document.querySelector(`input[name="${q.id}"][value="${q.correct}"]`);
+        if (correctEl) correctEl.parentElement.classList.add('correct');
+      });
+
+      document.getElementById('score').textContent = score.toFixed(2);
+
+      const msg = document.getElementById('scoreMessage');
+      if (score >= 80) msg.textContent = 'Outstanding! 🌟';
+      else if (score >= 60) msg.textContent = 'Great Job! 🚀';
+      else if (score >= 40) msg.textContent = 'Good Effort! 💪';
+      else msg.textContent = 'Don’t Give Up! 😊';
+
+      document.getElementById('result').classList.remove('hidden');
+      document.getElementById('result').scrollIntoView({ behavior: 'smooth' });
+    });
+
+    renderQuestions();
+  </script>
+</body>
+</html>

@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RRB Group-D Mock Test 2</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .correct {
+      background-color: #d4edda;
+      color: #155724;
+      padding: 4px;
+      border-radius: 4px;
+    }
+    .incorrect {
+      background-color: #f8d7da;
+      color: #721c24;
+      padding: 4px;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body class="bg-gray-100 text-gray-900">
+  <div class="max-w-4xl mx-auto p-6">
+    <h1 class="text-3xl font-bold text-center mb-4 text-blue-600 animate-pulse">RRB Group-D Mock Test</h1>
+     <!-- Instructions Section -->
+    <div class="mb-4 p-4 bg-yellow-100 border border-yellow-300 rounded">
+      <h2 class="text-xl font-semibold mb-2">Instructions</h2>
+      <ul class="list-disc list-inside text-sm space-y-1">
+        <li>Total Questions: <strong>100</strong></li>
+        <li>Total Time: <strong>90 minutes</strong></li>
+        <li>Each correct answer awards <strong>+1 mark</strong></li>
+        <li>Each wrong answer incurs <strong>1/3 mark</strong></li>
+        <li>Unattempted questions carry <strong>no penalty</strong></li>
+        <li>Click "Submit" when finished or wait for time to run out for auto-submit</li>
+      </ul>
+    </div>
+    <div id="timer" class="text-xl font-semibold text-red-600 text-center mb-4">Time Left: 90:00</div>
+    <form id="mockTest" class="bg-white p-6 rounded-lg shadow-lg">
+      <div id="questions"></div>
+      <button type="submit" class="mt-4 bg-blue-500 text-white px-6 py-2 rounded hover:bg-blue-600">Submit</button>
+    </form>
+    <div id="result" class="hidden mt-6 bg-white p-6 rounded-lg shadow">
+      <h2 class="text-2xl font-bold text-center mb-2">Your Score: <span id="score"></span>/100</h2>
+      <p class="text-center text-lg" id="scoreMessage"></p>
+    </div>
+  </div>
+
+  <script>
+    const QUESTIONS = [
+        // math 
+  { id: 'q1', text: 'If the cost price of 15 articles is equal to the selling price of 12 articles, then what is the profit percentage?', options: ['25%', '20%', '30%', '18%'], correct: 'A' },
+  { id: 'q2', text: 'What is the least number which when divided by 12, 15 and 20 leaves a remainder 5?', options: ['65', '125', '245', '185'], correct: 'C' },
+  { id: 'q3', text: 'A train 180 meters long is running at 90 km/hr. How much time will it take to cross a platform 120 meters long?', options: ['8 sec', '10 sec', '12 sec', '15 sec'], correct: 'C' },
+  { id: 'q4', text: 'Simplify: 2.5 × 1.2 + 3.4 × 0.5 = ?', options: ['4.3', '4.6', '5.2', '5.3'], correct: 'D' },
+  { id: 'q5', text: 'A man spends 80% of his income. If his income increases by 20% and his expenditure increases by 10%, what is the percentage increase in his savings?', options: ['40%', '50%', '60%', '66.67%'], correct: 'D' },
+  { id: 'q6', text: 'If x + 1/x = 3, then what is the value of x² + 1/x²?', options: ['7', '9', '10', '11'], correct: 'C' },
+  { id: 'q7', text: 'What is the difference between the compound interest and simple interest on ₹5000 for 2 years at 10% per annum?', options: ['₹50', '₹55', '₹60', '₹62.50'], correct: 'D' },
+  { id: 'q8', text: 'A and B together can do a piece of work in 12 days. B alone can do it in 20 days. How long will A take alone to complete the work?', options: ['30', '25', '24', '32'], correct: 'A' },
+  { id: 'q9', text: 'If a number is increased by 25%, it becomes 500. What was the original number?', options: ['400', '420', '450', '480'], correct: 'A' },
+  { id: 'q10', text: 'Find the square root of 10404.', options: ['102', '104', '106', '108'], correct: 'C' },
+  { id: 'q11', text: 'The average of first 25 natural numbers is:', options: ['12', '12.5', '13', '13.5'], correct: 'B' },
+  { id: 'q12', text: 'If 40% of a number is 280, what is 60% of that number?', options: ['420', '400', '460', '380'], correct: 'A' },
+  { id: 'q13', text: 'Area of a triangle is 84 cm² and its base is 12 cm. Find its height.', options: ['14', '15', '16', '12'], correct: 'A' },
+  { id: 'q14', text: 'The sum of 5 consecutive odd numbers is 145. What is the smallest number?', options: ['25', '27', '29', '31'], correct: 'C' },
+  { id: 'q15', text: 'Ravi scored 30 marks more than Aman in an exam. If their total is 180, how many marks did Aman score?', options: ['75', '85', '90', '95'], correct: 'A' },
+  { id: 'q16', text: 'If a shopkeeper sells an item for ₹600 at a loss of 20%, what was the cost price?', options: ['₹750', '₹720', '₹700', '₹800'], correct: 'A' },
+  { id: 'q17', text: 'Find the LCM of 18, 24 and 36.', options: ['72', '144', '36', '108'], correct: 'A' },
+  { id: 'q18', text: 'Two numbers are in ratio 4:5 and their HCF is 12. What is their LCM?', options: ['240', '300', '320', '360'], correct: 'D' },
+  { id: 'q19', text: 'If the perimeter of a circle is 176 cm, what is its diameter?', options: ['56 cm', '58 cm', '60 cm', '62 cm'], correct: 'A' },
+  { id: 'q20', text: 'The sum of interior angles of a polygon with 10 sides is:', options: ['1440°', '1620°', '1080°', '1260°'], correct: 'B' },
+  { id: 'q21', text: 'If 3 workers complete a task in 12 days, how many workers are required to finish it in 4 days?', options: ['8', '9', '10', '6'], correct: 'B' },
+  { id: 'q22', text: 'A pipe fills a tank in 6 hours. Another pipe empties it in 9 hours. How long will it take to fill the tank if both are opened together?', options: ['12', '10', '18', '20'], correct: 'A' },
+  { id: 'q23', text: 'A man covers a distance of 20 km in 4 hours. He covers half the distance at 3 km/hr and the other half at what speed?', options: ['5 km/hr', '6 km/hr', '4 km/hr', '8 km/hr'], correct: 'C' },
+  { id: 'q24', text: 'The compound interest on ₹20000 at 5% for 2 years is?', options: ['₹2000', '₹2100', '₹2050', '₹2205'], correct: 'D' },
+  { id: 'q25', text: 'What is the smallest number which when increased by 7 is divisible by 8, 12 and 18?', options: ['137', '143', '145', '151'], correct: 'B' },
+
+  
+  // Analogies (3)
+  {
+    id: 'gr1',
+    text: 'If 16 : 64 :: 25 : ?, what is the missing number?',
+    options: ['100', '125', '150', '200'],
+    correct: 'B'
+  },
+  {
+    id: 'gr2',
+    text: 'BDFH : JLPV :: EGIK : ?',
+    options: ['PUYI', 'QVZK', 'RWAM', 'SXBO'],
+    correct: 'A'
+  },
+  {
+    id: 'gr3',
+    text: 'Clock : Time :: Thermometer : ?',
+    options: ['Heat', 'Temperature', 'Energy', 'Radiation'],
+    correct: 'B'
+  },
+
+  // Coding-Decoding (3)
+  {
+    id: 'gr4',
+    text: 'In a code, if APPLE is written as BQQMF, how is ORANGE written?',
+    options: ['PSBOJF', 'QTCPKG', 'RUBQLI', 'SVCRNK'],
+    correct: 'A'
+  },
+  {
+    id: 'gr5',
+    text: 'If 12345 is coded as 23456, and 67890 is coded as 78901, how is 54321 coded?',
+    options: ['65432', '43210', '54321', '12345'],
+    correct: 'A'
+  },
+  {
+    id: 'gr6',
+    text: 'In a certain code, "SUN" is written as "21-6-14". How is "MOON" written in the same code?',
+    options: ['13-15-15-14', '14-16-16-15', '12-14-14-13', '15-17-17-16'],
+    correct: 'A'
+  },
+
+  // Series (3)
+  {
+    id: 'gr7',
+    text: 'What is the next term in the series: 2, 6, 12, 20, 30, ?',
+    options: ['40', '42', '45', '48'],
+    correct: 'B'
+  },
+  {
+    id: 'gr8',
+    text: 'Find the missing term in the series: A, D, I, I, ?, I',
+    options: ['I', 'J', 'K', 'L'],
+    correct: 'A'
+  },
+  {
+    id: 'gr9',
+    text: 'What is the next number in the series: 1, 4, 27, 256, ?',
+    options: ['3125', '625', '1024', '4096'],
+    correct: 'A'
+  },
+
+  // Blood Relations (3)
+  {
+    id: 'gr10',
+    text: 'Pointing to a man, a woman said, "His mother is the only daughter of my mother." How is the woman related to the man?',
+    options: ['Sister', 'Mother', 'Daughter', 'Wife'],
+    correct: 'B'
+  },
+  {
+    id: 'gr11',
+    text: 'A is the brother of B, C is the sister of D, and E is the mother of B. If D is the father of A, how is C related to E?',
+    options: ['Sister', 'Daughter', 'Wife', 'Mother'],
+    correct: 'C'
+  },
+  {
+    id: 'gr12',
+    text: 'If P is the husband of Q, R is the brother of Q, and S is the mother of P, how is S related to R?',
+    options: ['Sister', 'Mother', 'Wife', 'Daughter'],
+    correct: 'B'
+  },
+
+  // Direction Sense (2)
+  {
+    id: 'gr13',
+    text: 'A man walks 5 km north, turns left and walks 3 km, then turns right and walks 4 km, and finally turns right and walks 3 km. How far is he from the starting point?',
+    options: ['5 km', '9 km', '7 km', '3 km'],
+    correct: 'B'
+  },
+  {
+    id: 'gr14',
+    text: 'If a person facing east turns 135° clockwise, then 90° anticlockwise, and finally 45° clockwise, which direction is he facing now?',
+    options: ['North', 'South', 'East', 'West'],
+    correct: 'A'
+  },
+
+  // Logical Reasoning (3)
+  {
+    id: 'gr15',
+    text: 'All roses are flowers. Some flowers are red. Which conclusion follows? I: Some roses are red. II: All red things are flowers.',
+    options: ['Only I', 'Only II', 'Both I and II', 'Neither I nor II'],
+    correct: 'D'
+  },
+  {
+    id: 'gr16',
+    text: 'If all cats are mammals and some mammals are black, which statement is definitely true?',
+    options: ['Some cats are black', 'All cats are black', 'Some mammals are cats', 'No cats are black'],
+    correct: 'C'
+  },
+  {
+    id: 'gr17',
+    text: 'Statement: If it rains, the match is canceled. It did not rain. Conclusion: The match was not canceled.',
+    options: ['True', 'False', 'Cannot be determined', 'Invalid statement'],
+    correct: 'C'
+  },
+
+  // Puzzles (3)
+  {
+    id: 'gr18',
+    text: 'Five people A, B, C, D, E are sitting in a row facing north. A is to the left of B but not next to E. C is second to the right of D. E is not at the end. Who is in the middle?',
+    options: ['A', 'B', 'C', 'D'],
+    correct: 'B'
+  },
+  {
+    id: 'gr19',
+    text: 'In a group of 4 friends, P, Q, R, S, P is taller than Q but shorter than R. S is shorter than Q. Who is the tallest?',
+    options: ['P', 'Q', 'R', 'S'],
+    correct: 'C'
+  },
+  {
+    id: 'gr20',
+    text: 'Three boxes are labeled "Apples," "Oranges," and "Mixed." Each label is incorrect. If you pick one fruit from the "Mixed" box and it’s an apple, what’s in the "Oranges" box?',
+    options: ['Apples', 'Oranges', 'Mixed', 'Cannot be determined'],
+    correct: 'B'
+  },
+
+  // Non-Verbal Reasoning (2)
+  {
+    id: 'gr21',
+    text: 'How many triangles are there in a pentagon with all its diagonals drawn?',
+    options: ['35', '10', '15', '20'],
+    correct: 'B'
+  },
+  {
+    id: 'gr22',
+    text: 'What is the mirror image of the word "RACE" when placed in front of a plane mirror?',
+    options: ['ECAR', 'RACE', 'CAR', 'ERA'],
+    correct: 'A'
+  },
+
+  // Mathematical Operations (2)
+  {
+    id: 'gr23',
+    text: 'If + means ×, × means ÷, ÷ means -, and - means +, what is the value of 8 + 4 × 2 ÷ 6 - 3?',
+    options: ['29', '25', '27', '31'],
+    correct: 'A'
+  },
+  {
+    id: 'gr24',
+    text: 'If * means +, # means -, @ means ×, and $ means ÷, what is 10 * 5 @ 2 # 4 $ 2?',
+    options: ['21', '23', '19', '25'],
+    correct: 'A'
+  },
+
+  // Venn Diagrams (2)
+  {
+    id: 'gr25',
+    text: 'In a class, 20 students play cricket, 15 play football, and 10 play both. How many students play at least one sport?',
+    options: ['25', '30', '35', '20'],
+    correct: 'A'
+  },
+  {
+    id: 'gr26',
+    text: 'In a group of 50 people, 30 like tea, 25 like coffee, and 10 like neither. How many like both tea and coffee?',
+    options: ['15', '10', '5', '20'],
+    correct: 'A'
+  },
+
+  // Classification (2)
+  {
+    id: 'gr27',
+    text: 'Find the odd one out: 7, 13, 19, 23, 28.',
+    options: ['7', '13', '19', '28'],
+    correct: 'D'
+  },
+  {
+    id: 'gr28',
+    text: 'Which word does not belong: Apple, Banana, Carrot, Mango?',
+    options: ['Apple', 'Banana', 'Carrot', 'Mango'],
+    correct: 'C'
+  },
+
+  // Clock and Calendar (2)
+  {
+    id: 'gr29',
+    text: 'If today is Monday, what day will it be after 47 days?',
+    options: ['Sunday', 'Monday', 'Tuesday', 'Wednesday'],
+    correct: 'A'
+  },
+  {
+    id: 'gr30',
+    text: 'A clock shows 3:00. What will be the angle between the hour and minute hands after 20 minutes?',
+    options: ['110°', '120°', '130°', '140°'],
+    correct: 'A'
+  },
+     //GS
+
+  // Physics (10 questions)
+  {
+    id: 'gs1',
+    text: 'A body of mass 5 kg is lifted vertically to a height of 10 m. If g = 9.8 m/s², what is the potential energy gained by the body?',
+    options: ['490 J', '500 J', '480 J', '510 J'],
+    correct: 'A'
+  },
+  {
+    id: 'gs2',
+    text: 'A car moving at 20 m/s comes to rest in 5 seconds. What is the retardation of the car?',
+    options: ['-4 m/s²', '-5 m/s²', '-3 m/s²', '-6 m/s²'],
+    correct: 'A'
+  },
+  {
+    id: 'gs3',
+    text: 'If the angle of incidence of a light ray is 60° at a plane mirror, what is the angle between the incident and reflected rays?',
+    options: ['60°', '120°', '90°', '30°'],
+    correct: 'B'
+  },
+  {
+    id: 'gs4',
+    text: 'A 2 kg object is thrown vertically upwards with a velocity of 10 m/s. What is the maximum height reached? (g = 10 m/s²)',
+    options: ['5 m', '10 m', '7.5 m', '2.5 m'],
+    correct: 'A'
+  },
+  {
+    id: 'gs5',
+    text: 'The focal length of a convex lens is 20 cm. If an object is placed 30 cm from the lens, what is the image distance?',
+    options: ['60 cm', '12 cm', '15 cm', '20 cm'],
+    correct: 'A'
+  },
+  {
+    id: 'gs6',
+    text: 'A circuit has a resistance of 10 Ω and a current of 2 A. What is the power dissipated in the circuit?',
+    options: ['40 W', '20 W', '30 W', '50 W'],
+    correct: 'A'
+  },
+  {
+    id: 'gs7',
+    text: 'What is the frequency of a sound wave with a wavelength of 2 m traveling at 340 m/s?',
+    options: ['170 Hz', '340 Hz', '680 Hz', '85 Hz'],
+    correct: 'A'
+  },
+  {
+    id: 'gs8',
+    text: 'A body of mass 10 kg is moving with a velocity of 5 m/s. What is its kinetic energy?',
+    options: ['125 J', '100 J', '150 J', '200 J'],
+    correct: 'A'
+  },
+  {
+    id: 'gs9',
+    text: 'The refractive index of glass is 1.5. If light travels at 3 × 10⁸ m/s in vacuum, what is its speed in glass?',
+    options: ['2 × 10⁸ m/s', '1.5 × 10⁸ m/s', '3 × 10⁸ m/s', '4.5 × 10⁸ m/s'],
+    correct: 'A'
+  },
+  {
+    id: 'gs10',
+    text: 'A force of 20 N is applied on a 4 kg mass for 5 s. What is the final velocity if it starts from rest?',
+    options: ['25 m/s', '20 m/s', '15 m/s', '10 m/s'],
+    correct: 'A'
+  },
+
+  // Chemistry (15 questions)
+  {
+    id: 'gs11',
+    text: 'A convex mirror has a focal length of 15 cm. If an object is placed 10 cm from the mirror, what is the nature of the image?',
+    options: ['Virtual, upright', 'Real, inverted', 'Real, upright', 'Virtual, inverted'],
+    correct: 'A'
+  },
+  {
+    id: 'gs12',
+    text: 'What is the work done by a force of 50 N moving an object 10 m at an angle of 60° to the direction of motion?',
+    options: ['250 J', '500 J', '433 J', '125 J'],
+    correct: 'A'
+  },
+  {
+    id: 'gs13',
+    text: 'A 100 W bulb is used for 5 hours daily. How many units of electricity are consumed in 30 days? (1 unit = 1 kWh)',
+    options: ['15 units', '10 units', '20 units', '12 units'],
+    correct: 'A'
+  },
+  {
+    id: 'gs14',
+    text: 'A sound wave has a frequency of 200 Hz and a speed of 400 m/s. What is its wavelength?',
+    options: ['2 m', '4 m', '1 m', '0.5 m'],
+    correct: 'A'
+  },
+  {
+    id: 'gs15',
+    text: 'A satellite orbits Earth at a constant speed. What is the net force acting on it?',
+    options: ['Zero', 'Equal to its weight', 'Equal to its mass', 'Proportional to its velocity'],
+    correct: 'A'
+  },
+  {
+    id: 'gs16',
+    text: 'A transformer has 200 primary turns and 50 secondary turns. If the primary voltage is 220 V, what is the secondary voltage?',
+    options: ['55 V', '110 V', '880 V', '440 V'],
+    correct: 'A'
+  },
+  {
+    id: 'gs17',
+    text: 'What is the pressure exerted by a 50 kg mass on an area of 0.5 m²? (g = 10 m/s²)',
+    options: ['1000 Pa', '500 Pa', '2000 Pa', '250 Pa'],
+    correct: 'A'
+  },
+  {
+    id: 'gs18',
+    text: 'A lens forms a real image at 30 cm when an object is placed 20 cm from it. What is the focal length of the lens?',
+    options: ['12 cm', '15 cm', '10 cm', '20 cm'],
+    correct: 'A'
+  },
+  {
+    id: 'gs19',
+    text: 'A 2 kg mass falls freely from a height of 5 m. What is its velocity just before hitting the ground? (g = 10 m/s²)',
+    options: ['10 m/s', '15 m/s', '20 m/s', '5 m/s'],
+    correct: 'A'
+  },
+  {
+    id: 'gs20',
+    text: 'The critical angle for a medium is 45°. What is its refractive index? (sin 45° = 0.707)',
+    options: ['1.414', '1.732', '1.225', '2.0'],
+    correct: 'A'
+  },
+  {
+    id: 'gs21',
+    text: 'What is the molar mass of CaCO₃?',
+    options: ['100 g/mol', '90 g/mol', '110 g/mol', '120 g/mol'],
+    correct: 'A'
+  },
+  {
+    id: 'gs22',
+    text: 'In the reaction 2H₂ + O₂ → 2H₂O, how many grams of water are formed from 4 g of hydrogen? (H = 1, O = 16)',
+    options: ['36 g', '18 g', '9 g', '72 g'],
+    correct: 'A'
+  },
+  {
+    id: 'gs23',
+    text: 'What is the oxidation number of sulfur in H₂SO₄?',
+    options: ['+6', '+4', '+2', '+8'],
+    correct: 'A'
+  },
+  {
+    id: 'gs24',
+    text: 'Which gas, discovered on the sun before Earth, is the second most abundant element in the universe?',
+    options: ['Helium', 'Hydrogen', 'Neon', 'Argon'],
+    correct: 'A'
+  },
+  {
+    id: 'gs25',
+    text: 'What is the pH of a 0.01 M HCl solution?',
+    options: ['2', '1', '3', '4'],
+    correct: 'A'
+  },
+   
+  // General awareness and current affairs
+
+  {
+    id: 'ga1',
+    text: 'Who was the first Governor-General of independent India?',
+    options: ['Lord Mountbatten', 'C. Rajagopalachari', 'Lord Dalhousie', 'Lord Curzon'],
+    correct: 'A'
+  },
+  {
+    id: 'ga2',
+    text: 'Which river originates from the Gangotri Glacier in Uttarakhand?',
+    options: ['Yamuna', 'Ganga', 'Brahmaputra', 'Godavari'],
+    correct: 'B'
+  },
+  {
+    id: 'ga3',
+    text: 'Under which article of the Indian Constitution can the President declare a National Emergency?',
+    options: ['Article 352', 'Article 356', 'Article 360', 'Article 370'],
+    correct: 'A'
+  },
+  {
+    id: 'ga4',
+    text: 'Which Indian state is known as the "Land of Five Rivers"?',
+    options: ['Haryana', 'Punjab', 'Rajasthan', 'Uttar Pradesh'],
+    correct: 'B'
+  },
+  {
+    id: 'ga5',
+    text: 'Who was the author of the book "Discovery of India"?',
+    options: ['Mahatma Gandhi', 'Jawaharlal Nehru', 'Rabindranath Tagore', 'Sardar Patel'],
+    correct: 'B'
+  },
+  {
+    id: 'ga6',
+    text: 'Which Indian dance form is associated with the state of Odisha?',
+    options: ['Kathak', 'Bharatanatyam', 'Odissi', 'Kuchipudi'],
+    correct: 'C'
+  },
+  {
+    id: 'ga7',
+    text: 'What is the currency of Japan?',
+    options: ['Yuan', 'Yen', 'Won', 'Ringgit'],
+    correct: 'B'
+  },
+  {
+    id: 'ga8',
+    text: 'Which Indian monument was commissioned by Emperor Shah Jahan in memory of his wife Mumtaz Mahal?',
+    options: ['Red Fort', 'Qutub Minar', 'Taj Mahal', 'India Gate'],
+    correct: 'C'
+  },
+  {
+    id: 'ga9',
+    text: 'Which schedule of the Indian Constitution deals with the allocation of seats in the Rajya Sabha?',
+    options: ['Fourth Schedule', 'Sixth Schedule', 'Eighth Schedule', 'Tenth Schedule'],
+    correct: 'A'
+  },
+  {
+    id: 'ga10',
+    text: 'Which Indian scientist was awarded the Nobel Prize in Physics for his work on light scattering?',
+    options: ['Homi J. Bhabha', 'C.V. Raman', 'Jagadish Chandra Bose', 'Satyendra Nath Bose'],
+    correct: 'B'
+  },
+  {
+    id: 'ga11',
+    text: 'Which Indian state has the highest number of tiger reserves?',
+    options: ['Madhya Pradesh', 'Karnataka', 'Maharashtra', 'Assam'],
+    correct: 'A'
+  },
+  {
+    id: 'ga12',
+    text: 'In which year did the Jallianwala Bagh massacre take place?',
+    options: ['1917', '1919', '1921', '1923'],
+    correct: 'B'
+  },
+
+  // Current Affairs (8 questions — up to June 2025)
+  {
+    id: 'ga13',
+    text: 'Which Indian city hosted the G20 Summit in 2023?',
+    options: ['Mumbai', 'New Delhi', 'Bengaluru', 'Kolkata'],
+    correct: 'B'
+  },
+  {
+    id: 'ga14',
+    text: 'Who was appointed as the Chief Election Commissioner of India in early 2025?',
+    options: ['Rajiv Kumar', 'Sukhbir Singh Sandhu', 'Gyanesh Kumar', 'Anup Chandra Pandey'],
+    correct: 'C'
+  },
+  {
+    id: 'ga15',
+    text: 'Which Indian space mission, launched in 2024, aimed to study the Sun’s outer atmosphere?',
+    options: ['Chandrayaan-3', 'Aditya-L1', 'Gaganyaan', 'Mangalyaan-2'],
+    correct: 'B'
+  },
+  {
+    id: 'ga16',
+    text: 'Which country assumed the presidency of the Shanghai Cooperation Organisation (SCO) for 2024–2025?',
+    options: ['India', 'China', 'Russia', 'Kazakhstan'],
+    correct: 'C'
+  },
+  {
+    id: 'ga17',
+    text: 'Which Indian athlete won the gold medal in the men’s javelin throw at the 2024 Paris Olympics?',
+    options: ['Neeraj Chopra', 'Kishore Jena', 'Shivpal Singh', 'Annu Rani'],
+    correct: 'A'
+  },
+  {
+    id: 'ga18',
+    text: 'What was the name of the government scheme launched in 2025 to promote digital literacy in rural India?',
+    options: ['Digital India 2.0', 'Gram Digi Yojana', 'Bharat Net Phase-III', 'e-Vidya Mission'],
+    correct: 'B'
+  },
+  {
+    id: 'ga19',
+    text: 'Which international agreement was signed in 2025 to address climate change in the Asia-Pacific region?',
+    options: ['Paris Agreement 2.0', 'Asia-Pacific Climate Pact', 'Kyoto Protocol', 'COP29 Accord'],
+    correct: 'B'
+  },
+  {
+    id: 'ga20',
+    text: 'Who was awarded the Bharat Ratna in 2025 for contributions to science and technology?',
+    options: ['CNR Rao', 'APJ Abdul Kalam', 'Tessy Thomas', 'K Sivan'],
+    correct: 'C'
+  }
+  ];
+
+  
+  const renderQuestions = () => {
+      const container = document.getElementById('questions');
+      QUESTIONS.forEach((q, index) => {
+        const div = document.createElement('div');
+        div.className = 'mb-4';
+        div.innerHTML = `<p class="font-semibold mb-1">${index + 1}. ${q.text}</p>` +
+          q.options.map((opt, i) => {
+            const optVal = String.fromCharCode(65 + i);
+            return `<label class="block ml-4 my-1">
+              <input type="radio" name="${q.id}" value="${optVal}" class="mr-2"> (${optVal}) ${opt}
+            </label>`;
+          }).join('');
+        container.appendChild(div);
+      });
+    };
+
+    let timeLeft = 5400; // 90 mins
+    const timerEl = document.getElementById('timer');
+    const timerId = setInterval(() => {
+      const min = Math.floor(timeLeft / 60);
+      const sec = timeLeft % 60;
+      timerEl.textContent = `Time Left: ${min}:${sec < 10 ? '0' : ''}${sec}`;
+      timeLeft--;
+      if (timeLeft < 0) {
+        clearInterval(timerId);
+        timerEl.textContent = 'Time’s Up!';
+        document.getElementById('mockTest').dispatchEvent(new Event('submit'));
+      }
+    }, 1000);
+
+    document.getElementById('mockTest').addEventListener('submit', function (e) {
+      e.preventDefault();
+      clearInterval(timerId);
+      timerEl.textContent = 'Test Submitted!';
+
+      let score = 0, correct = 0, wrong = 0, attempted = 0;
+
+      QUESTIONS.forEach((q) => {
+        const sel = document.querySelector(`input[name="${q.id}"]:checked`);
+        if (sel) {
+          attempted++;
+          if (sel.value === q.correct) {
+            score += 1;
+            correct++;
+            sel.parentElement.classList.add('correct');
+          } else {
+            score -= 0.33;
+            wrong++;
+            sel.parentElement.classList.add('incorrect');
+          }
+        }
+        const correctEl = document.querySelector(`input[name="${q.id}"][value="${q.correct}"]`);
+        if (correctEl) correctEl.parentElement.classList.add('correct');
+      });
+
+      document.getElementById('score').textContent = score.toFixed(2);
+
+      const msg = document.getElementById('scoreMessage');
+      if (score >= 80) msg.textContent = 'Outstanding! 🌟';
+      else if (score >= 60) msg.textContent = 'Great Job! 🚀';
+      else if (score >= 40) msg.textContent = 'Good Effort! 💪';
+      else msg.textContent = 'Don’t Give Up! 😊';
+
+      document.getElementById('result').classList.remove('hidden');
+      document.getElementById('result').scrollIntoView({ behavior: 'smooth' });
+    });
+
+    renderQuestions();
+  </script>
+</body>
+</html>
