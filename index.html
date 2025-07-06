@@ -22,9 +22,11 @@
 
   <body class="bg-white text-black dark:bg-gradient-to-br dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 dark:text-white transition duration-300 min-h-screen">
 
-    <!-- Navbar (Always black with white text) -->
-    <header class="bg-black/90 text-white backdrop-blur sticky top-0 z-50 shadow-md">
+  <!-- Wrapper to keep footer at bottom -->
+  <div class="flex flex-col min-h-screen">
 
+    <!-- Navbar -->
+    <header class="bg-black/90 text-white backdrop-blur sticky top-0 z-50 shadow-md">
       <div class="max-w-7xl mx-auto flex justify-between items-center px-4 py-4">
         <h1 class="text-2xl font-bold">RRB Group D Book</h1>
         <nav class="space-x-6 text-sm sm:text-base flex items-center">
@@ -32,10 +34,7 @@
           <a href="syllabus.html" class="hover:text-blue-400">Syllabus</a>
           <a href="/PYQ/pyq.html" class="hover:text-blue-400">PYQs</a>
           <a href="/MockTest/mocks.html" class="hover:text-blue-400">Mock Tests</a>
-          
-          <button id="theme-toggle" class="ml-4 p-2 text-xl rounded-full transition hover:bg-gray-700">
-            🌞
-          </button>
+          <button id="theme-toggle" class="ml-4 p-2 text-xl rounded-full transition hover:bg-gray-700">🌞</button>
         </nav>
       </div>
     </header>
@@ -48,15 +47,12 @@
       </p>
     </section>
 
-    <!-- Main Grid -->
+    <!-- Main Content -->
     <main class="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-4 pb-16">
-
-     <a id="exam-pattern" href="marking/index.html" class="glass p-6 rounded-xl shadow-md hover:scale-105 transition">
-  <h3 class="text-xl font-semibold text-black dark:text-white mb-2">Exam Pattern</h3>
-  <p class="text-black dark:text-white">
-    Understand subject-wise weightage, question count, marks, and time duration clearly.
-  </p>
-</a>
+      <a id="exam-pattern" href="marking/index.html" class="glass p-6 rounded-xl shadow-md hover:scale-105 transition">
+        <h3 class="text-xl font-semibold text-black dark:text-white mb-2">Exam Pattern</h3>
+        <p class="text-black dark:text-white">Understand subject-wise weightage, question count, marks, and time duration clearly.</p>
+      </a>
 
       <a id="syllabus" href="syllabus.html" class="glass p-6 rounded-xl shadow-md hover:scale-105 transition">
         <h3 class="text-xl font-semibold text-black dark:text-white mb-2">Syllabus</h3>
@@ -68,56 +64,56 @@
         <p class="text-black dark:text-white">Free PDFs, topic-wise notes, book recommendations, and more.</p>
       </a>
 
-      
-      
       <a id="mock" href="/MockTest/mocks.html" class="glass p-6 rounded-xl shadow-md hover:scale-105 transition">
         <h3 class="text-xl font-semibold text-black dark:text-white mb-2">Mock Tests</h3>
         <p class="text-black dark:text-white">Practice the mock tests to boost confidence.</p>
       </a>
-      
+
       <a id="pyq" href="/PYQ/pyq.html" class="glass p-6 rounded-xl shadow-md hover:scale-105 transition">
         <h3 class="text-xl font-semibold text-black dark:text-white mb-2">Previous Year Papers</h3>
         <p class="text-black dark:text-white">Access real RRB PYQs with detailed solutions for all topics.</p>
       </a>
-      
     </main>
 
     <!-- Footer -->
-    <footer id="contact" class="bg-black/70 text-white backdrop-blur text-center py-6 text-sm">
-      <p>&copy; 2025 RRB Group D Book. All rights reserved.</p>
-      <!-- <p>Made with ❤️ by Arvind Rawat</p> -->
+    <footer id="contact" class="bg-black/70 text-white backdrop-blur text-center py-6 text-sm mt-auto w-full">
+      <div class="max-w-7xl mx-auto px-4">
+        <p>&copy; 2025 RRB Group D Book. All rights reserved.</p>
+      </div>
     </footer>
+  </div>
 
-    <!-- Theme Toggle Script -->
-    <script>
-      const toggleBtn = document.getElementById("theme-toggle");
-      const root = document.documentElement;
+  <!-- Theme Toggle Script -->
+  <script>
+    const toggleBtn = document.getElementById("theme-toggle");
+    const root = document.documentElement;
 
-      function applyTheme() {
-        const isDark = localStorage.theme === "dark";
-        if (isDark) {
-          root.classList.add("dark");
-          toggleBtn.textContent = "🌞";
-        } else {
-          root.classList.remove("dark");
-          toggleBtn.textContent = "🌜";
-        }
+    function applyTheme() {
+      const isDark = localStorage.theme === "dark";
+      if (isDark) {
+        root.classList.add("dark");
+        toggleBtn.textContent = "🌞";
+      } else {
+        root.classList.remove("dark");
+        toggleBtn.textContent = "🌜";
       }
+    }
 
-      toggleBtn.addEventListener("click", () => {
-        const isDark = root.classList.contains("dark");
-        if (isDark) {
-          root.classList.remove("dark");
-          toggleBtn.textContent = "🌜";
-          localStorage.theme = "light";
-        } else {
-          root.classList.add("dark");
-          toggleBtn.textContent = "🌞";
-          localStorage.theme = "dark";
-        }
-      });
+    toggleBtn.addEventListener("click", () => {
+      const isDark = root.classList.contains("dark");
+      if (isDark) {
+        root.classList.remove("dark");
+        toggleBtn.textContent = "🌜";
+        localStorage.theme = "light";
+      } else {
+        root.classList.add("dark");
+        toggleBtn.textContent = "🌞";
+        localStorage.theme = "dark";
+      }
+    });
 
-      applyTheme();
-    </script>
-  </body>
+    applyTheme();
+  </script>
+</body>
+
 </html>
